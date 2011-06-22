@@ -14,7 +14,6 @@
 }
 
 + (NSString *) applicationDocumentsDirectory;
-+ (NSString *) databasePath;
 + (NSManagedObjectContext *) managedObjectContext;
 + (id) appDelegate;
 

@@ -2,18 +2,17 @@
 //  HomeViewController.h
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 3/20/11.
+//  Created by Dan Fairaizl on 6/20/11.
 //  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-
+@interface HomeViewController : UIViewController {
+    
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *storeTableView;
+@property (nonatomic, retain) IBOutlet UITableView *storesTableView;
 
 @property (nonatomic, retain) NSArray *stores;
 

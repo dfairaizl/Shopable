@@ -2,8 +2,8 @@
 //  main.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Dan Fairaizl on 6/20/11.
+//  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

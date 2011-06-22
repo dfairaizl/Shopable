@@ -6,9 +6,8 @@
 //  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
+#import "iOutOfAppDelegate.h"
 #import "Utilities.h"
-
-#define DATABASE_PATH @"AllOutOf.rdb"
 
 @implementation Utilities
 
@@ -18,11 +17,6 @@
 
 + (NSString *)applicationDocumentsDirectory {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
-+ (NSString *) databasePath {
-	
-	return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:DATABASE_PATH];
 }
 
 + (NSManagedObjectContext *) managedObjectContext {

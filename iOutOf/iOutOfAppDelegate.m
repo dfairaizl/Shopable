@@ -2,18 +2,22 @@
 //  iOutOfAppDelegate.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Dan Fairaizl on 6/20/11.
+//  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import "iOutOfAppDelegate.h"
 
+#import "XmlDataParser.h"
+
 @implementation iOutOfAppDelegate
 
-@synthesize window=_window;
-//@synthesize tabBarController = _tabBarController;
 
-@synthesize homeViewController = _homeViewController;
+@synthesize window=_window;
+
+@synthesize tabBarController = _tabBarController;
+
+@synthesize homeScreen = _homeScreen ,shoppingListScreen = _shoppingListScreen, atTheStoreScreen = _atTheStoreScreen, optionsScreen = _optionsScreen;
 
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize managedObjectModel=__managedObjectModel;
@@ -22,10 +26,29 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
     [self.window makeKeyAndVisible];
     
-    NSLog(@"Home View Controller: %@", self.homeViewController);
+    BOOL firstRun = YES;
+    
+    if(firstRun) {
+        
+        XmlDataParser *xmlParser = [[XmlDataParser alloc] init];
+        NSString *fileName = [[NSBundle mainBundle] pathForResource:@"StoreData" ofType:@"xml"];
+        
+        NSError *error = nil;
+        NSData *xmlData;
+        
+        xmlData = [[NSData alloc] initWithContentsOfFile:fileName];
+        
+        NSLog(@"Error code: %@", error.localizedDescription);
+        
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
+            
+        [parser setDelegate:xmlParser];
+        [parser parse];
+        
+        [xmlData release];
+    }
     
     return YES;
 }
@@ -66,9 +89,28 @@
     [self saveContext];
 }
 
+#pragma mark -
+#pragma mark UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+	if(viewController == [[self.tabBarController viewControllers] objectAtIndex:1])
+		[(UINavigationController *)viewController popToRootViewControllerAnimated:NO];
+	
+	return YES;
+}
+
 - (void)dealloc
 {
     [_window release];
+    
+    [_tabBarController release];
+    
+    [_homeScreen release];
+    [_shoppingListScreen release];
+    [_atTheStoreScreen release];
+    [_optionsScreen release];
+    
     [__managedObjectContext release];
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];

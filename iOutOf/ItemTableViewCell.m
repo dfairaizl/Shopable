@@ -8,6 +8,8 @@
 
 #import "ItemTableViewCell.h"
 
+#import "Item.h"
+
 @implementation ItemTableViewCell
 
 @synthesize tableDelegate, cellItem, cellSelected, itemLabel, quantityLabel;
@@ -24,19 +26,19 @@
 }
 
 - (void) swipeRight {
+    
+    BOOL checkedOff = [self.cellItem.checkedOff boolValue];
 	
-	/*if(!self.cellItem.checkedOff) {
+	if(!checkedOff) {
 		self.itemLabel.strikeThrough = YES;
-		self.cellItem.checkedOff = YES;
+		self.cellItem.checkedOff = [NSNumber numberWithBool:YES];
 	}
 	else {
 		self.itemLabel.strikeThrough = NO;
-		self.cellItem.checkedOff = NO;
+		self.cellItem.checkedOff = [NSNumber numberWithBool:NO];
 	}
 	
 	[self.itemLabel setNeedsDisplay];
-	
-	[self.tableDelegate checkOffItem:self.cellItem checked:self.cellItem.checkedOff];*/
 }
 
 

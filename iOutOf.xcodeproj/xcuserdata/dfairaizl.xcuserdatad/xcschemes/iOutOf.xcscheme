@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7739C10713AE9DBB00A6F5C1"
+               BlueprintIdentifier = "77B0B9AE13AF8C4800318C51"
                BuildableName = "iOutOf.app"
                BlueprintName = "iOutOf"
                ReferencedContainer = "container:iOutOf.xcodeproj">
@@ -40,12 +40,19 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7739C10713AE9DBB00A6F5C1"
+            BlueprintIdentifier = "77B0B9AE13AF8C4800318C51"
             BuildableName = "iOutOf.app"
             BlueprintName = "iOutOf"
             ReferencedContainer = "container:iOutOf.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -59,7 +66,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7739C10713AE9DBB00A6F5C1"
+            BlueprintIdentifier = "77B0B9AE13AF8C4800318C51"
             BuildableName = "iOutOf.app"
             BlueprintName = "iOutOf"
             ReferencedContainer = "container:iOutOf.xcodeproj">

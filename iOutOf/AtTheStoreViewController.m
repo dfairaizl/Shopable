@@ -1,108 +1,116 @@
 //
 //  AtTheStoreViewController.m
-//  AllOutOf
+//  iOutOf
 //
-//  Created by Dan Fairaizl on 3/7/11.
+//  Created by Dan Fairaizl on 6/20/11.
 //  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import "AtTheStoreViewController.h"
-
-#import "EditItemViewController.h"
-
-//Support
+#import "Persistence.h"
 #import "Utilities.h"
 
 //Entities
+#import "Store.h"
+#import "Category.h"
+#import "Item.h"
+#import "ShoppingCart.h"
 
 @interface AtTheStoreViewController ()
-
-@property (nonatomic, retain) NSMutableDictionary *_items;
-
-- (void) loadShoppingList;
-- (NSString *) getCategoryNameWithId:(NSUInteger) categoryId;
-- (NSArray *) getItemsInCategory:(NSUInteger)categoryId;
-
+    - (void) loadShoppingCart;
 @end
 
 @implementation AtTheStoreViewController
 
-@synthesize _items, searchBar;
+@synthesize shoppingCartTableView = _shoppingCartTableView;
+@synthesize cartItems = _cartItems;
 
-#pragma mark -
-#pragma mark View lifecycle
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
-/*
-- (void)viewDidLoad {
+- (void)dealloc
+{
+    [_cartItems release];
+    [_shoppingCartTableView release];
+    
+    [super dealloc];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-
-- (void)viewWillAppear:(BOOL)animated {
-   
-	[super viewWillAppear:animated];
-	
-	self.title = @"At The Store";
-	
-	//load the data into the shopping list
-	self._items = [[NSMutableDictionary alloc] initWithCapacity:30];
-	[self loadShoppingList];
-	
-	//at first, don't display the search bar
-	[self.tableView setContentOffset:CGPointMake(0,44)];
-	
-	//load our data into the table
-	[self.tableView reloadData];
+    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"At The Store";
 }
 
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    //at first, don't display the search bar
+	[self.shoppingCartTableView setContentOffset:CGPointMake(0,44)];
+    
+    [self loadShoppingCart];
+    
+    [self.shoppingCartTableView reloadData];
 }
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    
+    self.shoppingCartTableView = nil;
 }
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
-
 
 #pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return [[self._items allKeys] count];
+    NSUInteger c  = [[self.cartItems allKeys] count];
+    NSLog(@"sections: %i", c);
+    return c;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-	NSArray *allKeys = [self._items allKeys];
+	NSArray *allKeys = [self.cartItems allKeys];
+    
 	NSArray *sorted = [allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	
-    NSArray *d = [self._items objectForKey:[sorted objectAtIndex:section]];
+    NSArray *d = [self.cartItems objectForKey:[sorted objectAtIndex:section]];
 	
 	return [d count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-
-	return [[[self._items allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
+    
+	return [[[self.cartItems allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
 }
 
 // Customize the appearance of table view cells.
@@ -111,31 +119,41 @@
 	ItemTableViewCell *cell = (ItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ItemTableViewCellIdentifier"];
     
 	if (cell == nil) {
-
+        
 		cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
 		
 		cell.tableDelegate = self;
 		[cell setGesture];
 	}
-
+    
     // Configure the cell...
-	/*NSArray *allKeys = [self._items allKeys];
+	NSArray *allKeys = [self.cartItems allKeys];
 	NSArray *sorted = [allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	
-    NSArray *items = [self._items objectForKey:[sorted objectAtIndex:indexPath.section]];
+    NSArray *items = [self.cartItems objectForKey:[sorted objectAtIndex:indexPath.section]];
+    NSUInteger index = indexPath.row;
     
-	Item *item = [items objectAtIndex:indexPath.row];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    items = [items sortedArrayUsingDescriptors:sortDescriptors];
+    
+    [sortDescriptor release];
+    
+	Item *item = [items objectAtIndex:index];
+    
+    cell.cellItem = item;
 	
-	if(item.checkedOff)
+	if([item.checkedOff boolValue])
 		cell.itemLabel.strikeThrough = YES;
 	else
 		cell.itemLabel.strikeThrough = NO;
 	
-	cell.cellItem = item;
-	cell.itemLabel.text = item.itemName;
+	//cell.cellItem = item;
+	cell.itemLabel.text = item.name;
 	
-	if(![item.quantity isEqualToString:@""])
-		cell.quantityLabel.text = [NSString stringWithFormat:@"x %@", item.quantity];
+	if([item.quantity intValue] > 0)
+		cell.quantityLabel.text = [NSString stringWithFormat:@"x %i", [item.quantity intValue]];
 	else
 		cell.quantityLabel.text = @"";
     
@@ -147,50 +165,50 @@
     else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }*/
+    }
 	
     return cell;
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source.
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+ }   
+ }
+ */
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 #pragma mark -
@@ -199,15 +217,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //see if the cell is selectable with (has notes)
-	/*NSArray *allKeys = [self._items allKeys];
+	/*NSArray *allKeys = [self.cartItems allKeys];
 	NSArray *sorted = [allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	
-    NSArray *items = [self._items objectForKey:[sorted objectAtIndex:indexPath.section]];
+    NSArray *items = [self.cartItems objectForKey:[sorted objectAtIndex:indexPath.section]];
     
 	Item *item = [items objectAtIndex:indexPath.row];
     
     if([item.notes length] > 0) {
-     
+        
         EditItemViewController *editItem = [[EditItemViewController alloc] initWithNibName:@"AddItemViewController" bundle:nil];
         
         UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:editItem];
@@ -216,121 +234,38 @@
     }*/
 }
 
-#pragma mark -
-#pragma mark Private Methods
+#pragma mark - Private Methods
 
-- (void) loadShoppingList {
-
-	/*FMResultSet *sections = [[DbAdapter sharedDbAdapter] runSelect:@"SELECT * FROM shopping_list"];
-	
-    while ([sections next]) {
-		
-		NSString *cat_id = [NSString stringWithUTF8String:(const char*)[sections UTF8StringForColumnName:@"category_id"]];
-		
-		NSString *categoryName = [self getCategoryNameWithId:[cat_id intValue]];
-		
-		NSArray *tempItems = [NSArray arrayWithArray:[self getItemsInCategory:[cat_id intValue]]];
-		NSMutableArray *itemsForSection = [[NSMutableArray alloc] initWithCapacity:[tempItems count]];
-		
-		[itemsForSection addObjectsFromArray:tempItems];
-		
-		[self._items setObject:itemsForSection forKey:categoryName];
-		
-		[itemsForSection release];
-	}
-	
-	[sections close];*/
-}
-
-- (NSString *) getCategoryNameWithId:(NSUInteger) categoryId {
-
-	/*NSString *category_name;
-	
-	FMResultSet *rs = [[DbAdapter sharedDbAdapter] runSelect:[NSString stringWithFormat:@"SELECT category_name FROM categories WHERE serial=%i", categoryId]];
-	
-    while ([rs next]) {
-		
-		category_name = [NSString stringWithUTF8String:(const char*)[rs UTF8StringForColumnName:@"category_name"]];
-	}
-	
-	[rs close];
-	
-	return category_name;*/
-}
-
-- (NSArray *) getItemsInCategory:(NSUInteger)categoryId {
-	
-	/*FMResultSet *rs;
-	rs = [[DbAdapter sharedDbAdapter] runSelect:[NSString stringWithFormat:@"SELECT * FROM shopping_list WHERE category_id=%i", categoryId]];
-	
-	NSMutableArray *items = [[[NSMutableArray alloc] initWithCapacity:30] autorelease];
-	
-	while ([rs next]) {
-		
-		NSUInteger itemId = [rs intForColumn:@"item_id"];
-		
-		Item *item = [[Item alloc] init];
-		
-		//get the item name
-		FMResultSet *itemResults = [[DbAdapter sharedDbAdapter] runSelect:
-						   [NSString stringWithFormat:@"SELECT item_name, quantity, notes FROM items WHERE serial=%i", itemId]];
-		
-		if([itemResults next]) {
-			item.itemName = [NSString stringWithUTF8String:(const char*)[itemResults UTF8StringForColumnName:@"item_name"]];
-			item.quantity = [NSString stringWithUTF8String:(const char*)[itemResults UTF8StringForColumnName:@"quantity"]];
-			item.notes = [NSString stringWithUTF8String:(const char*)[itemResults UTF8StringForColumnName:@"notes"]];
-		}
-		
-		[itemResults close];
-		
-		item.itemId = itemId;
-		item.checkedOff = [rs boolForColumn:@"checked_off"] == 0 ? NO : YES;
-		
-		[items addObject:item];
-		[item release];
-	}
-	
-	[rs close];
-	
-	return items;*/
-}
-
-#pragma mark -
-#pragma mark AtTheStoreTableViewDelegate
-
-- (void) checkOffItem:(Item *)theItem checked:(BOOL)isChecked {
-	
-	/*[[DbAdapter sharedDbAdapter] runUpdate:[NSString stringWithFormat:@"UPDATE shopping_list SET checked_off=%i WHERE item_id=%i", 
-											isChecked ? 1 : 0,
-											theItem.itemId]];*/
-}
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+- (void) loadShoppingCart {
     
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
+    _cartItems = [[NSMutableDictionary alloc] initWithCapacity:30];
+    
+    NSPredicate *selectedPred = [NSPredicate predicateWithFormat:@"selectedStore == %@", [NSNumber numberWithBool:YES]];
+    
+    //Get the current store
+    NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:selectedPred] retain];
+    Store *currentStore = [stores lastObject]; //should be only one...
+    
+    if(currentStore) {
+        
+        ShoppingCart *cart = currentStore.shoppingCart;
+        
+        for(Item *item in cart.cartItems) {
+            
+            NSString *key = item.itemToCategory.name;
+            
+            if([[self.cartItems allKeys] containsObject:key]) {
+                
+                NSMutableArray *a = [self.cartItems objectForKey:key];
+                [a addObject:item];
+                
+            } else {
+                
+                NSMutableArray *a = [NSMutableArray arrayWithObject:item];
+                [self.cartItems setObject:a forKey:key];
+            }
+        }
+    }
 }
-
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-	
-	self.searchBar = nil;
-}
-
-
-- (void)dealloc {
-	
-	[_items release];
-	[searchBar release];
-	
-    [super dealloc];
-}
-
 
 @end
-

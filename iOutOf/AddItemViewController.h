@@ -14,13 +14,13 @@
 
 @end
 
-@class ItemListViewController;
+@class ItemsListViewController;
 
 @interface AddItemViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 	
 	UIScrollView *scrollView;
 	
-	ItemListViewController *itemListDelegate;
+	ItemsListViewController *itemListDelegate;
 	UITextField *itemNameTextField;
 	UITextField *itemQuantityTextField;
 	UITextView *itemNotesTextView;
@@ -38,7 +38,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *itemQuantityTextField;
 @property (nonatomic, retain) IBOutlet UITextView *itemNotesTextView;
 @property (nonatomic, retain) IBOutlet UIPickerView *quantityPicker;
-@property (nonatomic, retain) ItemListViewController *itemListDelegate;
+@property (nonatomic, retain) ItemsListViewController *itemListDelegate;
 
 - (IBAction) doneEditingField:(id)sender;
 - (void) showQuantityInputPicker;

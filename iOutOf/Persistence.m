@@ -3,7 +3,7 @@
 //  iOutOf
 //
 //  Created by Dan Fairaizl on 6/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import "Persistence.h"
@@ -11,6 +11,19 @@
 #import "Utilities.h"
 
 @implementation Persistence
+
++ (void) save {
+    
+    NSError *coreDataError;
+    
+    if(![[Utilities managedObjectContext] save:&coreDataError])
+        NSLog(@"Unable to save core data!");
+}
+
++ (id) entityOfType:(NSString *)entity {
+    
+    return [NSEntityDescription insertNewObjectForEntityForName:entity inManagedObjectContext:[Utilities managedObjectContext]];
+}
 
 + (NSArray *) fetchAllEntitiesOfType:(NSString *)entity sortBy:(NSString *)sort {
     

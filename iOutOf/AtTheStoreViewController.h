@@ -1,21 +1,20 @@
 //
 //  AtTheStoreViewController.h
-//  AllOutOf
+//  iOutOf
 //
-//  Created by Dan Fairaizl on 3/7/11.
+//  Created by Dan Fairaizl on 6/20/11.
 //  Copyright 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "ItemTableViewCell.h"
 
-@interface AtTheStoreViewController : UITableViewController <AtTheStoreTableViewDelegate> {
-	
-	NSMutableDictionary *_items;
-	
-	UISearchBar *searchBar;
+@interface AtTheStoreViewController : UIViewController {
+    
 }
 
-@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, retain) IBOutlet UITableView *shoppingCartTableView;
+
+@property (nonatomic, retain) NSMutableDictionary *cartItems;
 
 @end
