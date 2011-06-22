@@ -10,19 +10,23 @@
 
 @implementation iOutOfAppDelegate
 
-
 @synthesize window=_window;
+//@synthesize tabBarController = _tabBarController;
+
+@synthesize homeViewController = _homeViewController;
 
 @synthesize managedObjectContext=__managedObjectContext;
-
 @synthesize managedObjectModel=__managedObjectModel;
-
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"Home View Controller: %@", self.homeViewController);
+    
     return YES;
 }
 

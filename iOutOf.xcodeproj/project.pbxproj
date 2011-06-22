@@ -16,6 +16,38 @@
 		7739C11F13AE9DBB00A6F5C1 /* iOutOfAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C11E13AE9DBB00A6F5C1 /* iOutOfAppDelegate.m */; };
 		7739C12213AE9DBB00A6F5C1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C12013AE9DBB00A6F5C1 /* MainWindow.xib */; };
 		7739C12513AE9DBB00A6F5C1 /* iOutOf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7739C12313AE9DBB00A6F5C1 /* iOutOf.xcdatamodeld */; };
+		7739C13F13AE9E8100A6F5C1 /* 93@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13513AE9E8100A6F5C1 /* 93@2x.png */; };
+		7739C14013AE9E8100A6F5C1 /* 264@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13613AE9E8100A6F5C1 /* 264@2x.png */; };
+		7739C14113AE9E8100A6F5C1 /* 203@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13713AE9E8100A6F5C1 /* 203@2x.png */; };
+		7739C14213AE9E8100A6F5C1 /* 63@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13813AE9E8100A6F5C1 /* 63@2x.png */; };
+		7739C14313AE9E8100A6F5C1 /* ItemQuantitiesSingular.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13913AE9E8100A6F5C1 /* ItemQuantitiesSingular.plist */; };
+		7739C14413AE9E8100A6F5C1 /* ItemQuantitiesPlural.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13A13AE9E8100A6F5C1 /* ItemQuantitiesPlural.plist */; };
+		7739C14513AE9E8100A6F5C1 /* 203.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13B13AE9E8100A6F5C1 /* 203.png */; };
+		7739C14613AE9E8100A6F5C1 /* 63.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13C13AE9E8100A6F5C1 /* 63.png */; };
+		7739C14713AE9E8100A6F5C1 /* 93.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13D13AE9E8100A6F5C1 /* 93.png */; };
+		7739C14813AE9E8100A6F5C1 /* 264.png in Resources */ = {isa = PBXBuildFile; fileRef = 7739C13E13AE9E8100A6F5C1 /* 264.png */; };
+		7739C14C13AE9F0700A6F5C1 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C14B13AE9F0700A6F5C1 /* Utilities.m */; };
+		7739C15113AE9F3400A6F5C1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C14F13AE9F3400A6F5C1 /* HomeViewController.m */; };
+		7739C15213AE9F3400A6F5C1 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C15013AE9F3400A6F5C1 /* HomeViewController.xib */; };
+		7739C15713AE9F5900A6F5C1 /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C15513AE9F5900A6F5C1 /* ShoppingListViewController.m */; };
+		7739C15813AE9F5900A6F5C1 /* ShoppingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C15613AE9F5900A6F5C1 /* ShoppingListViewController.xib */; };
+		7739C15D13AE9FB000A6F5C1 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C15B13AE9FB000A6F5C1 /* ItemListViewController.m */; };
+		7739C15E13AE9FB000A6F5C1 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C15C13AE9FB000A6F5C1 /* ItemListViewController.xib */; };
+		7739C16513AE9FE400A6F5C1 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C16113AE9FE400A6F5C1 /* AddItemViewController.m */; };
+		7739C16613AE9FE400A6F5C1 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C16213AE9FE400A6F5C1 /* AddItemViewController.xib */; };
+		7739C16713AE9FE400A6F5C1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C16413AE9FE400A6F5C1 /* BBTextField.m */; };
+		7739C16C13AEA00100A6F5C1 /* EditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C16A13AEA00100A6F5C1 /* EditItemViewController.m */; };
+		7739C16D13AEA00100A6F5C1 /* EditItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C16B13AEA00100A6F5C1 /* EditItemViewController.xib */; };
+		7739C17713AEA02800A6F5C1 /* AtTheStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C17013AEA02800A6F5C1 /* AtTheStoreViewController.m */; };
+		7739C17813AEA02800A6F5C1 /* AtTheStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C17113AEA02800A6F5C1 /* AtTheStoreViewController.xib */; };
+		7739C17913AEA02800A6F5C1 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C17313AEA02800A6F5C1 /* ItemTableViewCell.m */; };
+		7739C17A13AEA02800A6F5C1 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C17413AEA02800A6F5C1 /* ItemTableViewCell.xib */; };
+		7739C17B13AEA02800A6F5C1 /* BBTextDecorationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C17613AEA02800A6F5C1 /* BBTextDecorationLabel.m */; };
+		7739C18013AEA04100A6F5C1 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739C17E13AEA04100A6F5C1 /* OptionsTableViewController.m */; };
+		7739C18113AEA04100A6F5C1 /* OptionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739C17F13AEA04100A6F5C1 /* OptionsTableViewController.xib */; };
+		77FB7F9413AEF4A000E3F042 /* Persistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB7F9313AEF4A000E3F042 /* Persistence.m */; };
+		77FB7FA913AF13AD00E3F042 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB7FA813AF13AD00E3F042 /* Store.m */; };
+		77FB7FAC13AF13AD00E3F042 /* StoreCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB7FAB13AF13AD00E3F042 /* StoreCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +56,60 @@
 		7739C10E13AE9DBB00A6F5C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7739C11013AE9DBB00A6F5C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7739C11213AE9DBB00A6F5C1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7739C11613AE9DBB00A6F5C1 /* iOutOf-Info.plist */ = {isa = PBXFileReference; path = "iOutOf-Info.plist"; sourceTree = "<group>"; };
+		7739C11613AE9DBB00A6F5C1 /* iOutOf-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOutOf-Info.plist"; sourceTree = "<group>"; };
 		7739C11813AE9DBB00A6F5C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7739C11A13AE9DBB00A6F5C1 /* iOutOf-Prefix.pch */ = {isa = PBXFileReference; path = "iOutOf-Prefix.pch"; sourceTree = "<group>"; };
+		7739C11A13AE9DBB00A6F5C1 /* iOutOf-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOutOf-Prefix.pch"; sourceTree = "<group>"; };
 		7739C11B13AE9DBB00A6F5C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7739C11D13AE9DBB00A6F5C1 /* iOutOfAppDelegate.h */ = {isa = PBXFileReference; path = iOutOfAppDelegate.h; sourceTree = "<group>"; };
+		7739C11D13AE9DBB00A6F5C1 /* iOutOfAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOutOfAppDelegate.h; sourceTree = "<group>"; };
 		7739C11E13AE9DBB00A6F5C1 /* iOutOfAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOutOfAppDelegate.m; sourceTree = "<group>"; };
 		7739C12113AE9DBB00A6F5C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		7739C12413AE9DBB00A6F5C1 /* iOutOf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOutOf.xcdatamodel; sourceTree = "<group>"; };
+		7739C13513AE9E8100A6F5C1 /* 93@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "93@2x.png"; sourceTree = "<group>"; };
+		7739C13613AE9E8100A6F5C1 /* 264@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "264@2x.png"; sourceTree = "<group>"; };
+		7739C13713AE9E8100A6F5C1 /* 203@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "203@2x.png"; sourceTree = "<group>"; };
+		7739C13813AE9E8100A6F5C1 /* 63@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "63@2x.png"; sourceTree = "<group>"; };
+		7739C13913AE9E8100A6F5C1 /* ItemQuantitiesSingular.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ItemQuantitiesSingular.plist; sourceTree = "<group>"; };
+		7739C13A13AE9E8100A6F5C1 /* ItemQuantitiesPlural.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ItemQuantitiesPlural.plist; sourceTree = "<group>"; };
+		7739C13B13AE9E8100A6F5C1 /* 203.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 203.png; sourceTree = "<group>"; };
+		7739C13C13AE9E8100A6F5C1 /* 63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 63.png; sourceTree = "<group>"; };
+		7739C13D13AE9E8100A6F5C1 /* 93.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 93.png; sourceTree = "<group>"; };
+		7739C13E13AE9E8100A6F5C1 /* 264.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 264.png; sourceTree = "<group>"; };
+		7739C14A13AE9F0700A6F5C1 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		7739C14B13AE9F0700A6F5C1 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		7739C14E13AE9F3400A6F5C1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7739C14F13AE9F3400A6F5C1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7739C15013AE9F3400A6F5C1 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7739C15413AE9F5900A6F5C1 /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingListViewController.h; sourceTree = "<group>"; };
+		7739C15513AE9F5900A6F5C1 /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingListViewController.m; sourceTree = "<group>"; };
+		7739C15613AE9F5900A6F5C1 /* ShoppingListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingListViewController.xib; sourceTree = "<group>"; };
+		7739C15A13AE9FB000A6F5C1 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
+		7739C15B13AE9FB000A6F5C1 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		7739C15C13AE9FB000A6F5C1 /* ItemListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
+		7739C16013AE9FE400A6F5C1 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		7739C16113AE9FE400A6F5C1 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
+		7739C16213AE9FE400A6F5C1 /* AddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
+		7739C16313AE9FE400A6F5C1 /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
+		7739C16413AE9FE400A6F5C1 /* BBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextField.m; sourceTree = "<group>"; };
+		7739C16913AEA00100A6F5C1 /* EditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItemViewController.h; sourceTree = "<group>"; };
+		7739C16A13AEA00100A6F5C1 /* EditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItemViewController.m; sourceTree = "<group>"; };
+		7739C16B13AEA00100A6F5C1 /* EditItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditItemViewController.xib; sourceTree = "<group>"; };
+		7739C16F13AEA02800A6F5C1 /* AtTheStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtTheStoreViewController.h; sourceTree = "<group>"; };
+		7739C17013AEA02800A6F5C1 /* AtTheStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtTheStoreViewController.m; sourceTree = "<group>"; };
+		7739C17113AEA02800A6F5C1 /* AtTheStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtTheStoreViewController.xib; sourceTree = "<group>"; };
+		7739C17213AEA02800A6F5C1 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		7739C17313AEA02800A6F5C1 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		7739C17413AEA02800A6F5C1 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		7739C17513AEA02800A6F5C1 /* BBTextDecorationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextDecorationLabel.h; sourceTree = "<group>"; };
+		7739C17613AEA02800A6F5C1 /* BBTextDecorationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextDecorationLabel.m; sourceTree = "<group>"; };
+		7739C17D13AEA04100A6F5C1 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewController.h; sourceTree = "<group>"; };
+		7739C17E13AEA04100A6F5C1 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewController.m; sourceTree = "<group>"; };
+		7739C17F13AEA04100A6F5C1 /* OptionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewController.xib; sourceTree = "<group>"; };
+		77FB7F9213AEF4A000E3F042 /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
+		77FB7F9313AEF4A000E3F042 /* Persistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Persistence.m; sourceTree = "<group>"; };
+		77FB7FA713AF13AD00E3F042 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		77FB7FA813AF13AD00E3F042 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		77FB7FAA13AF13AD00E3F042 /* StoreCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCategory.h; sourceTree = "<group>"; };
+		77FB7FAB13AF13AD00E3F042 /* StoreCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCategory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +158,13 @@
 		7739C11413AE9DBB00A6F5C1 /* iOutOf */ = {
 			isa = PBXGroup;
 			children = (
+				77FB7F9013AEF17100E3F042 /* DAL */,
+				7739C14913AE9EA600A6F5C1 /* Classes */,
 				7739C11D13AE9DBB00A6F5C1 /* iOutOfAppDelegate.h */,
 				7739C11E13AE9DBB00A6F5C1 /* iOutOfAppDelegate.m */,
 				7739C12013AE9DBB00A6F5C1 /* MainWindow.xib */,
 				7739C12313AE9DBB00A6F5C1 /* iOutOf.xcdatamodeld */,
+				7739C13413AE9E6C00A6F5C1 /* Resources */,
 				7739C11513AE9DBB00A6F5C1 /* Supporting Files */,
 			);
 			path = iOutOf;
@@ -98,6 +179,137 @@
 				7739C11B13AE9DBB00A6F5C1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7739C13413AE9E6C00A6F5C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7739C13513AE9E8100A6F5C1 /* 93@2x.png */,
+				7739C13613AE9E8100A6F5C1 /* 264@2x.png */,
+				7739C13713AE9E8100A6F5C1 /* 203@2x.png */,
+				7739C13813AE9E8100A6F5C1 /* 63@2x.png */,
+				7739C13913AE9E8100A6F5C1 /* ItemQuantitiesSingular.plist */,
+				7739C13A13AE9E8100A6F5C1 /* ItemQuantitiesPlural.plist */,
+				7739C13B13AE9E8100A6F5C1 /* 203.png */,
+				7739C13C13AE9E8100A6F5C1 /* 63.png */,
+				7739C13D13AE9E8100A6F5C1 /* 93.png */,
+				7739C13E13AE9E8100A6F5C1 /* 264.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7739C14913AE9EA600A6F5C1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7739C14D13AE9F2000A6F5C1 /* Home Screen */,
+				7739C15313AE9F4300A6F5C1 /* Shopping List Screen */,
+				7739C15913AE9F9B00A6F5C1 /* Items Screen */,
+				7739C15F13AE9FB500A6F5C1 /* Add Item Screen */,
+				7739C16813AE9FEE00A6F5C1 /* Edit Item Screen */,
+				7739C16E13AEA01000A6F5C1 /* At The Store */,
+				7739C17C13AEA02E00A6F5C1 /* Options */,
+				7739C14A13AE9F0700A6F5C1 /* Utilities.h */,
+				7739C14B13AE9F0700A6F5C1 /* Utilities.m */,
+				77FB7F9213AEF4A000E3F042 /* Persistence.h */,
+				77FB7F9313AEF4A000E3F042 /* Persistence.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		7739C14D13AE9F2000A6F5C1 /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7739C14E13AE9F3400A6F5C1 /* HomeViewController.h */,
+				7739C14F13AE9F3400A6F5C1 /* HomeViewController.m */,
+				7739C15013AE9F3400A6F5C1 /* HomeViewController.xib */,
+			);
+			name = "Home Screen";
+			sourceTree = "<group>";
+		};
+		7739C15313AE9F4300A6F5C1 /* Shopping List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7739C15413AE9F5900A6F5C1 /* ShoppingListViewController.h */,
+				7739C15513AE9F5900A6F5C1 /* ShoppingListViewController.m */,
+				7739C15613AE9F5900A6F5C1 /* ShoppingListViewController.xib */,
+			);
+			name = "Shopping List Screen";
+			sourceTree = "<group>";
+		};
+		7739C15913AE9F9B00A6F5C1 /* Items Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7739C15A13AE9FB000A6F5C1 /* ItemListViewController.h */,
+				7739C15B13AE9FB000A6F5C1 /* ItemListViewController.m */,
+				7739C15C13AE9FB000A6F5C1 /* ItemListViewController.xib */,
+			);
+			name = "Items Screen";
+			sourceTree = "<group>";
+		};
+		7739C15F13AE9FB500A6F5C1 /* Add Item Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7739C16013AE9FE400A6F5C1 /* AddItemViewController.h */,
+				7739C16113AE9FE400A6F5C1 /* AddItemViewController.m */,
+				7739C16213AE9FE400A6F5C1 /* AddItemViewController.xib */,
+				7739C16313AE9FE400A6F5C1 /* BBTextField.h */,
+				7739C16413AE9FE400A6F5C1 /* BBTextField.m */,
+			);
+			name = "Add Item Screen";
+			sourceTree = "<group>";
+		};
+		7739C16813AE9FEE00A6F5C1 /* Edit Item Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7739C16913AEA00100A6F5C1 /* EditItemViewController.h */,
+				7739C16A13AEA00100A6F5C1 /* EditItemViewController.m */,
+				7739C16B13AEA00100A6F5C1 /* EditItemViewController.xib */,
+			);
+			name = "Edit Item Screen";
+			sourceTree = "<group>";
+		};
+		7739C16E13AEA01000A6F5C1 /* At The Store */ = {
+			isa = PBXGroup;
+			children = (
+				7739C16F13AEA02800A6F5C1 /* AtTheStoreViewController.h */,
+				7739C17013AEA02800A6F5C1 /* AtTheStoreViewController.m */,
+				7739C17113AEA02800A6F5C1 /* AtTheStoreViewController.xib */,
+				7739C17213AEA02800A6F5C1 /* ItemTableViewCell.h */,
+				7739C17313AEA02800A6F5C1 /* ItemTableViewCell.m */,
+				7739C17413AEA02800A6F5C1 /* ItemTableViewCell.xib */,
+				7739C17513AEA02800A6F5C1 /* BBTextDecorationLabel.h */,
+				7739C17613AEA02800A6F5C1 /* BBTextDecorationLabel.m */,
+			);
+			name = "At The Store";
+			sourceTree = "<group>";
+		};
+		7739C17C13AEA02E00A6F5C1 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				7739C17D13AEA04100A6F5C1 /* OptionsTableViewController.h */,
+				7739C17E13AEA04100A6F5C1 /* OptionsTableViewController.m */,
+				7739C17F13AEA04100A6F5C1 /* OptionsTableViewController.xib */,
+			);
+			name = Options;
+			sourceTree = "<group>";
+		};
+		77FB7F9013AEF17100E3F042 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				77FB7F9113AEF17800E3F042 /* Entity */,
+			);
+			name = DAL;
+			sourceTree = "<group>";
+		};
+		77FB7F9113AEF17800E3F042 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				77FB7FAA13AF13AD00E3F042 /* StoreCategory.h */,
+				77FB7FAB13AF13AD00E3F042 /* StoreCategory.m */,
+				77FB7FA713AF13AD00E3F042 /* Store.h */,
+				77FB7FA813AF13AD00E3F042 /* Store.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +361,24 @@
 			files = (
 				7739C11913AE9DBB00A6F5C1 /* InfoPlist.strings in Resources */,
 				7739C12213AE9DBB00A6F5C1 /* MainWindow.xib in Resources */,
+				7739C13F13AE9E8100A6F5C1 /* 93@2x.png in Resources */,
+				7739C14013AE9E8100A6F5C1 /* 264@2x.png in Resources */,
+				7739C14113AE9E8100A6F5C1 /* 203@2x.png in Resources */,
+				7739C14213AE9E8100A6F5C1 /* 63@2x.png in Resources */,
+				7739C14313AE9E8100A6F5C1 /* ItemQuantitiesSingular.plist in Resources */,
+				7739C14413AE9E8100A6F5C1 /* ItemQuantitiesPlural.plist in Resources */,
+				7739C14513AE9E8100A6F5C1 /* 203.png in Resources */,
+				7739C14613AE9E8100A6F5C1 /* 63.png in Resources */,
+				7739C14713AE9E8100A6F5C1 /* 93.png in Resources */,
+				7739C14813AE9E8100A6F5C1 /* 264.png in Resources */,
+				7739C15213AE9F3400A6F5C1 /* HomeViewController.xib in Resources */,
+				7739C15813AE9F5900A6F5C1 /* ShoppingListViewController.xib in Resources */,
+				7739C15E13AE9FB000A6F5C1 /* ItemListViewController.xib in Resources */,
+				7739C16613AE9FE400A6F5C1 /* AddItemViewController.xib in Resources */,
+				7739C16D13AEA00100A6F5C1 /* EditItemViewController.xib in Resources */,
+				7739C17813AEA02800A6F5C1 /* AtTheStoreViewController.xib in Resources */,
+				7739C17A13AEA02800A6F5C1 /* ItemTableViewCell.xib in Resources */,
+				7739C18113AEA04100A6F5C1 /* OptionsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +392,20 @@
 				7739C11C13AE9DBB00A6F5C1 /* main.m in Sources */,
 				7739C11F13AE9DBB00A6F5C1 /* iOutOfAppDelegate.m in Sources */,
 				7739C12513AE9DBB00A6F5C1 /* iOutOf.xcdatamodeld in Sources */,
+				7739C14C13AE9F0700A6F5C1 /* Utilities.m in Sources */,
+				7739C15113AE9F3400A6F5C1 /* HomeViewController.m in Sources */,
+				7739C15713AE9F5900A6F5C1 /* ShoppingListViewController.m in Sources */,
+				7739C15D13AE9FB000A6F5C1 /* ItemListViewController.m in Sources */,
+				7739C16513AE9FE400A6F5C1 /* AddItemViewController.m in Sources */,
+				7739C16713AE9FE400A6F5C1 /* BBTextField.m in Sources */,
+				7739C16C13AEA00100A6F5C1 /* EditItemViewController.m in Sources */,
+				7739C17713AEA02800A6F5C1 /* AtTheStoreViewController.m in Sources */,
+				7739C17913AEA02800A6F5C1 /* ItemTableViewCell.m in Sources */,
+				7739C17B13AEA02800A6F5C1 /* BBTextDecorationLabel.m in Sources */,
+				7739C18013AEA04100A6F5C1 /* OptionsTableViewController.m in Sources */,
+				77FB7F9413AEF4A000E3F042 /* Persistence.m in Sources */,
+				77FB7FA913AF13AD00E3F042 /* Store.m in Sources */,
+				77FB7FAC13AF13AD00E3F042 /* StoreCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +510,7 @@
 				7739C12A13AE9DBB00A6F5C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
