@@ -71,6 +71,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
+    self.title = self.currentCategory.name;
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
@@ -78,7 +82,7 @@
     
     [sortDescriptor release];
     
-    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -129,6 +133,11 @@
     Item *item = [self.items objectAtIndex:indexPath.row];
     
     cell.textLabel.text = item.name;
+    
+    if([item.selected boolValue])
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    else
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     
     return cell;
 }
@@ -235,7 +244,15 @@
 
 - (void) addItemToCategory:(NSString *)newItem withQuantity:(NSString *)quantity andNotes:(NSString *)notes {
     
+    Item *item = (Item*)[Persistence entityOfType:@"Item"];
     
+    item.name = newItem;
+    item.quantity = quantity;
+    item.notes = notes;
+    item.selected = [NSNumber numberWithBool:YES];
+    
+    [self addItemToCart:item];
+    [self.currentCategory addItemsObject:item];
 }
 
 @end

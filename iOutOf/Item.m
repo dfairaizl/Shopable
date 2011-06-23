@@ -2,7 +2,7 @@
 //  Item.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/21/11.
+//  Created by Dan Fairaizl on 6/22/11.
 //  Copyright (c) 2011 Basically Bits, LLC. All rights reserved.
 //
 
@@ -12,12 +12,12 @@
 
 
 @implementation Item
-@dynamic unit;
-@dynamic quantity;
+@dynamic checkedOff;
 @dynamic notes;
 @dynamic userDefined;
 @dynamic name;
-@dynamic checkedOff;
+@dynamic quantity;
+@dynamic selected;
 @dynamic itemToCategory;
 @dynamic itemToShoppingCart;
 
