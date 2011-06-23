@@ -67,6 +67,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if(self.currentStore == nil) {
+        
+        NSPredicate *search = [NSPredicate predicateWithFormat:@"selectedStore == %@", [NSNumber numberWithBool:YES]];
+        
+        NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:search] retain];
+        
+        self.currentStore = (Store *)[stores lastObject];
+    }
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     

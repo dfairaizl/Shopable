@@ -55,17 +55,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    /*Store *store = (Store *)[Persistence entityOfType:kStore];
-    store.name = @"Grocery Store";
-    
-    Category *category = (Category *)[Persistence entityOfType:kCategory];
-    category.name = @"Vegetables";
-    
-    [store addCategoriesObject:category];
-    
-    [Persistence save];*/
 }
 
 - (void) viewWillAppear:(BOOL)animated {
