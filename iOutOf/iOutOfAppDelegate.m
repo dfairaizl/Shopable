@@ -28,19 +28,16 @@
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     
-    BOOL firstRun = YES;
+    NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfURL:[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Settings.plist"]];
     
-    if(firstRun) {
+    if(!settings) { //first launch...settings does not exist yet.
         
         XmlDataParser *xmlParser = [[XmlDataParser alloc] init];
         NSString *fileName = [[NSBundle mainBundle] pathForResource:@"StoreData" ofType:@"xml"];
-        
-        NSError *error = nil;
+
         NSData *xmlData;
         
         xmlData = [[NSData alloc] initWithContentsOfFile:fileName];
-        
-        NSLog(@"Error code: %@", error.localizedDescription);
         
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
             
@@ -48,6 +45,15 @@
         [parser parse];
         
         [xmlData release];
+        
+        settings = [[NSMutableDictionary alloc] initWithCapacity:1];
+        
+        [settings setObject:[NSNumber numberWithBool:NO] forKey:@"FirstLaunch"];
+        
+        NSURL *docsDir = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Settings.plist"];
+        
+        if(![settings writeToURL:docsDir atomically:YES])
+            NSLog(@"Unable to write Settings.plist");
     }
     
     return YES;
