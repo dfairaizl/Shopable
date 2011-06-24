@@ -152,8 +152,8 @@
 	//cell.cellItem = item;
 	cell.itemLabel.text = item.name;
 	
-	if([item.quantity intValue] > 0)
-		cell.quantityLabel.text = [NSString stringWithFormat:@"x %i", [item.quantity intValue]];
+	if([item.quantity length] > 0)
+		cell.quantityLabel.text = [NSString stringWithFormat:@"x %@", item.quantity];
 	else
 		cell.quantityLabel.text = @"";
     
