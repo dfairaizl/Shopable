@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ItemTableViewCell.h"
 
-@interface AtTheStoreViewController : UIViewController {
+#import "EditItemViewController.h"
+
+@interface AtTheStoreViewController : UIViewController <EditItemDelegate> {
     
 }
 

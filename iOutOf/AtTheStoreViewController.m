@@ -216,22 +216,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //see if the cell is selectable with (has notes)
-	/*NSArray *allKeys = [self.cartItems allKeys];
+    NSArray *allKeys = [self.cartItems allKeys];
 	NSArray *sorted = [allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	
     NSArray *items = [self.cartItems objectForKey:[sorted objectAtIndex:indexPath.section]];
+    NSUInteger index = indexPath.row;
     
-	Item *item = [items objectAtIndex:indexPath.row];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    items = [items sortedArrayUsingDescriptors:sortDescriptors];
+    
+    [sortDescriptor release];
+    
+	Item *item = [items objectAtIndex:index];
     
     if([item.notes length] > 0) {
         
-        EditItemViewController *editItem = [[EditItemViewController alloc] initWithNibName:@"AddItemViewController" bundle:nil];
+        EditItemViewController *editItem = [[EditItemViewController alloc] initWithNibName:@"EditItemViewController" bundle:nil];
+        
+        editItem.editingItem = item;
         
         UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:editItem];
         [self.navigationController presentModalViewController:modalNav animated:YES];
         [editItem release];
-    }*/
+    }
 }
 
 #pragma mark - Private Methods
@@ -266,6 +275,13 @@
             }
         }
     }
+}
+
+#pragma mark - Edit Item Delegate
+
+- (void) editItemInShoppingCart:(NSString *)newName withQuantity:(NSString *)newQuantity andNotes:(NSString *)newNotes {
+    
+    
 }
 
 @end
