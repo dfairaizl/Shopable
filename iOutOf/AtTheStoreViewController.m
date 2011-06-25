@@ -275,6 +275,8 @@
             }
         }
     }
+    
+    NSLog(@"items: %i", [self.cartItems count]);
 }
 
 #pragma mark - Edit Item Delegate

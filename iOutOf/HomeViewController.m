@@ -165,8 +165,22 @@
 #pragma mark Table View Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
     
+    //Check to see if there is a store currently selected. 
+    NSPredicate *selectedPred = [NSPredicate predicateWithFormat:@"selectedStore == %@", [NSNumber numberWithBool:YES]];
+    
+    //Get the current store
+    NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:selectedPred] retain];
+    Store *currentStore = [stores lastObject]; //should be only one...
+    
+    
+    if(currentStore != nil && currentStore.selectedStore) {
+        
+        //unselect the current store
+        currentStore.selectedStore = [NSNumber numberWithBool:NO];
+    }
+    
+    //select the new store
     Store *selectedStore = [self.stores objectAtIndex:indexPath.row];
     selectedStore.selectedStore = [NSNumber numberWithBool:YES];
     
