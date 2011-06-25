@@ -2,20 +2,23 @@
 //  Store.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/20/11.
+//  Created by Dan Fairaizl on 6/25/11.
 //  Copyright (c) 2011 Basically Bits, LLC. All rights reserved.
 //
 
 #import "Store.h"
 #import "Category.h"
 #import "ShoppingCart.h"
+#import "StoreType.h"
 
 
 @implementation Store
-@dynamic name;
 @dynamic selectedStore;
-@dynamic categories;
+@dynamic name;
 @dynamic shoppingCart;
+@dynamic categories;
+@dynamic type;
+
 
 - (void)addCategoriesObject:(Category *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];

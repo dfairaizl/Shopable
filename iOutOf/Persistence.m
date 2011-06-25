@@ -38,6 +38,7 @@
 + (NSArray *) fetchEntites:(NSString *)entity withPredicate:(NSPredicate *)predicate andSortBy:(NSString *)sortBy ascending:(BOOL)ascending {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setReturnsObjectsAsFaults:NO];
     
     NSEntityDescription *description = [NSEntityDescription entityForName:entity inManagedObjectContext:[Utilities managedObjectContext]];
     

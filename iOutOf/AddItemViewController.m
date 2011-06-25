@@ -129,20 +129,6 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void) registerForKeyboardNotifications {
-
-	// register for keyboard notifications
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(keyboardWillShow:) 
-												 name:UIKeyboardWillShowNotification 
-											   object:nil];
-	// register for keyboard notifications
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(keyboardWillHide:) 
-												 name:UIKeyboardWillHideNotification 
-											   object:nil];
-}
-
 - (void)keyboardWillShow:(NSNotification *)n {
 	
 	if (keyboardIsOpen) {

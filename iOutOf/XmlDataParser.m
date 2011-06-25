@@ -13,6 +13,7 @@
 #import "Store.h"
 #import "Category.h"
 #import "Item.h"
+#import "StoreType.h"
 
 @implementation XmlDataParser
 
@@ -26,10 +27,21 @@
  qualifiedName:(NSString *)qualifiedName 
 	attributes:(NSDictionary *)attributeDict 
 {
-	if([elementName isEqualToString:@"Store"]) {
+    if([elementName isEqualToString:@"Type"]) {
+		
+		storeType = [Persistence entityOfType:@"StoreType"];
+	}
+    else if([elementName isEqualToString:@"Store"]) {
 		
 		Store *store = (Store *)[Persistence entityOfType:elementName];
         store.name = [attributeDict objectForKey:@"name"];
+        
+        //Set the store type
+        
+        NSArray *types = [[Persistence fetchEntitiesOfType:@"StoreType" withPredicate:[NSPredicate predicateWithFormat:@"type == %@", [attributeDict objectForKey:@"type"]]] retain];
+        
+        StoreType *currentStoreType = [types lastObject];
+        store.type = currentStoreType;
         
         currentStore = store;
 	}
@@ -64,14 +76,18 @@
 	//trim out the bad characters from the xml file
 	NSString *trim = [currentValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
-	if([elementName isEqualToString:@"Stores"]) {
+	if([elementName isEqualToString:@"Data"]) {
         
         //Save all the data we just parsed into entities
         [Persistence save];
         
 		return; //End of xml parsing - get out of here
 	}
-	else if([elementName isEqualToString:@"Store"]) {
+    else if([elementName isEqualToString:@"Type"]) {
+        
+        storeType.type = trim;
+    }
+	else if([elementName isEqualToString:@"Store"] || [elementName isEqualToString:@"StoreTypes"]) {
         
 	}
     else if([elementName isEqualToString:@"Category"]) {

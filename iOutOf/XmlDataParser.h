@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class Store, Category, Item;
+@class Store, Category, Item, StoreType;
 
 @interface XmlDataParser : NSObject <NSXMLParserDelegate> {
     
     Store *currentStore;
+    StoreType *storeType;
     Category *currentCategory;
     Item *currentItem;
     

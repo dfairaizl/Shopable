@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Stores>
-    <Store name="Grocery Store">
+<Data>
+    <StoreTypes>
+        <Type>Grocery</Type>
+        <Type>Hardware</Type>
+        <Type>Department</Type>
+        <Type>Other</Type>
+    </StoreTypes>
+    <Store name="Grocery Store" type="Grocery">
         <Category name="Baking">
             <Item>Flour</Item>
             <Item>Sugar</Item>
@@ -138,4 +144,4 @@
             <Item>Celery</Item>
         </Category>
     </Store>
-</Stores
+</Data>

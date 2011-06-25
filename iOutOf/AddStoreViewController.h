@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ModalAddViewController.h"
+#import "AddItemViewController.h"
 
 
-@interface AddStoreViewController : ModalAddViewController {
+@interface AddStoreViewController : AddItemViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *storeNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *storeTypeTextField;
+@property (nonatomic, retain) IBOutlet UIPickerView *storeTypePicker;
+
+@property (nonatomic, retain) NSArray *storeTypes;
+
+- (void) showStoreTypePicker;
 
 @end
