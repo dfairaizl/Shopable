@@ -220,6 +220,8 @@
 
 - (void) addItemToCart:(Item *)item {
     
+    item.selected = [NSNumber numberWithBool:YES];
+    
     Store *currentStore = self.currentCategory.categoryToStore;
     ShoppingCart *currentShoppingCart = currentStore.shoppingCart;
     
@@ -234,6 +236,8 @@
 }
 
 - (void) removeItemFromCart:(Item *)item {
+    
+    item.selected = [NSNumber numberWithBool:NO];
     
     Store *currentStore = self.currentCategory.categoryToStore;
     ShoppingCart *currentShoppingCart = currentStore.shoppingCart; //will always have a shopping cart if we are removing an item
