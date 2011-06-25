@@ -213,8 +213,9 @@
 	
 	UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:addItem];
 	[self.navigationController presentModalViewController:modalNav animated:YES];
-	[addItem release];
 	
+    [addItem release];
+	[modalNav release];
 }
 
 - (void) addItemToCart:(Item *)item {

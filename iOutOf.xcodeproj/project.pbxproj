@@ -28,6 +28,10 @@
 		7789EE5113B063FD00152B0D /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE4D13B063FD00152B0D /* ItemTableViewCell.m */; };
 		7789EE5213B063FD00152B0D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7789EE4E13B063FD00152B0D /* ItemTableViewCell.xib */; };
 		7789EE5313B063FD00152B0D /* BBTextDecorationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE5013B063FD00152B0D /* BBTextDecorationLabel.m */; };
+		77A571B913B570FB007DE934 /* AddStoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A571B813B570FB007DE934 /* AddStoreFooter.xib */; };
+		77A571BF13B574B5007DE934 /* AddStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A571BD13B574B5007DE934 /* AddStoreViewController.m */; };
+		77A571C013B574B5007DE934 /* AddStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A571BE13B574B5007DE934 /* AddStoreViewController.xib */; };
+		77A571C313B57923007DE934 /* ModalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A571C213B57923007DE934 /* ModalAddViewController.m */; };
 		77B0B9B413AF8C4800318C51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B0B9B313AF8C4800318C51 /* UIKit.framework */; };
 		77B0B9B613AF8C4800318C51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B0B9B513AF8C4800318C51 /* Foundation.framework */; };
 		77B0B9B813AF8C4800318C51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B0B9B713AF8C4800318C51 /* CoreGraphics.framework */; };
@@ -91,6 +95,12 @@
 		7789EE4E13B063FD00152B0D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		7789EE4F13B063FD00152B0D /* BBTextDecorationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextDecorationLabel.h; sourceTree = "<group>"; };
 		7789EE5013B063FD00152B0D /* BBTextDecorationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextDecorationLabel.m; sourceTree = "<group>"; };
+		77A571B813B570FB007DE934 /* AddStoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStoreFooter.xib; sourceTree = "<group>"; };
+		77A571BC13B574B5007DE934 /* AddStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStoreViewController.h; sourceTree = "<group>"; };
+		77A571BD13B574B5007DE934 /* AddStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStoreViewController.m; sourceTree = "<group>"; };
+		77A571BE13B574B5007DE934 /* AddStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStoreViewController.xib; sourceTree = "<group>"; };
+		77A571C113B57923007DE934 /* ModalAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalAddViewController.h; sourceTree = "<group>"; };
+		77A571C213B57923007DE934 /* ModalAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAddViewController.m; sourceTree = "<group>"; };
 		77B0B9AF13AF8C4800318C51 /* iOutOf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOutOf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B0B9B313AF8C4800318C51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77B0B9B513AF8C4800318C51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -209,6 +219,16 @@
 			name = "Add Item Screen";
 			sourceTree = "<group>";
 		};
+		77A571BB13B57499007DE934 /* Add Store Screen */ = {
+			isa = PBXGroup;
+			children = (
+				77A571BC13B574B5007DE934 /* AddStoreViewController.h */,
+				77A571BD13B574B5007DE934 /* AddStoreViewController.m */,
+				77A571BE13B574B5007DE934 /* AddStoreViewController.xib */,
+			);
+			name = "Add Store Screen";
+			sourceTree = "<group>";
+		};
 		77B0B9A413AF8C4800318C51 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +270,8 @@
 				77B0B9C513AF8C4800318C51 /* iOutOfAppDelegate.m */,
 				7789EE1813B0247300152B0D /* Utilities.h */,
 				7789EE1913B0247300152B0D /* Utilities.m */,
+				77A571C113B57923007DE934 /* ModalAddViewController.h */,
+				77A571C213B57923007DE934 /* ModalAddViewController.m */,
 				77B0B9C713AF8C4800318C51 /* MainWindow.xib */,
 				77B0B9CA13AF8C4800318C51 /* iOutOf.xcdatamodeld */,
 				77B0B9DB13AF8D8200318C51 /* Resources */,
@@ -326,9 +348,11 @@
 		77B0B9F113AF8E0800318C51 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
+				77A571BB13B57499007DE934 /* Add Store Screen */,
 				77B0B9F213AF8E5F00318C51 /* HomeViewController.h */,
 				77B0B9F313AF8E5F00318C51 /* HomeViewController.m */,
 				77B0B9F413AF8E5F00318C51 /* HomeViewController.xib */,
+				77A571B813B570FB007DE934 /* AddStoreFooter.xib */,
 			);
 			name = "Home Screen";
 			sourceTree = "<group>";
@@ -405,6 +429,8 @@
 				7789EE5213B063FD00152B0D /* ItemTableViewCell.xib in Resources */,
 				7737BFF413B2D624003EE6D7 /* Settings.plist in Resources */,
 				77026C4313B422ED0011429B /* EditItemViewController.xib in Resources */,
+				77A571B913B570FB007DE934 /* AddStoreFooter.xib in Resources */,
+				77A571C013B574B5007DE934 /* AddStoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +461,8 @@
 				7789EE5313B063FD00152B0D /* BBTextDecorationLabel.m in Sources */,
 				7728DD7A13B2FB1800E3DAA3 /* Item.m in Sources */,
 				771CA53913B41AA900033E23 /* EditItemViewController.m in Sources */,
+				77A571BF13B574B5007DE934 /* AddStoreViewController.m in Sources */,
+				77A571C313B57923007DE934 /* ModalAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

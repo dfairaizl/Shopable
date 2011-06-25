@@ -23,7 +23,7 @@
 
 @implementation AddItemViewController
 
-@synthesize scrollView, itemNameTextField, itemQuantityTextField, itemNotesTextView, quantityPicker, itemListDelegate;
+@synthesize itemNameTextField, itemQuantityTextField, itemNotesTextView, quantityPicker, itemListDelegate;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -36,12 +36,8 @@
 
 	[super viewWillAppear:animated];
 	
-	[self registerForKeyboardNotifications];
-	
 	self.title = @"Add Item";
 	self.navigationController.navigationBarHidden = NO;
-	
-	[self.scrollView setContentSize:CGSizeMake(320, 416)];
 
 	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
 	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
@@ -52,7 +48,6 @@
 	[cancelButton release];
 	[doneButton release];
 	
-	keyboardIsOpen = NO;
 	[self.itemNameTextField becomeFirstResponder];
 }
 
@@ -322,7 +317,6 @@
 	[itemNameTextField release];
 	[itemListDelegate release];
 	[quantityPicker release];
-	[scrollView release];
 	[quantitiesAndUnits release];
 	
     [super dealloc];

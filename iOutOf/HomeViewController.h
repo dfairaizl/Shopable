@@ -14,6 +14,11 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *storesTableView;
 
+@property (nonatomic, retain) IBOutlet UIButton *otherStoreButton;
+
 @property (nonatomic, retain) NSArray *stores;
+
+//UI Actions
+- (IBAction) otherStoreButtonPress:(id)sender;
 
 @end

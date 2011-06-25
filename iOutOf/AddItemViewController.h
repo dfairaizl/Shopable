@@ -7,18 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol AddItemDelegate
-
-- (void) addItemToCategory:(NSString *)newItem withQuantity:(NSString *)quantity andNotes:(NSString *)notes;
-
-@end
+#import "ModalAddViewController.h"
 
 @class ItemsListViewController;
 
-@interface AddItemViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
-	
-	UIScrollView *scrollView;
+@interface AddItemViewController : ModalAddViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 	
 	ItemsListViewController *itemListDelegate;
 	UITextField *itemNameTextField;
@@ -27,20 +20,15 @@
 	
 	UIPickerView *quantityPicker;
 	
-	BOOL keyboardIsOpen;
-	UIView *currentTextField;
-	
 	NSDictionary *quantitiesAndUnits;
 }
 
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet UITextField *itemNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *itemQuantityTextField;
 @property (nonatomic, retain) IBOutlet UITextView *itemNotesTextView;
 @property (nonatomic, retain) IBOutlet UIPickerView *quantityPicker;
 @property (nonatomic, retain) ItemsListViewController *itemListDelegate;
 
-- (IBAction) doneEditingField:(id)sender;
 - (void) showQuantityInputPicker;
 
 @end

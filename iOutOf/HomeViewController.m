@@ -8,6 +8,7 @@
 
 #import "iOutOfAppDelegate.h"
 #import "HomeViewController.h"
+#import "AddStoreViewController.h"
 #import "ShoppingListViewController.h"
 #import "Persistence.h"
 #import "Utilities.h"
@@ -19,6 +20,7 @@
 @implementation HomeViewController
 
 @synthesize storesTableView = _storesTableView;
+@synthesize otherStoreButton = _otherStoreButton;
 
 @synthesize stores = _stores;
 
@@ -36,6 +38,7 @@
 - (void)dealloc
 {
     [_storesTableView release];
+    [_otherStoreButton release];
     
     [_stores release];
     
@@ -59,9 +62,15 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
+    [super viewWillAppear:animated];
+    
     self.stores = [[Persistence fetchAllEntitiesOfType:kStore sortBy:@"name"] retain];
     
-    [super viewWillAppear:animated];
+    UIView *storeFooter = [[[NSBundle mainBundle] loadNibNamed:@"AddStoreFooter" owner:self options:nil] lastObject];
+    self.storesTableView.tableFooterView = storeFooter;
+    
+    [self.storesTableView reloadData];
+    
 }
 
 - (void)viewDidUnload
@@ -71,6 +80,7 @@
     // e.g. self.myOutlet = nil;
     
     self.storesTableView = nil;
+    self.otherStoreButton = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -78,6 +88,20 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - UI Actions
+
+- (IBAction) otherStoreButtonPress:(id)sender {
+    
+    AddStoreViewController *addStore = [[AddStoreViewController alloc] initWithNibName:@"AddStoreViewController" bundle:nil];
+    
+    UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:addStore];
+	[self.navigationController presentModalViewController:modalNav animated:YES];
+	
+    [addStore release];
+    [modalNav release];
+}
+
 
 #pragma mark -
 #pragma mark Table View Data Source
