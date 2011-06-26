@@ -17,7 +17,9 @@
 #import "ShoppingCart.h"
 
 @interface AtTheStoreViewController ()
-    - (void) loadShoppingCart;
+- (void) loadShoppingCart;
+- (void) finishedShopping;
+- (Store *) getCurrentStore;
 @end
 
 @implementation AtTheStoreViewController
@@ -56,20 +58,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.title = @"At The Store";
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     
+    self.title = @"At The Store";
+    
     //at first, don't display the search bar
 	[self.shoppingCartTableView setContentOffset:CGPointMake(0,44)];
+    
+    UIBarButtonItem *finishedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishedShopping)];
+    
+    self.navigationItem.rightBarButtonItem = finishedButton;
     
     [self loadShoppingCart];
     
     [self.shoppingCartTableView reloadData];
+    
+    [finishedButton release];
 }
 
 - (void)viewDidUnload
@@ -92,9 +100,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    NSUInteger c  = [[self.cartItems allKeys] count];
-    NSLog(@"sections: %i", c);
-    return c;
+    return [[self.cartItems allKeys] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -243,17 +249,30 @@
     }
 }
 
+#pragma mark - UIActionSheet Delegate Methods
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if(buttonIndex == 0) { //destructive button
+        
+        //clear this shopping cart
+        Store *currentStore = [self getCurrentStore];
+        
+        [[Utilities managedObjectContext] deleteObject:currentStore.shoppingCart];
+        
+        [self.cartItems removeAllObjects];
+        
+        [self.shoppingCartTableView reloadData];
+    }
+}
+
 #pragma mark - Private Methods
 
 - (void) loadShoppingCart {
     
-    _cartItems = [[NSMutableDictionary alloc] initWithCapacity:30];
+    self.cartItems = [[NSMutableDictionary alloc] initWithCapacity:10];
     
-    NSPredicate *selectedPred = [NSPredicate predicateWithFormat:@"selectedStore == %@", [NSNumber numberWithBool:YES]];
-    
-    //Get the current store
-    NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:selectedPred] retain];
-    Store *currentStore = [stores lastObject]; //should be only one...
+    Store *currentStore = [self getCurrentStore];
     
     if(currentStore) {
         
@@ -275,15 +294,27 @@
             }
         }
     }
-    
-    NSLog(@"items: %i", [self.cartItems count]);
 }
 
-#pragma mark - Edit Item Delegate
+- (Store *) getCurrentStore {
+    
+    NSPredicate *selectedPred = [NSPredicate predicateWithFormat:@"selectedStore == %@", [NSNumber numberWithBool:YES]];
+    
+    //Get the current store
+    NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:selectedPred] retain];
+    Store *store = [stores lastObject];
+    
+    return store; //should be only one...
+}
 
-- (void) editItemInShoppingCart:(NSString *)newName withQuantity:(NSString *)newQuantity andNotes:(NSString *)newNotes {
+- (void) finishedShopping {
     
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Finished Shopping?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Empty Shopping Cart" otherButtonTitles:nil, nil];
     
+    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+    [actionSheet showFromTabBar:[[[Utilities appDelegate] tabBarController] tabBar]];
+    
+    [actionSheet release];
 }
 
 @end
