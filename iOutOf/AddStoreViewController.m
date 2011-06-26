@@ -13,7 +13,17 @@
 #import "Store.h"
 #import "StoreType.h"
 
+@interface AddStoreViewController (PrivateMethods)
+
+- (void) registerForKeyboardNotifications;
+- (void)keyboardWillHide:(NSNotification *)n;
+- (void)keyboardWillShow:(NSNotification *)n;
+
+@end
+
 @implementation AddStoreViewController
+
+@synthesize scrollView = _scrollView;
 
 @synthesize storeNameTextField = _storeNameTextField;
 @synthesize storeTypeTextField = _storeTypeTextField;
@@ -62,6 +72,12 @@
     [super viewWillAppear:animated];
     
     self.title = @"Add Store";
+    
+    [self.scrollView setContentSize:CGSizeMake(320, 416)];
+    
+    [self registerForKeyboardNotifications];
+    
+    keyboardIsOpen = NO;
     
     self.storeTypes = [[Persistence fetchAllEntitiesOfType:@"StoreType" sortBy:@"type"] retain];
     NSLog(@"Number of types: %i", [self.storeTypes count]);
@@ -146,6 +162,23 @@
 
 #pragma mark -
 #pragma mark Private Methods
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void) registerForKeyboardNotifications {
+    
+	// register for keyboard notifications
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(keyboardWillShow:) 
+												 name:UIKeyboardWillShowNotification 
+											   object:nil];
+	// register for keyboard notifications
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(keyboardWillHide:) 
+												 name:UIKeyboardWillHideNotification 
+											   object:nil];
+}
 
 - (void)keyboardWillShow:(NSNotification *)n {
 	

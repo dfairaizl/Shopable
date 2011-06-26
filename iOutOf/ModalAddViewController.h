@@ -14,7 +14,6 @@
 
 @end
 
-
 @interface ModalAddViewController : UIViewController {
     
     BOOL keyboardIsOpen;

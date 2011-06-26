@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddItemViewController.h"
 
+@interface AddStoreViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 
-@interface AddStoreViewController : AddItemViewController <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
-    
+    BOOL keyboardIsOpen;
+	UIView *currentTextField;
 }
+
+@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, retain) IBOutlet UITextField *storeNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *storeTypeTextField;
