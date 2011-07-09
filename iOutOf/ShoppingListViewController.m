@@ -16,6 +16,10 @@
 #import "Store.h"
 #import "Category.h"
 
+@interface ShoppingListViewController(Private) 
+- (void) addCustomCategory;
+@end
+
 @implementation ShoppingListViewController
 
 @synthesize currentStore = _currentStore;
@@ -81,7 +85,14 @@
     
     self.categories = [[self.currentStore.categories allObjects] sortedArrayUsingDescriptors:sortDescriptors];
     
-    [sortDescriptor release];	
+    [sortDescriptor release];
+	
+    //Custom category button
+    UIBarButtonItem *addCategory = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCustomCategory)];
+    
+    self.navigationItem.rightBarButtonItem = addCategory;
+    
+    [addCategory release];
     
     [self.tableView reloadData];
 }
@@ -190,5 +201,33 @@
     [self.navigationController pushViewController:itemsList animated:YES];
     [itemsList release];
 }
+
+#pragma mark - Private Methods
+
+- (void) addCustomCategory {
+
+    AddCategoryViewController *addCategory = [[AddCategoryViewController alloc] initWithNibName:@"AddCategoryViewController" bundle:nil];
+    addCategory.shoppingListDelegate = self;
+	
+	UINavigationController *modalNav = [[UINavigationController alloc] initWithRootViewController:addCategory];
+	[self.navigationController presentModalViewController:modalNav animated:YES];
+	
+    [addCategory release];
+	[modalNav release];
+}
+
+#pragma mark - AddCategoryDelegate
+
+- (void) addCategoryWithName:(NSString *) name {
+    
+    Category *newCategory = [[Persistence entityOfType:@"Category"] retain];
+    
+    newCategory.name = name;
+   
+    [self.currentStore addCategoriesObject:newCategory];
+    
+    //[self.tableView reloadData];
+}
+
 
 @end

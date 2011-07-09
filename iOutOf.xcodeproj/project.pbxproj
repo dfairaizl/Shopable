@@ -17,6 +17,8 @@
 		7739647313B695D700287F25 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739647213B695D700287F25 /* Store.m */; };
 		7739647613B695D700287F25 /* StoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739647513B695D700287F25 /* StoreType.m */; };
 		7739648113B6A16100287F25 /* AddStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739648013B6A16100287F25 /* AddStoreViewController.xib */; };
+		7754525213C7F38A0027B001 /* AddCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7754525013C7F38A0027B001 /* AddCategoryViewController.m */; };
+		7754525313C7F38A0027B001 /* AddCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7754525113C7F38A0027B001 /* AddCategoryViewController.xib */; };
 		7789EE0E13B022B700152B0D /* Persistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE0D13B022B700152B0D /* Persistence.m */; };
 		7789EE1A13B0247300152B0D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE1913B0247300152B0D /* Utilities.m */; };
 		7789EE1E13B02B4200152B0D /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE1C13B02B4200152B0D /* ShoppingListViewController.m */; };
@@ -79,6 +81,9 @@
 		7739647413B695D700287F25 /* StoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreType.h; sourceTree = "<group>"; };
 		7739647513B695D700287F25 /* StoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreType.m; sourceTree = "<group>"; };
 		7739648013B6A16100287F25 /* AddStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStoreViewController.xib; sourceTree = "<group>"; };
+		7754524F13C7F38A0027B001 /* AddCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCategoryViewController.h; sourceTree = "<group>"; };
+		7754525013C7F38A0027B001 /* AddCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCategoryViewController.m; sourceTree = "<group>"; };
+		7754525113C7F38A0027B001 /* AddCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCategoryViewController.xib; sourceTree = "<group>"; };
 		7789EE0C13B022B700152B0D /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
 		7789EE0D13B022B700152B0D /* Persistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Persistence.m; sourceTree = "<group>"; };
 		7789EE1813B0247300152B0D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -168,6 +173,16 @@
 				77026C4213B422ED0011429B /* EditItemViewController.xib */,
 			);
 			name = "Edit Screen";
+			sourceTree = "<group>";
+		};
+		7754524D13C7F3480027B001 /* Add Category */ = {
+			isa = PBXGroup;
+			children = (
+				7754524F13C7F38A0027B001 /* AddCategoryViewController.h */,
+				7754525013C7F38A0027B001 /* AddCategoryViewController.m */,
+				7754525113C7F38A0027B001 /* AddCategoryViewController.xib */,
+			);
+			name = "Add Category";
 			sourceTree = "<group>";
 		};
 		7789EE0913B0229300152B0D /* DAL */ = {
@@ -354,6 +369,7 @@
 		77B0B9F013AF8E0500318C51 /* Shopping List Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7754524D13C7F3480027B001 /* Add Category */,
 				7789EE1B13B02B4200152B0D /* ShoppingListViewController.h */,
 				7789EE1C13B02B4200152B0D /* ShoppingListViewController.m */,
 				7789EE1D13B02B4200152B0D /* ShoppingListViewController.xib */,
@@ -449,6 +465,7 @@
 				7739648113B6A16100287F25 /* AddStoreViewController.xib in Resources */,
 				770CA1B213B7A82000623DFB /* AtTheStoreSectionHeaderView.xib in Resources */,
 				770CA1B513B7A93600623DFB /* 49.png in Resources */,
+				7754525313C7F38A0027B001 /* AddCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +500,7 @@
 				7739647613B695D700287F25 /* StoreType.m in Sources */,
 				7799CBF513B6ABA600EC282C /* AddStoreViewController.m in Sources */,
 				770CA1B813B7AAF700623DFB /* AtTheStoreSectionHeader.m in Sources */,
+				7754525213C7F38A0027B001 /* AddCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

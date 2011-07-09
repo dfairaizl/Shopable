@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AddCategoryViewController.h"
+
 @class Store;
 
-@interface ShoppingListViewController : UITableViewController {
+@interface ShoppingListViewController : UITableViewController <AddCategoryDelegate> {
     
 }
 
