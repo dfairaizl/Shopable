@@ -11,7 +11,7 @@
 
 #import "EditItemViewController.h"
 
-@interface AtTheStoreViewController : UIViewController <UIActionSheetDelegate> {
+@interface AtTheStoreViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate> {
     
 }
 

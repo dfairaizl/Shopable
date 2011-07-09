@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		77026C4313B422ED0011429B /* EditItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77026C4213B422ED0011429B /* EditItemViewController.xib */; };
+		770CA1B213B7A82000623DFB /* AtTheStoreSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770CA1B113B7A82000623DFB /* AtTheStoreSectionHeaderView.xib */; };
+		770CA1B513B7A93600623DFB /* 49.png in Resources */ = {isa = PBXBuildFile; fileRef = 770CA1B413B7A93600623DFB /* 49.png */; };
+		770CA1B813B7AAF700623DFB /* AtTheStoreSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CA1B713B7AAF700623DFB /* AtTheStoreSectionHeader.m */; };
 		771CA53913B41AA900033E23 /* EditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771CA53713B41AA900033E23 /* EditItemViewController.m */; };
 		7728DD7A13B2FB1800E3DAA3 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728DD7913B2FB1800E3DAA3 /* Item.m */; };
 		7737BFF413B2D624003EE6D7 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7737BFF313B2D624003EE6D7 /* Settings.plist */; };
@@ -62,6 +65,10 @@
 
 /* Begin PBXFileReference section */
 		77026C4213B422ED0011429B /* EditItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditItemViewController.xib; sourceTree = "<group>"; };
+		770CA1B113B7A82000623DFB /* AtTheStoreSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtTheStoreSectionHeaderView.xib; sourceTree = "<group>"; };
+		770CA1B413B7A93600623DFB /* 49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 49.png; sourceTree = "<group>"; };
+		770CA1B613B7AAF700623DFB /* AtTheStoreSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtTheStoreSectionHeader.h; sourceTree = "<group>"; };
+		770CA1B713B7AAF700623DFB /* AtTheStoreSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtTheStoreSectionHeader.m; sourceTree = "<group>"; };
 		771CA53613B41AA900033E23 /* EditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItemViewController.h; sourceTree = "<group>"; };
 		771CA53713B41AA900033E23 /* EditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItemViewController.m; sourceTree = "<group>"; };
 		7728DD7813B2FB1800E3DAA3 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -299,6 +306,7 @@
 		77B0B9DB13AF8D8200318C51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				770CA1B413B7A93600623DFB /* 49.png */,
 				77B0B9E413AF8D9B00318C51 /* 93.png */,
 				77B0B9DC13AF8D9B00318C51 /* 93@2x.png */,
 				77B0BA0613AF900400318C51 /* 264.png */,
@@ -336,6 +344,9 @@
 				7789EE4E13B063FD00152B0D /* ItemTableViewCell.xib */,
 				7789EE4F13B063FD00152B0D /* BBTextDecorationLabel.h */,
 				7789EE5013B063FD00152B0D /* BBTextDecorationLabel.m */,
+				770CA1B613B7AAF700623DFB /* AtTheStoreSectionHeader.h */,
+				770CA1B713B7AAF700623DFB /* AtTheStoreSectionHeader.m */,
+				770CA1B113B7A82000623DFB /* AtTheStoreSectionHeaderView.xib */,
 			);
 			name = "At The Store Screen";
 			sourceTree = "<group>";
@@ -436,6 +447,8 @@
 				77026C4313B422ED0011429B /* EditItemViewController.xib in Resources */,
 				77A571B913B570FB007DE934 /* AddStoreFooter.xib in Resources */,
 				7739648113B6A16100287F25 /* AddStoreViewController.xib in Resources */,
+				770CA1B213B7A82000623DFB /* AtTheStoreSectionHeaderView.xib in Resources */,
+				770CA1B513B7A93600623DFB /* 49.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +482,7 @@
 				7739647313B695D700287F25 /* Store.m in Sources */,
 				7739647613B695D700287F25 /* StoreType.m in Sources */,
 				7799CBF513B6ABA600EC282C /* AddStoreViewController.m in Sources */,
+				770CA1B813B7AAF700623DFB /* AtTheStoreSectionHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

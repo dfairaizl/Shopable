@@ -7,6 +7,8 @@
 //
 
 #import "AtTheStoreViewController.h"
+#import "AtTheStoreSectionHeader.h"
+
 #import "Persistence.h"
 #import "Utilities.h"
 
@@ -118,6 +120,27 @@
     
 	return [[[self.cartItems allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
 }
+
+/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 25.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
+    UILabel *headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 280, 20)];
+    headerTitle.text = [self tableView:self.shoppingCartTableView titleForHeaderInSection:section];
+    
+    [headerView addSubview:headerTitle];
+    
+    return headerView;
+}*/
+
+/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 44;
+}*/
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
