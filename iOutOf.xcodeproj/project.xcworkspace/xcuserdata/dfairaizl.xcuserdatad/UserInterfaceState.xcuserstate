@@ -4149,7 +4149,7 @@
 		<string>IDESCMStatusFilteringEnabled</string>
 		<string>IDESelectedObjects</string>
 		<string>IDEExpandedItemsSet</string>
-		<string>{{0, 203}, {272, 754}}</string>
+		<string>{{0, 584}, {272, 754}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4819,7 +4819,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>23</integer>
+					<integer>151</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5533,10 +5533,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>331870543.02218699</real>
-		<string>{8977, 1802}</string>
-		<string>{10731, 0}</string>
-		<string>-resetShoppingCart</string>
+		<real>331870829.47205502</real>
+		<string>{891, 952}</string>
+		<string>{1959, 0}</string>
+		<string>-viewWillAppear:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -5570,7 +5570,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {1152, 798}}</string>
+		<string>{{0, 0}, {1152, 521}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10268,19 +10268,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>798</integer>
+					<integer>442</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>799</integer>
+					<integer>443</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>800</integer>
+					<integer>444</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>802</integer>
+					<integer>445</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
@@ -10303,7 +10303,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>330321075.80970198</real>
+		<real>331870643.17032897</real>
 		<string>{0, 376}</string>
 		<string>{369, 0}</string>
 		<dict>
@@ -11055,7 +11055,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>331870008.39963597</real>
+		<real>331870645.34953302</real>
 		<string>{5431, 1802}</string>
 		<string>{3524, 0}</string>
 		<dict>
@@ -11247,7 +11247,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>331870041.89084399</real>
+		<real>331870705.05872798</real>
 		<string>{0, 1229}</string>
 		<string>{1262, 0}</string>
 		<dict>
@@ -12153,9 +12153,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>331870543.02071702</real>
-		<string>{8977, 1802}</string>
-		<string>{10731, 0}</string>
+		<real>331870829.47018701</real>
+		<string>{891, 952}</string>
+		<string>{1959, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15446,7 +15446,7 @@
 				<integer>1195</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>331870506.54191101</real>
+			<real>331870788.29626399</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -15457,7 +15457,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 8:15 PM</string>
+		<string>Today at 8:19 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
@@ -15621,11 +15621,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1223</integer>
+					<integer>1224</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1225</integer>
+					<integer>1226</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -15668,7 +15668,7 @@
 				<integer>1213</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ShoppingListViewController.m</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/AtTheStoreSectionHeader.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15686,7 +15686,7 @@
 				<integer>1215</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ShoppingCart.h</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ItemsListViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15704,7 +15704,7 @@
 				<integer>1217</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/AtTheStoreViewController.h</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ShoppingListViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15722,7 +15722,7 @@
 				<integer>1219</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ItemTableViewCell.m</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ShoppingListViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15740,7 +15740,43 @@
 				<integer>1221</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/AtTheStoreSectionHeader.m</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ShoppingCart.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>121</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>1223</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/AtTheStoreViewController.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>121</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>1225</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ItemTableViewCell.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15772,46 +15808,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1224</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/ItemsListViewController.m</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>121</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>1226</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/Persistence.m</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>121</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
 				<integer>1228</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/Persistence.h</string>
+		<string>file://localhost/Users/dfairaizl/Development/iOS/iOutOf/iOutOf/Persistence.m</string>
 	</array>
 	<key>$top</key>
 	<dict>

@@ -69,18 +69,21 @@
     
     self.title = @"At The Store";
     
+    [self loadShoppingCart];
+    
     //at first, don't display the search bar
 	[self.shoppingCartTableView setContentOffset:CGPointMake(0,44)];
     
-    UIBarButtonItem *finishedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishedShopping)];
-    
-    self.navigationItem.rightBarButtonItem = finishedButton;
-    
-    [self loadShoppingCart];
+    if([self.cartItems count] > 0) {
+       
+        UIBarButtonItem *finishedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishedShopping)];
+        
+        self.navigationItem.rightBarButtonItem = finishedButton;
+        
+        [finishedButton release];
+    }
     
     [self.shoppingCartTableView reloadData];
-    
-    [finishedButton release];
 }
 
 - (void)viewDidUnload
