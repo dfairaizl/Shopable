@@ -14,7 +14,7 @@
 
 //Entities
 #import "Store.h"
-#import "Category.h"
+#import "StoreCategory.h"
 #import "Item.h"
 #import "ShoppingCart.h"
 

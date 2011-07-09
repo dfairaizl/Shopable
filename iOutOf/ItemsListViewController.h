@@ -10,13 +10,13 @@
 
 #import "AddItemViewController.h"
 
-@class Category;
+@class StoreCategory;
 
 @interface ItemsListViewController : UITableViewController <AddItemDelegate> {
     
 }
 
-@property (nonatomic, retain) Category *currentCategory;
+@property (nonatomic, retain) StoreCategory *currentCategory;
 @property (nonatomic, retain) NSArray *items;
 
 @end

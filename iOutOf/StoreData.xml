@@ -7,7 +7,7 @@
         <Type>Other</Type>
     </StoreTypes>
     <Store name="Grocery Store" type="Grocery">
-        <Category name="Baking">
+        <StoreCategory name="Baking">
             <Item>Flour</Item>
             <Item>Sugar</Item>
             <Item>Baking Soda</Item>
@@ -16,21 +16,21 @@
             <Item>Frosting</Item>
             <Item>Cake Mix</Item>
             <Item>Sprinkles</Item>
-        </Category>
-        <Category name="Beverages">
+        </StoreCategory>
+        <StoreCategory name="Beverages">
             <Item>Water</Item>
             <Item>Orange Juice</Item>
             <Item>Cranberry Juice</Item>
             <Item>Apple Juice</Item>
             <Item>Soda</Item>
-        </Category>
-        <Category name="Breads">
+        </StoreCategory>
+        <StoreCategory name="Breads">
             <Item>Sandwhich Bread</Item>
             <Item>Fresh Bread</Item>
             <Item>Pitas</Item>
             <Item>Tortillas</Item>
-        </Category>
-        <Category name="Canned Goods">
+        </StoreCategory>
+        <StoreCategory name="Canned Goods">
             <Item>Soup</Item>
             <Item>Pasta Sauce</Item>
             <Item>Green Beans</Item>
@@ -38,8 +38,8 @@
             <Item>Ravioli</Item>
             <Item>Sauce</Item>
             <Item>Olives</Item>
-        </Category>
-        <Category name="Condiments">
+        </StoreCategory>
+        <StoreCategory name="Condiments">
             <Item>Mayonnaise</Item>
             <Item>Salt</Item>
             <Item>Pepper</Item>
@@ -50,28 +50,28 @@
             <Item>Ketchup</Item>
             <Item>Mustard</Item>
             <Item>Spices</Item>
-        </Category>
-        <Category name="Dairy">
+        </StoreCategory>
+        <StoreCategory name="Dairy">
             <Item>Yogurt</Item>
             <Item>Butter</Item>
             <Item>Sour Cream</Item>
             <Item>Cheese</Item>
             <Item>Half and Half</Item>
             <Item>Cottage Cheese</Item>
-        </Category>
-        <Category name="Dry Goods">
+        </StoreCategory>
+        <StoreCategory name="Dry Goods">
             <Item>Pasta</Item>
             <Item>Rice</Item>
             <Item>Beans</Item>
             <Item>Quinoa</Item>
-        </Category>
-        <Category name="Frozen Foods">
+        </StoreCategory>
+        <StoreCategory name="Frozen Foods">
             <Item>Pizzas</Item>
             <Item>Ice Creams</Item>
             <Item>Dessert</Item>
             <Item>Waffles</Item>
-        </Category>
-        <Category name="Fruits">
+        </StoreCategory>
+        <StoreCategory name="Fruits">
             <Item>Apples</Item>
             <Item>Bananas</Item>
             <Item>Strawberries</Item>
@@ -81,15 +81,15 @@
             <Item>Peaches</Item>
             <Item>Pears</Item>
             <Item>Kiwi</Item>
-        </Category>
-        <Category name="Health">
+        </StoreCategory>
+        <StoreCategory name="Health">
             <Item>Vitamins</Item>
             <Item>Protien Powder</Item>
             <Item>Pain Reliever</Item>
             <Item>Medicine</Item>
             <Item>Supplements</Item>
-        </Category>
-        <Category name="Toiletries">
+        </StoreCategory>
+        <StoreCategory name="Toiletries">
             <Item>Tooth Paste</Item>
             <Item>Floss</Item>
             <Item>Deoderant</Item>
@@ -103,8 +103,8 @@
             <Item>Nail Polish</Item>
             <Item>Lotion</Item>
             <Item>Tampons</Item>
-        </Category>
-        <Category name="Household">
+        </StoreCategory>
+        <StoreCategory name="Household">
             <Item>Detergent</Item>
             <Item>Softener</Item>
             <Item>Cleaner</Item>
@@ -113,8 +113,8 @@
             <Item>Tissues</Item>
             <Item>Napkins</Item>
             <Item>Paper Plates</Item>
-        </Category>
-        <Category name="Meats">
+        </StoreCategory>
+        <StoreCategory name="Meats">
             <Item>Ground Beef</Item>
             <Item>Chicken</Item>
             <Item>Turkey</Item>
@@ -123,14 +123,14 @@
             <Item>Deli Meats</Item>
             <Item>Hot Dogs</Item>
             <Item>Hamburgers</Item>
-        </Category>
-        <Category name="Snacks">
+        </StoreCategory>
+        <StoreCategory name="Snacks">
             <Item>Chips</Item>
             <Item>Crackers</Item>
             <Item>Pretzels</Item>
             <Item>Cookies</Item>
-        </Category>
-        <Category name="Vegetables">
+        </StoreCategory>
+        <StoreCategory name="Vegetables">
             <Item>Lettuce</Item>
             <Item>Carrots</Item>
             <Item>Tomatoes</Item>
@@ -142,6 +142,6 @@
             <Item>Yams</Item>
             <Item>Snap Peas</Item>
             <Item>Celery</Item>
-        </Category>
+        </StoreCategory>
     </Store>
 </Data>

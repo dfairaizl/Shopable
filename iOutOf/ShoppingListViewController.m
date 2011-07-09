@@ -14,7 +14,7 @@
 
 //Entities
 #import "Store.h"
-#import "Category.h"
+#import "StoreCategory.h"
 
 @interface ShoppingListViewController(Private) 
 - (void) addCustomCategory;
@@ -142,7 +142,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    Category *category = [self.categories objectAtIndex:indexPath.row];
+    StoreCategory *category = [self.categories objectAtIndex:indexPath.row];
     
     // Configure the cell...
     cell.textLabel.text = category.name;
@@ -220,7 +220,7 @@
 
 - (void) addCategoryWithName:(NSString *) name {
     
-    Category *newCategory = [[Persistence entityOfType:@"Category"] retain];
+    StoreCategory *newCategory = (StoreCategory *)[[Persistence entityOfType:@"StoreCategory"] retain];
     
     newCategory.name = name;
    

@@ -11,7 +11,7 @@
 
 //Entities
 #import "Store.h"
-#import "Category.h"
+#import "StoreCategory.h"
 #import "Item.h"
 #import "StoreType.h"
 
@@ -45,9 +45,9 @@
         
         currentStore = store;
 	}
-    else if([elementName isEqualToString:@"Category"]) {
+    else if([elementName isEqualToString:@"StoreCategory"]) {
 		
-		Category *category = (Category *)[Persistence entityOfType:elementName];
+		StoreCategory *category = (StoreCategory *)[Persistence entityOfType:elementName];
         category.name = [attributeDict objectForKey:@"name"];
         
         currentCategory = category;
@@ -90,7 +90,7 @@
 	else if([elementName isEqualToString:@"Store"] || [elementName isEqualToString:@"StoreTypes"]) {
         
 	}
-    else if([elementName isEqualToString:@"Category"]) {
+    else if([elementName isEqualToString:@"StoreCategory"]) {
 		
         [currentStore addCategoriesObject:currentCategory];
 	}

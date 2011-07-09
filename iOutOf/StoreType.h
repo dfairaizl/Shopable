@@ -2,7 +2,7 @@
 //  StoreType.h
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/25/11.
+//  Created by Dan Fairaizl on 7/8/11.
 //  Copyright (c) 2011 Basically Bits, LLC. All rights reserved.
 //
 
@@ -15,6 +15,6 @@
 @private
 }
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) Store * typeOfStore;
+@property (nonatomic, retain) Store *typeOfStore;
 
 @end

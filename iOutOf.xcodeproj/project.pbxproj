@@ -11,11 +11,13 @@
 		770CA1B213B7A82000623DFB /* AtTheStoreSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770CA1B113B7A82000623DFB /* AtTheStoreSectionHeaderView.xib */; };
 		770CA1B513B7A93600623DFB /* 49.png in Resources */ = {isa = PBXBuildFile; fileRef = 770CA1B413B7A93600623DFB /* 49.png */; };
 		770CA1B813B7AAF700623DFB /* AtTheStoreSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CA1B713B7AAF700623DFB /* AtTheStoreSectionHeader.m */; };
+		770E86A313C8102700F4CC86 /* StoreCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 770E86A213C8102700F4CC86 /* StoreCategory.m */; };
+		770E86A613C8102800F4CC86 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 770E86A513C8102800F4CC86 /* ShoppingCart.m */; };
+		770E86A913C8102800F4CC86 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 770E86A813C8102800F4CC86 /* Item.m */; };
+		770E86AC13C8102800F4CC86 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 770E86AB13C8102800F4CC86 /* Store.m */; };
+		770E86AF13C8102800F4CC86 /* StoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 770E86AE13C8102800F4CC86 /* StoreType.m */; };
 		771CA53913B41AA900033E23 /* EditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771CA53713B41AA900033E23 /* EditItemViewController.m */; };
-		7728DD7A13B2FB1800E3DAA3 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728DD7913B2FB1800E3DAA3 /* Item.m */; };
 		7737BFF413B2D624003EE6D7 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7737BFF313B2D624003EE6D7 /* Settings.plist */; };
-		7739647313B695D700287F25 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739647213B695D700287F25 /* Store.m */; };
-		7739647613B695D700287F25 /* StoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739647513B695D700287F25 /* StoreType.m */; };
 		7739648113B6A16100287F25 /* AddStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739648013B6A16100287F25 /* AddStoreViewController.xib */; };
 		7754525213C7F38A0027B001 /* AddCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7754525013C7F38A0027B001 /* AddCategoryViewController.m */; };
 		7754525313C7F38A0027B001 /* AddCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7754525113C7F38A0027B001 /* AddCategoryViewController.xib */; };
@@ -30,8 +32,6 @@
 		7789EE3A13B0531300152B0D /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE3613B0531300152B0D /* AddItemViewController.m */; };
 		7789EE3B13B0531300152B0D /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7789EE3713B0531300152B0D /* AddItemViewController.xib */; };
 		7789EE3C13B0531300152B0D /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE3913B0531300152B0D /* BBTextField.m */; };
-		7789EE3F13B0568900152B0D /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE3E13B0568900152B0D /* ShoppingCart.m */; };
-		7789EE4813B0568A00152B0D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE4713B0568A00152B0D /* Category.m */; };
 		7789EE5113B063FD00152B0D /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE4D13B063FD00152B0D /* ItemTableViewCell.m */; };
 		7789EE5213B063FD00152B0D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7789EE4E13B063FD00152B0D /* ItemTableViewCell.xib */; };
 		7789EE5313B063FD00152B0D /* BBTextDecorationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789EE5013B063FD00152B0D /* BBTextDecorationLabel.m */; };
@@ -71,15 +71,19 @@
 		770CA1B413B7A93600623DFB /* 49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 49.png; sourceTree = "<group>"; };
 		770CA1B613B7AAF700623DFB /* AtTheStoreSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtTheStoreSectionHeader.h; sourceTree = "<group>"; };
 		770CA1B713B7AAF700623DFB /* AtTheStoreSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtTheStoreSectionHeader.m; sourceTree = "<group>"; };
+		770E86A113C8102700F4CC86 /* StoreCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCategory.h; sourceTree = "<group>"; };
+		770E86A213C8102700F4CC86 /* StoreCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCategory.m; sourceTree = "<group>"; };
+		770E86A413C8102800F4CC86 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
+		770E86A513C8102800F4CC86 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
+		770E86A713C8102800F4CC86 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		770E86A813C8102800F4CC86 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		770E86AA13C8102800F4CC86 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		770E86AB13C8102800F4CC86 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		770E86AD13C8102800F4CC86 /* StoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreType.h; sourceTree = "<group>"; };
+		770E86AE13C8102800F4CC86 /* StoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreType.m; sourceTree = "<group>"; };
 		771CA53613B41AA900033E23 /* EditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItemViewController.h; sourceTree = "<group>"; };
 		771CA53713B41AA900033E23 /* EditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItemViewController.m; sourceTree = "<group>"; };
-		7728DD7813B2FB1800E3DAA3 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		7728DD7913B2FB1800E3DAA3 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		7737BFF313B2D624003EE6D7 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
-		7739647113B695D700287F25 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
-		7739647213B695D700287F25 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
-		7739647413B695D700287F25 /* StoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreType.h; sourceTree = "<group>"; };
-		7739647513B695D700287F25 /* StoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreType.m; sourceTree = "<group>"; };
 		7739648013B6A16100287F25 /* AddStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStoreViewController.xib; sourceTree = "<group>"; };
 		7754524F13C7F38A0027B001 /* AddCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCategoryViewController.h; sourceTree = "<group>"; };
 		7754525013C7F38A0027B001 /* AddCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCategoryViewController.m; sourceTree = "<group>"; };
@@ -102,10 +106,6 @@
 		7789EE3713B0531300152B0D /* AddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		7789EE3813B0531300152B0D /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
 		7789EE3913B0531300152B0D /* BBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextField.m; sourceTree = "<group>"; };
-		7789EE3D13B0568900152B0D /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
-		7789EE3E13B0568900152B0D /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
-		7789EE4613B0568A00152B0D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		7789EE4713B0568A00152B0D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		7789EE4C13B063FD00152B0D /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		7789EE4D13B063FD00152B0D /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		7789EE4E13B063FD00152B0D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -199,16 +199,16 @@
 		7789EE0B13B0229A00152B0D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7739647413B695D700287F25 /* StoreType.h */,
-				7739647513B695D700287F25 /* StoreType.m */,
-				7739647113B695D700287F25 /* Store.h */,
-				7739647213B695D700287F25 /* Store.m */,
-				7728DD7813B2FB1800E3DAA3 /* Item.h */,
-				7728DD7913B2FB1800E3DAA3 /* Item.m */,
-				7789EE4613B0568A00152B0D /* Category.h */,
-				7789EE4713B0568A00152B0D /* Category.m */,
-				7789EE3D13B0568900152B0D /* ShoppingCart.h */,
-				7789EE3E13B0568900152B0D /* ShoppingCart.m */,
+				770E86AD13C8102800F4CC86 /* StoreType.h */,
+				770E86AE13C8102800F4CC86 /* StoreType.m */,
+				770E86AA13C8102800F4CC86 /* Store.h */,
+				770E86AB13C8102800F4CC86 /* Store.m */,
+				770E86A713C8102800F4CC86 /* Item.h */,
+				770E86A813C8102800F4CC86 /* Item.m */,
+				770E86A413C8102800F4CC86 /* ShoppingCart.h */,
+				770E86A513C8102800F4CC86 /* ShoppingCart.m */,
+				770E86A113C8102700F4CC86 /* StoreCategory.h */,
+				770E86A213C8102700F4CC86 /* StoreCategory.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -415,6 +415,7 @@
 		77B0B9A613AF8C4800318C51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Basically Bits, LLC";
 			};
 			buildConfigurationList = 77B0B9A913AF8C4800318C51 /* Build configuration list for PBXProject "iOutOf" */;
@@ -489,18 +490,18 @@
 				7789EE2913B02F9100152B0D /* XmlDataParser.m in Sources */,
 				7789EE3A13B0531300152B0D /* AddItemViewController.m in Sources */,
 				7789EE3C13B0531300152B0D /* BBTextField.m in Sources */,
-				7789EE3F13B0568900152B0D /* ShoppingCart.m in Sources */,
-				7789EE4813B0568A00152B0D /* Category.m in Sources */,
 				7789EE5113B063FD00152B0D /* ItemTableViewCell.m in Sources */,
 				7789EE5313B063FD00152B0D /* BBTextDecorationLabel.m in Sources */,
-				7728DD7A13B2FB1800E3DAA3 /* Item.m in Sources */,
 				771CA53913B41AA900033E23 /* EditItemViewController.m in Sources */,
 				77A571C313B57923007DE934 /* ModalAddViewController.m in Sources */,
-				7739647313B695D700287F25 /* Store.m in Sources */,
-				7739647613B695D700287F25 /* StoreType.m in Sources */,
 				7799CBF513B6ABA600EC282C /* AddStoreViewController.m in Sources */,
 				770CA1B813B7AAF700623DFB /* AtTheStoreSectionHeader.m in Sources */,
 				7754525213C7F38A0027B001 /* AddCategoryViewController.m in Sources */,
+				770E86A313C8102700F4CC86 /* StoreCategory.m in Sources */,
+				770E86A613C8102800F4CC86 /* ShoppingCart.m in Sources */,
+				770E86A913C8102800F4CC86 /* Item.m in Sources */,
+				770E86AC13C8102800F4CC86 /* Store.m in Sources */,
+				770E86AF13C8102800F4CC86 /* StoreType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +537,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -550,6 +552,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;

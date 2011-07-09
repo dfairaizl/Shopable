@@ -15,7 +15,7 @@
 
 //Entities
 #import "Store.h"
-#import "Category.h"
+#import "StoreCategory.h"
 
 @implementation HomeViewController
 
