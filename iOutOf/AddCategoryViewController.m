@@ -82,7 +82,6 @@
 #pragma mark Interface Actions
 
 - (IBAction) doneEditingField:(id)sender {
-    
     [self.categoryNameTextField resignFirstResponder];
 }
 
