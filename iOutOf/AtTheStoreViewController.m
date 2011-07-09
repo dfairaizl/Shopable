@@ -22,6 +22,7 @@
 - (void) loadShoppingCart;
 - (void) finishedShopping;
 - (Store *) getCurrentStore;
+- (void) resetShoppingCart;
 @end
 
 @implementation AtTheStoreViewController
@@ -278,12 +279,7 @@
     
     if(buttonIndex == 0) { //destructive button
         
-        //clear this shopping cart
-        Store *currentStore = [self getCurrentStore];
-        
-        [[Utilities managedObjectContext] deleteObject:currentStore.shoppingCart];
-        
-        [self.cartItems removeAllObjects];
+        [self resetShoppingCart];
         
         [self.shoppingCartTableView reloadData];
     }
@@ -325,9 +321,9 @@
     
     //Get the current store
     NSArray *stores = [[Persistence fetchEntitiesOfType:@"Store" withPredicate:selectedPred] retain];
-    Store *store = [stores lastObject];
+    Store *store = [stores lastObject]; //should be only one...
     
-    return store; //should be only one...
+    return store;
 }
 
 - (void) finishedShopping {
@@ -338,6 +334,25 @@
     [actionSheet showFromTabBar:[[[Utilities appDelegate] tabBarController] tabBar]];
     
     [actionSheet release];
+}
+
+- (void) resetShoppingCart {
+    
+    //clear this shopping cart
+    Store *currentStore = [self getCurrentStore];
+    
+    ShoppingCart *currentCart = currentStore.shoppingCart;
+    
+    //unselect all the items
+    for(Item *i in currentCart.cartItems) {
+        
+        i.selected = [NSNumber numberWithBool:NO];
+        
+    }
+    
+    //clean up the shopping cart
+    [[Utilities managedObjectContext] deleteObject:currentStore.shoppingCart];
+    [self.cartItems removeAllObjects];
 }
 
 @end
