@@ -2,16 +2,17 @@
 //  main.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 6/20/11.
-//  Copyright 2011 Basically Bits, LLC. All rights reserved.
+//  Created by Dan Fairaizl on 1/11/12.
+//  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+#import "BBAppDelegate.h"
+
 int main(int argc, char *argv[])
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([BBAppDelegate class]));
+    }
 }
