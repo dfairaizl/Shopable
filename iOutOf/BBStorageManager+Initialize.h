@@ -11,5 +11,7 @@
 @interface BBStorageManager (Initialize)
 
 - (void)createDefaults;
+- (void)createDefaultCategories;
+- (void)createDefaultItemsForCategory:(BBItemCategory *)category fromDictionary:(NSDictionary *)itemsDict;
 
 @end

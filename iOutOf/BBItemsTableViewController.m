@@ -8,8 +8,18 @@
 
 #import "BBItemsTableViewController.h"
 
+#import "BBStorageManager.h"
+
+@interface BBItemsTableViewController ()
+
+@property (strong, nonatomic) NSArray *items;
+
+@end
 
 @implementation BBItemsTableViewController
+
+@synthesize currentItemCategory;
+@synthesize items;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,12 +43,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.items = [[self.currentItemCategory.items allObjects] sortedArrayUsingComparator:^NSComparisonResult(BBItem *item1, BBItem *item2) {
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        return [item1.name compare:item2.name];
+    }];
 }
 
 - (void)viewDidUnload
@@ -51,6 +60,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.title = self.currentItemCategory.name;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -78,16 +89,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +108,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    BBItem *item = [self.items objectAtIndex:indexPath.row];
+
     // Configure the cell...
+    cell.textLabel.text = item.name;
     
     return cell;
 }

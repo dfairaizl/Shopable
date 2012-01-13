@@ -7,11 +7,9 @@
 //
 
 #import "BBStoresTableViewController.h"
+#import "BBShoppingViewController.h"
 
 #import "BBStorageManager.h"
-
-//Entities
-#import "BBStore.h"
 
 @implementation BBStoresTableViewController
 
@@ -46,7 +44,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] init];
+    
+    storesFR.entity = [NSEntityDescription entityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
     storesFR.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
             
     _frc = [[NSFetchedResultsController alloc] initWithFetchRequest:storesFR managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
@@ -93,7 +93,9 @@
     
     if([segue.identifier isEqualToString:@"StoreSelectionSegue"]) {
     
+        BBShoppingViewController *destVC = (BBShoppingViewController *)segue.destinationViewController;
         
+        destVC.currentStore = selectedStore;
     }
 }
 

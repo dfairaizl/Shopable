@@ -1,5 +1,5 @@
 //
-//  BBStore.h
+//  BBItem.h
 //  iOutOf
 //
 //  Created by Dan Fairaizl on 1/12/12.
@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class BBItemCategory;
 
-@interface BBStore : NSManagedObject
+@interface BBItem : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * type;
+@property (nonatomic, retain) NSNumber * quantity;
+@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) BBItemCategory *parentItemCategory;
 
 @end

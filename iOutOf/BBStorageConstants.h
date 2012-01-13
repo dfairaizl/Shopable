@@ -9,6 +9,18 @@
 #ifndef iOutOf_BBStorageConstants_h
 #define iOutOf_BBStorageConstants_h
 
-#define     BB_ENTITY_STORE         @"BBStore"
+//Entities
+#import "BBStore.h"
+#import "BBItemCategory.h"
+#import "BBItem.h"
+
+#define     BB_ENTITY_STORE             @"BBStore"
+#define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"
+#define     BB_ENTITY_ITEM              @"BBItem"
+#define     BB_ENTITY_SHOPPING_CART     @"BBShoppingCart"
+
+typedef enum {
+    bbStoreTypeGrocery = 0,
+} BBType;
 
 #endif

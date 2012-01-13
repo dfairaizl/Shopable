@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Categories</key>
+	<array>
+		<string>Baking</string>
+		<string>Beverages</string>
+		<string>Canned Goods</string>
+		<string>Dairy</string>
+		<string>Frozen Foods</string>
+		<string>Health</string>
+		<string>Hygiene</string>
+		<string>House Hold</string>
+		<string>Meats</string>
+		<string>Medicine</string>
+		<string>Produce</string>
+		<string>Pet Supplies</string>
+		<string>Snacks</string>
+		<string>Vegetables</string>
+	</array>
+	<key>Items</key>
+	<dict>
+		<key>Baking</key>
+		<array>
+			<string>Flour</string>
+			<string>Baking Soda</string>
+			<string>Sugar</string>
+			<string>Cake Mix</string>
+		</array>
+		<key>Beverages</key>
+		<array>
+			<string>Soda</string>
+			<string>Water</string>
+			<string>Juice</string>
+		</array>
+		<key>Canned Goods</key>
+		<array>
+			<string>Beans</string>
+			<string>Vegetables</string>
+			<string>Soup</string>
+			<string>Fruit</string>
+			<string>Chili</string>
+		</array>
+		<key>Dairy</key>
+		<array>
+			<string>Milk</string>
+			<string>Cheese</string>
+			<string>Yogurt</string>
+			<string>Butter</string>
+			<string>Sour Cream</string>
+		</array>
+		<key>Frozen Foods</key>
+		<array>
+			<string>Frozen Meals</string>
+			<string>Vegetables</string>
+			<string>Fruit</string>
+			<string>Pizzas</string>
+			<string>Dessert</string>
+			<string>Ice Cream</string>
+		</array>
+		<key>Health</key>
+		<array>
+			<string>Vitamins</string>
+			<string>Protien Powder</string>
+			<string>Energy Bars</string>
+			<string>Supplements</string>
+		</array>
+		<key>House Hold</key>
+		<array>
+			<string>Bleach</string>
+			<string>Tissues</string>
+			<string>Paper Towels</string>
+			<string>Toilet Paper</string>
+			<string>Window Cleaner</string>
+			<string>Soap</string>
+			<string>Detergent</string>
+			<string>Dishwasher Soap</string>
+			<string>Fabric Softener</string>
+		</array>
+		<key>Hygiene</key>
+		<array>
+			<string>Shampoo</string>
+			<string>Body Wash</string>
+			<string>Conditioner</string>
+			<string>Soap</string>
+			<string>Toothpaste</string>
+			<string>Floss</string>
+			<string>Mouth Wash</string>
+			<string>Feminine Care</string>
+			<string>Contact Lense Solution</string>
+		</array>
+		<key>Meats</key>
+		<array>
+			<string>Beef</string>
+			<string>Steak</string>
+			<string>Chicken</string>
+			<string>Pork</string>
+			<string>Fish</string>
+			<string>Cold Cuts</string>
+		</array>
+		<key>Medicine</key>
+		<array>
+			<string>Eye Drops</string>
+			<string>Cough Syrup</string>
+			<string>Ear Drops</string>
+			<string>Allergy Medicine</string>
+			<string>Pain Relivers</string>
+			<string>Antacids</string>
+		</array>
+		<key>Produce</key>
+		<array>
+			<string>Oranges</string>
+			<string>Apples</string>
+			<string>Bananas</string>
+			<string>Strawberries</string>
+			<string>Blueberries</string>
+			<string>Raspberries</string>
+			<string>Lemons</string>
+			<string>Limes</string>
+			<string>Grapefruit</string>
+			<string>Cherries</string>
+			<string>Watermelon</string>
+			<string>Pinapples</string>
+			<string>Grapes</string>
+		</array>
+		<key>Pet Supplies</key>
+		<array>
+			<string>Dog Food</string>
+			<string>Cat Food</string>
+			<string>Bird Seed</string>
+			<string>Kitty Litter</string>
+			<string>Doggie Bags</string>
+			<string>Toys</string>
+			<string>Pet Medication</string>
+		</array>
+		<key>Snacks</key>
+		<array>
+			<string>Chips</string>
+			<string>Crakers</string>
+			<string>Cookies</string>
+			<string>Pretzels</string>
+			<string>Toaster Pastries</string>
+			<string>Fruit Bars</string>
+			<string>Candy</string>
+		</array>
+		<key>Vegetables</key>
+		<array>
+			<string>Tomatoes</string>
+			<string>Carrots</string>
+			<string>Potatos</string>
+			<string>Lettuce</string>
+			<string>Salad Mix</string>
+			<string>Spinach</string>
+			<string>Yams</string>
+			<string>Kale</string>
+			<string>Onions</string>
+			<string>Bell Peppers</string>
+			<string>Cucumbers</string>
+			<string>Mushrooms</string>
+		</array>
+	</dict>
+</dict>
+</plist>

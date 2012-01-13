@@ -8,9 +8,6 @@
 
 #import "BBStorageManager+Initialize.h"
 
-//Entities
-#import "BBStore.h"
-
 @implementation BBStorageManager (Initialize)
 
 - (void)createDefaults {
@@ -18,11 +15,47 @@
     NSLog(@"First launch of app after install. Creating default data");
     
     //Create default Grocery Store
-    BBStore *entity = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[self managedObjectContext]];
+    BBStore *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
     
-    entity.name = [NSString stringWithString:@"Dan's Grocery Store"];
+    groceryStore.name = [NSString stringWithString:@"Grocery Store"];
+    
+    //set the type
+    groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+    
+    [self createDefaultCategories];
     
     [self saveContext];
+}
+
+- (void)createDefaultCategories {
+    
+    //create item categories for this store
+    NSDictionary *itemCategories = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"CategoryItems" withExtension:@"plist"]];
+    NSArray *categories = [itemCategories objectForKey:@"Categories"];
+    
+    for(NSString *category in categories) {
+        
+        BBItemCategory *itemCategory = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM_CATEGORY inManagedObjectContext:self.managedObjectContext];
+        
+        itemCategory.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+        itemCategory.name = category;
+        
+        [self createDefaultItemsForCategory:itemCategory fromDictionary:[itemCategories objectForKey:@"Items"]];
+    }
+}
+
+- (void)createDefaultItemsForCategory:(BBItemCategory *)category fromDictionary:(NSDictionary *)itemsDict {
+    
+    NSArray *items = [itemsDict objectForKey:category.name];
+    
+    for(NSString *item in items) {
+        
+        BBItem *itemMO = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:self.managedObjectContext];
+        
+        itemMO.name = item;
+        
+        [category addItemsObject:itemMO];
+    }
 }
 
 @end

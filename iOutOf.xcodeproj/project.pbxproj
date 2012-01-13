@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
+		778C1C6B14BF82D400190DAE /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C6A14BF82D400190DAE /* BBShoppingCart.m */; };
+		778C1C6E14BF82D500190DAE /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C6D14BF82D500190DAE /* BBItem.m */; };
+		778C1C7114BF82D500190DAE /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C7014BF82D500190DAE /* BBItemCategory.m */; };
+		778C1C7414BF82D500190DAE /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C7314BF82D500190DAE /* BBStore.m */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
 		77A4173614BDFEC200ACAAC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173514BDFEC200ACAAC1 /* CoreGraphics.framework */; };
@@ -22,16 +27,17 @@
 		77A4176014BDFEC200ACAAC1 /* iOutOfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4175F14BDFEC200ACAAC1 /* iOutOfTests.m */; };
 		77A4176C14BE0F3D00ACAAC1 /* BBStoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4176B14BE0F3D00ACAAC1 /* BBStoresTableViewController.m */; };
 		77A4176F14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4176E14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m */; };
-		77A4177314BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4177214BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.m */; };
 		77A4177614BE0FEA00ACAAC1 /* BBItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4177514BE0FEA00ACAAC1 /* BBItemsTableViewController.m */; };
 		77A4177914BE101300ACAAC1 /* BBAddItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4177814BE101300ACAAC1 /* BBAddItemTableViewController.m */; };
-		77A4178014BE10C000ACAAC1 /* BBAtTheStoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4177F14BE10C000ACAAC1 /* BBAtTheStoreTableViewController.m */; };
 		77A4178414BE110500ACAAC1 /* iOutOf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A4178214BE110500ACAAC1 /* iOutOf.xcdatamodeld */; };
 		77A4178614BE111100ACAAC1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178514BE111100ACAAC1 /* CoreData.framework */; };
 		77A4178814BE113100ACAAC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178714BE113100ACAAC1 /* QuartzCore.framework */; };
 		77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */; };
 		77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */; };
-		77F6221014BEAA9700873101 /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6220F14BEAA9700873101 /* BBStore.m */; };
+		77BA5C0D14BFC64500A0D646 /* BBToolbarShoppingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BA5C0C14BFC64500A0D646 /* BBToolbarShoppingView.m */; };
+		77BA5C1014BFC88D00A0D646 /* BBShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BA5C0F14BFC88D00A0D646 /* BBShoppingViewController.m */; };
+		77BA5C1814BFD41800A0D646 /* 63.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BA5C1614BFD41800A0D646 /* 63.png */; };
+		77BA5C1914BFD41800A0D646 /* 63@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BA5C1714BFD41800A0D646 /* 63@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
+		778C1C6914BF82D400190DAE /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
+		778C1C6A14BF82D400190DAE /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
+		778C1C6C14BF82D500190DAE /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
+		778C1C6D14BF82D500190DAE /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
+		778C1C6F14BF82D500190DAE /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
+		778C1C7014BF82D500190DAE /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
+		778C1C7214BF82D500190DAE /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
+		778C1C7314BF82D500190DAE /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
 		77A4172D14BDFEC200ACAAC1 /* iOutOf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOutOf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4173114BDFEC200ACAAC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77A4173314BDFEC200ACAAC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,14 +82,10 @@
 		77A4176B14BE0F3D00ACAAC1 /* BBStoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStoresTableViewController.m; sourceTree = "<group>"; };
 		77A4176D14BE0F6900ACAAC1 /* BBAddStoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddStoreTableViewController.h; sourceTree = "<group>"; };
 		77A4176E14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddStoreTableViewController.m; sourceTree = "<group>"; };
-		77A4177114BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryTableViewController.h; sourceTree = "<group>"; };
-		77A4177214BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryTableViewController.m; sourceTree = "<group>"; };
 		77A4177414BE0FEA00ACAAC1 /* BBItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemsTableViewController.h; sourceTree = "<group>"; };
 		77A4177514BE0FEA00ACAAC1 /* BBItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemsTableViewController.m; sourceTree = "<group>"; };
 		77A4177714BE101300ACAAC1 /* BBAddItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddItemTableViewController.h; sourceTree = "<group>"; };
 		77A4177814BE101300ACAAC1 /* BBAddItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddItemTableViewController.m; sourceTree = "<group>"; };
-		77A4177E14BE10C000ACAAC1 /* BBAtTheStoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAtTheStoreTableViewController.h; sourceTree = "<group>"; };
-		77A4177F14BE10C000ACAAC1 /* BBAtTheStoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAtTheStoreTableViewController.m; sourceTree = "<group>"; };
 		77A4178314BE110500ACAAC1 /* iOutOf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOutOf.xcdatamodel; sourceTree = "<group>"; };
 		77A4178514BE111100ACAAC1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		77A4178714BE113100ACAAC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -83,8 +94,12 @@
 		77A417DD14BE174E00ACAAC1 /* BBStorageManager+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStorageManager+Initialize.h"; sourceTree = "<group>"; };
 		77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBStorageManager+Initialize.m"; sourceTree = "<group>"; };
 		77A417E214BE1E6E00ACAAC1 /* BBStorageConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStorageConstants.h; sourceTree = "<group>"; };
-		77F6220E14BEAA9700873101 /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
-		77F6220F14BEAA9700873101 /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
+		77BA5C0B14BFC64500A0D646 /* BBToolbarShoppingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBToolbarShoppingView.h; sourceTree = "<group>"; };
+		77BA5C0C14BFC64500A0D646 /* BBToolbarShoppingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBToolbarShoppingView.m; sourceTree = "<group>"; };
+		77BA5C0E14BFC88D00A0D646 /* BBShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingViewController.h; sourceTree = "<group>"; };
+		77BA5C0F14BFC88D00A0D646 /* BBShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingViewController.m; sourceTree = "<group>"; };
+		77BA5C1614BFD41800A0D646 /* 63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 63.png; sourceTree = "<group>"; };
+		77BA5C1714BFD41800A0D646 /* 63@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "63@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +163,9 @@
 		77A4173714BDFEC200ACAAC1 /* iOutOf */ = {
 			isa = PBXGroup;
 			children = (
-				77A4177A14BE103900ACAAC1 /* At The Store */,
 				77A4174014BDFEC200ACAAC1 /* BBAppDelegate.h */,
 				77A4174114BDFEC200ACAAC1 /* BBAppDelegate.m */,
-				77A4177014BE0F8E00ACAAC1 /* Items */,
+				77A4177014BE0F8E00ACAAC1 /* Shopping */,
 				77A4174614BDFEC200ACAAC1 /* MainStoryboard_iPad.storyboard */,
 				77A4174314BDFEC200ACAAC1 /* MainStoryboard_iPhone.storyboard */,
 				77A4178D14BE138800ACAAC1 /* Data */,
@@ -164,11 +178,13 @@
 		77A4173814BDFEC200ACAAC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				778C1C4F14BF70A800190DAE /* CategoryItems.plist */,
 				77A4178114BE10F100ACAAC1 /* Core Data */,
-				77A4173914BDFEC200ACAAC1 /* iOutOf-Info.plist */,
+				77BA5C1114BFD36600A0D646 /* Images */,
 				77A4173A14BDFEC200ACAAC1 /* InfoPlist.strings */,
-				77A4173D14BDFEC200ACAAC1 /* main.m */,
+				77A4173914BDFEC200ACAAC1 /* iOutOf-Info.plist */,
 				77A4173F14BDFEC200ACAAC1 /* iOutOf-Prefix.pch */,
+				77A4173D14BDFEC200ACAAC1 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,26 +219,18 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
-		77A4177014BE0F8E00ACAAC1 /* Items */ = {
+		77A4177014BE0F8E00ACAAC1 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
 				77A4177714BE101300ACAAC1 /* BBAddItemTableViewController.h */,
 				77A4177814BE101300ACAAC1 /* BBAddItemTableViewController.m */,
-				77A4177114BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.h */,
-				77A4177214BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.m */,
 				77A4177414BE0FEA00ACAAC1 /* BBItemsTableViewController.h */,
 				77A4177514BE0FEA00ACAAC1 /* BBItemsTableViewController.m */,
+				77BA5C0E14BFC88D00A0D646 /* BBShoppingViewController.h */,
+				77BA5C0F14BFC88D00A0D646 /* BBShoppingViewController.m */,
+				77BA5C0A14BFC62100A0D646 /* Support */,
 			);
-			name = Items;
-			sourceTree = "<group>";
-		};
-		77A4177A14BE103900ACAAC1 /* At The Store */ = {
-			isa = PBXGroup;
-			children = (
-				77A4177E14BE10C000ACAAC1 /* BBAtTheStoreTableViewController.h */,
-				77A4177F14BE10C000ACAAC1 /* BBAtTheStoreTableViewController.m */,
-			);
-			name = "At The Store";
+			name = Shopping;
 			sourceTree = "<group>";
 		};
 		77A4178114BE10F100ACAAC1 /* Core Data */ = {
@@ -249,10 +257,34 @@
 		77A417E114BE1DAC00ACAAC1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				77F6220E14BEAA9700873101 /* BBStore.h */,
-				77F6220F14BEAA9700873101 /* BBStore.m */,
+				778C1C6C14BF82D500190DAE /* BBItem.h */,
+				778C1C6D14BF82D500190DAE /* BBItem.m */,
+				778C1C6F14BF82D500190DAE /* BBItemCategory.h */,
+				778C1C7014BF82D500190DAE /* BBItemCategory.m */,
+				778C1C6914BF82D400190DAE /* BBShoppingCart.h */,
+				778C1C6A14BF82D400190DAE /* BBShoppingCart.m */,
+				778C1C7214BF82D500190DAE /* BBStore.h */,
+				778C1C7314BF82D500190DAE /* BBStore.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		77BA5C0A14BFC62100A0D646 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				77BA5C0B14BFC64500A0D646 /* BBToolbarShoppingView.h */,
+				77BA5C0C14BFC64500A0D646 /* BBToolbarShoppingView.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		77BA5C1114BFD36600A0D646 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				77BA5C1614BFD41800A0D646 /* 63.png */,
+				77BA5C1714BFD41800A0D646 /* 63@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +361,9 @@
 				77A4173C14BDFEC200ACAAC1 /* InfoPlist.strings in Resources */,
 				77A4174514BDFEC200ACAAC1 /* MainStoryboard_iPhone.storyboard in Resources */,
 				77A4174814BDFEC200ACAAC1 /* MainStoryboard_iPad.storyboard in Resources */,
+				778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */,
+				77BA5C1814BFD41800A0D646 /* 63.png in Resources */,
+				77BA5C1914BFD41800A0D646 /* 63@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,14 +402,17 @@
 				77A4174214BDFEC200ACAAC1 /* BBAppDelegate.m in Sources */,
 				77A4176C14BE0F3D00ACAAC1 /* BBStoresTableViewController.m in Sources */,
 				77A4176F14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m in Sources */,
-				77A4177314BE0FAE00ACAAC1 /* BBItemCategoryTableViewController.m in Sources */,
 				77A4177614BE0FEA00ACAAC1 /* BBItemsTableViewController.m in Sources */,
 				77A4177914BE101300ACAAC1 /* BBAddItemTableViewController.m in Sources */,
-				77A4178014BE10C000ACAAC1 /* BBAtTheStoreTableViewController.m in Sources */,
 				77A4178414BE110500ACAAC1 /* iOutOf.xcdatamodeld in Sources */,
 				77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */,
 				77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */,
-				77F6221014BEAA9700873101 /* BBStore.m in Sources */,
+				778C1C6B14BF82D400190DAE /* BBShoppingCart.m in Sources */,
+				778C1C6E14BF82D500190DAE /* BBItem.m in Sources */,
+				778C1C7114BF82D500190DAE /* BBItemCategory.m in Sources */,
+				778C1C7414BF82D500190DAE /* BBStore.m in Sources */,
+				77BA5C0D14BFC64500A0D646 /* BBToolbarShoppingView.m in Sources */,
+				77BA5C1014BFC88D00A0D646 /* BBShoppingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,17 +1,20 @@
 //
-//  BBStore.m
+//  BBItem.m
 //  iOutOf
 //
 //  Created by Dan Fairaizl on 1/12/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBStore.h"
+#import "BBItem.h"
+#import "BBItemCategory.h"
 
 
-@implementation BBStore
+@implementation BBItem
 
 @dynamic name;
-@dynamic type;
+@dynamic quantity;
+@dynamic notes;
+@dynamic parentItemCategory;
 
 @end
