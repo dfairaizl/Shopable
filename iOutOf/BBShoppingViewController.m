@@ -22,6 +22,7 @@
 - (void)createItemsFRCWithFetch:(BOOL)fetch;
 - (void)createCartFRCWithFetch:(BOOL)fetch;
 - (void)shoppingCellSwipped:(id)sender;
+- (void)setupForShoppingMode;
 
 @end
 
@@ -248,13 +249,7 @@
                      } 
                      completion:^(BOOL finished) {
                          
-                         [self.itemsTableView removeFromSuperview];
-                         [self.view addSubview:self.shoppingTableView];
-                         self.shoppingMode = YES;
-                         
-                         [self createCartFRCWithFetch:YES];
-                         self.currentFetchedResultsController = self.cartFetchedResultsController;
-                         [self.shoppingTableView reloadData];
+                         [self setupForShoppingMode];
                      }
      ];
 }
@@ -349,6 +344,46 @@
     }
     
     [cell cellCheckedOff:[swippedItem.checkedOff boolValue]];
+}
+
+- (void)setupForShoppingMode {
+
+    [self.itemsTableView removeFromSuperview];
+    [self.view addSubview:self.shoppingTableView];
+    self.shoppingMode = YES;
+    
+    [self createCartFRCWithFetch:YES];
+    self.currentFetchedResultsController = self.cartFetchedResultsController;
+    [self.shoppingTableView reloadData];
+    
+    UIBarButtonItem *doneShoppingButton = [[UIBarButtonItem alloc] initWithTitle:@"Finish" style:UIBarButtonItemStyleBordered target:self action:@selector(doneShopping)];
+    self.navigationItem.rightBarButtonItem = doneShoppingButton;
+    
+}
+
+- (void)doneShopping {
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Are you finished shopping?" 
+                                                             delegate:self 
+                                                    cancelButtonTitle:@"No, not yet" 
+                                               destructiveButtonTitle:@"Yes, clear this list" 
+                                                    otherButtonTitles:nil, nil];
+
+    [actionSheet showInView:self.navigationController.view];
+}
+
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if(buttonIndex == 0) {
+
+        [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.currentStore.shoppingCart];
+        
+        [self createCartFRCWithFetch:YES];
+        [self.shoppingTableView reloadData];
+        
+    }
 }
 
 @end

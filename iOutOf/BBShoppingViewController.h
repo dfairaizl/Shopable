@@ -12,7 +12,7 @@
 
 @class BBStore;
 
-@interface BBShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, BBToolbarSliderDelegate>
+@interface BBShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, BBToolbarSliderDelegate>
 
 @property (weak, nonatomic) BBStore *currentStore;
 
