@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Quantities</key>
+	<array>
+		<string></string>
+		<string>1</string>
+		<string>2</string>
+		<string>3</string>
+		<string>4</string>
+		<string>5</string>
+		<string>6</string>
+		<string>7</string>
+		<string>8</string>
+		<string>9</string>
+		<string>10+</string>
+	</array>
+	<key>UnitsSingular</key>
+	<array>
+		<string></string>
+		<string>Bunch</string>
+		<string>Can</string>
+		<string>Box</string>
+		<string>Pound</string>
+		<string>Cup</string>
+	</array>
+	<key>UnitsPlural</key>
+	<array>
+		<string></string>
+		<string>Bunches</string>
+		<string>Cans</string>
+		<string>Boxes</string>
+		<string>Pounds</string>
+		<string>Cups</string>
+	</array>
+</dict>
+</plist>

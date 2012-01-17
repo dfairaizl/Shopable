@@ -7,6 +7,7 @@
 //
 
 #import "BBItemsTableViewController.h"
+#import "BBAddItemTableViewController.h"
 
 #import "BBStorageManager.h"
 
@@ -44,11 +45,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.items = [[self.currentItemCategory.items allObjects] sortedArrayUsingComparator:^NSComparisonResult(BBItem *item1, BBItem *item2) {
-
-        return [item1.name compare:item2.name];
-    }];
 }
 
 - (void)viewDidUnload
@@ -61,6 +57,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.items = [[self.currentItemCategory.items allObjects] sortedArrayUsingComparator:^NSComparisonResult(BBItem *item1, BBItem *item2) {
+        
+        return [item1.name compare:item2.name];
+    }];
+    
+    [self.tableView reloadData];
     
     self.title = self.currentItemCategory.name;
 }
@@ -84,6 +87,18 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"addItemSegue"]) {
+        
+        UINavigationController *navVC = (UINavigationController *)segue.destinationViewController;
+        BBAddItemTableViewController *vc = (BBAddItemTableViewController *)navVC.topViewController;
+        
+        vc.currentStore = self.currentStore;
+        vc.currentItemCategory = self.currentItemCategory;
+    }
 }
 
 #pragma mark - Table view data source

@@ -209,7 +209,7 @@
                         <sections>
                             <tableViewSection headerTitle="Name" id="Jv5-39-3Jr">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J5L-CP-bUC">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J5L-CP-bUC">
                                         <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -220,7 +220,10 @@
                                                     <rect key="frame" x="20" y="6" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="M97-pj-ZS4" id="ky5-rC-54X"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -231,24 +234,52 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Quantity" id="ZbD-aC-R1L">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="O0C-7L-0PT" style="IBUITableViewCellStyleDefault" id="pia-BG-AAj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pia-BG-AAj">
                                         <rect key="frame" x="0.0" y="138" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O0C-7L-0PT">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Quantity" minimumFontSize="17" id="mH9-Re-jAf">
+                                                    <rect key="frame" x="20" y="6" width="260" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="M97-pj-ZS4" id="nNZ-2m-Aqx"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Notes" id="xNB-kG-eGh">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hpv-tr-8d6">
+                                        <rect key="frame" x="0.0" y="230" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="15" id="MrI-cg-A7T">
+                                                    <rect key="frame" x="20" y="11" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="NGG-Ee-DyE" kind="push" identifier="addNotesSegue" id="4ST-4A-a5f"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -259,12 +290,78 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="10e-iE-nHO">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="a1p-5c-GeD"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V9Y-e2-evp"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="a1p-5c-GeD">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="M97-pj-ZS4" id="5nE-pp-ouT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V9Y-e2-evp">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="M97-pj-ZS4" id="5gT-Wr-N7a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemNameTextField" destination="Rcu-wr-8df" id="gDD-tC-Kll"/>
+                        <outlet property="itemQuantityTextField" destination="mH9-Re-jAf" id="Xzf-uC-qMG"/>
+                        <outlet property="notesCellLabel" destination="MrI-cg-A7T" id="l6l-K5-erM"/>
+                        <outlet property="quantityPickerView" destination="mUh-f3-8gr" id="amS-t4-9Sn"/>
+                        <outlet property="quantityPickerViewToolbar" destination="qab-qR-CBm" id="GhI-eC-d0G"/>
+                    </connections>
                 </tableViewController>
+                <pickerView contentMode="scaleToFill" id="mUh-f3-8gr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="M97-pj-ZS4" id="SZM-rz-SlN"/>
+                        <outlet property="delegate" destination="M97-pj-ZS4" id="tpV-eh-v9e"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="qab-qR-CBm">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Clear" id="qJ6-bc-f7m">
+                            <connections>
+                                <action selector="pickerClearButtonPressed:" destination="M97-pj-ZS4" id="qYR-ON-6ei"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PUC-OQ-eao"/>
+                        <barButtonItem style="done" systemItem="done" id="2f9-EH-k6Q">
+                            <connections>
+                                <action selector="pickerDoneButtonPressed:" destination="M97-pj-ZS4" id="lGf-7F-67F"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="2571" y="-181"/>
+        </scene>
+        <scene sceneID="25b-x4-L5S">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMt-4A-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="NGG-Ee-DyE" customClass="BBAddItemNotesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xpb-vw-Ukh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MzZ-A2-iOs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="js9-NJ-MvE"/>
+                    <connections>
+                        <outlet property="notesTextView" destination="MzZ-A2-iOs" id="BWY-X6-2ja"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3007" y="-181"/>
         </scene>
         <scene sceneID="fx6-06-0ay">
             <objects>
@@ -415,7 +512,7 @@
                     <navigationItem key="navigationItem" id="5xj-eU-tDb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SyA-F2-9sa">
                             <connections>
-                                <segue destination="E7Z-as-bdd" kind="modal" id="OmV-U2-Z5u"/>
+                                <segue destination="E7Z-as-bdd" kind="modal" identifier="addItemSegue" id="OmV-U2-Z5u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -428,8 +525,25 @@
         <image name="63.png" width="24" height="19"/>
     </resources>
     <classes>
+        <class className="BBAddItemNotesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemNotesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
         <class className="BBAddItemTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="doneButtonPressed:"/>
+                <relationship kind="action" name="pickerClearButtonPressed:"/>
+                <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
+            </relationships>
         </class>
         <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
