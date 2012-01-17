@@ -15,6 +15,7 @@
 		771391F614C5081F00875FB3 /* BBDecoratorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F514C5081F00875FB3 /* BBDecoratorLabel.m */; };
 		771391F914C51C8000875FB3 /* BBShoppingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F814C51C8000875FB3 /* BBShoppingTableViewCell.m */; };
 		771391FC14C5218800875FB3 /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391FB14C5218800875FB3 /* BBItem.m */; };
+		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
@@ -71,6 +72,7 @@
 		771391F814C51C8000875FB3 /* BBShoppingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingTableViewCell.m; sourceTree = "<group>"; };
 		771391FA14C5218800875FB3 /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
 		771391FB14C5218800875FB3 /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
+		7745933F14C5E80600EF1565 /* StoreTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoreTypes.plist; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
 		77A4172D14BDFEC200ACAAC1 /* iOutOf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOutOf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4173114BDFEC200ACAAC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -208,6 +210,7 @@
 				77A4173914BDFEC200ACAAC1 /* iOutOf-Info.plist */,
 				77A4173F14BDFEC200ACAAC1 /* iOutOf-Prefix.pch */,
 				77A4173D14BDFEC200ACAAC1 /* main.m */,
+				7745933F14C5E80600EF1565 /* StoreTypes.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */,
 				77BA5C1814BFD41800A0D646 /* 63.png in Resources */,
 				77BA5C1914BFD41800A0D646 /* 63@2x.png in Resources */,
+				7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

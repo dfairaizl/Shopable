@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBAddStoreTableViewController : UITableViewController
+@interface BBAddStoreTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *typeTextField;
+@property (strong, nonatomic) IBOutlet UIPickerView *storeTypePicker;
 
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;

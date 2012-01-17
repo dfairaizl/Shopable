@@ -43,15 +43,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] init];
-    
-    storesFR.entity = [NSEntityDescription entityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
-    storesFR.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-            
-    _frc = [[NSFetchedResultsController alloc] initWithFetchRequest:storesFR managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
-    
-    [self.frc performFetch:nil];
 }
 
 - (void)viewDidUnload
@@ -64,6 +55,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] init];
+    
+    storesFR.entity = [NSEntityDescription entityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    storesFR.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    _frc = [[NSFetchedResultsController alloc] initWithFetchRequest:storesFR managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    
+    [self.frc performFetch:nil];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated

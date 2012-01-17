@@ -24,7 +24,9 @@
 #define     BB_ENTITY_SHOPPING_CART     @"BBShoppingCart"
 
 typedef enum {
-    bbStoreTypeGrocery = 0,
+    bbStoreTypeDepartment = 0,
+    bbStoreTypeGrocery = 1,
+    bbStoreTypeOther,
 } BBType;
 
 #endif
