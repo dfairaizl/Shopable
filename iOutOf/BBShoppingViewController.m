@@ -227,8 +227,6 @@
     
     [cell cellCheckedOff:[item.checkedOff boolValue]];
     
-//    [cell setNeedsDisplay];
-    
     return cell;
 }
 
