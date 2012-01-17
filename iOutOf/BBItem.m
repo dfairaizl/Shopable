@@ -17,6 +17,7 @@
 @dynamic notes;
 @dynamic quantity;
 @dynamic itemCategoryName;
+@dynamic checkedOff;
 @dynamic parentItemCategory;
 @dynamic parentShoppingCart;
 

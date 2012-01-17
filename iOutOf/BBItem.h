@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSString * itemCategoryName;
+@property (nonatomic, retain) NSNumber * checkedOff;
 @property (nonatomic, retain) BBItemCategory *parentItemCategory;
 @property (nonatomic, retain) BBShoppingCart *parentShoppingCart;
 
