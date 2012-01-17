@@ -13,6 +13,7 @@
 @implementation BBShoppingTableViewCell
 
 @synthesize itemLabel;
+@synthesize itemQuantityLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

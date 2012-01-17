@@ -19,8 +19,12 @@
 	<key>UnitsSingular</key>
 	<array>
 		<string></string>
+		<string>Bottle</string>
 		<string>Bunch</string>
+		<string>Bag</string>
 		<string>Can</string>
+		<string>Carton</string>
+		<string>Dozen</string>
 		<string>Box</string>
 		<string>Pound</string>
 		<string>Cup</string>
@@ -28,8 +32,12 @@
 	<key>UnitsPlural</key>
 	<array>
 		<string></string>
+		<string>Bottles</string>
 		<string>Bunches</string>
+		<string>Bags</string>
 		<string>Cans</string>
+		<string>Cartons</string>
+		<string>Dozen</string>
 		<string>Boxes</string>
 		<string>Pounds</string>
 		<string>Cups</string>

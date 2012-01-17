@@ -18,6 +18,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet BBDecoratorLabel *itemLabel;
+@property (strong, nonatomic) IBOutlet UILabel *itemQuantityLabel;
 
 - (void)cellCheckedOff:(BOOL)checkedOff;
 

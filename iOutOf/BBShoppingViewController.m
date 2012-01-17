@@ -207,13 +207,13 @@
     
     cell.itemLabel.text = item.name;
     
-    if([item.quantity intValue] > 0) {
+    if([item.quantity length]) {
         
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"x%d", [item.quantity intValue]];
+        cell.itemQuantityLabel.text = [NSString stringWithFormat:@"x%@ %@", item.quantity, item.units];
     }
     else {
         
-        cell.detailTextLabel.text = @"";
+        cell.itemQuantityLabel.text = @"";
     }
     
     if([item.notes length]) {
