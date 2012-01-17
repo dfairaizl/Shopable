@@ -14,6 +14,10 @@
 #import "BBItemCategory.h"
 #import "BBItem.h"
 
+//Categories
+#import "BBStore+Logic.h"
+#import "BBShoppingCart+Logic.h"
+
 #define     BB_ENTITY_STORE             @"BBStore"
 #define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"
 #define     BB_ENTITY_ITEM              @"BBItem"

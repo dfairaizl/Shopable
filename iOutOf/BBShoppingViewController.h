@@ -16,7 +16,9 @@
 
 @property (weak, nonatomic) BBStore *currentStore;
 
-@property (strong, nonatomic) NSFetchedResultsController *frc;
+@property (strong, nonatomic) NSFetchedResultsController *itemsFetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *cartFetchedResultsController;
+@property (weak, nonatomic) NSFetchedResultsController *currentFetchedResultsController;
 
 @property (strong, nonatomic) IBOutlet UITableView *itemsTableView;
 @property (strong, nonatomic) IBOutlet UITableView *shoppingTableView;

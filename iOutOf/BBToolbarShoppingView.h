@@ -12,12 +12,14 @@
 
 @optional
 - (void)toolbarSliderDidCrossThreshold;
+- (void)toolbarSliderDidReturn;
 
 @end
 
 @interface BBToolbarShoppingView : UIView
 
 @property (weak, nonatomic) UIView *toolbar;
+@property (strong, nonatomic) IBOutlet UILabel *shoppingTextLabel;
 @property (weak, nonatomic) IBOutlet id<BBToolbarSliderDelegate> delegate;
 
 @end

@@ -17,6 +17,7 @@
 @implementation BBToolbarShoppingView
 
 @synthesize toolbar;
+@synthesize shoppingTextLabel;
 @synthesize delegate;
 @synthesize lastPosition;
 
@@ -64,8 +65,6 @@
     CGFloat threshold = self.toolbar.frame.size.width - 7 - (CGRectGetWidth(self.frame) * 2); //somewhat arbitrary
     
     if(self.lastPosition.x >= threshold) {
-       
-        NSLog(@"crossed threshold");
         
         [UIView animateWithDuration:0.2 
                          animations:^() {
@@ -73,6 +72,8 @@
                              CGRect frame = self.frame;
                              frame.origin.x = self.toolbar.frame.size.width - 7 - CGRectGetWidth(self.frame);
                              self.frame = frame;
+                             
+                             self.shoppingTextLabel.text = [NSString stringWithString:@"Slide cart back to plan!"];
                          }
                          completion:^(BOOL finished) {
                              [self.delegate toolbarSliderDidCrossThreshold];
@@ -89,17 +90,14 @@
                              CGRect frame = self.frame;
                              frame.origin.x = 7;
                              self.frame = frame;
+                             
+                             self.shoppingTextLabel.text = [NSString stringWithString:@"Slide cart to go shopping!"];
                          }
                          completion:^(BOOL finished) {
-                             
+                             [self.delegate toolbarSliderDidReturn];
                          }
          ];
     }
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    
 }
 
 @end

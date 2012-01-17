@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771391E314C4E20D00875FB3 /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391E214C4E20D00875FB3 /* BBItem.m */; };
+		771391E614C4E20D00875FB3 /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391E514C4E20D00875FB3 /* BBShoppingCart.m */; };
+		771391E914C4E20D00875FB3 /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391E814C4E20D00875FB3 /* BBItemCategory.m */; };
+		771391EC14C4E20D00875FB3 /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391EB14C4E20D00875FB3 /* BBStore.m */; };
+		771391F014C4E2F600875FB3 /* BBStore+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391EF14C4E2F600875FB3 /* BBStore+Logic.m */; };
+		771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
-		778C1C6B14BF82D400190DAE /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C6A14BF82D400190DAE /* BBShoppingCart.m */; };
-		778C1C6E14BF82D500190DAE /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C6D14BF82D500190DAE /* BBItem.m */; };
-		778C1C7114BF82D500190DAE /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C7014BF82D500190DAE /* BBItemCategory.m */; };
-		778C1C7414BF82D500190DAE /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 778C1C7314BF82D500190DAE /* BBStore.m */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
 		77A4173614BDFEC200ACAAC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173514BDFEC200ACAAC1 /* CoreGraphics.framework */; };
@@ -51,15 +53,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		771391E114C4E20D00875FB3 /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
+		771391E214C4E20D00875FB3 /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
+		771391E414C4E20D00875FB3 /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
+		771391E514C4E20D00875FB3 /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
+		771391E714C4E20D00875FB3 /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
+		771391E814C4E20D00875FB3 /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
+		771391EA14C4E20D00875FB3 /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
+		771391EB14C4E20D00875FB3 /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
+		771391EE14C4E2F600875FB3 /* BBStore+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStore+Logic.h"; sourceTree = "<group>"; };
+		771391EF14C4E2F600875FB3 /* BBStore+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBStore+Logic.m"; sourceTree = "<group>"; };
+		771391F114C4E40700875FB3 /* BBShoppingCart+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBShoppingCart+Logic.h"; sourceTree = "<group>"; };
+		771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBShoppingCart+Logic.m"; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
-		778C1C6914BF82D400190DAE /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
-		778C1C6A14BF82D400190DAE /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
-		778C1C6C14BF82D500190DAE /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
-		778C1C6D14BF82D500190DAE /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
-		778C1C6F14BF82D500190DAE /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
-		778C1C7014BF82D500190DAE /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
-		778C1C7214BF82D500190DAE /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
-		778C1C7314BF82D500190DAE /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
 		77A4172D14BDFEC200ACAAC1 /* iOutOf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOutOf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4173114BDFEC200ACAAC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77A4173314BDFEC200ACAAC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +134,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		771391ED14C4E2CE00875FB3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				771391F114C4E40700875FB3 /* BBShoppingCart+Logic.h */,
+				771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */,
+				771391EE14C4E2F600875FB3 /* BBStore+Logic.h */,
+				771391EF14C4E2F600875FB3 /* BBStore+Logic.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		77A4172214BDFEC200ACAAC1 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +266,7 @@
 				77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */,
 				77A4178E14BE13A400ACAAC1 /* BBStorageManager.h */,
 				77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */,
+				771391ED14C4E2CE00875FB3 /* Categories */,
 				77A417E114BE1DAC00ACAAC1 /* Entities */,
 			);
 			name = Data;
@@ -257,14 +275,14 @@
 		77A417E114BE1DAC00ACAAC1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				778C1C6C14BF82D500190DAE /* BBItem.h */,
-				778C1C6D14BF82D500190DAE /* BBItem.m */,
-				778C1C6F14BF82D500190DAE /* BBItemCategory.h */,
-				778C1C7014BF82D500190DAE /* BBItemCategory.m */,
-				778C1C6914BF82D400190DAE /* BBShoppingCart.h */,
-				778C1C6A14BF82D400190DAE /* BBShoppingCart.m */,
-				778C1C7214BF82D500190DAE /* BBStore.h */,
-				778C1C7314BF82D500190DAE /* BBStore.m */,
+				771391E114C4E20D00875FB3 /* BBItem.h */,
+				771391E214C4E20D00875FB3 /* BBItem.m */,
+				771391E714C4E20D00875FB3 /* BBItemCategory.h */,
+				771391E814C4E20D00875FB3 /* BBItemCategory.m */,
+				771391E414C4E20D00875FB3 /* BBShoppingCart.h */,
+				771391E514C4E20D00875FB3 /* BBShoppingCart.m */,
+				771391EA14C4E20D00875FB3 /* BBStore.h */,
+				771391EB14C4E20D00875FB3 /* BBStore.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -407,12 +425,14 @@
 				77A4178414BE110500ACAAC1 /* iOutOf.xcdatamodeld in Sources */,
 				77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */,
 				77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */,
-				778C1C6B14BF82D400190DAE /* BBShoppingCart.m in Sources */,
-				778C1C6E14BF82D500190DAE /* BBItem.m in Sources */,
-				778C1C7114BF82D500190DAE /* BBItemCategory.m in Sources */,
-				778C1C7414BF82D500190DAE /* BBStore.m in Sources */,
 				77BA5C0D14BFC64500A0D646 /* BBToolbarShoppingView.m in Sources */,
 				77BA5C1014BFC88D00A0D646 /* BBShoppingViewController.m in Sources */,
+				771391E314C4E20D00875FB3 /* BBItem.m in Sources */,
+				771391E614C4E20D00875FB3 /* BBShoppingCart.m in Sources */,
+				771391E914C4E20D00875FB3 /* BBItemCategory.m in Sources */,
+				771391EC14C4E20D00875FB3 /* BBStore.m in Sources */,
+				771391F014C4E2F600875FB3 /* BBStore+Logic.m in Sources */,
+				771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
