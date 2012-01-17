@@ -12,8 +12,6 @@
 
 - (void)createDefaults {
     
-    NSLog(@"First launch of app after install. Creating default data");
-    
     //Create default Grocery Store
     BBStore *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
     

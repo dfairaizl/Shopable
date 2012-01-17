@@ -32,11 +32,6 @@
 
 #pragma mark - UIView Touches
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    NSLog(@"touches began, view at %@", NSStringFromCGPoint(self.frame.origin));
-}
-
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     CGPoint pos = [[touches anyObject] locationInView:self.toolbar];
