@@ -131,13 +131,15 @@
     if(textField == self.typeTextField) {
         
         //load the store type values from pList
-        
         NSDictionary *storeTypesPList = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"StoreTypes" withExtension:@"plist"]];
         self.storeTypes = [NSArray arrayWithArray:[storeTypesPList objectForKey:@"StoreTypes"]];
         
         textField.inputView = self.storeTypePicker;
         
         textField.text = [self.storeTypes objectAtIndex:0];
+        
+        //set the initial values in the store object
+        self.shoppingStore.type = [NSNumber numberWithInt:bbStoreTypeDepartment];
     }
     
     return YES;
@@ -145,7 +147,9 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    self.shoppingStore.name = textField.text;
+    if(textField == self.nameTextField) {
+        self.shoppingStore.name = textField.text;
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -175,6 +179,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     self.typeTextField.text = [self.storeTypes objectAtIndex:row];
+    self.shoppingStore.type = [NSNumber numberWithInt:row];
 }
 
 @end
