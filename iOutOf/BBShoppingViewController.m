@@ -311,7 +311,8 @@
     NSFetchRequest *cartCategoryFR = [[NSFetchRequest alloc] init];
     
     cartCategoryFR.entity = [NSEntityDescription entityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
-    cartCategoryFR.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES]]; //NOTE sort descriptor keyname MUST match the section name in the FRC!
+    cartCategoryFR.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], //NOTE sort descriptor keyname MUST match the section name in the FRC!
+                                      [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil];
     cartCategoryFR.predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", [self.currentStore currentShoppingCart]];
     
     _cartFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:cartCategoryFR 
