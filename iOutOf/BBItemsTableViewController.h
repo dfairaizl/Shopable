@@ -10,9 +10,11 @@
 
 @class BBStore, BBItemCategory;
 
-@interface BBItemsTableViewController : UITableViewController
+@interface BBItemsTableViewController : UIViewController
 
 @property (weak, nonatomic) BBStore *currentStore;
 @property (weak, nonatomic) BBItemCategory *currentItemCategory;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

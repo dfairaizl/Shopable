@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="FbH-tO-Xm7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qlL-Xy-JHo">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -17,7 +17,116 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="179" y="171"/>
+            <point key="canvasLocation" x="-341" y="1479"/>
+        </scene>
+        <scene sceneID="HCh-j7-fPR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-MI-aYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="PDc-V4-We9" customClass="BBStoresViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JmI-sS-ay2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="EhK-k5-lMP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="382"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PDc-V4-We9" id="B31-JL-BdI"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="gue-Nt-0hT">
+                                <rect key="frame" x="141" y="382" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L53-W0-ed8"/>
+                    <connections>
+                        <outlet property="storesPageControl" destination="gue-Nt-0hT" id="Uvr-0K-PdU"/>
+                        <outlet property="storesScrollView" destination="EhK-k5-lMP" id="lRh-o6-LTJ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="263" y="-950"/>
+        </scene>
+        <scene sceneID="jkf-Ke-W5f">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yj0-OH-OcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="BBStoreShoppingViewController" id="5Wx-hQ-ak6" customClass="BBStoreShoppingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aRf-nb-1KD">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="GO7-V6-MkD">
+                                <rect key="frame" x="20" y="20" width="280" height="382"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nvV-QN-be3">
+                                        <rect key="frame" x="200" y="9" width="72" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addItemsButtonPressed:" destination="5Wx-hQ-ak6" eventType="touchUpInside" id="cXO-Dc-4Rn"/>
+                                            <segue destination="r9l-pT-hL1" kind="modal" modalTransitionStyle="flipHorizontal" id="bgD-9Q-c9b"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Store Name" lineBreakMode="tailTruncation" minimumFontSize="10" id="3jO-hG-c6O">
+                                        <rect key="frame" x="14" y="17" width="91" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ako-WS-i5c">
+                                        <rect key="frame" x="0.0" y="62" width="280" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Lni-vu-Ca3">
+                                                <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="GO7-V6-MkD" id="Vw6-10-wxr"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="261" y="-299"/>
+        </scene>
+        <scene sceneID="mXV-m2-6Ij">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KV-aq-Xfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="qlL-Xy-JHo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fSY-sk-eT9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PDc-V4-We9" kind="relationship" relationship="rootViewController" id="OjO-Bw-2rh"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-271" y="-950"/>
         </scene>
         <scene sceneID="Jg5-v0-NE7">
             <objects>
@@ -32,7 +141,60 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1140" y="-628"/>
+            <point key="canvasLocation" x="620" y="680"/>
+        </scene>
+        <scene sceneID="3x2-Fj-TM6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAk-8I-TZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Byj-gi-kJS" customClass="BBItemsTableViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6S0-vz-x8O">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="c7g-dS-ysI">
+                                <rect key="frame" x="20" y="20" width="280" height="376"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mCI-Ze-bUP">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Byj-gi-kJS" id="vvE-fS-U6g"/>
+                                    <outlet property="delegate" destination="Byj-gi-kJS" id="6aB-rM-5MP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ivv-WL-h53"/>
+                    <connections>
+                        <outlet property="tableView" destination="c7g-dS-ysI" id="WHI-ZJ-fS3"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1296" y="-301"/>
+        </scene>
+        <scene sceneID="F83-7v-pIw">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0z-1B-K6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="r9l-pT-hL1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="d1g-bc-xc8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Byj-gi-kJS" kind="relationship" relationship="rootViewController" id="4jV-R6-576"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="762" y="-301"/>
         </scene>
         <scene sceneID="IaH-fQ-r2U">
             <objects>
@@ -126,7 +288,7 @@
                     </connections>
                 </pickerView>
             </objects>
-            <point key="canvasLocation" x="1600" y="-628"/>
+            <point key="canvasLocation" x="1080" y="680"/>
         </scene>
         <scene sceneID="H2Q-2L-3ld">
             <objects>
@@ -182,7 +344,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="650" y="171"/>
+            <point key="canvasLocation" x="130" y="1479"/>
         </scene>
         <scene sceneID="a92-Uv-IP2">
             <objects>
@@ -196,7 +358,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2142" y="-181"/>
+            <point key="canvasLocation" x="1622" y="1127"/>
         </scene>
         <scene sceneID="6Iv-Re-lwe">
             <objects>
@@ -335,7 +497,7 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="2571" y="-181"/>
+            <point key="canvasLocation" x="2051" y="1127"/>
         </scene>
         <scene sceneID="25b-x4-L5S">
             <objects>
@@ -361,7 +523,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3007" y="-181"/>
+            <point key="canvasLocation" x="2487" y="1127"/>
         </scene>
         <scene sceneID="fx6-06-0ay">
             <objects>
@@ -435,7 +597,7 @@
                     <navigationItem key="navigationItem" id="x9c-sX-t7f"/>
                     <connections>
                         <outlet property="itemsTableView" destination="sCE-at-cBo" id="ZrD-5G-bkr"/>
-                        <outlet property="shoppingTableView" destination="P7A-fa-Lt0" id="sOP-F2-1ro"/>
+                        <outlet property="tableView" destination="P7A-fa-Lt0" id="i4o-bK-vqy"/>
                         <outlet property="toolbar" destination="1Ad-Kj-rdH" id="aDd-Ui-ziF"/>
                         <outlet property="toolbarShoppingSlider" destination="4Bt-71-0sR" id="rfV-Io-ANU"/>
                         <segue destination="NMz-1U-iYQ" kind="push" identifier="itemsForCategorySegue" id="jQo-Af-1Jm"/>
@@ -482,7 +644,7 @@
                     </connections>
                 </tableView>
             </objects>
-            <point key="canvasLocation" x="1140" y="171"/>
+            <point key="canvasLocation" x="620" y="1479"/>
         </scene>
         <scene sceneID="i4B-0v-PwD">
             <objects>
@@ -526,7 +688,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1600" y="171"/>
+            <point key="canvasLocation" x="1080" y="1479"/>
         </scene>
     </scenes>
     <resources>
@@ -566,8 +728,11 @@
         <class className="BBDecoratorLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
         </class>
-        <class className="BBItemsTableViewController" superclassName="UITableViewController">
+        <class className="BBItemsTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="BBShoppingTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingTableViewCell.h"/>
@@ -576,17 +741,19 @@
                 <relationship kind="outlet" name="itemQuantityLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="BBShoppingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingViewController.h"/>
+        <class className="BBStoreShoppingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoreShoppingViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="shoppingTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="toolbarShoppingSlider" candidateClass="BBToolbarShoppingView"/>
+                <relationship kind="action" name="addItemsButtonPressed:"/>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
             </relationships>
         </class>
-        <class className="BBStoresTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresTableViewController.h"/>
+        <class className="BBStoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="storesPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="storesScrollView" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="BBToolbarShoppingView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBToolbarShoppingView.h"/>

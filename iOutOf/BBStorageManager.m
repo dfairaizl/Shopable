@@ -161,4 +161,23 @@ static BBStorageManager *sharedManager = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Store Methods
+- (NSArray *)stores {
+    
+    NSArray *stores = nil;
+    NSError *error = nil;
+    
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    
+    stores = [self.managedObjectContext executeFetchRequest:storesFR error:&error];
+    
+    if(error != nil) {
+        
+        NSLog(@"Error fetching stores!");
+    }
+    
+    return stores;
+}
+
+
 @end

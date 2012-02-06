@@ -6,9 +6,17 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "BBAppDelegate.h"
 
 #import "BBStorageManager.h"
+
+@interface BBAppDelegate () 
+
+- (void)configureApperance;
+
+@end
 
 @implementation BBAppDelegate
 
@@ -17,6 +25,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [self configureApperance];
+    
     return YES;
 }
 							
@@ -59,6 +70,27 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark - Private Methods
+
+- (void)configureApperance {
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.window.frame];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.anchorPoint = CGPointMake(0.0f, 0.0f);
+    gradient.position = CGPointMake(0.0f, 0.0f);
+    gradient.bounds = backgroundView.layer.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:(123/255.0f) green:(191/255.0f) blue:(254/255.0f) alpha:1.0].CGColor,
+                       (id)[UIColor colorWithRed:(38/255.0f) green:(106/255.0f) blue:(207/255.0f) alpha:1.0].CGColor,
+                       nil];
+    [backgroundView.layer addSublayer:gradient];
+    
+    [self.window insertSubview:backgroundView atIndex:0];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background-transparent"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 @end
