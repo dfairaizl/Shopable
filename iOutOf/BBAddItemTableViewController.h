@@ -30,7 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *quantityPickerViewToolbar;
 @property (strong, nonatomic) IBOutlet UILabel *notesCellLabel;
 
-- (IBAction)doneButtonPressed:(id)sender;
+- (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
 
 - (IBAction)pickerClearButtonPressed:(id)sender;

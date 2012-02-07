@@ -188,6 +188,216 @@
             </objects>
             <point key="canvasLocation" x="1736" y="-65"/>
         </scene>
+        <scene sceneID="bz3-CU-Yku">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71A-DP-bBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="36W-w6-no8" customClass="BBAddItemTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Y47-6l-MWh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Name" id="e9h-ej-vI8">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1gg-Ju-giU">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Item Name" minimumFontSize="17" clearButtonMode="whileEditing" id="tp1-lv-ihA">
+                                                    <rect key="frame" x="20" y="6" width="260" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="36W-w6-no8" id="97s-Rl-ueX"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Quantity" id="RHR-OM-aV5">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tq0-T6-MSf">
+                                        <rect key="frame" x="0.0" y="138" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Quantity" minimumFontSize="17" id="b3O-ag-rB7">
+                                                    <rect key="frame" x="20" y="6" width="260" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="36W-w6-no8" id="mjJ-X0-2lp"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Notes" id="Nfx-rk-juB">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WU9-Mm-dNc">
+                                        <rect key="frame" x="0.0" y="230" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="14" id="7NP-ra-10q">
+                                                    <rect key="frame" x="20" y="11" width="246" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="GP2-8e-g4m" kind="push" identifier="addNotesSegue" id="TK8-dk-1Hq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Picture" id="VSV-yS-TC8">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="Qgd-0C-d1r">
+                                        <rect key="frame" x="0.0" y="322" width="320" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8SF-Wg-AG8">
+                                                    <rect key="frame" x="80" y="4" width="141" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="p9m-vy-9pa" kind="push" id="rbp-8N-cjN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="36W-w6-no8" id="6V4-6y-r7H"/>
+                            <outlet property="delegate" destination="36W-w6-no8" id="NDv-4b-iro"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="10G-q6-pBx"/>
+                    <connections>
+                        <outlet property="itemNameTextField" destination="tp1-lv-ihA" id="tGH-Jy-kyL"/>
+                        <outlet property="itemQuantityTextField" destination="b3O-ag-rB7" id="2rd-uN-14r"/>
+                        <outlet property="notesCellLabel" destination="7NP-ra-10q" id="Qba-Dk-Klw"/>
+                        <outlet property="quantityPickerView" destination="Xlb-tW-NRi" id="f1v-Bd-Tog"/>
+                        <outlet property="quantityPickerViewToolbar" destination="WZD-Id-1Gx" id="91T-sp-8Ic"/>
+                    </connections>
+                </tableViewController>
+                <pickerView contentMode="scaleToFill" id="Xlb-tW-NRi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="36W-w6-no8" id="BGj-Jj-Roi"/>
+                        <outlet property="delegate" destination="36W-w6-no8" id="ah0-kg-CN7"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="WZD-Id-1Gx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Clear" id="8gn-RF-ux8">
+                            <connections>
+                                <action selector="pickerClearButtonPressed:" destination="36W-w6-no8" id="UGm-vg-MT9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="pDf-7v-4LI"/>
+                        <barButtonItem title="Done" style="done" id="1cO-FI-b1q">
+                            <connections>
+                                <action selector="pickerDoneButtonPressed:" destination="36W-w6-no8" id="Bci-hz-oEm"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </objects>
+            <point key="canvasLocation" x="3317" y="-715"/>
+        </scene>
+        <scene sceneID="exV-1d-ugB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFa-sF-lbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="p9m-vy-9pa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gYI-9k-phk">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Picture" id="HYE-oO-Qur">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gxh-Fi-sxn"/>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3854" y="-294"/>
+        </scene>
+        <scene sceneID="IRt-jo-r4U">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tZj-9z-AQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="GP2-8e-g4m" customClass="BBAddItemNotesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZgG-Mk-ZEw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8dF-iI-m7c">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GP2-8e-g4m" id="XU4-PA-e5k"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="IXb-Wx-KHe"/>
+                    <connections>
+                        <outlet property="notesTextView" destination="8dF-iI-m7c" id="Eob-AY-t5E"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3854" y="-1224"/>
+        </scene>
+        <scene sceneID="QdV-qo-KKv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gF1-vB-ep8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="pjy-iG-7Hf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dEe-Jl-VNS">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="36W-w6-no8" kind="relationship" relationship="rootViewController" id="ose-Tc-b0V"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2772" y="-715"/>
+        </scene>
         <scene sceneID="QSz-dy-5mc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4Z-It-Jlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,6 +432,7 @@
                     <navigationItem key="navigationItem" title="Items" id="ASx-Kb-Hlz"/>
                     <connections>
                         <outlet property="itemsTableView" destination="aYb-m4-u1W" id="SSa-2Y-ej0"/>
+                        <segue destination="pjy-iG-7Hf" kind="modal" identifier="addItemSegue" id="oYT-3h-bc2"/>
                     </connections>
                 </viewController>
             </objects>
@@ -322,7 +533,7 @@
                     </connections>
                 </pickerView>
             </objects>
-            <point key="canvasLocation" x="1238" y="-698"/>
+            <point key="canvasLocation" x="1220" y="-698"/>
         </scene>
         <scene sceneID="F83-7v-pIw">
             <objects>
@@ -340,6 +551,26 @@
         </scene>
     </scenes>
     <classes>
+        <class className="BBAddItemNotesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemNotesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="BBAddItemTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="doneButtonPressed:"/>
+                <relationship kind="action" name="pickerClearButtonPressed:"/>
+                <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
         <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
             <relationships>

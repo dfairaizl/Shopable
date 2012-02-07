@@ -58,6 +58,21 @@
 {
     [super viewDidLoad];
     
+    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [cancelButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    
+    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [saveButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+    self.navigationItem.leftBarButtonItem = cancelBarButton;
+    self.navigationItem.rightBarButtonItem = saveBarButton;
+    
     self.shoppingItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
 }
 
@@ -118,7 +133,7 @@
 
 #pragma mark - UI Action Methods
 
-- (IBAction)doneButtonPressed:(id)sender {
+- (IBAction)saveButtonPressed:(id)sender {
 
     self.shoppingItem.parentItemCategory = self.currentItemCategory;
     self.shoppingItem.isCustom = [NSNumber numberWithBool:YES];
