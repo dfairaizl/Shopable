@@ -43,7 +43,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="360" y="-39"/>
+            <point key="canvasLocation" x="160" y="-63"/>
         </scene>
         <scene sceneID="jkf-Ke-W5f">
             <objects>
@@ -132,7 +132,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="899" y="-41"/>
+            <point key="canvasLocation" x="699" y="-65"/>
         </scene>
         <scene sceneID="mXV-m2-6Ij">
             <objects>
@@ -146,7 +146,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-174" y="-39"/>
+            <point key="canvasLocation" x="-374" y="-63"/>
         </scene>
         <scene sceneID="3x2-Fj-TM6">
             <objects>
@@ -186,7 +186,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1936" y="-41"/>
+            <point key="canvasLocation" x="1736" y="-65"/>
         </scene>
         <scene sceneID="QSz-dy-5mc">
             <objects>
@@ -225,7 +225,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2434" y="-41"/>
+            <point key="canvasLocation" x="2234" y="-65"/>
         </scene>
         <scene sceneID="1QQ-bf-Rhq">
             <objects>
@@ -239,7 +239,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="899" y="-674"/>
+            <point key="canvasLocation" x="699" y="-698"/>
         </scene>
         <scene sceneID="Vf8-eS-cMc">
             <objects>
@@ -322,7 +322,7 @@
                     </connections>
                 </pickerView>
             </objects>
-            <point key="canvasLocation" x="1438" y="-674"/>
+            <point key="canvasLocation" x="1238" y="-698"/>
         </scene>
         <scene sceneID="F83-7v-pIw">
             <objects>
@@ -336,7 +336,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1420" y="-41"/>
+            <point key="canvasLocation" x="1220" y="-65"/>
         </scene>
     </scenes>
     <classes>
