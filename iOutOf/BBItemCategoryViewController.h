@@ -10,11 +10,12 @@
 
 @class BBStore, BBItemCategory;
 
-@interface BBItemsTableViewController : UIViewController
+@interface BBItemCategoryViewController : UIViewController
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak, nonatomic) BBStore *currentStore;
-@property (weak, nonatomic) BBItemCategory *currentItemCategory;
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *categoriesTableView;
 
 @end

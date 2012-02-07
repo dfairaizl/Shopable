@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBStoreShoppingViewController : UIViewController
+@class BBStore;
+
+@interface BBStoreShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
-- (IBAction)addItemsButtonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *storeTableView;
+@property (strong, nonatomic) IBOutlet UILabel *storeNameLabel;
+
+@property (strong, nonatomic) BBStore *currentStore;
 
 @end

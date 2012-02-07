@@ -20,6 +20,14 @@
     //set the type
     groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
     
+    //Create default Grocery Store
+    BBStore *someStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
+    
+    someStore.name = [NSString stringWithString:@"Hardware Store"];
+    
+    //set the type
+    someStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+    
     [self createDefaultCategories];
     
     [self saveContext];
@@ -51,6 +59,7 @@
         BBItem *itemMO = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:self.managedObjectContext];
         
         itemMO.name = item;
+        itemMO.parentItemCategory = category;
         
         [category addItemsObject:itemMO];
     }
