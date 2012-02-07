@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BBStoresViewController : UIViewController <UIScrollViewDelegate>
-{
-    BOOL currentlyShopping;
-}
 
 @property (strong, nonatomic) IBOutlet UIScrollView *storesScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *storesPageControl;

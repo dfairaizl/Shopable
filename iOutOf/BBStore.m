@@ -2,7 +2,7 @@
 //  BBStore.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 1/16/12.
+//  Created by Dan Fairaizl on 2/7/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 
 @dynamic name;
 @dynamic type;
+@dynamic currentlyShopping;
 @dynamic shoppingCart;
 
 @end

@@ -2,7 +2,7 @@
 //  BBStore.h
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 1/16/12.
+//  Created by Dan Fairaizl on 2/7/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * type;
+@property (nonatomic, retain) NSNumber * currentlyShopping;
 @property (nonatomic, retain) BBShoppingCart *shoppingCart;
 
 @end

@@ -14,10 +14,7 @@
 
 //Support
 #import "BBStorageManager.h"
-
-@interface BBStoresViewController ()
-
-@end
+#import "UIScrollView+Paging.h"
 
 @implementation BBStoresViewController
 
@@ -113,24 +110,21 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    CGFloat pageWidth = scrollView.frame.size.width;
-    NSInteger page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
-    [self.storesPageControl setCurrentPage:page];
-    
+    [self.storesPageControl setCurrentPage:[self.storesScrollView currentPage]];
 }
 
 - (void)addStore:(id)sender {
     
-    NSLog(@"adding store");
-    
+    [self performSegueWithIdentifier:@"addStoreSegue" sender:nil];
 }
 
 - (void)toggleShopping:(id)sender {
     
-    if(currentlyShopping == NO) {
+    BBStore *currentStore = [[self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]] currentStore];
+    
+    if([currentStore.currentlyShopping boolValue] == NO) {
         
-        currentlyShopping = YES;
+        currentStore.currentlyShopping = [NSNumber numberWithBool:YES];
         
         self.currentlyShoppingLabel.hidden = NO;
         self.currentlyShoppingLabel.alpha = 0.0;
@@ -144,7 +138,7 @@
     }
     else {
         
-        currentlyShopping = NO;
+        currentStore.currentlyShopping = [NSNumber numberWithBool:NO];
         
         [UIView animateWithDuration:0.4 
                          animations:^() {

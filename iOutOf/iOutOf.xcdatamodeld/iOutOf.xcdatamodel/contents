@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BBItem" representedClassName="BBItem" syncable="YES">
         <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isCustom" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -21,6 +21,7 @@
         <relationship name="parentStore" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBStore" inverseName="shoppingCart" inverseEntity="BBStore" syncable="YES"/>
     </entity>
     <entity name="BBStore" representedClassName="BBStore" syncable="YES">
+        <attribute name="currentlyShopping" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="shoppingCart" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="parentStore" inverseEntity="BBShoppingCart" syncable="YES"/>
@@ -29,6 +30,6 @@
         <element name="BBItem" positionX="160" positionY="192" width="128" height="180"/>
         <element name="BBItemCategory" positionX="160" positionY="192" width="128" height="90"/>
         <element name="BBShoppingCart" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="BBStore" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="BBStore" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

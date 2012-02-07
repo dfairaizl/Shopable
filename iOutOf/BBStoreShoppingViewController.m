@@ -9,10 +9,24 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "BBStoreShoppingViewController.h"
-
 #import "BBItemCategoryViewController.h"
 
+//Support
 #import "BBStorageManager.h"
+#import "BBShoppingTableViewCell.h"
+#import "BBDecoratorLabel.h"
+
+@interface BBStoreShoppingViewController ()
+
+- (void)shoppingCellSwipped:(id)sender;
+
+@end
+
+@interface BBStoreShoppingViewController (TableCustomization)
+
+- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBItem *)item;
+
+@end
 
 @implementation BBStoreShoppingViewController
 
@@ -61,6 +75,10 @@
     [[self.contentView layer] setCornerRadius:10.0f];
     
     self.storeNameLabel.text = self.currentStore.name;
+    
+    //setup the swipe gesture recognizer for the shopping table view to support crossing off items in list
+    UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shoppingCellSwipped:)];
+    [self.storeTableView addGestureRecognizer:swipeGR];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -144,10 +162,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BBItem *item = (BBItem *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = item.name;
+    
+    cell = [self configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:item];
     
     return cell;
 }
@@ -157,6 +176,64 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+#pragma mark - Table Customization Methods
+
+- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBItem *)item {
+    
+    cell.itemLabel.text = item.name;
+    
+    if([item.quantity length]) {
+        
+        cell.itemQuantityLabel.text = [NSString stringWithFormat:@"x%@ %@", item.quantity, item.units];
+    }
+    else {
+        
+        cell.itemQuantityLabel.text = @"";
+    }
+    
+    if([item.notes length]) {
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else {
+        
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    [cell cellCheckedOff:[item.checkedOff boolValue]];
+    
+    return cell;
+}
+
+#pragma mark - Private Methods
+
+- (void)shoppingCellSwipped:(id)sender {
+    
+    if([self.currentStore.currentlyShopping boolValue] == YES) {
+        UISwipeGestureRecognizer *swipeGR = (UISwipeGestureRecognizer *)sender;
+        
+        CGPoint touch = [swipeGR locationOfTouch:0 inView:self.storeTableView];
+        NSIndexPath *swipedIndexPath = [self.storeTableView indexPathForRowAtPoint:touch];
+        
+        //get the cell that was swipped
+        BBShoppingTableViewCell *cell = (BBShoppingTableViewCell *)[self.storeTableView cellForRowAtIndexPath:swipedIndexPath];
+        
+        //check the managed object for the item's status
+        BBItem *swippedItem = [self.fetchedResultsController objectAtIndexPath:swipedIndexPath];
+        
+        if([swippedItem.checkedOff boolValue] == YES) {
+            
+            swippedItem.checkedOff = [NSNumber numberWithBool:NO];
+        }
+        else {
+            
+            swippedItem.checkedOff = [NSNumber numberWithBool:YES];
+        }
+        
+        [cell cellCheckedOff:[swippedItem.checkedOff boolValue]];
+    }
 }
 
 
