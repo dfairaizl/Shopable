@@ -15,6 +15,7 @@
 @dynamic name;
 @dynamic type;
 @dynamic currentlyShopping;
+@dynamic order;
 @dynamic shoppingCart;
 
 @end

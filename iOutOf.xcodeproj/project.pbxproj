@@ -40,8 +40,9 @@
 		77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */; };
 		77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */; };
 		77A5210214E1988B00D42858 /* BBItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210114E1988B00D42858 /* BBItemsViewController.m */; };
-		77A5210514E1DBFE00D42858 /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210414E1DBFE00D42858 /* BBStore.m */; };
 		77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */; };
+		77A5210C14E23EBE00D42858 /* BBEditStoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210B14E23EBE00D42858 /* BBEditStoresViewController.m */; };
+		77A5210F14E2440A00D42858 /* BBStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210E14E2440A00D42858 /* BBStore.m */; };
 		77B931CA14DF82F700F7E2ED /* BBStoreShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B931C914DF82F600F7E2ED /* BBStoreShoppingViewController.m */; };
 		77D29C1C14DF25A300EB1EFE /* navbar-background-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D29C1B14DF25A300EB1EFE /* navbar-background-transparent.png */; };
 		77D29C2114DF510F00EB1EFE /* BBStoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */; };
@@ -112,10 +113,12 @@
 		77A520FF14E0D0DA00D42858 /* BBItemCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryViewController.h; sourceTree = "<group>"; };
 		77A5210014E1988B00D42858 /* BBItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemsViewController.h; sourceTree = "<group>"; };
 		77A5210114E1988B00D42858 /* BBItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemsViewController.m; sourceTree = "<group>"; };
-		77A5210314E1DBFE00D42858 /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
-		77A5210414E1DBFE00D42858 /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
 		77A5210714E1DC7900D42858 /* UIScrollView+Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Paging.h"; sourceTree = "<group>"; };
 		77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Paging.m"; sourceTree = "<group>"; };
+		77A5210A14E23EBE00D42858 /* BBEditStoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditStoresViewController.h; sourceTree = "<group>"; };
+		77A5210B14E23EBE00D42858 /* BBEditStoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditStoresViewController.m; sourceTree = "<group>"; };
+		77A5210D14E2440A00D42858 /* BBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStore.h; sourceTree = "<group>"; };
+		77A5210E14E2440A00D42858 /* BBStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStore.m; sourceTree = "<group>"; };
 		77B931C814DF82F600F7E2ED /* BBStoreShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStoreShoppingViewController.h; sourceTree = "<group>"; };
 		77B931C914DF82F600F7E2ED /* BBStoreShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStoreShoppingViewController.m; sourceTree = "<group>"; };
 		77D29C1B14DF25A300EB1EFE /* navbar-background-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-transparent.png"; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			children = (
 				77A4176D14BE0F6900ACAAC1 /* BBAddStoreTableViewController.h */,
 				77A4176E14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m */,
+				77A5210A14E23EBE00D42858 /* BBEditStoresViewController.h */,
+				77A5210B14E23EBE00D42858 /* BBEditStoresViewController.m */,
 				77D29C1E14DF510E00EB1EFE /* BBStoresViewController.h */,
 				77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */,
 			);
@@ -304,8 +309,8 @@
 				771391E814C4E20D00875FB3 /* BBItemCategory.m */,
 				771391E414C4E20D00875FB3 /* BBShoppingCart.h */,
 				771391E514C4E20D00875FB3 /* BBShoppingCart.m */,
-				77A5210314E1DBFE00D42858 /* BBStore.h */,
-				77A5210414E1DBFE00D42858 /* BBStore.m */,
+				77A5210D14E2440A00D42858 /* BBStore.h */,
+				77A5210E14E2440A00D42858 /* BBStore.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -471,8 +476,9 @@
 				77D29C2114DF510F00EB1EFE /* BBStoresViewController.m in Sources */,
 				77B931CA14DF82F700F7E2ED /* BBStoreShoppingViewController.m in Sources */,
 				77A5210214E1988B00D42858 /* BBItemsViewController.m in Sources */,
-				77A5210514E1DBFE00D42858 /* BBStore.m in Sources */,
 				77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */,
+				77A5210C14E23EBE00D42858 /* BBEditStoresViewController.m in Sources */,
+				77A5210F14E2440A00D42858 /* BBStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

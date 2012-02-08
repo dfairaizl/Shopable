@@ -61,6 +61,9 @@
     
     self.navigationItem.leftBarButtonItem = addStoreBarButton;
     self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     
     NSArray *stores = [[BBStorageManager sharedManager] stores];
     
@@ -82,13 +85,25 @@
         storeVC.view.frame = frame;
         
         i++;
-
+        
         [self.storesScrollView addSubview:storeVC.view];
         
         [self addChildViewController:storeVC];
     }
     
     [self.storesPageControl setNumberOfPages:[stores count]];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    //tear down the views in the scroll view
+    for(UIViewController *vc in [self childViewControllers]) {
+        
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+    
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewDidUnload

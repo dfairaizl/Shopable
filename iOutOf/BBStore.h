@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSNumber * currentlyShopping;
+@property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) BBShoppingCart *shoppingCart;
 
 @end

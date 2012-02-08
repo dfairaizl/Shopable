@@ -23,13 +23,14 @@
     <entity name="BBStore" representedClassName="BBStore" syncable="YES">
         <attribute name="currentlyShopping" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="shoppingCart" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="parentStore" inverseEntity="BBShoppingCart" syncable="YES"/>
+        <relationship name="shoppingCart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="parentStore" inverseEntity="BBShoppingCart" syncable="YES"/>
     </entity>
     <elements>
         <element name="BBItem" positionX="160" positionY="192" width="128" height="180"/>
         <element name="BBItemCategory" positionX="160" positionY="192" width="128" height="90"/>
         <element name="BBShoppingCart" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="BBStore" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="BBStore" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>
