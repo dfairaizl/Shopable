@@ -109,7 +109,10 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+     
+        BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
+        [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
     }
 }
 
