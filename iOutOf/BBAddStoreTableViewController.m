@@ -69,7 +69,7 @@
     self.navigationItem.leftBarButtonItem = cancelBarButton;
     self.navigationItem.rightBarButtonItem = saveBarButton;
     
-    self.shoppingStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    self.shoppingStore = [[BBStorageManager sharedManager] addStore];
 }
 
 - (void)viewDidUnload

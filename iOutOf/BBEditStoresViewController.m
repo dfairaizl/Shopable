@@ -4,13 +4,21 @@
 //
 //  Created by Dan Fairaizl on 2/7/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
-//
+ //
 
 #import <QuartzCore/QuartzCore.h>
 
 #import "BBEditStoresViewController.h"
 
 #import "BBStorageManager.h"
+
+#import "BBEditStoreTableViewCell.h"
+
+@interface BBEditStoresViewController ()
+
+- (void)updateOrder;
+
+@end
 
 @implementation BBEditStoresViewController
 
@@ -109,7 +117,6 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-     
         BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
@@ -122,26 +129,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
-    //Stores
-    BBStore *sourceStore = [self.fetchedResultsController objectAtIndexPath:sourceIndexPath];
-    BBStore *destStore = [self.fetchedResultsController objectAtIndexPath:destinationIndexPath];
-    
-    //swap stores
-    sourceStore.order = [NSNumber numberWithInt:destinationIndexPath.row];
-    destStore.order = [NSNumber numberWithInt:sourceIndexPath.row];
+
+    [self updateOrder];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"storeTableCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BBEditStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = store.name;
+    cell.storeNameTextField.text = store.name;
+    cell.currentStore = store;
     
     return cell;
 }
@@ -155,7 +157,7 @@
     [self performSegueWithIdentifier:@"itemsForCategorySegue" sender:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 }
 
-#pragma mark - NSFetchedResultsController Delegate
+#pragma mark - NSFetchedResultsContoller Delegate Methods
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.storesTableView beginUpdates];
@@ -219,7 +221,21 @@
 
 - (void)done:(id)sender {
     
+    [self updateOrder];
+    
+    [[BBStorageManager sharedManager] saveContext];
+    
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)updateOrder {
+
+    for(NSInteger index = 0; index < [self.storesTableView numberOfRowsInSection:0]; index++) {
+        
+        BBEditStoreTableViewCell *cell = (BBEditStoreTableViewCell *)[self.storesTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+        
+        cell.currentStore.order = [NSNumber numberWithInt:index];
+    }
 }
 
 @end

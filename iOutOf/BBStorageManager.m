@@ -181,5 +181,28 @@ static BBStorageManager *sharedManager = nil;
     return stores;
 }
 
+- (BBStore *)addStore {
+
+    BBStore *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    
+    NSError *error = nil;
+    
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    
+    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    
+    NSInteger storesCount = [self.managedObjectContext countForFetchRequest:storesFR error:&error];
+    
+    if(error != nil) {
+        
+        NSLog(@"Error fetching stores!");
+    }
+
+    newStore.order = [NSNumber numberWithInt:storesCount - 1];
+    
+    return newStore;
+    
+}
+
 
 @end
