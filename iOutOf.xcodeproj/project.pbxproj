@@ -79,7 +79,7 @@
 		7745934A14C6133700EF1565 /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
 		7745934B14C6133700EF1565 /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
-		77A4172D14BDFEC200ACAAC1 /* iOutOf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOutOf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A4172D14BDFEC200ACAAC1 /* Shopable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4173114BDFEC200ACAAC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77A4173314BDFEC200ACAAC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77A4173514BDFEC200ACAAC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -177,7 +177,7 @@
 		77A4172E14BDFEC200ACAAC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77A4172D14BDFEC200ACAAC1 /* iOutOf.app */,
+				77A4172D14BDFEC200ACAAC1 /* Shopable.app */,
 				77A4175114BDFEC200ACAAC1 /* iOutOfTests.octest */,
 			);
 			name = Products;
@@ -361,7 +361,7 @@
 			);
 			name = iOutOf;
 			productName = iOutOf;
-			productReference = 77A4172D14BDFEC200ACAAC1 /* iOutOf.app */;
+			productReference = 77A4172D14BDFEC200ACAAC1 /* Shopable.app */;
 			productType = "com.apple.product-type.application";
 		};
 		77A4175014BDFEC200ACAAC1 /* iOutOfTests */ = {
@@ -593,7 +593,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOutOf/iOutOf-Prefix.pch";
 				INFOPLIST_FILE = "iOutOf/iOutOf-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Shopable;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -604,7 +604,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOutOf/iOutOf-Prefix.pch";
 				INFOPLIST_FILE = "iOutOf/iOutOf-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Shopable;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

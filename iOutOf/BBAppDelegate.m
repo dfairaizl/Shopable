@@ -70,6 +70,8 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    
+    [[BBStorageManager sharedManager] saveContext];
 }
 
 #pragma mark - Private Methods

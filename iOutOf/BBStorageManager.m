@@ -169,6 +169,8 @@ static BBStorageManager *sharedManager = nil;
     
     NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
     
+    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    
     stores = [self.managedObjectContext executeFetchRequest:storesFR error:&error];
     
     if(error != nil) {

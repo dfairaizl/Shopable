@@ -54,7 +54,7 @@
     NSError *error = nil;
     NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
     
-    [categoriesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    [categoriesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
                                                                     managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
@@ -120,7 +120,13 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
+    //Stores
+    BBStore *sourceStore = [self.fetchedResultsController objectAtIndexPath:sourceIndexPath];
+    BBStore *destStore = [self.fetchedResultsController objectAtIndexPath:destinationIndexPath];
     
+    //swap stores
+    sourceStore.order = [NSNumber numberWithInt:destinationIndexPath.row];
+    destStore.order = [NSNumber numberWithInt:sourceIndexPath.row];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

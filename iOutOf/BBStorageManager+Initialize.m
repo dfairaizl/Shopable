@@ -16,6 +16,7 @@
     BBStore *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
     
     groceryStore.name = [NSString stringWithString:@"Grocery Store"];
+    groceryStore.order = [NSNumber numberWithInt:0];
     
     //set the type
     groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
@@ -24,6 +25,7 @@
     BBStore *someStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
     
     someStore.name = [NSString stringWithString:@"Hardware Store"];
+    someStore.order = [NSNumber numberWithInt:1];
     
     //set the type
     someStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
