@@ -39,6 +39,14 @@
     [super viewDidLoad];
     
     [self.notesTextView becomeFirstResponder];
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    self.navigationItem.leftBarButtonItem = backBarButton;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -60,6 +68,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)back:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

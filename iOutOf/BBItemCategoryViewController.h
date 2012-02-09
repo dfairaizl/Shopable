@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-@property (weak, nonatomic) BBStore *currentStore;
+@property (strong, nonatomic) BBStore *currentStore;
 
 @property (strong, nonatomic) IBOutlet UITableView *categoriesTableView;
 
