@@ -69,9 +69,6 @@
                                                                       sectionNameKeyPath:nil 
                                                                                cacheName:nil];
     
-    
-    self.fetchedResultsController.delegate = self;
-    
     [self.fetchedResultsController performFetch:&error];
     
     if(error != nil) {
@@ -120,6 +117,8 @@
         BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -129,23 +128,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    NSMutableArray *stores = [[self.fetchedResultsController fetchedObjects] mutableCopy];
+    BBStore *editingStore = [self.fetchedResultsController objectAtIndexPath:sourceIndexPath];
+    
+    [stores removeObjectAtIndex:sourceIndexPath.row];
+    [stores insertObject:editingStore atIndex:destinationIndexPath.row];
 
     [self updateOrder];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    BBEditStoreTableViewCell *editingCell = (BBEditStoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    
-    [UIView animateWithDuration:0.75 animations:^() {
-       
-        CGRect frame = editingCell.storeNameTextField.frame;
-        frame.size.width -= 30;
-        editingCell.storeNameTextField.frame = frame;
-        
-    }];
-    
-    return @"Delete";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
