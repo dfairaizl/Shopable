@@ -12,6 +12,8 @@
 
 #import "BBStorageManager.h"
 
+#import "BBItemTableViewCell.h"
+
 @implementation BBItemsViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -120,45 +122,34 @@
 {
     static NSString *CellIdentifier = @"ItemCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BBItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.currentShoppingCart = self.currentShoppingCart;
+    cell.currentItem = item;
     
     // Configure the cell...
     
     if([self.currentShoppingCart containsItem:item] == YES) {
         
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [cell setItemSelected:YES];
     }
     else {
         
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        [cell setItemSelected:NO];
     }
     
-    cell.textLabel.text = item.name;
+    cell.itemName.text = item.name;
     
     return cell;
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    BBItem *selectedItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     
-    if(cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        
-        [self.currentShoppingCart removeItemFromCart:selectedItem];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    else {
-        
-        [self.currentShoppingCart addItemToCart:selectedItem];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"editItemDetailsSegue" sender:nil];
 }
 
 #pragma mark - UIBarButtinItem Selector Methods

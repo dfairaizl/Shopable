@@ -45,4 +45,14 @@
     return YES;
 }
 
+- (void)willTransitionToState:(UITableViewCellStateMask)state {
+    
+    if(state == UITableViewCellStateShowingEditControlMask) {
+        
+    }
+    
+    [super willTransitionToState:state];
+    
+}
+
 @end

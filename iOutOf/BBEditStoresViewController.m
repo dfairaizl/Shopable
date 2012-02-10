@@ -133,6 +133,21 @@
     [self updateOrder];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BBEditStoreTableViewCell *editingCell = (BBEditStoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    [UIView animateWithDuration:0.75 animations:^() {
+       
+        CGRect frame = editingCell.storeNameTextField.frame;
+        frame.size.width -= 30;
+        editingCell.storeNameTextField.frame = frame;
+        
+    }];
+    
+    return @"Delete";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"storeTableCell";
