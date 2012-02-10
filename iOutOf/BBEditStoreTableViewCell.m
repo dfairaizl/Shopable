@@ -45,14 +45,30 @@
     return YES;
 }
 
-- (void)willTransitionToState:(UITableViewCellStateMask)state {
+- (void)layoutSubviews {
     
-    if(state == UITableViewCellStateShowingEditControlMask) {
-        
+    if(self.showingDeleteConfirmation == YES) {
+
+        [UIView animateWithDuration:0.5 animations:^() {
+          
+            CGRect frame = self.storeNameTextField.frame;
+            frame.size.width = CGRectGetWidth(self.contentView.frame) - 80;
+            self.storeNameTextField.frame = frame;
+            
+        }];
+    }
+    else {
+
+        [UIView animateWithDuration:0.5 animations:^() {
+            
+            CGRect frame = self.storeNameTextField.frame;
+            frame.size.width = 195.0;
+            self.storeNameTextField.frame = frame;
+            
+        }];
     }
     
-    [super willTransitionToState:state];
-    
+    [super layoutSubviews];
 }
 
 @end
