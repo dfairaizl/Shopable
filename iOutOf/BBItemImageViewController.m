@@ -145,7 +145,7 @@
     
     UIImage *itemImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.currentItem.image = UIImagePNGRepresentation(itemImage);
+    self.currentItem.image = UIImageJPEGRepresentation(itemImage, 60);
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -174,7 +174,6 @@
     cameraImagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentModalViewController:cameraImagePickerVC animated:YES];
-    
 }
 
 @end
