@@ -85,7 +85,20 @@
 
 - (void)saveButtonPressed:(id)sender {
     
-    [super saveButtonPressed:sender];
+    if([self.addedItem.name length] <= 0) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot Save Item" 
+                                                        message:@"Please enter a name for this item" 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"okay" 
+                                              otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    else {
+     
+        [super saveButtonPressed:sender];
+    }
 }
 
 - (void)cancelButtonPressed:(id)sender {
