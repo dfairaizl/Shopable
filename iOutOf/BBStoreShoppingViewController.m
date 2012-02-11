@@ -166,7 +166,7 @@
         if (editingStyle == UITableViewCellEditingStyleDelete)
         {
             BBItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteItem];
+            [[self.currentStore currentShoppingCart] removeItemFromCart:deleteItem];
             
             NSMutableArray *rows = [[self.fetchedResultsController fetchedObjects] mutableCopy];
             [rows removeObjectAtIndex:indexPath.row];
