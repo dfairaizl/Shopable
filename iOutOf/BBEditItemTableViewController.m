@@ -56,8 +56,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.itemQuantityTextField.text = [NSString stringWithFormat:@"%@ %@", self.shoppingItem.quantity, self.shoppingItem.units];
-    self.notesCellLabel.text = self.shoppingItem.notes;
+    if([self.shoppingItem.quantity length] || [self.shoppingItem.units length]) {
+        self.itemQuantityTextField.text = [NSString stringWithFormat:@"%@ %@", self.shoppingItem.quantity , self.shoppingItem.units];
+    }
+    
+    if([self.shoppingItem.notes length]) {
+        self.notesCellLabel.text = self.shoppingItem.notes;
+    }
     
     [super viewWillAppear:animated];
 }
