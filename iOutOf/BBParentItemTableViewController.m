@@ -8,6 +8,8 @@
 
 #import "BBParentItemTableViewController.h"
 
+#import "BBItemImageViewController.h"
+
 #import "BBStorageManager.h"
 
 @interface BBParentItemTableViewController ()
@@ -112,12 +114,18 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+
     if([segue.identifier isEqualToString:@"addNotesSegue"]) {
         
         BBAddItemNotesViewController *vc = (BBAddItemNotesViewController *)segue.destinationViewController;
         
         vc.delegate = self;
+    }
+    else if([segue.identifier isEqualToString:@"addImageSegue"]) {
+        
+        BBItemImageViewController *imageVC = (BBItemImageViewController *)segue.destinationViewController;
+        
+        imageVC.currentItem = self.shoppingItem;
     }
 }
 

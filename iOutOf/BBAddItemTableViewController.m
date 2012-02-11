@@ -8,8 +8,6 @@
 
 #import "BBAddItemTableViewController.h"
 
-#import "BBItemImageViewController.h"
-
 #import "BBStorageManager.h"
 
 @implementation BBAddItemTableViewController
@@ -71,16 +69,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if([segue.identifier isEqualToString:@"addImageSegue"]) {
-        
-        BBItemImageViewController *imageVC = (BBItemImageViewController *)segue.destinationViewController;
-        
-        imageVC.currentItem = self.shoppingItem;
-    }
 }
 
 #pragma mark - Table view delegate
