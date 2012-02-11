@@ -114,7 +114,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="u5S-rJ-CKG">
-                                                            <rect key="frame" x="174" y="11" width="86" height="21"/>
+                                                            <rect key="frame" x="161" y="11" width="86" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -435,7 +435,7 @@
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3854" y="-294"/>
+            <point key="canvasLocation" x="3844" y="187"/>
         </scene>
         <scene sceneID="IRt-jo-r4U">
             <objects>
@@ -464,7 +464,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3854" y="-1224"/>
+            <point key="canvasLocation" x="3882" y="-715"/>
         </scene>
         <scene sceneID="QdV-qo-KKv">
             <objects>
@@ -544,65 +544,136 @@
                     <connections>
                         <outlet property="itemsTableView" destination="aYb-m4-u1W" id="SSa-2Y-ej0"/>
                         <segue destination="pjy-iG-7Hf" kind="modal" identifier="addItemSegue" id="oYT-3h-bc2"/>
-                        <segue destination="HTz-pY-H3Q" kind="push" identifier="editItemDetailsSegue" id="lyE-3y-OuP"/>
+                        <segue destination="Ix4-Ck-253" kind="push" identifier="editItemDetailsSegue" id="keo-eI-ZLt"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2234" y="-65"/>
         </scene>
-        <scene sceneID="k8q-jB-JZn">
+        <scene sceneID="rNJ-Cm-WK9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ozp-B4-qeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="HTz-pY-H3Q" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Xv-AS-AEX">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2FG-n3-Wsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="Ix4-Ck-253" customClass="BBEditItemTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lQS-GW-WRa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection id="9aG-8l-co4">
+                            <tableViewSection headerTitle="Quantity" id="xag-Dq-X9t">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nbS-Nw-0Gh">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vgj-fJ-3Gs">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="D3S-Pl-LSL">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DV6-cD-anK">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Quantity" minimumFontSize="17" id="z4L-1c-9hS">
+                                                    <rect key="frame" x="20" y="6" width="260" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Ix4-Ck-253" id="oQb-nv-pkC"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Notes" id="7Zn-SK-cZF">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Vlh-fp-I7U">
+                                        <rect key="frame" x="0.0" y="138" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="14" id="o1g-wz-gJb">
+                                                    <rect key="frame" x="20" y="11" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="GP2-8e-g4m" kind="push" identifier="addNotesSegue" id="44B-Iw-PGA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Picture" id="xlk-5i-dlp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="FJY-M3-TMH">
+                                        <rect key="frame" x="0.0" y="230" width="320" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="aKs-ZO-xaj">
+                                                    <rect key="frame" x="80" y="4" width="141" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="p9m-vy-9pa" kind="push" id="EAS-8O-NRa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="HTz-pY-H3Q" id="QXW-Pe-tOE"/>
-                            <outlet property="delegate" destination="HTz-pY-H3Q" id="YK5-Ll-XB9"/>
+                            <outlet property="dataSource" destination="Ix4-Ck-253" id="OFA-bi-wsZ"/>
+                            <outlet property="delegate" destination="Ix4-Ck-253" id="ukY-CO-ySJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="15X-JS-BSX"/>
+                    <navigationItem key="navigationItem" id="0s5-EN-S6c"/>
+                    <connections>
+                        <outlet property="itemQuantityTextField" destination="z4L-1c-9hS" id="mQb-Yv-V4o"/>
+                        <outlet property="notesCellLabel" destination="o1g-wz-gJb" id="eTS-lf-PYc"/>
+                        <outlet property="quantityPickerView" destination="MT6-pC-nkd" id="tSh-HI-1vD"/>
+                        <outlet property="quantityPickerViewToolbar" destination="cY1-sH-QRz" id="JGe-45-cwU"/>
+                    </connections>
                 </tableViewController>
+                <pickerView contentMode="scaleToFill" id="MT6-pC-nkd">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="Ix4-Ck-253" id="38g-El-AcI"/>
+                        <outlet property="delegate" destination="Ix4-Ck-253" id="T29-FQ-0rp"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="cY1-sH-QRz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Clear" id="NVD-g7-oyc">
+                            <connections>
+                                <action selector="pickerClearButtonPressed:" destination="Ix4-Ck-253" id="oZk-Dw-Sz4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xIO-2E-FdY"/>
+                        <barButtonItem title="Done" style="done" id="toi-O6-MY8">
+                            <connections>
+                                <action selector="pickerDoneButtonPressed:" destination="Ix4-Ck-253" id="Q9A-tZ-DgY"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
-            <point key="canvasLocation" x="2772" y="134"/>
+            <point key="canvasLocation" x="2772" y="187"/>
         </scene>
         <scene sceneID="1QQ-bf-Rhq">
             <objects>
@@ -727,19 +798,8 @@
                 <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
-        <class className="BBAddItemTableViewController" superclassName="UITableViewController">
+        <class className="BBAddItemTableViewController" superclassName="BBParentItemTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="pickerClearButtonPressed:"/>
-                <relationship kind="action" name="pickerDoneButtonPressed:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
-                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
-            </relationships>
         </class>
         <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
@@ -753,6 +813,9 @@
         </class>
         <class className="BBDecoratorLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
+        </class>
+        <class className="BBEditItemTableViewController" superclassName="BBParentItemTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditItemTableViewController.h"/>
         </class>
         <class className="BBEditStoreTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoreTableViewCell.h"/>
@@ -786,6 +849,18 @@
                 <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
+        <class className="BBParentItemTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBParentItemTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pickerClearButtonPressed:"/>
+                <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
         <class className="BBShoppingTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingTableViewCell.h"/>
             <relationships>
@@ -815,4 +890,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="EAS-8O-NRa"/>
+        <segue reference="44B-Iw-PGA"/>
+    </inferredMetricsTieBreakers>
 </document>

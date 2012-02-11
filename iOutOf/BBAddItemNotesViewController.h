@@ -14,11 +14,11 @@
 
 @end
 
-@class BBAddItemTableViewController;
+@class BBParentItemTableViewController;
 
 @interface BBAddItemNotesViewController : UIViewController
 
-@property (weak, nonatomic) BBAddItemTableViewController<BBAddItemNotesDelegate> *delegate;
+@property (weak, nonatomic) BBParentItemTableViewController <BBAddItemNotesDelegate> *delegate;
 
 @property (strong, nonatomic) IBOutlet UITextView *notesTextView;
 

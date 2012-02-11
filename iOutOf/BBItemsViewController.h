@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class BBItemCategory, BBShoppingCart;
+@class BBStore, BBItemCategory, BBShoppingCart;
 
 @interface BBItemsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) BBStore *currentStore;
 @property (strong, nonatomic) BBShoppingCart *currentShoppingCart;
 @property (strong, nonatomic) BBItemCategory *currentItemCategory;
 

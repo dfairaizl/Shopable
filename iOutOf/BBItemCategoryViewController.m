@@ -118,6 +118,7 @@
             
         BBItemsViewController *itemsVC = (BBItemsViewController *)segue.destinationViewController;
         
+        itemsVC.currentStore = self.currentStore;
         itemsVC.currentShoppingCart = [self.currentStore currentShoppingCart];
         itemsVC.currentItemCategory = (BBItemCategory *)sender;
     }

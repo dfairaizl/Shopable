@@ -14,10 +14,14 @@
 
 #import "BBItemTableViewCell.h"
 
+#import "BBEditItemTableViewController.h"
+#import "BBAddItemTableViewController.h"
+
 @implementation BBItemsViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
+@synthesize currentStore;
 @synthesize currentShoppingCart;
 @synthesize currentItemCategory;
 
@@ -66,7 +70,6 @@
     self.navigationItem.rightBarButtonItem = addBarButton;
     self.navigationItem.leftBarButtonItem = backBarButton;
     
-    NSError *error = nil;
     NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM];
     
     [categoriesFR setPredicate:[NSPredicate predicateWithFormat:@"parentItemCategory == %@", self.currentItemCategory]];
@@ -77,7 +80,11 @@
                                                                     managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
                                                                       sectionNameKeyPath:nil 
                                                                                cacheName:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     
+    NSError *error = nil;
     
     [self.fetchedResultsController performFetch:&error];
     
@@ -101,6 +108,25 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"addItemSegue"]) {
+        
+        BBAddItemTableViewController *addVC = (BBAddItemTableViewController *)[segue.destinationViewController topViewController];
+        
+        addVC.currentStore = self.currentStore;
+        addVC.currentItemCategory = self.currentItemCategory;
+    }
+    else if([segue.identifier isEqualToString:@"editItemDetailsSegue"]) {
+        
+        BBItem *selectedItem = (BBItem *)sender;
+        BBEditItemTableViewController *editVC = (BBEditItemTableViewController *)segue.destinationViewController;
+        
+        editVC.currentStore = self.currentStore;
+        editVC.shoppingItem = selectedItem;
+    }
 }
 
 #pragma mark - Table view data source
@@ -149,7 +175,9 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     
-    [self performSegueWithIdentifier:@"editItemDetailsSegue" sender:nil];
+    BBItem *selectedItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [self performSegueWithIdentifier:@"editItemDetailsSegue" sender:selectedItem];
 }
 
 #pragma mark - UIBarButtinItem Selector Methods
