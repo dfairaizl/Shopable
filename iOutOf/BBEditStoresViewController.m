@@ -16,6 +16,8 @@
 
 @interface BBEditStoresViewController ()
 
+- (void)updateStoresFRC;
+- (void)updateItemsFRC;
 - (void)updateOrder;
 - (void)update;
 
@@ -60,22 +62,7 @@
     
     self.navigationItem.rightBarButtonItem = doneBarButton;
     
-    NSError *error = nil;
-    NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
-    
-    [categoriesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
-    
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
-                                                                    managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
-                                                                      sectionNameKeyPath:nil 
-                                                                               cacheName:nil];
-    
-    [self.fetchedResultsController performFetch:&error];
-    
-    if(error != nil) {
-        
-        NSLog(@"Error fetching item categories");
-    }
+    [self updateStoresFRC];
     
     [self.storesTableView setEditing:YES];
     
@@ -178,7 +165,53 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)editingStateChanged:(id)sender {
+
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    
+    if(control.selectedSegmentIndex == 0) {
+        
+        [self updateStoresFRC];
+    }
+    else if(control.selectedSegmentIndex == 1) {
+        
+        [self updateItemsFRC];
+    }
+    
+    [self.storesTableView reloadData];
+}
+
 #pragma mark - Private Methods
+
+- (void)updateStoresFRC {
+    
+    NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    
+    [categoriesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
+                                                                    managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
+                                                                      sectionNameKeyPath:nil 
+                                                                               cacheName:nil];
+    
+    [self update];
+}
+
+- (void)updateItemsFRC {
+
+    NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM];
+    
+    [categoriesFR setPredicate:[NSPredicate predicateWithFormat:@"isCustom == %d", YES]];
+    
+    [categoriesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
+                                                                    managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
+                                                                      sectionNameKeyPath:nil 
+                                                                               cacheName:nil];
+    
+    [self update];
+}
 
 - (void)updateOrder {
 

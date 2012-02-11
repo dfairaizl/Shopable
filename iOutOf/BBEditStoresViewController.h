@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *storesTableView;
 
+- (IBAction)editingStateChanged:(id)sender;
+
 @end
