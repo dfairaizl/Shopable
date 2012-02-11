@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *storesPageControl;
 @property (strong, nonatomic) IBOutlet UILabel *currentlyShoppingLabel;
 
+@property (strong, nonatomic) UIButton *addStoreButton;
+
 @end

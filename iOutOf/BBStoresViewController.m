@@ -21,6 +21,7 @@
 @synthesize storesScrollView;
 @synthesize storesPageControl;
 @synthesize currentlyShoppingLabel;
+@synthesize addStoreButton = _addStoreButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,11 +48,11 @@
 
     // Do any additional setup after loading the view from its nib.
     
-    UIButton *addStoreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [addStoreButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [addStoreButton addTarget:self action:@selector(addStore:) forControlEvents:UIControlEventTouchUpInside];
+    _addStoreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [self.addStoreButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
+    [self.addStoreButton addTarget:self action:@selector(addStore:) forControlEvents:UIControlEventTouchUpInside];
 
-    UIBarButtonItem *addStoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:addStoreButton];
+    UIBarButtonItem *addStoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.addStoreButton];
     
     UIButton *toggleShoppingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [toggleShoppingButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
@@ -144,10 +145,15 @@
         self.currentlyShoppingLabel.hidden = NO;
         self.currentlyShoppingLabel.alpha = 0.0;
         self.storesScrollView.scrollEnabled = NO;
+        self.addStoreButton.enabled = NO;
         
         [UIView animateWithDuration:0.4 animations:^() {
             
+            //turn off store related controlls
             self.storesPageControl.alpha = 0.0;
+            self.addStoreButton.alpha = 0.0;
+
+            //turn on shopping related controlls 
             self.currentlyShoppingLabel.alpha = 1.0;
         }];
     }
@@ -158,14 +164,19 @@
         [UIView animateWithDuration:0.4 
                          animations:^() {
                              
+                             //turn off shopping realted controlls
                              self.currentlyShoppingLabel.alpha = 0.0;
+
+                             //turn on store related controlls
                              self.storesPageControl.alpha = 1.0;
+                             self.addStoreButton.alpha = 1.0;
             
                          }
                          completion:^(BOOL finished) {
                              
                              self.currentlyShoppingLabel.hidden = YES;
                              self.storesScrollView.scrollEnabled = YES;
+                             self.addStoreButton.enabled = YES;
                          
                          }
          ];
