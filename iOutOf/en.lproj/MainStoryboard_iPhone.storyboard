@@ -651,6 +651,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="0s5-EN-S6c"/>
                     <connections>
+                        <outlet property="itemImage" destination="aKs-ZO-xaj" id="qhj-KQ-imU"/>
                         <outlet property="itemQuantityTextField" destination="z4L-1c-9hS" id="mQb-Yv-V4o"/>
                         <outlet property="notesCellLabel" destination="o1g-wz-gJb" id="eTS-lf-PYc"/>
                         <outlet property="quantityPickerView" destination="MT6-pC-nkd" id="tSh-HI-1vD"/>
@@ -807,7 +808,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TK8-dk-1Hq"/>
-        <segue reference="rbp-8N-cjN"/>
+        <segue reference="44B-Iw-PGA"/>
+        <segue reference="EAS-8O-NRa"/>
     </inferredMetricsTieBreakers>
 </document>

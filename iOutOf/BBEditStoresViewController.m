@@ -178,6 +178,8 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark - Private Methods
+
 - (void)updateOrder {
 
     for(NSInteger index = 0; index < [self.storesTableView numberOfRowsInSection:0]; index++) {
