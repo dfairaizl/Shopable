@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BBItem" representedClassName="BBItem" syncable="YES">
-        <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="isCustom" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="itemCategoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="parentItemCategory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBItemCategory" inverseName="items" inverseEntity="BBItemCategory" syncable="YES"/>
-        <relationship name="parentShoppingCart" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="cartItems" inverseEntity="BBShoppingCart" syncable="YES"/>
+        <relationship name="shoppingItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBShoppingItem" inverseName="item" inverseEntity="BBShoppingItem" syncable="YES"/>
     </entity>
     <entity name="BBItemCategory" representedClassName="BBItemCategory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,8 +12,18 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBItem" inverseName="parentItemCategory" inverseEntity="BBItem" syncable="YES"/>
     </entity>
     <entity name="BBShoppingCart" representedClassName="BBShoppingCart" syncable="YES">
-        <relationship name="cartItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBItem" inverseName="parentShoppingCart" inverseEntity="BBItem" syncable="YES"/>
+        <relationship name="cartItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBShoppingItem" inverseName="parentShoppingCart" inverseEntity="BBShoppingItem" syncable="YES"/>
         <relationship name="parentStore" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBStore" inverseName="shoppingCart" inverseEntity="BBStore" syncable="YES"/>
+    </entity>
+    <entity name="BBShoppingItem" representedClassName="BBShoppingItem" syncable="YES">
+        <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="itemCategoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBItem" inverseName="shoppingItems" inverseEntity="BBItem" syncable="YES"/>
+        <relationship name="parentShoppingCart" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="cartItems" inverseEntity="BBShoppingCart" syncable="YES"/>
     </entity>
     <entity name="BBStore" representedClassName="BBStore" syncable="YES">
         <attribute name="currentlyShopping" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -29,9 +33,10 @@
         <relationship name="shoppingCart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="parentStore" inverseEntity="BBShoppingCart" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BBItem" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="BBItemCategory" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="BBShoppingCart" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="BBStore" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="BBItem" positionX="133" positionY="237" width="128" height="195"/>
+        <element name="BBItemCategory" positionX="151" positionY="81" width="128" height="90"/>
+        <element name="BBShoppingCart" positionX="-101" positionY="522" width="128" height="45"/>
+        <element name="BBStore" positionX="-108" positionY="315" width="128" height="120"/>
+        <element name="BBShoppingItem" positionX="90" positionY="519" width="128" height="165"/>
     </elements>
 </model>

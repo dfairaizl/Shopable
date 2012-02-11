@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BBItem;
+@class BBShoppingItem;
 
 @interface BBItemImageViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) BBItem *currentItem;
+@property (weak, nonatomic) BBShoppingItem *currentItem;
 
 @property (strong, nonatomic) IBOutlet UIImageView *itemImageView;
 

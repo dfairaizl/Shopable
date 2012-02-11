@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class BBShoppingCart, BBItem;
+@class BBShoppingCart, BBShoppingItem, BBItem;
 
 @interface BBItemTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) BBShoppingCart *currentShoppingCart;
+@property (strong, nonatomic) BBShoppingItem *currentShoppingItem;
 @property (weak, nonatomic) BBItem *currentItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *itemName;

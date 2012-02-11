@@ -121,7 +121,7 @@
     }
     else if([segue.identifier isEqualToString:@"editItemDetailsSegue"]) {
         
-        BBItem *selectedItem = (BBItem *)sender;
+        BBShoppingItem *selectedItem = (BBShoppingItem *)sender;
         BBEditItemTableViewController *editVC = (BBEditItemTableViewController *)segue.destinationViewController;
         
         editVC.currentStore = self.currentStore;
@@ -157,7 +157,7 @@
     
     // Configure the cell...
     
-    if([self.currentShoppingCart containsItem:item] == YES) {
+    if([self.currentShoppingCart containsShoppingItemForItem:item] == YES) {
         
         [cell setItemSelected:YES];
     }
@@ -177,7 +177,9 @@
     
     BBItem *selectedItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    [self performSegueWithIdentifier:@"editItemDetailsSegue" sender:selectedItem];
+    BBShoppingItem *shoppingItem = [self.currentShoppingCart shoppingItemForItem:selectedItem createIfNotPresent:YES];
+    
+    [self performSegueWithIdentifier:@"editItemDetailsSegue" sender:shoppingItem];
 }
 
 #pragma mark - UIBarButtinItem Selector Methods

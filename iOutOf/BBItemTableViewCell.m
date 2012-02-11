@@ -12,7 +12,7 @@
 
 @implementation BBItemTableViewCell
 
-@synthesize currentShoppingCart, currentItem;
+@synthesize currentShoppingCart, currentShoppingItem ,currentItem;
 @synthesize itemName, itemSelectionButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -33,16 +33,16 @@
 
 - (IBAction)itemSelectionButtonPress:(id)sender {
     
-    if([self.currentShoppingCart containsItem:self.currentItem] == YES) {
+    if([self.currentShoppingCart containsItem:self.currentShoppingItem] == YES) {
         
-        [self.currentShoppingCart removeItemFromCart:self.currentItem];
+        [self.currentShoppingCart removeItemFromCart:self.currentShoppingItem];
     }
     else {
         
-        [self.currentShoppingCart addItemToCart:self.currentItem];
+        self.currentShoppingItem = [self.currentShoppingCart addItemToCart:self.currentItem];
     }
     
-    [self setItemSelected:[self.currentShoppingCart containsItem:self.currentItem]];
+    [self setItemSelected:[self.currentShoppingCart containsItem:self.currentShoppingItem]];
 }
 
 - (void)setItemSelected:(BOOL)selected {

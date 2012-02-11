@@ -14,7 +14,7 @@
 #define bbPickerComponentQuantity   0
 #define bbPickerComponentUnits      1
 
-@class BBStore, BBItemCategory, BBItem;
+@class BBStore, BBItemCategory, BBItem, BBShoppingItem;
 
 @interface BBParentItemTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate, BBAddItemNotesDelegate> {
     
@@ -32,7 +32,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *notesCellLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 
-@property (strong, nonatomic) BBItem *shoppingItem; 
+@property (strong, nonatomic) BBItem *addedItem;
+@property (strong, nonatomic) BBShoppingItem *shoppingItem; 
 @property (strong, nonatomic) NSDictionary *quantitiesUnitsPList;
 @property (strong, nonatomic) NSArray *quantities;
 @property (strong, nonatomic) NSArray *units;

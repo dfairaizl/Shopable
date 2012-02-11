@@ -34,8 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    self.addedItem = [BBItem newItem];
+    self.addedItem.parentItemCategory = self.currentItemCategory;
     
-    self.shoppingItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    self.shoppingItem = [[self.currentStore currentShoppingCart] addItemToCart:self.addedItem];
 }
 
 - (void)viewDidUnload
@@ -76,6 +79,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+}
+
+#pragma mark - UI Action Methods
+
+- (void)saveButtonPressed:(id)sender {
+    
+    [super saveButtonPressed:sender];
+}
+
+- (void)cancelButtonPressed:(id)sender {
+    
+    [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.shoppingItem];
+    [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.addedItem];
+    
+    [super saveButtonPressed:sender];
 }
 
 @end

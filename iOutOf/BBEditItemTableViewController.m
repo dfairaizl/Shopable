@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     
-    self.title = self.shoppingItem.name;
+    self.title = self.shoppingItem.item.name;
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [backButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
@@ -102,14 +102,11 @@
 }
 
 - (void)backButtonPressed:(id)sender {
-    
-    if ([[self.currentStore currentShoppingCart] containsItem:self.shoppingItem] == NO) {
         
-        //If a user adds quantity, notes or picture, add the item to the cart automatically
-        if([self.shoppingItem.quantity length] || [self.shoppingItem.notes length]) {
-            
-            [[self.currentStore currentShoppingCart] addItemToCart:self.shoppingItem];
-        }
+    //If a user DOES NOT add quantity, notes or picture, remove it from the cart
+    if([self.shoppingItem.quantity length] == 0 && [self.shoppingItem.notes length] == 0 && [self.shoppingItem.image length] == 0) {
+        
+        [[self.currentStore currentShoppingCart] removeItemFromCart:self.shoppingItem];
     }
     
     [self.navigationController popViewControllerAnimated:YES];

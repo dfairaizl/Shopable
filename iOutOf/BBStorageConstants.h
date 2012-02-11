@@ -16,13 +16,15 @@
 
 //Categories
 #import "BBStore+Logic.h"
-#import "BBShoppingCart+Logic.h"
 #import "BBItem+Logic.h"
+#import "BBShoppingCart+Logic.h"
+#import "BBShoppingItem+Logic.h"
 
 #define     BB_ENTITY_STORE             @"BBStore"
 #define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"
 #define     BB_ENTITY_ITEM              @"BBItem"
 #define     BB_ENTITY_SHOPPING_CART     @"BBShoppingCart"
+#define     BB_ENTITY_SHOPPING_ITEM     @"BBShoppingItem"
 
 typedef enum {
     bbStoreTypeDepartment = 0,

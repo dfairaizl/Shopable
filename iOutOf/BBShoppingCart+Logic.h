@@ -8,10 +8,15 @@
 
 #import "BBShoppingCart.h"
 
+@class BBItem;
+
 @interface BBShoppingCart (Logic)
 
-- (void)addItemToCart:(BBItem *)item;
-- (void)removeItemFromCart:(BBItem *)item;
-- (BOOL)containsItem:(BBItem *)item;
+- (BBShoppingItem *)addItemToCart:(BBItem *)item;
+- (void)removeItemFromCart:(BBShoppingItem *)item;
+- (BOOL)containsItem:(BBShoppingItem *)item;
+
+- (BBShoppingItem *)shoppingItemForItem:(BBItem *)item createIfNotPresent:(BOOL)create;
+- (BOOL)containsShoppingItemForItem:(BBItem *)item;
 
 @end

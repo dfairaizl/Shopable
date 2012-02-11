@@ -25,7 +25,7 @@
 
 @interface BBStoreShoppingViewController (TableCustomization)
 
-- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBItem *)item;
+- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBShoppingItem *)item;
 
 @end
 
@@ -81,9 +81,9 @@
     NSError *error = nil;
     NSFetchRequest *cartCategoryFR = [[NSFetchRequest alloc] init];
     
-    cartCategoryFR.entity = [NSEntityDescription entityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    cartCategoryFR.entity = [NSEntityDescription entityForName:BB_ENTITY_SHOPPING_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
     cartCategoryFR.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], //NOTE sort descriptor keyname MUST match the section name in the FRC!
-                                      [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil];
+                                      [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES], nil];
     cartCategoryFR.predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", [self.currentStore currentShoppingCart]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:cartCategoryFR 
@@ -165,7 +165,7 @@
         
         if (editingStyle == UITableViewCellEditingStyleDelete)
         {
-            BBItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            BBShoppingItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [[self.currentStore currentShoppingCart] removeItemFromCart:deleteItem];
             
             NSMutableArray *rows = [[self.fetchedResultsController fetchedObjects] mutableCopy];
@@ -190,7 +190,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    BBItem *item = (BBItem *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    BBShoppingItem *item = (BBShoppingItem *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Configure the cell...
     
@@ -208,9 +208,9 @@
 
 #pragma mark - Table Customization Methods
 
-- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBItem *)item {
+- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBShoppingItem *)item {
     
-    cell.itemLabel.text = item.name;
+    cell.itemLabel.text = item.item.name;
     
     if([item.quantity length]) {
         
@@ -249,7 +249,7 @@
         BBShoppingTableViewCell *cell = (BBShoppingTableViewCell *)[self.storeTableView cellForRowAtIndexPath:swipedIndexPath];
         
         //check the managed object for the item's status
-        BBItem *swippedItem = [self.fetchedResultsController objectAtIndexPath:swipedIndexPath];
+        BBShoppingItem *swippedItem = [self.fetchedResultsController objectAtIndexPath:swipedIndexPath];
         
         if([swippedItem.checkedOff boolValue] == YES) {
             

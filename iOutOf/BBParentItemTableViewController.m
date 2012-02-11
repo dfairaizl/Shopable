@@ -27,6 +27,7 @@
 @synthesize notesCellLabel;
 @synthesize itemImage;
 @synthesize quantitiesUnitsPList;
+@synthesize addedItem;
 @synthesize shoppingItem;
 @synthesize quantities;
 @synthesize units;
@@ -146,17 +147,10 @@
 
 - (void)saveButtonPressed:(id)sender {
     
-    self.shoppingItem.parentItemCategory = self.currentItemCategory;
-    self.shoppingItem.isCustom = [NSNumber numberWithBool:YES];
-    
-    [self.currentStore.shoppingCart addItemToCart:self.shoppingItem];
-    
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)cancelButtonPressed:(id)sender {
-    
-    [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.shoppingItem];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -219,7 +213,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     if(textField == self.itemNameTextField) {
-        self.shoppingItem.name = textField.text;
+        self.addedItem.name = textField.text;
     }
 }
 
