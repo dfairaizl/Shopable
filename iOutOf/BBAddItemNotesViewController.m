@@ -49,6 +49,13 @@
     self.navigationItem.leftBarButtonItem = backBarButton;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    self.notesTextView.text = [self.delegate itemNotes];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];

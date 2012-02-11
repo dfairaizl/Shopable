@@ -295,6 +295,11 @@
 
 #pragma mark - BBAddItemNotesDelegate Methods
 
+- (NSString *)itemNotes {
+    
+    return self.shoppingItem.notes;
+}
+
 - (void)addNotesToItem:(NSString *)notes {
     
     self.shoppingItem.notes = notes;

@@ -10,6 +10,7 @@
 
 @protocol BBAddItemNotesDelegate <NSObject>
 
+- (NSString *)itemNotes;
 - (void)addNotesToItem:(NSString *)notes;
 
 @end
