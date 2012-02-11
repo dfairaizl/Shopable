@@ -17,6 +17,7 @@
 @interface BBEditStoresViewController ()
 
 - (void)updateOrder;
+- (void)update;
 
 @end
 
@@ -115,8 +116,12 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
         [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
+        
+        NSMutableArray *rows = [[self.fetchedResultsController fetchedObjects] mutableCopy];
+        [rows removeObjectAtIndex:indexPath.row];
+        
+        [self update];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -241,6 +246,19 @@
         
         cell.currentStore.order = [NSNumber numberWithInt:index];
     }
+}
+
+- (void)update {
+
+    NSError *error = nil;
+    
+    [self.fetchedResultsController performFetch:&error];
+    
+    if(error != nil) {
+        
+        NSLog(@"Error fetching item categories");
+    }
+    
 }
 
 @end
