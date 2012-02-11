@@ -69,7 +69,7 @@
     self.navigationItem.leftBarButtonItem = cancelBarButton;
     self.navigationItem.rightBarButtonItem = saveBarButton;
     
-    self.shoppingStore = [[BBStorageManager sharedManager] addStore];
+    self.shoppingStore = [BBStore addStore];
 }
 
 - (void)viewDidUnload

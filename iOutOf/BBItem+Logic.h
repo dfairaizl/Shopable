@@ -11,6 +11,5 @@
 @interface BBItem (Logic)
 
 + (BBItem *)newItem;
-- (BOOL)itemContainedInShoppingCart;
 
 @end

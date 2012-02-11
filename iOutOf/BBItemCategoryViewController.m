@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "BBItemCategoryViewController.h"
 #import "BBAddItemTableViewController.h"
 #import "BBItemsViewController.h"

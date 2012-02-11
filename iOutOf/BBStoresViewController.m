@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "BBStoresViewController.h"
 
 #import "BBStoreShoppingViewController.h"
@@ -68,7 +66,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    NSArray *stores = [[BBStorageManager sharedManager] stores];
+    NSArray *stores = [BBStore stores];
     
     [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [stores count], 
                                                      CGRectGetHeight(self.storesScrollView.frame))];

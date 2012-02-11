@@ -157,52 +157,9 @@ static BBStorageManager *sharedManager = nil;
 /**
  Returns the URL to the application's Documents directory.
  */
+
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
-#pragma mark - Store Methods
-- (NSArray *)stores {
-    
-    NSArray *stores = nil;
-    NSError *error = nil;
-    
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
-    
-    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
-    
-    stores = [self.managedObjectContext executeFetchRequest:storesFR error:&error];
-    
-    if(error != nil) {
-        
-        NSLog(@"Error fetching stores!");
-    }
-    
-    return stores;
-}
-
-- (BBStore *)addStore {
-
-    BBStore *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
-    
-    NSError *error = nil;
-    
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
-    
-    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
-    
-    NSInteger storesCount = [self.managedObjectContext countForFetchRequest:storesFR error:&error];
-    
-    if(error != nil) {
-        
-        NSLog(@"Error fetching stores!");
-    }
-
-    newStore.order = [NSNumber numberWithInt:storesCount - 1];
-    
-    return newStore;
-    
-}
-
 
 @end

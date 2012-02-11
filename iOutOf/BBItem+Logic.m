@@ -21,17 +21,4 @@
     return newItem;
 }
 
-- (BOOL)itemContainedInShoppingCart {
-    
-    NSError *error = nil;
-    
-    NSFetchRequest *itemsFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_SHOPPING_ITEM];
-    
-    [itemsFR setPredicate:[NSPredicate predicateWithFormat:@"item == %@", self]];
-    
-    NSInteger matchingItems = [[[BBStorageManager sharedManager] managedObjectContext] countForFetchRequest:itemsFR error:&error];
-    
-    return matchingItems == 1;
-}
-
 @end

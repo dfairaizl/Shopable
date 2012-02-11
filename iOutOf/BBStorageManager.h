@@ -22,8 +22,4 @@
 - (BOOL)storeExists;
 - (NSURL *)applicationDocumentsDirectory;
 
-#pragma mark - Store Methods
-- (NSArray *)stores;
-- (BBStore *)addStore;
-
 @end

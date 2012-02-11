@@ -10,6 +10,9 @@
 
 @interface BBStore (Logic)
 
++ (NSArray *)stores;
++ (BBStore *)addStore;
+
 - (BBShoppingCart *)currentShoppingCart;
 
 @end
