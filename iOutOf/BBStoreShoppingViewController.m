@@ -165,7 +165,6 @@
         
         if (editingStyle == UITableViewCellEditingStyleDelete)
         {
-            
             BBItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteItem];
             
