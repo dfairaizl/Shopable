@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface iOutOfTests : SenTestCase
+@interface ShopableTests : SenTestCase
 
 @end

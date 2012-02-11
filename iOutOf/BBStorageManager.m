@@ -44,7 +44,7 @@ static BBStorageManager *sharedManager = nil;
 
 - (BOOL)storeExists {
  
-    NSString *storePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iOutOf.sqlite"] path];
+    NSString *storePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"] path];
     
     return [[NSFileManager defaultManager] fileExistsAtPath:storePath];
 }
@@ -100,7 +100,7 @@ static BBStorageManager *sharedManager = nil;
     {
         return __managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"iOutOf" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Shopable" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;
 }
@@ -116,7 +116,7 @@ static BBStorageManager *sharedManager = nil;
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iOutOf.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

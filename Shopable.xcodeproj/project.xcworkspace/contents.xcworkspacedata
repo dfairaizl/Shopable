@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iOutOf.xcodeproj">
+      location = "self:Shopable.xcodeproj">
    </FileRef>
 </Workspace>

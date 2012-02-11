@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "77A4172C14BDFEC200ACAAC1"
                BuildableName = "Shopable.app"
-               BlueprintName = "iOutOf"
-               ReferencedContainer = "container:iOutOf.xcodeproj">
+               BlueprintName = "Shopable"
+               ReferencedContainer = "container:Shopable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4172C14BDFEC200ACAAC1"
             BuildableName = "Shopable.app"
-            BlueprintName = "iOutOf"
-            ReferencedContainer = "container:iOutOf.xcodeproj">
+            BlueprintName = "Shopable"
+            ReferencedContainer = "container:Shopable.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4172C14BDFEC200ACAAC1"
             BuildableName = "Shopable.app"
-            BlueprintName = "iOutOf"
-            ReferencedContainer = "container:iOutOf.xcodeproj">
+            BlueprintName = "Shopable"
+            ReferencedContainer = "container:Shopable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -80,8 +80,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4172C14BDFEC200ACAAC1"
             BuildableName = "Shopable.app"
-            BlueprintName = "iOutOf"
-            ReferencedContainer = "container:iOutOf.xcodeproj">
+            BlueprintName = "Shopable"
+            ReferencedContainer = "container:Shopable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

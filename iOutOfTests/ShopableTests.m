@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "iOutOfTests.h"
+#import "ShopableTests.h"
 
-@implementation iOutOfTests
+@implementation ShopableTests
 
 - (void)setUp
 {
