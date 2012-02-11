@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    bbTableDisplayModeStores = 0,
+    bbTableDisplayModeItems,
+} BBTableDisplayMode;
+
 @interface BBEditStoresViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate>
+{
+    BBTableDisplayMode displayMode;
+}
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 

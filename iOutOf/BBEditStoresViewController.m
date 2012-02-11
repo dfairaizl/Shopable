@@ -102,8 +102,16 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
+        if(displayMode == bbTableDisplayModeStores) {
+         
+            BBStore *deleteStore = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteStore];
+        }
+        else if(displayMode == bbTableDisplayModeItems) {
+
+            BBItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteItem];
+        }
         
         NSMutableArray *rows = [[self.fetchedResultsController fetchedObjects] mutableCopy];
         [rows removeObjectAtIndex:indexPath.row];
@@ -116,7 +124,14 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return YES;
+    BOOL move = NO;
+    
+    if(displayMode == bbTableDisplayModeStores) {
+
+        move = YES;
+    }
+    
+    return move;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -132,15 +147,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"storeTableCell";
+    NSString *cellIdentifier = nil;
     
-    BBEditStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(displayMode == bbTableDisplayModeStores) {
+        
+        cellIdentifier = @"editStoreTableCell";
+    }
+    else if(displayMode == bbTableDisplayModeItems) {
+        
+        cellIdentifier = @"editItemsTableCell";
+    }
     
-    BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
-    // Configure the cell...
-    cell.storeNameTextField.text = store.name;
-    cell.currentStore = store;
+    if(displayMode == bbTableDisplayModeStores) {
+        
+        BBEditStoreTableViewCell *storeCell = (BBEditStoreTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        // Configure the cell...
+        storeCell.storeNameTextField.text = store.name;
+        storeCell.currentStore = store;
+        
+        cell = storeCell;
+    }
+    else if(displayMode == bbTableDisplayModeItems) {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        cell.textLabel.text = item.name;
+    }
     
     return cell;
 }
@@ -194,6 +232,8 @@
                                                                       sectionNameKeyPath:nil 
                                                                                cacheName:nil];
     
+    displayMode = bbTableDisplayModeStores;
+    
     [self update];
 }
 
@@ -210,16 +250,20 @@
                                                                       sectionNameKeyPath:nil 
                                                                                cacheName:nil];
     
+    displayMode = bbTableDisplayModeItems;
+    
     [self update];
 }
 
 - (void)updateOrder {
 
-    for(NSInteger index = 0; index < [self.storesTableView numberOfRowsInSection:0]; index++) {
-        
-        BBEditStoreTableViewCell *cell = (BBEditStoreTableViewCell *)[self.storesTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-        
-        cell.currentStore.order = [NSNumber numberWithInt:index];
+    if(displayMode == bbTableDisplayModeStores) {
+        for(NSInteger index = 0; index < [self.storesTableView numberOfRowsInSection:0]; index++) {
+            
+            BBEditStoreTableViewCell *cell = (BBEditStoreTableViewCell *)[self.storesTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+            
+            cell.currentStore.order = [NSNumber numberWithInt:index];
+        }
     }
 }
 
