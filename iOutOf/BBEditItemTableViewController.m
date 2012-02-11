@@ -56,6 +56,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.itemQuantityTextField.text = [NSString stringWithFormat:@"%@ %@", self.shoppingItem.quantity, self.shoppingItem.units];
+    self.notesCellLabel.text = self.shoppingItem.notes;
+    
     [super viewWillAppear:animated];
 }
 
@@ -95,11 +98,13 @@
 
 - (void)backButtonPressed:(id)sender {
     
-    //If a user adds quantity, notes or picture, add the item to the cart automatically
-    
-    if([self.shoppingItem.quantity length] || [self.shoppingItem.notes length]) {
+    if ([[self.currentStore currentShoppingCart] containsItem:self.shoppingItem] == NO) {
         
-        [[self.currentStore currentShoppingCart] addItemToCart:self.shoppingItem];
+        //If a user adds quantity, notes or picture, add the item to the cart automatically
+        if([self.shoppingItem.quantity length] || [self.shoppingItem.notes length]) {
+            
+            [[self.currentStore currentShoppingCart] addItemToCart:self.shoppingItem];
+        }
     }
     
     [self.navigationController popViewControllerAnimated:YES];
