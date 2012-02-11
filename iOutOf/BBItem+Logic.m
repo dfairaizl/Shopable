@@ -14,7 +14,11 @@
 
 + (BBItem *)newItem {
     
-    return [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    BBItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    
+    newItem.isCustom = [NSNumber numberWithBool:YES];
+    
+    return newItem;
 }
 
 - (BOOL)itemContainedInShoppingCart {
