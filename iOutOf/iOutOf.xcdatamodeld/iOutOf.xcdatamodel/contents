@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BBItem" representedClassName="BBItem" syncable="YES">
         <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="isCustom" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="itemCategoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +29,7 @@
         <relationship name="shoppingCart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="parentStore" inverseEntity="BBShoppingCart" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BBItem" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="BBItem" positionX="160" positionY="192" width="128" height="195"/>
         <element name="BBItemCategory" positionX="160" positionY="192" width="128" height="90"/>
         <element name="BBShoppingCart" positionX="160" positionY="192" width="128" height="45"/>
         <element name="BBStore" positionX="160" positionY="192" width="128" height="120"/>

@@ -2,7 +2,7 @@
 //  BBItem.m
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 1/17/12.
+//  Created by Dan Fairaizl on 2/10/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -14,12 +14,13 @@
 @implementation BBItem
 
 @dynamic checkedOff;
+@dynamic isCustom;
 @dynamic itemCategoryName;
 @dynamic name;
 @dynamic notes;
 @dynamic quantity;
 @dynamic units;
-@dynamic isCustom;
+@dynamic image;
 @dynamic parentItemCategory;
 @dynamic parentShoppingCart;
 

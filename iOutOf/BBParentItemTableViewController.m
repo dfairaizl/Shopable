@@ -23,6 +23,7 @@
 @synthesize quantityPickerView;
 @synthesize quantityPickerViewToolbar;
 @synthesize notesCellLabel;
+@synthesize itemImage;
 @synthesize quantitiesUnitsPList;
 @synthesize shoppingItem;
 @synthesize quantities;
@@ -75,6 +76,7 @@
     [self setQuantityPickerView:nil];
     [self setQuantityPickerViewToolbar:nil];
     
+    [self setItemImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -83,6 +85,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    //set the item image if needed
+    self.itemImage.image = [self.shoppingItem itemImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated

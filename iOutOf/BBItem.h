@@ -2,7 +2,7 @@
 //  BBItem.h
 //  iOutOf
 //
-//  Created by Dan Fairaizl on 1/17/12.
+//  Created by Dan Fairaizl on 2/10/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -14,12 +14,13 @@
 @interface BBItem : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * checkedOff;
+@property (nonatomic, retain) NSNumber * isCustom;
 @property (nonatomic, retain) NSString * itemCategoryName;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSString * quantity;
 @property (nonatomic, retain) NSString * units;
-@property (nonatomic, retain) NSNumber * isCustom;
+@property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) BBItemCategory *parentItemCategory;
 @property (nonatomic, retain) BBShoppingCart *parentShoppingCart;
 

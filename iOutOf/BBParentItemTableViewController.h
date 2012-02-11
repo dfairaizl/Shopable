@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityPickerView;
 @property (strong, nonatomic) IBOutlet UIToolbar *quantityPickerViewToolbar;
 @property (strong, nonatomic) IBOutlet UILabel *notesCellLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 
 @property (strong, nonatomic) BBItem *shoppingItem; 
 @property (strong, nonatomic) NSDictionary *quantitiesUnitsPList;

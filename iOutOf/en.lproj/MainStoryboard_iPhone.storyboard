@@ -364,7 +364,7 @@
                                             <rect key="frame" x="10" y="1" width="280" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8SF-Wg-AG8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="8SF-Wg-AG8">
                                                     <rect key="frame" x="80" y="4" width="141" height="141"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -373,7 +373,7 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="p9m-vy-9pa" kind="push" id="rbp-8N-cjN"/>
+                                            <segue destination="p9m-vy-9pa" kind="push" identifier="addImageSegue" id="rbp-8N-cjN"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -386,6 +386,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="10G-q6-pBx"/>
                     <connections>
+                        <outlet property="itemImage" destination="8SF-Wg-AG8" id="CXH-7I-JZo"/>
                         <outlet property="itemNameTextField" destination="tp1-lv-ihA" id="tGH-Jy-kyL"/>
                         <outlet property="itemQuantityTextField" destination="b3O-ag-rB7" id="2rd-uN-14r"/>
                         <outlet property="notesCellLabel" destination="7NP-ra-10q" id="Qba-Dk-Klw"/>
@@ -424,18 +425,27 @@
         <scene sceneID="exV-1d-ugB">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFa-sF-lbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="p9m-vy-9pa" sceneMemberID="viewController">
+                <viewController id="p9m-vy-9pa" customClass="BBItemImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gYI-9k-phk">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="7uC-72-VDt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Picture" id="HYE-oO-Qur">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gxh-Fi-sxn"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemImageView" destination="7uC-72-VDt" id="QfF-gC-On4"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3844" y="187"/>
+            <point key="canvasLocation" x="3882" y="187"/>
         </scene>
         <scene sceneID="IRt-jo-r4U">
             <objects>
@@ -619,7 +629,7 @@
                                             <rect key="frame" x="10" y="1" width="280" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="aKs-ZO-xaj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="aKs-ZO-xaj">
                                                     <rect key="frame" x="80" y="4" width="141" height="141"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -628,7 +638,7 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="p9m-vy-9pa" kind="push" id="EAS-8O-NRa"/>
+                                            <segue destination="p9m-vy-9pa" kind="push" identifier="addImageSegue" id="EAS-8O-NRa"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -791,107 +801,13 @@
         <image name="table-cell-item-selected@2x.png" width="60" height="60"/>
         <image name="table-cell-item-unselected@2x.png" width="60" height="60"/>
     </resources>
-    <classes>
-        <class className="BBAddItemNotesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemNotesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="BBAddItemTableViewController" superclassName="BBParentItemTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
-        </class>
-        <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="storeTypePicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="typeTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBDecoratorLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
-        </class>
-        <class className="BBEditItemTableViewController" superclassName="BBParentItemTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditItemTableViewController.h"/>
-        </class>
-        <class className="BBEditStoreTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoreTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="storeNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBEditStoresViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoresViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="storesTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBItemCategoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="categoriesTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBItemTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
-            <relationships>
-                <relationship kind="action" name="itemSelectionButtonPress:"/>
-                <relationship kind="outlet" name="itemName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemSelectionButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BBItemsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBParentItemTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBParentItemTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pickerClearButtonPressed:"/>
-                <relationship kind="action" name="pickerDoneButtonPressed:"/>
-                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemLabel" candidateClass="BBDecoratorLabel"/>
-                <relationship kind="outlet" name="itemQuantityLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BBStoreShoppingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoreShoppingViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="storeNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="storeTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBStoresViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="currentlyShoppingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="storesPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="storesScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rbp-8N-cjN"/>
         <segue reference="TK8-dk-1Hq"/>
+        <segue reference="rbp-8N-cjN"/>
     </inferredMetricsTieBreakers>
 </document>
