@@ -21,7 +21,9 @@
 @synthesize storesScrollView;
 @synthesize storesPageControl;
 @synthesize currentlyShoppingLabel;
+@synthesize editStoresButton;
 @synthesize addStoreButton = _addStoreButton;
+@synthesize editShoppingCartButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -113,6 +115,8 @@
     [self setStoresPageControl:nil];
     
     [self setCurrentlyShoppingLabel:nil];
+    [self setEditShoppingCartButton:nil];
+    [self setEditStoresButton:nil];
     [super viewDidUnload];
 }
 
@@ -122,12 +126,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - UIScrollViewDelegate
+#pragma mark - UIScrollViewDelegate Methods
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     [self.storesPageControl setCurrentPage:[self.storesScrollView currentPage]];
 }
+
+#pragma mark - UI Action Methods
 
 - (void)addStore:(id)sender {
     
@@ -136,7 +142,8 @@
 
 - (void)toggleShopping:(id)sender {
     
-    BBStore *currentStore = [[self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]] currentStore];
+    BBStoreShoppingViewController *shoppingVC = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
+    BBStore *currentStore = shoppingVC.currentStore;
     
     if([currentStore.currentlyShopping boolValue] == NO) {
         
@@ -146,30 +153,38 @@
         self.currentlyShoppingLabel.alpha = 0.0;
         self.storesScrollView.scrollEnabled = NO;
         self.addStoreButton.enabled = NO;
+        self.editStoresButton.enabled = NO;
+        self.editShoppingCartButton.hidden = NO;
+        self.editShoppingCartButton.enabled = YES;
         
         [UIView animateWithDuration:0.4 animations:^() {
             
             //turn off store related controlls
             self.storesPageControl.alpha = 0.0;
             self.addStoreButton.alpha = 0.0;
+            self.editStoresButton.alpha = 0.0;
 
             //turn on shopping related controlls 
             self.currentlyShoppingLabel.alpha = 1.0;
+            self.editShoppingCartButton.alpha = 1.0;
         }];
     }
     else {
         
         currentStore.currentlyShopping = [NSNumber numberWithBool:NO];
+        [shoppingVC.storeTableView setEditing:NO animated:YES];
         
         [UIView animateWithDuration:0.4 
                          animations:^() {
                              
                              //turn off shopping realted controlls
                              self.currentlyShoppingLabel.alpha = 0.0;
+                             self.editShoppingCartButton.alpha = 0.0;
 
                              //turn on store related controlls
                              self.storesPageControl.alpha = 1.0;
                              self.addStoreButton.alpha = 1.0;
+                             self.editStoresButton.alpha = 1.0;
             
                          }
                          completion:^(BOOL finished) {
@@ -177,9 +192,25 @@
                              self.currentlyShoppingLabel.hidden = YES;
                              self.storesScrollView.scrollEnabled = YES;
                              self.addStoreButton.enabled = YES;
+                             self.editShoppingCartButton.enabled = NO;
+                             self.editStoresButton.enabled = YES;
                          
                          }
          ];
+    }
+}
+
+- (IBAction)editShoppingCartButtonPressed:(id)sender {
+
+    BBStoreShoppingViewController *storeShoppingVC = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
+
+    if([storeShoppingVC.storeTableView isEditing] == YES) {
+
+        [storeShoppingVC.storeTableView setEditing:NO animated:YES];
+    }
+    else {
+        
+        [storeShoppingVC.storeTableView setEditing:YES animated:YES];
     }
 }
 

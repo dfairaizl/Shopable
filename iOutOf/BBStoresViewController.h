@@ -13,7 +13,11 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *storesScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *storesPageControl;
 @property (strong, nonatomic) IBOutlet UILabel *currentlyShoppingLabel;
+@property (strong, nonatomic) IBOutlet UIButton *editStoresButton;
+@property (strong, nonatomic) IBOutlet UIButton *editShoppingCartButton;
 
 @property (strong, nonatomic) UIButton *addStoreButton;
+
+- (IBAction)editShoppingCartButtonPressed:(id)sender;
 
 @end

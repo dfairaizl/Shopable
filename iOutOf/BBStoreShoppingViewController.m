@@ -19,6 +19,7 @@
 @interface BBStoreShoppingViewController ()
 
 - (void)shoppingCellSwipped:(id)sender;
+- (void)update;
 
 @end
 
@@ -148,6 +149,31 @@
     return [sectionInfo name];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if([tableView isEditing] == YES) {
+        if (editingStyle == UITableViewCellEditingStyleDelete)
+        {
+            
+            BBItem *deleteItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:deleteItem];
+            
+            NSMutableArray *rows = [[self.fetchedResultsController fetchedObjects] mutableCopy];
+            [rows removeObjectAtIndex:indexPath.row];
+            
+            [self update];
+            
+            if([tableView numberOfRowsInSection:indexPath.section] <= 1) {
+             
+                [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+            }
+            else {
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"shoppingItemCell";
@@ -225,6 +251,18 @@
         }
         
         [cell cellCheckedOff:[swippedItem.checkedOff boolValue]];
+    }
+}
+
+- (void)update {
+    
+    NSError *error = nil;
+    
+    [self.fetchedResultsController performFetch:&error];
+    
+    if(error != nil) {
+        
+        NSLog(@"Error fetching!");
     }
 }
 

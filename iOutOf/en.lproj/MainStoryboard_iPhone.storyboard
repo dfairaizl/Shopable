@@ -46,12 +46,29 @@
                                     <segue destination="Jd9-Ih-IHg" kind="modal" modalTransitionStyle="flipHorizontal" id="HOr-FQ-ik1"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iCU-92-62D">
+                                <rect key="frame" x="290" y="387" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editShoppingCartButtonPressed:" destination="PDc-V4-We9" eventType="touchUpInside" id="Zw4-us-Ft2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="L53-W0-ed8"/>
                     <connections>
                         <outlet property="currentlyShoppingLabel" destination="K4I-u3-dTL" id="JKz-4Z-h81"/>
+                        <outlet property="editShoppingCartButton" destination="iCU-92-62D" id="CKp-Y7-DWr"/>
+                        <outlet property="editStoresButton" destination="YjB-re-LLk" id="XPh-SY-Vw8"/>
                         <outlet property="storesPageControl" destination="gue-Nt-0hT" id="Uvr-0K-PdU"/>
                         <outlet property="storesScrollView" destination="EhK-k5-lMP" id="lRh-o6-LTJ"/>
                         <segue destination="gFi-KS-ZHn" kind="modal" identifier="addStoreSegue" id="cen-7f-5aZ"/>
@@ -802,6 +819,110 @@
         <image name="table-cell-item-selected@2x.png" width="60" height="60"/>
         <image name="table-cell-item-unselected@2x.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="BBAddItemNotesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemNotesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="BBAddItemTableViewController" superclassName="BBParentItemTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
+        </class>
+        <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="storeTypePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="typeTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BBDecoratorLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
+        </class>
+        <class className="BBEditItemTableViewController" superclassName="BBParentItemTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditItemTableViewController.h"/>
+        </class>
+        <class className="BBEditStoreTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoreTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="storeNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BBEditStoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoresViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="storesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBItemCategoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoriesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBItemImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="BBItemTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
+            <relationships>
+                <relationship kind="action" name="itemSelectionButtonPress:"/>
+                <relationship kind="outlet" name="itemName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemSelectionButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BBItemsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBParentItemTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBParentItemTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pickerClearButtonPressed:"/>
+                <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="BBShoppingTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemLabel" candidateClass="BBDecoratorLabel"/>
+                <relationship kind="outlet" name="itemQuantityLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BBStoreShoppingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoreShoppingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="storeNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="storeTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBStoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editShoppingCartButtonPressed:"/>
+                <relationship kind="outlet" name="currentlyShoppingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editShoppingCartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editStoresButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="storesPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="storesScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
