@@ -90,7 +90,6 @@
     [self.window insertSubview:backgroundView atIndex:0];
     
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background-transparent"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)] forBarMetrics:UIBarMetricsDefault];
-    
 }
 
 @end
