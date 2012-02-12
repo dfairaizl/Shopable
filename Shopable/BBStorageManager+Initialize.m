@@ -21,15 +21,6 @@
     //set the type
     groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
     
-    //Create default Grocery Store
-    BBStore *someStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
-    
-    someStore.name = [NSString stringWithString:@"Hardware Store"];
-    someStore.order = [NSNumber numberWithInt:1];
-    
-    //set the type
-    someStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
-    
     [self createDefaultCategories];
     
     [self saveContext];

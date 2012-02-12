@@ -17,6 +17,7 @@
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
+		77A20FAB14E7493800E44B0A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178514BE111100ACAAC1 /* CoreData.framework */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
 		77A4173614BDFEC200ACAAC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173514BDFEC200ACAAC1 /* CoreGraphics.framework */; };
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A20FAB14E7493800E44B0A /* CoreData.framework in Frameworks */,
 				77EDC08614E736A700337612 /* SenTestingKit.framework in Frameworks */,
 				77A4175414BDFEC200ACAAC1 /* UIKit.framework in Frameworks */,
 				77A4175514BDFEC200ACAAC1 /* Foundation.framework in Frameworks */,
