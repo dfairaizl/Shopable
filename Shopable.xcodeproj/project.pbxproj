@@ -16,12 +16,12 @@
 		7745934414C5F7EE00EF1565 /* BBAddItemNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
+		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
 		77A4173614BDFEC200ACAAC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173514BDFEC200ACAAC1 /* CoreGraphics.framework */; };
 		77A4173C14BDFEC200ACAAC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77A4173A14BDFEC200ACAAC1 /* InfoPlist.strings */; };
 		77A4173E14BDFEC200ACAAC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4173D14BDFEC200ACAAC1 /* main.m */; };
-		77A4174214BDFEC200ACAAC1 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4174114BDFEC200ACAAC1 /* BBAppDelegate.m */; };
 		77A4174514BDFEC200ACAAC1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A4174314BDFEC200ACAAC1 /* MainStoryboard_iPhone.storyboard */; };
 		77A4174814BDFEC200ACAAC1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A4174614BDFEC200ACAAC1 /* MainStoryboard_iPad.storyboard */; };
 		77A4175414BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
@@ -65,7 +65,7 @@
 			containerPortal = 77A4172414BDFEC200ACAAC1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 77A4172C14BDFEC200ACAAC1;
-			remoteInfo = iOutOf;
+			remoteInfo = Shopable;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -85,6 +85,8 @@
 		7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddItemNotesViewController.m; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
+		7798254814E73828007031EF /* BBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
+		7798254914E73828007031EF /* BBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
 		77A4172D14BDFEC200ACAAC1 /* Shopable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4173114BDFEC200ACAAC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77A4173314BDFEC200ACAAC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,8 +95,6 @@
 		77A4173B14BDFEC200ACAAC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77A4173D14BDFEC200ACAAC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shopable-Prefix.pch"; sourceTree = "<group>"; };
-		77A4174014BDFEC200ACAAC1 /* BBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
-		77A4174114BDFEC200ACAAC1 /* BBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
 		77A4174414BDFEC200ACAAC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		77A4174714BDFEC200ACAAC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		77A4175114BDFEC200ACAAC1 /* ShopableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopableTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,8 +240,8 @@
 		77A4173714BDFEC200ACAAC1 /* Shopable */ = {
 			isa = PBXGroup;
 			children = (
-				77A4174014BDFEC200ACAAC1 /* BBAppDelegate.h */,
-				77A4174114BDFEC200ACAAC1 /* BBAppDelegate.m */,
+				7798254814E73828007031EF /* BBAppDelegate.h */,
+				7798254914E73828007031EF /* BBAppDelegate.m */,
 				77D29C2914DF5E9C00EB1EFE /* Categories */,
 				77A4178D14BE138800ACAAC1 /* Data */,
 				77A4174614BDFEC200ACAAC1 /* MainStoryboard_iPad.storyboard */,
@@ -250,8 +250,7 @@
 				77A4176914BE0F1C00ACAAC1 /* Stores */,
 				77A4173814BDFEC200ACAAC1 /* Supporting Files */,
 			);
-			name = Shopable;
-			path = iOutOf;
+			path = Shopable;
 			sourceTree = "<group>";
 		};
 		77A4173814BDFEC200ACAAC1 /* Supporting Files */ = {
@@ -277,8 +276,7 @@
 				77EDC08314E735DB00337612 /* ShopableTests.m */,
 				77A4175914BDFEC200ACAAC1 /* Supporting Files */,
 			);
-			name = ShopableTests;
-			path = iOutOfTests;
+			path = ShopableTests;
 			sourceTree = "<group>";
 		};
 		77A4175914BDFEC200ACAAC1 /* Supporting Files */ = {
@@ -424,7 +422,7 @@
 			dependencies = (
 			);
 			name = Shopable;
-			productName = iOutOf;
+			productName = Shopable;
 			productReference = 77A4172D14BDFEC200ACAAC1 /* Shopable.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -443,7 +441,7 @@
 				77A4175714BDFEC200ACAAC1 /* PBXTargetDependency */,
 			);
 			name = ShopableTests;
-			productName = iOutOfTests;
+			productName = ShopableTests;
 			productReference = 77A4175114BDFEC200ACAAC1 /* ShopableTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -524,7 +522,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A4173E14BDFEC200ACAAC1 /* main.m in Sources */,
-				77A4174214BDFEC200ACAAC1 /* BBAppDelegate.m in Sources */,
 				77A4176F14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m in Sources */,
 				77A4177614BE0FEA00ACAAC1 /* BBItemCategoryViewController.m in Sources */,
 				77A4177914BE101300ACAAC1 /* BBAddItemTableViewController.m in Sources */,
@@ -553,6 +550,7 @@
 				77EDC07814E70B9C00337612 /* BBItem.m in Sources */,
 				77EDC07B14E70B9C00337612 /* BBShoppingItem.m in Sources */,
 				77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */,
+				7798254A14E73828007031EF /* BBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,8 +663,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOutOf/Shopable-Prefix.pch";
-				INFOPLIST_FILE = "iOutOf/Shopable-Info.plist";
+				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
 				PRODUCT_NAME = Shopable;
 				WRAPPER_EXTENSION = app;
 			};
@@ -676,8 +674,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOutOf/Shopable-Prefix.pch";
-				INFOPLIST_FILE = "iOutOf/Shopable-Info.plist";
+				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
 				PRODUCT_NAME = Shopable;
 				WRAPPER_EXTENSION = app;
 			};
@@ -686,14 +684,14 @@
 		77A4176714BDFEC200ACAAC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOutOf.app/iOutOf";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Shopable.app/Shopable";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOutOf/iOutOf-Prefix.pch";
-				INFOPLIST_FILE = "iOutOfTests/ShopableTests-Info.plist";
+				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				INFOPLIST_FILE = "ShopableTests/ShopableTests-Info.plist";
 				PRODUCT_NAME = ShopableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -703,14 +701,14 @@
 		77A4176814BDFEC200ACAAC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOutOf.app/iOutOf";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Shopable.app/Shopable";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOutOf/iOutOf-Prefix.pch";
-				INFOPLIST_FILE = "iOutOfTests/ShopableTests-Info.plist";
+				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				INFOPLIST_FILE = "ShopableTests/ShopableTests-Info.plist";
 				PRODUCT_NAME = ShopableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
