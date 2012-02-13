@@ -10,7 +10,7 @@
 
 @class BBStore, BBStoresViewController;
 
-@interface BBStoreShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BBStoreShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
