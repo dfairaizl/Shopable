@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class BBStore;
+@class BBStore, BBStoresViewController;
 
 @interface BBStoreShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,7 +17,14 @@
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UITableView *storeTableView;
 @property (strong, nonatomic) IBOutlet UILabel *storeNameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *addItemsButton;
 
 @property (strong, nonatomic) BBStore *currentStore;
+
+@property (weak, nonatomic) BBStoresViewController *parentStoresViewController;
+
+- (IBAction)addItemsButtonPressed:(id)sender;
+
+- (void)refresh;
 
 @end

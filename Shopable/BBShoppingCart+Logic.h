@@ -13,6 +13,7 @@
 @interface BBShoppingCart (Logic)
 
 - (BBShoppingItem *)addItemToCart:(BBItem *)item;
+- (void)addUncategorizedItem:(BBItem *)newItem;
 - (void)removeItemFromCart:(BBShoppingItem *)item;
 - (BOOL)containsItem:(BBShoppingItem *)item;
 

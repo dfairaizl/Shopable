@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *editStoresButton;
 @property (strong, nonatomic) IBOutlet UIButton *editShoppingCartButton;
 
+@property (strong, nonatomic) UIButton *toggleShoppingButton;
 @property (strong, nonatomic) UIButton *addStoreButton;
 
 - (IBAction)editShoppingCartButtonPressed:(id)sender;

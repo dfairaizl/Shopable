@@ -8,6 +8,7 @@
 
 #import "BBStoreShoppingViewController.h"
 #import "BBItemCategoryViewController.h"
+#import "BBItemQuickAddViewController.h"
 
 //Support
 #import "BBStorageManager.h"
@@ -15,6 +16,8 @@
 #import "BBDecoratorLabel.h"
 
 @interface BBStoreShoppingViewController ()
+
+@property (strong, nonatomic) BBItemQuickAddViewController *quickAddVC;
 
 - (void)shoppingCellSwipped:(id)sender;
 - (void)update;
@@ -31,9 +34,12 @@
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize currentStore;
+@synthesize addItemsButton;
 @synthesize contentView;
 @synthesize storeTableView;
 @synthesize storeNameLabel;
+@synthesize parentStoresViewController;
+@synthesize quickAddVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -104,6 +110,7 @@
     [self setContentView:nil];
     [self setStoreNameLabel:nil];
     [self setStoreTableView:nil];
+    [self setAddItemsButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -122,6 +129,12 @@
         BBItemCategoryViewController *itemsVC = (BBItemCategoryViewController *)[segue.destinationViewController topViewController];
         
         itemsVC.currentStore = self.currentStore;
+    }
+    else if([segue.identifier isEqualToString:@"itemQuickAddSegue"]) {
+     
+        self.quickAddVC = (BBItemQuickAddViewController *)segue.destinationViewController;
+        
+        self.quickAddVC.currentShoppingCart = [self.currentStore currentShoppingCart];
     }
 }
 
@@ -204,6 +217,15 @@
     
 }
 
+#pragma mark - Public Methods
+
+- (void)refresh {
+    
+    [self update];
+    
+    [self.storeTableView reloadData];
+}
+
 #pragma mark - Table Customization Methods
 
 - (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBShoppingItem *)item {
@@ -271,6 +293,20 @@
     if(error != nil) {
         
         NSLog(@"Error fetching!");
+    }
+}
+
+#pragma mark - UI Action Methods
+
+- (IBAction)addItemsButtonPressed:(id)sender {
+
+    if([[self.currentStore currentlyShopping] boolValue] == YES) {
+        
+        [self performSegueWithIdentifier:@"itemQuickAddSegue" sender:nil];
+    }
+    else {
+        
+        [self performSegueWithIdentifier:@"showItemCategoriesSegue" sender:nil];
     }
 }
 

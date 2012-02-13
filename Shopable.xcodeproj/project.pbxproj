@@ -15,6 +15,8 @@
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934414C5F7EE00EF1565 /* BBAddItemNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
+		7783CC0714E8892200102B52 /* BBItemQuickAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783CC0614E8892200102B52 /* BBItemQuickAddViewController.m */; };
+		7783CC0B14E889E900102B52 /* BBItemQuickAddSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783CC0A14E889E900102B52 /* BBItemQuickAddSegue.m */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
 		77A20FAB14E7493800E44B0A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178514BE111100ACAAC1 /* CoreData.framework */; };
@@ -85,6 +87,10 @@
 		7745934214C5F7EE00EF1565 /* BBAddItemNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddItemNotesViewController.h; sourceTree = "<group>"; };
 		7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddItemNotesViewController.m; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
+		7783CC0514E8892200102B52 /* BBItemQuickAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemQuickAddViewController.h; sourceTree = "<group>"; };
+		7783CC0614E8892200102B52 /* BBItemQuickAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemQuickAddViewController.m; sourceTree = "<group>"; };
+		7783CC0914E889E900102B52 /* BBItemQuickAddSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemQuickAddSegue.h; sourceTree = "<group>"; };
+		7783CC0A14E889E900102B52 /* BBItemQuickAddSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemQuickAddSegue.m; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
 		7798254814E73828007031EF /* BBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
 		7798254914E73828007031EF /* BBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 				77A4177514BE0FEA00ACAAC1 /* BBItemCategoryViewController.m */,
 				77C4606F14E6021900DFF7A3 /* BBItemImageViewController.h */,
 				77C4607014E6021900DFF7A3 /* BBItemImageViewController.m */,
+				7783CC0514E8892200102B52 /* BBItemQuickAddViewController.h */,
+				7783CC0614E8892200102B52 /* BBItemQuickAddViewController.m */,
 				77A5210014E1988B00D42858 /* BBItemsViewController.h */,
 				77A5210114E1988B00D42858 /* BBItemsViewController.m */,
 			);
@@ -378,6 +386,8 @@
 			children = (
 				771391F414C5081F00875FB3 /* BBDecoratorLabel.h */,
 				771391F514C5081F00875FB3 /* BBDecoratorLabel.m */,
+				7783CC0914E889E900102B52 /* BBItemQuickAddSegue.h */,
+				7783CC0A14E889E900102B52 /* BBItemQuickAddSegue.m */,
 				77C4BE6614E4D0E900EDDDBE /* BBItemTableViewCell.h */,
 				77C4BE6714E4D0E900EDDDBE /* BBItemTableViewCell.m */,
 				77AFC11E14E5BA3D0013C448 /* BBParentItemTableViewController.h */,
@@ -553,6 +563,8 @@
 				77EDC07B14E70B9C00337612 /* BBShoppingItem.m in Sources */,
 				77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */,
 				7798254A14E73828007031EF /* BBAppDelegate.m in Sources */,
+				7783CC0714E8892200102B52 /* BBItemQuickAddViewController.m in Sources */,
+				7783CC0B14E889E900102B52 /* BBItemQuickAddSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

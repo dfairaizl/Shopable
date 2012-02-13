@@ -20,6 +20,7 @@
 @synthesize storesPageControl;
 @synthesize currentlyShoppingLabel;
 @synthesize editStoresButton;
+@synthesize toggleShoppingButton = _toggleShoppingButton;
 @synthesize addStoreButton = _addStoreButton;
 @synthesize editShoppingCartButton;
 
@@ -54,11 +55,11 @@
 
     UIBarButtonItem *addStoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.addStoreButton];
     
-    UIButton *toggleShoppingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [toggleShoppingButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [toggleShoppingButton addTarget:self action:@selector(toggleShopping:) forControlEvents:UIControlEventTouchUpInside];
+    _toggleShoppingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [self.toggleShoppingButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
+    [self.toggleShoppingButton addTarget:self action:@selector(toggleShopping:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *toggleShoppingBarButton = [[UIBarButtonItem alloc] initWithCustomView:toggleShoppingButton];
+    UIBarButtonItem *toggleShoppingBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.toggleShoppingButton];
     
     self.navigationItem.leftBarButtonItem = addStoreBarButton;
     self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
@@ -78,6 +79,7 @@
         BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
         
         storeVC.currentStore = store;
+        storeVC.parentStoresViewController = self;
         
         storeVC.view = storeVC.contentView;
         

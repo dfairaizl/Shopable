@@ -28,6 +28,13 @@
     return shoppingItem;
 }
 
+- (void)addUncategorizedItem:(BBItem *)newItem {
+    
+    BBShoppingItem *shoppingItem = [self addItemToCart:newItem];
+    
+    shoppingItem.itemCategoryName = [NSString stringWithString:@"Uncategorized"];
+}
+
 - (void)removeItemFromCart:(BBShoppingItem *)item {
     
     [self removeCartItemsObject:item];
