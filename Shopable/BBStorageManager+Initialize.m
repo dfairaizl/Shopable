@@ -10,6 +10,20 @@
 
 @implementation BBStorageManager (Initialize)
 
+- (void)setupDatabase {
+    
+    BOOL cloudValue = [[NSUbiquitousKeyValueStore defaultStore] boolForKey:@"defaultDataCreated"];
+    BOOL localValue = [[NSUserDefaults standardUserDefaults] boolForKey:@"defaultDataCreated"];
+    
+    if(cloudValue == NO && localValue == NO) {
+                
+        [self createDefaults];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"defaultDataCreated"];
+        [[NSUbiquitousKeyValueStore defaultStore] setBool:YES forKey:@"defaultDataCreated"];
+    }
+}
+
 - (void)createDefaults {
     
     //Create default Grocery Store

@@ -14,6 +14,12 @@
 #import "BBStorageManager.h"
 #import "UIScrollView+Paging.h"
 
+@interface BBStoresViewController ()
+
+- (void)reloadStores;
+
+@end
+
 @implementation BBStoresViewController
 
 @synthesize storesScrollView;
@@ -63,41 +69,18 @@
     
     self.navigationItem.leftBarButtonItem = addStoreBarButton;
     self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStores) name:[NSString stringWithString:@"DatabaseReadyNotification"] object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
-    NSArray *stores = [BBStore stores];
-    
-    [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [stores count], 
-                                                     CGRectGetHeight(self.storesScrollView.frame))];
-    
-    NSInteger i = 0;
-    
-    for(BBStore *store in stores) {
-        
-        BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
-        
-        storeVC.currentStore = store;
-        storeVC.parentStoresViewController = self;
-        
-        storeVC.view = storeVC.contentView;
-        
-        CGRect frame = storeVC.view.frame;
-        frame.origin.x = i * CGRectGetWidth(self.storesScrollView.frame) + 20;
-        storeVC.view.frame = frame;
-        
-        i++;
-        
-        [self.storesScrollView addSubview:storeVC.view];
-        
-        [self addChildViewController:storeVC];
-    }
-    
-    [self.storesPageControl setNumberOfPages:[stores count]];
+
+    [self reloadStores];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     //tear down the views in the scroll view
     for(UIViewController *vc in [self childViewControllers]) {
@@ -212,6 +195,40 @@
         
         [storeShoppingVC.storeTableView setEditing:YES animated:YES];
     }
+}
+
+#pragma mark - Private Methods
+
+- (void)reloadStores {
+
+    NSArray *stores = [BBStore stores];
+
+    [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [stores count], 
+                                                     CGRectGetHeight(self.storesScrollView.frame))];
+
+    NSInteger i = 0;
+
+    for(BBStore *store in stores) {
+        
+        BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
+        
+        storeVC.currentStore = store;
+        storeVC.parentStoresViewController = self;
+        
+        storeVC.view = storeVC.contentView;
+        
+        CGRect frame = storeVC.view.frame;
+        frame.origin.x = i * CGRectGetWidth(self.storesScrollView.frame) + 20;
+        storeVC.view.frame = frame;
+        
+        i++;
+        
+        [self.storesScrollView addSubview:storeVC.view];
+        
+        [self addChildViewController:storeVC];
+    }
+
+    [self.storesPageControl setNumberOfPages:[stores count]];
 }
 
 @end

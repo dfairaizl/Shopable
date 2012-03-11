@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) BBItemQuickAddViewController *quickAddVC;
 
+- (void)refreshStores;
 - (void)shoppingCellSwipped:(id)sender;
 - (void)update;
 
@@ -82,29 +83,7 @@
     
     [super viewWillAppear:animated];
     
-    NSError *error = nil;
-    NSFetchRequest *cartCategoryFR = [[NSFetchRequest alloc] init];
-    
-    cartCategoryFR.entity = [NSEntityDescription entityForName:BB_ENTITY_SHOPPING_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
-    cartCategoryFR.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], //NOTE sort descriptor keyname MUST match the section name in the FRC!
-                                      [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES], nil];
-    cartCategoryFR.predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", [self.currentStore currentShoppingCart]];
-    
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:cartCategoryFR 
-                                                                    managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
-                                                                      sectionNameKeyPath:@"itemCategoryName" 
-                                                                               cacheName:nil];
-    
-    self.fetchedResultsController.delegate = self;
-    
-    [self.fetchedResultsController performFetch:&error];
-    
-    if(error != nil) {
-        
-        NSLog(@"Error fetching!");
-    }
-    
-    [self.storeTableView reloadData];
+    [self refreshStores];
 }
 
 - (void)viewDidUnload
@@ -318,6 +297,36 @@
 }
 
 #pragma mark - Private Methods
+
+- (void)refreshStores {
+
+    NSError *error = nil;
+    NSFetchRequest *cartCategoryFR = [[NSFetchRequest alloc] init];
+
+    if(self.fetchedResultsController == nil) {
+
+        cartCategoryFR.entity = [NSEntityDescription entityForName:BB_ENTITY_SHOPPING_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+        cartCategoryFR.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], //NOTE sort descriptor keyname MUST match the section name in the FRC!
+                                          [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES], nil];
+        cartCategoryFR.predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", [self.currentStore currentShoppingCart]];
+
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:cartCategoryFR 
+                                                                        managedObjectContext:[[BBStorageManager sharedManager] managedObjectContext] 
+                                                                          sectionNameKeyPath:@"itemCategoryName" 
+                                                                                   cacheName:nil];
+
+        self.fetchedResultsController.delegate = self;
+    }
+
+    [self.fetchedResultsController performFetch:&error];
+
+    if(error != nil) {
+        
+        NSLog(@"Error fetching!");
+    }
+
+    [self.storeTableView reloadData];
+}
 
 - (void)shoppingCellSwipped:(id)sender {
     

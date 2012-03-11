@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */; };
 		771391F014C4E2F600875FB3 /* BBStore+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391EF14C4E2F600875FB3 /* BBStore+Logic.m */; };
 		771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */; };
 		771391F614C5081F00875FB3 /* BBDecoratorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F514C5081F00875FB3 /* BBDecoratorLabel.m */; };
@@ -15,6 +16,8 @@
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934414C5F7EE00EF1565 /* BBAddItemNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
+		777CDDA214F1F2600084EA9C /* BBImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CDDA114F1F2600084EA9C /* BBImageTransformer.m */; };
+		777CDDA514F1F4A20084EA9C /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CDDA414F1F4A20084EA9C /* BBShoppingItem.m */; };
 		7783CC0714E8892200102B52 /* BBItemQuickAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783CC0614E8892200102B52 /* BBItemQuickAddViewController.m */; };
 		7783CC0B14E889E900102B52 /* BBItemQuickAddSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783CC0A14E889E900102B52 /* BBItemQuickAddSegue.m */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
@@ -56,7 +59,6 @@
 		77EDC07214E70B9B00337612 /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07114E70B9B00337612 /* BBShoppingCart.m */; };
 		77EDC07514E70B9B00337612 /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07414E70B9B00337612 /* BBItemCategory.m */; };
 		77EDC07814E70B9C00337612 /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07714E70B9C00337612 /* BBItem.m */; };
-		77EDC07B14E70B9C00337612 /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07A14E70B9C00337612 /* BBShoppingItem.m */; };
 		77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07D14E70D4900337612 /* BBItem+Logic.m */; };
 		77EDC08514E7368800337612 /* ShopableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC08314E735DB00337612 /* ShopableTests.m */; };
 		77EDC08614E736A700337612 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4175214BDFEC200ACAAC1 /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770C2D5014F01D4900FC88E1 /* BBStorageManager+iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStorageManager+iCloud.h"; sourceTree = "<group>"; };
+		770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBStorageManager+iCloud.m"; sourceTree = "<group>"; };
 		771391EE14C4E2F600875FB3 /* BBStore+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStore+Logic.h"; sourceTree = "<group>"; };
 		771391EF14C4E2F600875FB3 /* BBStore+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBStore+Logic.m"; sourceTree = "<group>"; };
 		771391F114C4E40700875FB3 /* BBShoppingCart+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBShoppingCart+Logic.h"; sourceTree = "<group>"; };
@@ -87,6 +91,10 @@
 		7745934214C5F7EE00EF1565 /* BBAddItemNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddItemNotesViewController.h; sourceTree = "<group>"; };
 		7745934314C5F7EE00EF1565 /* BBAddItemNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddItemNotesViewController.m; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
+		777CDDA014F1F2600084EA9C /* BBImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImageTransformer.h; sourceTree = "<group>"; };
+		777CDDA114F1F2600084EA9C /* BBImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageTransformer.m; sourceTree = "<group>"; };
+		777CDDA314F1F4A20084EA9C /* BBShoppingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItem.h; sourceTree = "<group>"; };
+		777CDDA414F1F4A20084EA9C /* BBShoppingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItem.m; sourceTree = "<group>"; };
 		7783CC0514E8892200102B52 /* BBItemQuickAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemQuickAddViewController.h; sourceTree = "<group>"; };
 		7783CC0614E8892200102B52 /* BBItemQuickAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemQuickAddViewController.m; sourceTree = "<group>"; };
 		7783CC0914E889E900102B52 /* BBItemQuickAddSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemQuickAddSegue.h; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 		77C4BE6714E4D0E900EDDDBE /* BBItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemTableViewCell.m; sourceTree = "<group>"; };
 		77C4BE6A14E4D72200EDDDBE /* table-cell-item-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-cell-item-selected@2x.png"; sourceTree = "<group>"; };
 		77C4BE6B14E4D72200EDDDBE /* table-cell-item-unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-cell-item-unselected@2x.png"; sourceTree = "<group>"; };
+		77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Shopable.entitlements; sourceTree = "<group>"; };
 		77D29C1B14DF25A300EB1EFE /* navbar-background-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-transparent.png"; sourceTree = "<group>"; };
 		77D29C1E14DF510E00EB1EFE /* BBStoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStoresViewController.h; sourceTree = "<group>"; };
 		77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStoresViewController.m; sourceTree = "<group>"; };
@@ -154,8 +163,6 @@
 		77EDC07414E70B9B00337612 /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
 		77EDC07614E70B9C00337612 /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
 		77EDC07714E70B9C00337612 /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
-		77EDC07914E70B9C00337612 /* BBShoppingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItem.h; sourceTree = "<group>"; };
-		77EDC07A14E70B9C00337612 /* BBShoppingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItem.m; sourceTree = "<group>"; };
 		77EDC07C14E70D4900337612 /* BBItem+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBItem+Logic.h"; sourceTree = "<group>"; };
 		77EDC07D14E70D4900337612 /* BBItem+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBItem+Logic.m"; sourceTree = "<group>"; };
 		77EDC08214E735DB00337612 /* ShopableTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopableTests.h; sourceTree = "<group>"; };
@@ -213,6 +220,15 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		777CDD9E14F1F2140084EA9C /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				777CDDA014F1F2600084EA9C /* BBImageTransformer.h */,
+				777CDDA114F1F2600084EA9C /* BBImageTransformer.m */,
+			);
+			name = Transformers;
+			sourceTree = "<group>";
+		};
 		77A4172214BDFEC200ACAAC1 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +264,7 @@
 		77A4173714BDFEC200ACAAC1 /* Shopable */ = {
 			isa = PBXGroup;
 			children = (
+				77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */,
 				7798254814E73828007031EF /* BBAppDelegate.h */,
 				7798254914E73828007031EF /* BBAppDelegate.m */,
 				77D29C2914DF5E9C00EB1EFE /* Categories */,
@@ -268,10 +285,10 @@
 				77A4178114BE10F100ACAAC1 /* Core Data */,
 				77BA5C1114BFD36600A0D646 /* Images */,
 				77A4173A14BDFEC200ACAAC1 /* InfoPlist.strings */,
-				77A4173914BDFEC200ACAAC1 /* Shopable-Info.plist */,
-				77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */,
 				77A4173D14BDFEC200ACAAC1 /* main.m */,
 				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
+				77A4173914BDFEC200ACAAC1 /* Shopable-Info.plist */,
+				77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */,
 				7745933F14C5E80600EF1565 /* StoreTypes.plist */,
 			);
 			name = "Supporting Files";
@@ -333,12 +350,15 @@
 			isa = PBXGroup;
 			children = (
 				77A417E214BE1E6E00ACAAC1 /* BBStorageConstants.h */,
+				770C2D5014F01D4900FC88E1 /* BBStorageManager+iCloud.h */,
+				770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */,
 				77A417DD14BE174E00ACAAC1 /* BBStorageManager+Initialize.h */,
 				77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */,
 				77A4178E14BE13A400ACAAC1 /* BBStorageManager.h */,
 				77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */,
 				771391ED14C4E2CE00875FB3 /* Categories */,
 				77A417E114BE1DAC00ACAAC1 /* Entities */,
+				777CDD9E14F1F2140084EA9C /* Transformers */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -352,8 +372,8 @@
 				77EDC07414E70B9B00337612 /* BBItemCategory.m */,
 				77EDC07014E70B9B00337612 /* BBShoppingCart.h */,
 				77EDC07114E70B9B00337612 /* BBShoppingCart.m */,
-				77EDC07914E70B9C00337612 /* BBShoppingItem.h */,
-				77EDC07A14E70B9C00337612 /* BBShoppingItem.m */,
+				777CDDA314F1F4A20084EA9C /* BBShoppingItem.h */,
+				777CDDA414F1F4A20084EA9C /* BBShoppingItem.m */,
 				77EDC06D14E70B9B00337612 /* BBStore.h */,
 				77EDC06E14E70B9B00337612 /* BBStore.m */,
 			);
@@ -560,11 +580,13 @@
 				77EDC07214E70B9B00337612 /* BBShoppingCart.m in Sources */,
 				77EDC07514E70B9B00337612 /* BBItemCategory.m in Sources */,
 				77EDC07814E70B9C00337612 /* BBItem.m in Sources */,
-				77EDC07B14E70B9C00337612 /* BBShoppingItem.m in Sources */,
 				77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */,
 				7798254A14E73828007031EF /* BBAppDelegate.m in Sources */,
 				7783CC0714E8892200102B52 /* BBItemQuickAddViewController.m in Sources */,
 				7783CC0B14E889E900102B52 /* BBItemQuickAddSegue.m in Sources */,
+				770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */,
+				777CDDA214F1F2600084EA9C /* BBImageTransformer.m in Sources */,
+				777CDDA514F1F4A20084EA9C /* BBShoppingItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,7 +650,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -644,7 +666,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "535C7A70-C9A1-4FA8-93F9-6AABEF29C8C0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -656,7 +678,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -666,7 +688,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "535C7A70-C9A1-4FA8-93F9-6AABEF29C8C0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -676,10 +698,14 @@
 		77A4176414BDFEC200ACAAC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shopable/Shopable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
 				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Shopable;
+				PROVISIONING_PROFILE = "535C7A70-C9A1-4FA8-93F9-6AABEF29C8C0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -687,10 +713,14 @@
 		77A4176514BDFEC200ACAAC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shopable/Shopable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
 				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Shopable;
+				PROVISIONING_PROFILE = "535C7A70-C9A1-4FA8-93F9-6AABEF29C8C0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

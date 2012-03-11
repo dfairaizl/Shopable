@@ -67,7 +67,7 @@
     
     [super viewWillAppear:animated];
     
-    self.itemImageView.image = [self.currentItem itemImage];
+    self.itemImageView.image = self.currentItem.image;
 }
 
 - (void)viewDidUnload
@@ -145,7 +145,7 @@
     
     UIImage *itemImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.currentItem.image = UIImageJPEGRepresentation(itemImage, 60);
+    self.currentItem.image = itemImage; //UIImageJPEGRepresentation(itemImage, 60);
     
     [self dismissModalViewControllerAnimated:YES];
 }

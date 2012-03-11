@@ -90,7 +90,7 @@
     [super viewWillAppear:animated];
     
     //set the item image if needed
-    self.itemImage.image = [self.shoppingItem itemImage];
+    self.itemImage.image = self.shoppingItem.image; //[self.shoppingItem itemImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated

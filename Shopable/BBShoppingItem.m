@@ -2,7 +2,7 @@
 //  BBShoppingItem.m
 //  Shopable
 //
-//  Created by Dan Fairaizl on 2/11/12.
+//  Created by Dan Fairaizl on 2/19/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -14,11 +14,11 @@
 @implementation BBShoppingItem
 
 @dynamic checkedOff;
+@dynamic image;
+@dynamic itemCategoryName;
 @dynamic notes;
 @dynamic quantity;
 @dynamic units;
-@dynamic image;
-@dynamic itemCategoryName;
 @dynamic item;
 @dynamic parentShoppingCart;
 
