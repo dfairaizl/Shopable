@@ -11,7 +11,5 @@
 @interface BBStorageManager (iCloud)
 
 - (void)createUbiquityContainer;
-- (void)migratePersistentStoreForiCloud;
-- (void)updateUbiquitousContent:(NSNotification *)notification;
 
 @end

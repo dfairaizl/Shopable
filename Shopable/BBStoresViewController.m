@@ -70,7 +70,7 @@
     self.navigationItem.leftBarButtonItem = addStoreBarButton;
     self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStores) name:[NSString stringWithString:@"DatabaseReadyNotification"] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStores) name:[NSString stringWithString:@"RefreshUI"] object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

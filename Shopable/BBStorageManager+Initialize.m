@@ -8,6 +8,8 @@
 
 #import "BBStorageManager+Initialize.h"
 
+#import "BBStorageManager+iCloud.h"
+
 @implementation BBStorageManager (Initialize)
 
 - (void)setupDatabase {
@@ -21,7 +23,14 @@
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"defaultDataCreated"];
         [[NSUbiquitousKeyValueStore defaultStore] setBool:YES forKey:@"defaultDataCreated"];
+        
+        //sync everything up
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     }
+    
+    //setup iCloud if applicable
+    [self createUbiquityContainer];
 }
 
 - (void)createDefaults {
