@@ -201,14 +201,27 @@
 
 - (void)reloadStores {
 
-    NSArray *stores = [BBStore stores];
+    __block NSArray *stores = [BBStore stores];
+    __block NSMutableArray *updateStores = [NSMutableArray arrayWithArray:stores];
+    
+    //determine what stores are actually on the screen
+    [self.childViewControllers enumerateObjectsUsingBlock:^(BBStoreShoppingViewController *storeVC, NSUInteger index, BOOL *stop) {
+       
+        for(BBStore *store in stores) {
+         
+            if(storeVC.currentStore == store) {
+                
+                [updateStores removeObject:store];
+            }
+        }
+    }];
 
     [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [stores count], 
                                                      CGRectGetHeight(self.storesScrollView.frame))];
 
     NSInteger i = 0;
 
-    for(BBStore *store in stores) {
+    for(BBStore *store in updateStores) {
         
         BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
         
