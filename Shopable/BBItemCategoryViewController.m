@@ -11,6 +11,7 @@
 #import "BBItemsViewController.h"
 
 #import "BBStorageManager.h"
+#import "BBStorageManager+Initialize.h"
 
 @implementation BBItemCategoryViewController
 
@@ -68,6 +69,13 @@
     
     [self.fetchedResultsController performFetch:&error];
     
+    if([[self.fetchedResultsController fetchedObjects] count] <= 0) {
+        
+        [[BBStorageManager sharedManager] setupDatabase];
+        
+        [self.fetchedResultsController performFetch:&error];
+    }
+    
     if(error != nil) {
      
         NSLog(@"Error fetching item categories");
@@ -91,6 +99,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    
+    NSLog(@"Fetched objects %d", [[self.fetchedResultsController fetchedObjects] count]);
+    
     [super viewDidAppear:animated];
 }
 

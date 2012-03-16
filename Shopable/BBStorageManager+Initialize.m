@@ -14,12 +14,14 @@
 
 - (void)setupDatabase {
     
-    BOOL cloudValue = [[NSUbiquitousKeyValueStore defaultStore] boolForKey:@"defaultDataCreated"];
+    [self createDefaults];
+    
+    /*BOOL cloudValue = [[NSUbiquitousKeyValueStore defaultStore] boolForKey:@"defaultDataCreated"];
     BOOL localValue = [[NSUserDefaults standardUserDefaults] boolForKey:@"defaultDataCreated"];
     
     if(cloudValue == NO && localValue == NO) {
                 
-        [self createDefaults];
+        
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"defaultDataCreated"];
         [[NSUbiquitousKeyValueStore defaultStore] setBool:YES forKey:@"defaultDataCreated"];
@@ -27,22 +29,24 @@
         //sync everything up
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+        
+        NSLog(@"Default data created!");
     }
     
     //setup iCloud if applicable
-    [self createUbiquityContainer];
+    [self createUbiquityContainer];*/
 }
 
 - (void)createDefaults {
     
     //Create default Grocery Store
-    BBStore *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
+    /*BBStore *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
     
     groceryStore.name = [NSString stringWithString:@"Grocery Store"];
     groceryStore.order = [NSNumber numberWithInt:0];
     
     //set the type
-    groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+    groceryStore.type = [NSNumber numberWithInt:bbStoreTypeGrocery];*/
     
     [self createDefaultCategories];
     

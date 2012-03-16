@@ -85,7 +85,7 @@ static BBStorageManager *sharedManager = nil;
     
     [moc mergeChangesFromContextDidSaveNotification:note]; 
     
-    NSNotification* refreshNotification = [NSNotification notificationWithName:@"RefreshAllViews" object:self  userInfo:[note userInfo]];
+    NSNotification* refreshNotification = [NSNotification notificationWithName:@"RefreshUI" object:self  userInfo:[note userInfo]];
     
     [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
 }
@@ -114,13 +114,10 @@ static BBStorageManager *sharedManager = nil;
         
         [moc performBlockAndWait:^{
         
+            [moc setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
+            
             // even the post initialization needs to be done within the Block
             [moc setPersistentStoreCoordinator: coordinator];
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                     selector:@selector(mergeChangesFrom_iCloud:) 
-                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
-                                                       object:coordinator];
         }];
         
         __managedObjectContext = moc;
@@ -162,50 +159,219 @@ static BBStorageManager *sharedManager = nil;
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
  */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+	
+    if (__persistentStoreCoordinator != nil) {
+        return __persistentStoreCoordinator;
+    }
+    
+    // assign the PSC to our app delegate ivar before adding the persistent store in the background
+    // this leverages a behavior in Core Data where you can create NSManagedObjectContext and fetch requests
+    // even if the PSC has no stores.  Fetch requests return empty arrays until the persistent store is added
+    // so it's possible to bring up the UI and then fill in the results later
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    
+    
+    // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
+    NSPersistentStoreCoordinator* psc = __persistentStoreCoordinator;
+	NSString *storePath = [[[self applicationDocumentsDirectory] path] stringByAppendingPathComponent:@"Shopable.sqlite"];
+    
+    // do this asynchronously since if this is the first time this particular device is syncing with preexisting
+    // iCloud content it may take a long long time to download
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+        // this needs to match the entitlements and provisioning profile
+        NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
+        NSString* coreDataCloudContent = [[cloudURL path] stringByAppendingPathComponent:@"StoreLogs"];
+        cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
+        
+        //  The API to turn on Core Data iCloud support here.
+        NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:@"com.basicallybits.shopable.store", NSPersistentStoreUbiquitousContentNameKey, 
+                                 cloudURL, NSPersistentStoreUbiquitousContentURLKey, 
+                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, 
+                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        
+        NSError *error = nil;
+        
+        [psc lock];
+        
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+            /*
+             Replace this implementation with code to handle the error appropriately.
+             
+             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+             
+             Typical reasons for an error here include:
+             * The persistent store is not accessible
+             * The schema for the persistent store is incompatible with current managed object model
+             Check the error message to determine what the actual problem was.
+             */
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
+        [psc unlock];
+        
+        // tell the UI on the main thread we finally added the store and then
+        // post a custom notification to make your views do whatever they need to such as tell their
+        // NSFetchedResultsController to -performFetch again now there is a real store
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                     selector:@selector(mergeChangesFrom_iCloud:) 
+                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
+                                                       object:self.persistentStoreCoordinator];
+           
+            NSLog(@"asynchronously added persistent store!");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
+            
+        });
+    });
+    
+    return __persistentStoreCoordinator;
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+/*- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
+    __block NSPersistentStoreCoordinator *currentCoordinator = nil;
+
     if (__persistentStoreCoordinator != nil)
     {
         return __persistentStoreCoordinator;
     }
     
+    //check and see if we have an iCloud datastore on this device
+    
+    if([self hasRemoteStore]) {
+        
+        //NSLog(@"remote store exists!");
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            currentCoordinator = [self addRemoteStore];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                //[self setupDatabase];
+                
+                [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                         selector:@selector(mergeChangesFrom_iCloud:) 
+                                                             name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
+                                                           object:self.persistentStoreCoordinator];
+                
+                NSLog(@"asynchronously added cloud persistent store!");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
+            });
+            
+        });
+    }
+    else {
+        
+        NSLog(@"iCloud store does not exist! Creating local store...");
+        
+        currentCoordinator = [self addLocalStore];
+        
+//        [self setupDatabase];
+        //        [[NSNotificationCenter defaultCenter] postNotificationName:@"DatabaseReadyNotification" object:self userInfo:nil];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            if([self iCloudEnabled] == YES) {
+                [self migrateToRemoteStore];
+            }
+        });
+    }
+    
+    return currentCoordinator;
+}*/
+
+- (NSPersistentStoreCoordinator *)addRemoteStore {
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // this needs to match the entitlements and provisioning profile
+    NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
+    
+    //create the new path for this store to live (e.g. in the Ubiquity Container)
+    NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"cloud" isDirectory:YES] 
+                             URLByAppendingPathExtension:@"nosync"];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:[cloudStorePath path]] == NO) {
+        
+        [[NSFileManager defaultManager] createDirectoryAtURL:cloudStorePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    //Update URL to move database
+    cloudStorePath = [cloudStorePath URLByAppendingPathComponent:@"Shopable.sqlite" isDirectory:NO];
+    
+    //create the path to store the transaction logs for iCloud
+    NSString* coreDataCloudContent = [[cloudURL path] stringByAppendingPathComponent:@"TransLogs"];
+    NSURL *transLogsURL = [NSURL fileURLWithPath:coreDataCloudContent];
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, 
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, 
+                             @"com.basicallybits.shopable.store", NSPersistentStoreUbiquitousContentNameKey,
+                             transLogsURL, NSPersistentStoreUbiquitousContentURLKey,nil];
+    
+    return [self addStoreAtPath:cloudStorePath withOptions:options];
+}
+
+- (NSPersistentStoreCoordinator *)addLocalStore {
+    
     NSError *error = nil;
     
-    NSURL *storeURL = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"database" isDirectory:YES] 
+    NSURL *storeDirectory = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"database" isDirectory:YES] 
                        URLByAppendingPathExtension:@"nosync"];
     
-    [[NSFileManager defaultManager] createDirectoryAtURL:storeURL withIntermediateDirectories:YES attributes:nil error:&error];
-    storeURL = [storeURL URLByAppendingPathComponent:@"Shopable.sqlite"];
+    if([[NSFileManager defaultManager] fileExistsAtPath:[storeDirectory path]] == NO) {
+        
+        [[NSFileManager defaultManager] createDirectoryAtURL:storeDirectory withIntermediateDirectories:YES attributes:nil error:&error];
+    }
     
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
-    NSPersistentStoreCoordinator *psc = __persistentStoreCoordinator;
+    NSURL *storeURL = [storeDirectory URLByAppendingPathComponent:@"Shopable.sqlite"];
     
     NSDictionary *options = nil;
     
     options = [NSDictionary dictionaryWithObjectsAndKeys:
-                   [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, 
-                   [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-        
+               [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, 
+               [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    return [self addStoreAtPath:storeURL withOptions:options];
+}
+
+- (NSPersistentStoreCoordinator *)addStoreAtPath:(NSURL *)storePath withOptions:(NSDictionary *)storeOptions {
+
+    NSError *error = nil;
+    
+    if(__persistentStoreCoordinator == nil) {
+        __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    }
+    
+    NSPersistentStoreCoordinator *psc = __persistentStoreCoordinator;
     
     [psc lock];
     
-    if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+    if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storePath options:storeOptions error:&error]) {
         
         NSLog(@"unable to create persistent store: %@ %@", error, [error userInfo]);
         abort();
     }
-    else {
-        
-        NSLog(@"Persistant Store added sucessfully");
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"DatabaseReadyNotification" object:self userInfo:nil];
-    }
     
-    self.persistentStore = [psc persistentStoreForURL:storeURL];
+    self.persistentStore = [psc persistentStoreForURL:storePath];
     
     [psc unlock];
     
     return __persistentStoreCoordinator;
+    
 }
 
 #pragma mark - Application's Documents directory

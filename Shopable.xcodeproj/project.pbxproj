@@ -264,7 +264,6 @@
 		77A4173714BDFEC200ACAAC1 /* Shopable */ = {
 			isa = PBXGroup;
 			children = (
-				77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */,
 				7798254814E73828007031EF /* BBAppDelegate.h */,
 				7798254914E73828007031EF /* BBAppDelegate.m */,
 				77D29C2914DF5E9C00EB1EFE /* Categories */,
@@ -289,6 +288,7 @@
 				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
 				77A4173914BDFEC200ACAAC1 /* Shopable-Info.plist */,
 				77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */,
+				77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */,
 				7745933F14C5E80600EF1565 /* StoreTypes.plist */,
 			);
 			name = "Supporting Files";

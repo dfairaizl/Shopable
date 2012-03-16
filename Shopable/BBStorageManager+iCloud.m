@@ -6,11 +6,18 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
+#import "BBStorageManager+Initialize.h"
+
 #import "BBStorageManager+iCloud.h"
 
 @implementation BBStorageManager (iCloud)
 
-- (void)createUbiquityContainer {
+- (BOOL)iCloudEnabled {
+    
+    return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] != nil;
+}
+
+- (void)migrateToRemoteStore {
     
     // do this asynchronously since if this is the first time this particular device is syncing with preexisting
     // iCloud content it may take a long long time to download
@@ -19,14 +26,12 @@
         NSError *error = nil;
         NSFileManager *fileManager = [NSFileManager defaultManager];
         
-        //existing database location
-        //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"];
-        
         // this needs to match the entitlements and provisioning profile
         NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
         
         //create the new path for this store to live (e.g. in the Ubiquity Container)
-        NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"cloud" isDirectory:YES] URLByAppendingPathExtension:@"nosync"];
+        NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"cloud" isDirectory:YES] 
+                                 URLByAppendingPathExtension:@"nosync"];
         [fileManager createDirectoryAtURL:cloudStorePath withIntermediateDirectories:YES attributes:nil error:&error];
         
         //Update URL to move database
@@ -37,8 +42,8 @@
         NSURL *transLogsURL = [NSURL fileURLWithPath:coreDataCloudContent];
         
         //Get options from existing NSPersistentStoreCoordinator
-        NSPersistentStore *currentStore = (NSPersistentStore *)[[self.persistentStoreCoordinator persistentStores] lastObject];
-        NSMutableDictionary  *options = [[currentStore options] mutableCopy];
+        NSPersistentStore *localStore= (NSPersistentStore *)[[self.persistentStoreCoordinator persistentStores] lastObject];
+        NSMutableDictionary  *options = [[localStore options] mutableCopy];
         
         //  The API to turn on Core Data iCloud support here.
         [options setValue:@"com.basicallybits.shopable.store" forKey:NSPersistentStoreUbiquitousContentNameKey];
@@ -46,7 +51,7 @@
         
         [self.persistentStoreCoordinator lock];
 
-        if(![self.persistentStoreCoordinator migratePersistentStore:currentStore 
+        if(![self.persistentStoreCoordinator migratePersistentStore:localStore 
                                                              toURL:cloudStorePath 
                                                            options:options 
                                                           withType:NSSQLiteStoreType error:&error]) {
@@ -75,11 +80,30 @@
         // NSFetchedResultsController to -performFetch again now there is a real store
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NSLog(@"asynchronously added cloud persistent store!");
+            [self setupDatabase];
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                     selector:@selector(mergeChangesFrom_iCloud:) 
+                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
+                                                       object:self.persistentStoreCoordinator];
+            
+            NSLog(@"asynchronously migrated to cloud store!");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
             
         });
     });
+}
+
+- (BOOL)hasRemoteStore {
+    
+    //create the new path for this store to live (e.g. in the Ubiquity Container)
+    NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"cloud" isDirectory:YES] 
+                             URLByAppendingPathExtension:@"nosync"];
+    
+    //Update URL to move database
+    cloudStorePath = [cloudStorePath URLByAppendingPathComponent:@"Shopable.sqlite" isDirectory:NO];
+    
+    return [[NSFileManager defaultManager] fileExistsAtPath:[cloudStorePath path]];
 }
 
 //Good code for trashing the CoreData stack and creating a new one

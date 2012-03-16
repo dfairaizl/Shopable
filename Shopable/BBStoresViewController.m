@@ -229,6 +229,7 @@
     }
 
     [self.storesPageControl setNumberOfPages:[stores count]];
+    [self.storesPageControl setCurrentPage:0];
 }
 
 @end

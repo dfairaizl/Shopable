@@ -10,6 +10,9 @@
 
 @interface BBStorageManager (iCloud)
 
-- (void)createUbiquityContainer;
+- (BOOL)iCloudEnabled;
+- (void)migrateToRemoteStore;
+
+- (BOOL)hasRemoteStore;
 
 @end
