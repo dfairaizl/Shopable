@@ -32,11 +32,6 @@ static BBStorageManager *sharedManager = nil;
         
         //attempt to enable iCloud
         [self enableiCloud];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(setupDatabase) 
-                                                     name:[NSString stringWithString:@"DatabaseReadyNotification"] 
-                                                   object:nil];
     }
     
     return self;

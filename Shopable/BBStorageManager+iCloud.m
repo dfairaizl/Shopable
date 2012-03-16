@@ -24,13 +24,6 @@
     NSLog(@"iCloud enabled!");
     
     self.ubiquityContainerURL = ubiquityContainer;
-    
-    /*if([[[NSUbiquitousKeyValueStore defaultStore] stringForKey:@"BBPersistentStorePath"] length] == NO) {
-    
-        [[NSUbiquitousKeyValueStore defaultStore] setString:[[self iCloudStorePath] path] forKey:@"BBPersistentStorePath"];
-    }
-    
-    [[NSUbiquitousKeyValueStore defaultStore] synchronize];*/
 }
 
 - (NSDictionary *)iCloudOptions {
