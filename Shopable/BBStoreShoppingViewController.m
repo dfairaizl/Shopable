@@ -27,7 +27,7 @@
 
 @interface BBStoreShoppingViewController (TableCustomization)
 
-- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBShoppingItem *)item;
+- (UITableViewCell *)configureCell:(BBShoppingTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -182,11 +182,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    BBShoppingItem *item = (BBShoppingItem *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    
     // Configure the cell...
     
-    cell = [self configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:item];
+    cell = [self configureCell:(BBShoppingTableViewCell *)cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -241,7 +239,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            //[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(BBShoppingTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -269,10 +267,12 @@
 
 #pragma mark - Table Customization Methods
 
-- (UITableViewCell *)configureShoppingCell:(BBShoppingTableViewCell *)cell withItem:(BBShoppingItem *)item {
+- (UITableViewCell *)configureCell:(BBShoppingTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+
+    BBShoppingItem *item = (BBShoppingItem *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.itemLabel.text = item.item.name;
-    
+
     if([item.quantity length]) {
         
         cell.itemQuantityLabel.text = [NSString stringWithFormat:@"x%@ %@", item.quantity, item.units];
@@ -281,7 +281,7 @@
         
         cell.itemQuantityLabel.text = @"";
     }
-    
+
     if([item.notes length]) {
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -290,9 +290,9 @@
         
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
+
     [cell cellCheckedOff:[item.checkedOff boolValue]];
-    
+
     return cell;
 }
 

@@ -483,7 +483,7 @@
 		77A4172414BDFEC200ACAAC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Basically Bits, LLC";
 			};
 			buildConfigurationList = 77A4172714BDFEC200ACAAC1 /* Build configuration list for PBXProject "Shopable" */;
@@ -661,6 +661,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -682,6 +683,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -702,6 +704,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Shopable;
@@ -717,6 +720,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dan Fairaizl (MF9L24P42N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Shopable/Shopable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Shopable;
@@ -735,6 +739,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ShopableTests/ShopableTests-Info.plist";
 				PRODUCT_NAME = ShopableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -752,6 +757,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ShopableTests/ShopableTests-Info.plist";
 				PRODUCT_NAME = ShopableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
