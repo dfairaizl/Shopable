@@ -11,9 +11,6 @@
 @interface BBStorageManager (iCloud)
 
 - (BOOL)iCloudEnabled;
-- (void)migrateToRemoteStore;
-
-- (BOOL)hasRemoteStore;
 
 - (void)enableiCloud;
 - (NSDictionary *)iCloudOptions;
