@@ -30,6 +30,9 @@ static BBStorageManager *sharedManager = nil;
     
     if(self) {
         
+        //attempt to enable iCloud
+        [self enableiCloud];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(setupDatabase) 
                                                      name:[NSString stringWithString:@"DatabaseReadyNotification"] 
@@ -159,7 +162,93 @@ static BBStorageManager *sharedManager = nil;
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
  */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (__persistentStoreCoordinator != nil) {
+        return __persistentStoreCoordinator;
+    }
+    
+    // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    NSPersistentStoreCoordinator* psc = __persistentStoreCoordinator;
+    
+    NSString *storePath = nil;
+    
+    /*if([[[NSUbiquitousKeyValueStore defaultStore] stringForKey:@"BBPersistentStorePath"] length]) {
+        
+        storePath = [[NSUbiquitousKeyValueStore defaultStore] stringForKey:@"BBPersistentStorePath"];
+    }
+    else {
+     
+        storePath = [[[self applicationDocumentsDirectory] path] stringByAppendingPathComponent:@"Shopable.sqlite"];
+    }*/
+    
+    storePath = [[self iCloudStorePath] path];
+    
+    NSLog(@"store path %@", storePath);
+    
+    // do this asynchronously since if this is the first time this particular device is syncing with preexisting
+    // iCloud content it may take a long long time to download
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSError *error = nil;
+        
+        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+        NSDictionary *options = [self storeOptions];
+        
+        NSLog(@"store options %@", options);
+        
+        [psc lock];
+        
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+            
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+        
+        [psc unlock];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"asynchronously added persistent store!");
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                     selector:@selector(mergeChangesFrom_iCloud:) 
+                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
+                                                       object:self.persistentStoreCoordinator];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
+        });
+    });
+    
+    return __persistentStoreCoordinator;
+}
+
+- (NSDictionary *)storeOptions {
+    
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:[self iCloudOptions]];
+    
+    [options setValue:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+    [options setValue:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+    
+    return [NSDictionary dictionaryWithDictionary:options];
+}
+
+- (void)resetStorageManager {
+    
+    [self saveContext];
+    
+    self.persistentStoreCoordinator = nil;
+    self.managedObjectContext = nil;
+    
+    // reset the managedObjectContext
+    self.managedObjectContext = [self managedObjectContext];
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+/*- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	
     if (__persistentStoreCoordinator != nil) {
         return __persistentStoreCoordinator;
@@ -199,16 +288,7 @@ static BBStorageManager *sharedManager = nil;
         [psc lock];
         
         if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             
-             Typical reasons for an error here include:
-             * The persistent store is not accessible
-             * The schema for the persistent store is incompatible with current managed object model
-             Check the error message to determine what the actual problem was.
-             */
+            
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
@@ -220,10 +300,7 @@ static BBStorageManager *sharedManager = nil;
         // NSFetchedResultsController to -performFetch again now there is a real store
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                     selector:@selector(mergeChangesFrom_iCloud:) 
-                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
-                                                       object:self.persistentStoreCoordinator];
+
            
             NSLog(@"asynchronously added persistent store!");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
@@ -232,7 +309,8 @@ static BBStorageManager *sharedManager = nil;
     });
     
     return __persistentStoreCoordinator;
-}
+}*/
+
 
 /**
  Returns the persistent store coordinator for the application.

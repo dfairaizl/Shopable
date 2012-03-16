@@ -15,4 +15,9 @@
 
 - (BOOL)hasRemoteStore;
 
+- (void)enableiCloud;
+- (NSDictionary *)iCloudOptions;
+- (NSString *)iCloudTransactionLogsPath;
+- (NSURL *)iCloudStorePath;
+
 @end

@@ -24,6 +24,8 @@
 
 - (void)saveContext;
 - (BOOL)storeExists;
+- (NSDictionary *)storeOptions;
+- (void)resetStorageManager;
 - (NSURL *)applicationDocumentsDirectory;
 
 @end
