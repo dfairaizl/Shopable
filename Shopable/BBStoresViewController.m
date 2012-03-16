@@ -236,9 +236,22 @@
         
         i++;
         
+        [self addChildViewController:storeVC];
+        
         [self.storesScrollView addSubview:storeVC.view];
         
-        [self addChildViewController:storeVC];
+        storeVC.view.alpha = 0.0;
+        
+        [UIView animateWithDuration:0.25 
+                              delay:0.4 
+                            options:UIViewAnimationOptionCurveLinear 
+                         animations:^() {
+                                
+                             storeVC.view.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
     }
 
     [self.storesPageControl setNumberOfPages:[stores count]];
