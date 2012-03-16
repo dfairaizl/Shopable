@@ -21,7 +21,12 @@
 
     NSURL *ubiquityContainer = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     
-    NSLog(@"iCloud enabled!");
+    if(ubiquityContainer != nil) {
+        NSLog(@"iCloud enabled!");
+    }
+    else {
+        NSLog(@"iCloud not enabled for this device");
+    }
     
     self.ubiquityContainerURL = ubiquityContainer;
 }
