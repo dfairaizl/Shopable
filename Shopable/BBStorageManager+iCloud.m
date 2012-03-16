@@ -60,7 +60,7 @@
 - (NSURL *)iCloudStorePath {
     
     //create the new path for this store to live (e.g. in the Ubiquity Container)
-    NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"cloud" isDirectory:YES] 
+    NSURL *cloudStorePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"db" isDirectory:YES] 
                              URLByAppendingPathExtension:@"nosync"];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:[cloudStorePath path]] == NO) {
