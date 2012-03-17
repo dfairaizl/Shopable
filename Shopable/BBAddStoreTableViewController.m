@@ -102,7 +102,7 @@
 {
     [super viewDidDisappear:animated];
     
-    if([self.storeDelegate respondsToSelector:@selector(addStore:)]) {
+    if(self.shoppingStore != nil && [self.storeDelegate respondsToSelector:@selector(addStore:)]) {
         
         [self.storeDelegate addStore:self.shoppingStore];
     }
@@ -126,6 +126,8 @@
 - (IBAction)cancelButtonPressed:(id)sender {
     
     [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.shoppingStore];
+    
+    self.shoppingStore = nil;
     
     [self dismissModalViewControllerAnimated:YES];
 }
