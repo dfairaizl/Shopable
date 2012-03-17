@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBStorageManager.h"
+
+@protocol BBStoreDelegate <NSObject>
+
+- (void)addStore:(BBStore *)store;
+
+@end
+
 @interface BBAddStoreTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate>
+
+@property (weak, nonatomic) id<BBStoreDelegate> storeDelegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *typeTextField;

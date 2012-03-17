@@ -9,6 +9,7 @@
 #import "BBStoresViewController.h"
 
 #import "BBStoreShoppingViewController.h"
+#import "BBAddStoreTableViewController.h"
 
 //Support
 #import "BBStorageManager.h"
@@ -16,7 +17,8 @@
 
 @interface BBStoresViewController ()
 
-- (void)reloadStores;
+- (void)loadStores;
+- (NSArray *)updatedStoresInStores:(NSArray *)stores;
 
 @end
 
@@ -57,37 +59,32 @@
     
     _addStoreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [self.addStoreButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [self.addStoreButton addTarget:self action:@selector(addStore:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addStoreButton addTarget:self action:@selector(addStoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
     UIBarButtonItem *addStoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.addStoreButton];
     
     _toggleShoppingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [self.toggleShoppingButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [self.toggleShoppingButton addTarget:self action:@selector(toggleShopping:) forControlEvents:UIControlEventTouchUpInside];
+    [self.toggleShoppingButton addTarget:self action:@selector(toggleShoppingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *toggleShoppingBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.toggleShoppingButton];
     
     self.navigationItem.leftBarButtonItem = addStoreBarButton;
     self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStores) name:[NSString stringWithString:@"RefreshUI"] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadStores) name:[NSString stringWithString:@"RefreshUI"] object:nil];
+
+    [self loadStores];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
-    [self reloadStores];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    //tear down the views in the scroll view
-    for(UIViewController *vc in [self childViewControllers]) {
-        
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
     
     [super viewDidDisappear:animated];
 }
@@ -100,6 +97,7 @@
     [self setCurrentlyShoppingLabel:nil];
     [self setEditShoppingCartButton:nil];
     [self setEditStoresButton:nil];
+
     [super viewDidUnload];
 }
 
@@ -107,6 +105,16 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"addStoreSegue"]) {
+        
+        BBAddStoreTableViewController *addStoreVC = (BBAddStoreTableViewController *)[segue.destinationViewController topViewController];
+        
+        addStoreVC.storeDelegate = self;
+    }
 }
 
 #pragma mark - UIScrollViewDelegate Methods
@@ -118,12 +126,12 @@
 
 #pragma mark - UI Action Methods
 
-- (void)addStore:(id)sender {
+- (void)addStoreButtonPressed:(id)sender {
     
     [self performSegueWithIdentifier:@"addStoreSegue" sender:nil];
 }
 
-- (void)toggleShopping:(id)sender {
+- (void)toggleShoppingButtonPressed:(id)sender {
     
     BBStoreShoppingViewController *shoppingVC = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
     BBStore *currentStore = shoppingVC.currentStore;
@@ -199,22 +207,11 @@
 
 #pragma mark - Private Methods
 
-- (void)reloadStores {
+- (void)loadStores {
 
-    __block NSArray *stores = [BBStore stores];
-    __block NSMutableArray *updateStores = [NSMutableArray arrayWithArray:stores];
+    NSArray *stores = [BBStore stores];
     
-    //determine what stores are actually on the screen
-    [self.childViewControllers enumerateObjectsUsingBlock:^(BBStoreShoppingViewController *storeVC, NSUInteger index, BOOL *stop) {
-       
-        for(BBStore *store in stores) {
-         
-            if(storeVC.currentStore == store) {
-                
-                [updateStores removeObject:store];
-            }
-        }
-    }];
+    NSArray *updateStores = [self updatedStoresInStores:stores];
 
     [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [stores count], 
                                                      CGRectGetHeight(self.storesScrollView.frame))];
@@ -256,6 +253,95 @@
 
     [self.storesPageControl setNumberOfPages:[stores count]];
     [self.storesPageControl setCurrentPage:[self.storesScrollView currentPage]];
+}
+
+- (NSArray *)updatedStoresInStores:(NSArray *)stores {
+
+    __block NSMutableArray *updateStores = [NSMutableArray arrayWithArray:stores];
+
+    //determine what stores are actually on the screen
+    [self.childViewControllers enumerateObjectsUsingBlock:^(BBStoreShoppingViewController *storeVC, NSUInteger index, BOOL *stop) {
+        
+        for(BBStore *store in stores) {
+            
+            if(storeVC.currentStore == store) {
+                
+                [updateStores removeObject:store];
+            }
+        }
+    }];
+
+    return updateStores;
+}
+
+#pragma mark - BBStoreDelegate Methods
+
+- (void)addStore:(BBStore *)store {
+
+    NSInteger storesCount = [[BBStore stores] count];
+    
+    //Update the scroll view to hold the new store
+    [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * storesCount, 
+                                                 CGRectGetHeight(self.storesScrollView.frame))];
+
+    //Update the page indicator
+    [self.storesPageControl setNumberOfPages:storesCount];
+    [self.storesPageControl setCurrentPage:storesCount];
+    
+    //Create the store view controller
+    BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
+    
+    storeVC.currentStore = store;
+    storeVC.parentStoresViewController = self;
+    
+    storeVC.view = storeVC.contentView;
+    
+    CGRect frame = storeVC.view.frame;
+    frame.origin.x = (storesCount - 1)  * CGRectGetWidth(self.storesScrollView.frame) + 20;
+    storeVC.view.frame = frame;
+    
+    [self addChildViewController:storeVC];
+    
+    [self.storesScrollView addSubview:storeVC.view];
+    
+    //fade in the new store
+    storeVC.view.alpha = 0.0;
+    
+    if(storesCount <= 0) {
+        
+        [UIView animateWithDuration:0.4 
+                              delay:0.25 
+                            options:UIViewAnimationOptionCurveLinear 
+                         animations:^() {
+                             storeVC.view.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+    }
+    else {
+     
+        [UIView animateWithDuration:0.5 
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut 
+                         animations:^() {
+                             
+                             //scroll over to the new store
+                             [self.storesScrollView scrollRectToVisible:CGRectMake(frame.origin.x + 20, frame.origin.y, frame.size.width, frame.size.height) animated:YES];
+                         }
+                         completion:^(BOOL finished) {
+                             
+                             [UIView animateWithDuration:0.4 
+                                                   delay:0.5 
+                                                 options:UIViewAnimationOptionCurveLinear 
+                                              animations:^() {
+                                                  storeVC.view.alpha = 1.0;
+                                              }
+                                              completion:^(BOOL finished) {
+                                                  
+                                              }];
+                         }];
+    }
 }
 
 @end

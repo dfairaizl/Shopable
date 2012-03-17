@@ -7,8 +7,7 @@
 //
 
 #import "BBAddStoreTableViewController.h"
-
-#import "BBStorageManager.h"
+#import "BBStoresViewController.h"
 
 @interface BBAddStoreTableViewController ()
 
@@ -18,6 +17,8 @@
 @end
 
 @implementation BBAddStoreTableViewController
+
+@synthesize storeDelegate;
 @synthesize typeTextField;
 @synthesize storeTypePicker;
 @synthesize nameTextField;
@@ -100,6 +101,11 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
+    if([self.storeDelegate respondsToSelector:@selector(addStore:)]) {
+        
+        [self.storeDelegate addStore:self.shoppingStore];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -133,6 +139,8 @@
         [alert show];
     }
     else {
+        
+        [[BBStorageManager sharedManager] saveContext];
      
         [self dismissModalViewControllerAnimated:YES];
     }

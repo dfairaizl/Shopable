@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBStoresViewController : UIViewController <UIScrollViewDelegate>
+#import "BBAddStoreTableViewController.h"
+
+@interface BBStoresViewController : UIViewController <UIScrollViewDelegate, BBStoreDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *storesScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *storesPageControl;
