@@ -52,6 +52,7 @@
 		77C4BE6814E4D0E900EDDDBE /* BBItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BE6714E4D0E900EDDDBE /* BBItemTableViewCell.m */; };
 		77C4BE6C14E4D72200EDDDBE /* table-cell-item-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C4BE6A14E4D72200EDDDBE /* table-cell-item-selected@2x.png */; };
 		77C4BE6D14E4D72200EDDDBE /* table-cell-item-unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C4BE6B14E4D72200EDDDBE /* table-cell-item-unselected@2x.png */; };
+		77D27574151525C5005F699F /* BBStoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D27573151525C5005F699F /* BBStoresTableViewController.m */; };
 		77D29C1C14DF25A300EB1EFE /* navbar-background-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D29C1B14DF25A300EB1EFE /* navbar-background-transparent.png */; };
 		77D29C2114DF510F00EB1EFE /* BBStoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */; };
 		77D29C2814DF5B9C00EB1EFE /* navbar-button-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D29C2714DF5B9C00EB1EFE /* navbar-button-background@2x.png */; };
@@ -151,6 +152,8 @@
 		77C4BE6A14E4D72200EDDDBE /* table-cell-item-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-cell-item-selected@2x.png"; sourceTree = "<group>"; };
 		77C4BE6B14E4D72200EDDDBE /* table-cell-item-unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-cell-item-unselected@2x.png"; sourceTree = "<group>"; };
 		77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Shopable.entitlements; sourceTree = "<group>"; };
+		77D27572151525C5005F699F /* BBStoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStoresTableViewController.h; sourceTree = "<group>"; };
+		77D27573151525C5005F699F /* BBStoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStoresTableViewController.m; sourceTree = "<group>"; };
 		77D29C1B14DF25A300EB1EFE /* navbar-background-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-transparent.png"; sourceTree = "<group>"; };
 		77D29C1E14DF510E00EB1EFE /* BBStoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStoresViewController.h; sourceTree = "<group>"; };
 		77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStoresViewController.m; sourceTree = "<group>"; };
@@ -320,6 +323,8 @@
 				77A4176E14BE0F6900ACAAC1 /* BBAddStoreTableViewController.m */,
 				77A5210A14E23EBE00D42858 /* BBEditStoresViewController.h */,
 				77A5210B14E23EBE00D42858 /* BBEditStoresViewController.m */,
+				77D27572151525C5005F699F /* BBStoresTableViewController.h */,
+				77D27573151525C5005F699F /* BBStoresTableViewController.m */,
 				77D29C1E14DF510E00EB1EFE /* BBStoresViewController.h */,
 				77D29C1F14DF510E00EB1EFE /* BBStoresViewController.m */,
 				772C337814E4800200AFF043 /* Support */,
@@ -587,6 +592,7 @@
 				770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */,
 				777CDDA214F1F2600084EA9C /* BBImageTransformer.m in Sources */,
 				777CDDA514F1F4A20084EA9C /* BBShoppingItem.m in Sources */,
+				77D27574151525C5005F699F /* BBStoresTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

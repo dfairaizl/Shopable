@@ -72,8 +72,6 @@
     
     [[self.contentView layer] setCornerRadius:10.0f];
     
-    self.storeNameLabel.text = self.currentStore.name;
-    
     //setup the swipe gesture recognizer for the shopping table view to support crossing off items in list
     UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shoppingCellSwipped:)];
     [self.storeTableView addGestureRecognizer:swipeGR];
@@ -82,6 +80,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
+    self.storeNameLabel.text = self.currentStore.name;
     
     [self refreshStores];
 }

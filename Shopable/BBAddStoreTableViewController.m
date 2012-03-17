@@ -111,7 +111,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+
+        return YES;
+    }
+    else {
+     
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    }
 }
 
 #pragma mark - Table view delegate

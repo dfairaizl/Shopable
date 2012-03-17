@@ -18,6 +18,7 @@
 @interface BBStoresViewController ()
 
 - (void)loadStores;
+- (void)resizeStoresForOrientation:(UIInterfaceOrientation)orientation;
 - (NSArray *)updatedStoresInStores:(NSArray *)stores;
 
 @end
@@ -104,7 +105,28 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+     
+        return YES;
+    }
+    else {
+        
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
+
+    NSLog(@"scroll view frame: %@", NSStringFromCGRect(self.storesScrollView.frame));
+
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [self resizeStoresForOrientation:interfaceOrientation];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -220,7 +242,21 @@
 
     for(BBStore *store in updateStores) {
         
-        BBStoreShoppingViewController *storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
+        BBStoreShoppingViewController *storeVC = nil;
+        
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            
+            storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
+            
+            //set the size of these frames to the size of the scroll view in the current orientaiton
+            CGRect frame = storeVC.view.frame;
+            frame.size = CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) - 40, CGRectGetHeight(self.storesScrollView.frame) - 40);
+            storeVC.view.frame = frame;
+        }
+        else {
+            
+            storeVC = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"BBStoreShoppingViewController"];
+        }
         
         storeVC.currentStore = store;
         storeVC.parentStoresViewController = self;
@@ -272,6 +308,29 @@
     }];
 
     return updateStores;
+}
+
+- (void)resizeStoresForOrientation:(UIInterfaceOrientation)orientation {
+    
+    if([self.childViewControllers count] > 0) {
+     
+        [self.storesScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.storesScrollView.frame) * [self.childViewControllers count], 
+                                                         CGRectGetHeight(self.storesScrollView.frame))];
+
+        [self.childViewControllers enumerateObjectsUsingBlock:^(BBStoreShoppingViewController *storeVC, NSUInteger index, BOOL *stop) {
+           
+            CGRect frame = storeVC.view.frame;
+            frame.origin.x = index * CGRectGetWidth(self.storesScrollView.frame) + 20;
+            storeVC.view.frame = frame;
+            
+        }];
+
+        BBStoreShoppingViewController *currentStore = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
+        CGRect currentView = currentStore.view.frame;
+        currentView.origin.x += 20;
+
+        [self.storesScrollView scrollRectToVisible:currentView animated:NO];
+    }
 }
 
 #pragma mark - BBStoreDelegate Methods
