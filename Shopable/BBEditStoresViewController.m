@@ -52,14 +52,6 @@
     
     [[self.storesTableView layer] setCornerRadius:10.0];
     
-    UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [doneButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
-    
-    self.navigationItem.rightBarButtonItem = doneBarButton;
-    
     [self updateStoresFRC];
     
     [self.storesTableView setEditing:YES];
@@ -192,7 +184,7 @@
 
 #pragma mark - UI Action Methods
 
-- (void)done:(id)sender {
+- (IBAction)done:(id)sender {
     
     [self updateOrder];
     

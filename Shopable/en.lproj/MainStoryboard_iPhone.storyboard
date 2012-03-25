@@ -258,7 +258,13 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Stores" id="7gt-rS-2DK"/>
+                    <navigationItem key="navigationItem" title="Stores" id="7gt-rS-2DK">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="5gk-XI-NA2">
+                            <connections>
+                                <action selector="done:" destination="CqO-MU-A7r" id="mbM-UU-Wuv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="storesTableView" destination="Yfc-Uc-yYN" id="YOE-gl-WaK"/>
                     </connections>
@@ -1070,6 +1076,7 @@
         <class className="BBEditStoresViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoresViewController.h"/>
             <relationships>
+                <relationship kind="action" name="done:"/>
                 <relationship kind="action" name="editingStateChanged:"/>
                 <relationship kind="outlet" name="storesTableView" candidateClass="UITableView"/>
             </relationships>

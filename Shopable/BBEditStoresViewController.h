@@ -22,6 +22,7 @@ typedef enum {
 
 @property (strong, nonatomic) IBOutlet UITableView *storesTableView;
 
+- (IBAction)done:(id)sender;
 - (IBAction)editingStateChanged:(id)sender;
 
 @end
