@@ -53,21 +53,6 @@
     
     self.title = self.currentItemCategory.name;
     
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
-    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [addButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(addItem:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *addBarButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    
-    self.navigationItem.rightBarButtonItem = addBarButton;
-    self.navigationItem.leftBarButtonItem = backBarButton;
-    
     NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM];
     
     [categoriesFR setPredicate:[NSPredicate predicateWithFormat:@"parentItemCategory == %@", self.currentItemCategory]];
@@ -182,12 +167,7 @@
 
 #pragma mark - UIBarButtinItem Selector Methods
 
-- (void)back:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)addItem:(id)sender {
+- (IBAction)addItem:(id)sender {
     
     [self performSegueWithIdentifier:@"addItemSegue" sender:nil];
 }

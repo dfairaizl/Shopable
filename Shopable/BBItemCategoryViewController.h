@@ -18,4 +18,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *categoriesTableView;
 
+- (IBAction)done:(id)sender;
+
 @end

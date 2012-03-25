@@ -23,4 +23,7 @@
 
 - (IBAction)editShoppingCartButtonPressed:(id)sender;
 
+- (IBAction)addStoreButtonPressed:(id)sender;
+- (IBAction)toggleShoppingButtonPressed:(id)sender;
+
 @end

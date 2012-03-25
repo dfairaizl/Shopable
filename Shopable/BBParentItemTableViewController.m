@@ -54,21 +54,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [cancelButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
-    
-    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [saveButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
-    
-    self.navigationItem.leftBarButtonItem = cancelBarButton;
-    self.navigationItem.rightBarButtonItem = saveBarButton;
 }
 
 - (void)viewDidUnload

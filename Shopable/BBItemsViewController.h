@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *itemsTableView;
 
+- (IBAction)addItem:(id)sender;
+
 @end

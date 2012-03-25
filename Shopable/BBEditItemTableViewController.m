@@ -36,15 +36,6 @@
     [super viewDidLoad];
     
     self.title = self.shoppingItem.item.name;
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
-    self.navigationItem.leftBarButtonItem = backBarButton;
-    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)viewDidUnload
@@ -75,6 +66,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    //If a user DOES NOT add quantity, notes or picture, remove it from the cart
+    if([self.shoppingItem.quantity length] == 0 && [self.shoppingItem.notes length] == 0 && [self.shoppingItem.image length] == 0) {
+        
+        [[self.currentStore currentShoppingCart] removeItemFromCart:self.shoppingItem];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -97,13 +94,7 @@
 
 - (void)backButtonPressed:(id)sender {
         
-    //If a user DOES NOT add quantity, notes or picture, remove it from the cart
-    if([self.shoppingItem.quantity length] == 0 && [self.shoppingItem.notes length] == 0 && [self.shoppingItem.image length] == 0) {
-        
-        [[self.currentStore currentShoppingCart] removeItemFromCart:self.shoppingItem];
-    }
     
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

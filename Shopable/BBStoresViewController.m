@@ -57,21 +57,6 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
-    
-    _addStoreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [self.addStoreButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [self.addStoreButton addTarget:self action:@selector(addStoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-
-    UIBarButtonItem *addStoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.addStoreButton];
-    
-    _toggleShoppingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [self.toggleShoppingButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [self.toggleShoppingButton addTarget:self action:@selector(toggleShoppingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *toggleShoppingBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.toggleShoppingButton];
-    
-    self.navigationItem.leftBarButtonItem = addStoreBarButton;
-    self.navigationItem.rightBarButtonItem = toggleShoppingBarButton;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadStores) name:[NSString stringWithString:@"RefreshUI"] object:nil];
 
@@ -148,12 +133,12 @@
 
 #pragma mark - UI Action Methods
 
-- (void)addStoreButtonPressed:(id)sender {
+- (IBAction)addStoreButtonPressed:(id)sender {
     
     [self performSegueWithIdentifier:@"addStoreSegue" sender:nil];
 }
 
-- (void)toggleShoppingButtonPressed:(id)sender {
+- (IBAction)toggleShoppingButtonPressed:(id)sender {
     
     BBStoreShoppingViewController *shoppingVC = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
     BBStore *currentStore = shoppingVC.currentStore;

@@ -40,8 +40,8 @@
 
 - (void)updateQuantityAndUnits;
 
-- (void)saveButtonPressed:(id)sender;
-- (void)cancelButtonPressed:(id)sender;
+- (IBAction)saveButtonPressed:(id)sender;
+- (IBAction)cancelButtonPressed:(id)sender;
 
 - (IBAction)pickerClearButtonPressed:(id)sender;
 - (IBAction)pickerDoneButtonPressed:(id)sender;

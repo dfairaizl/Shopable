@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qlL-Xy-JHo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qlL-Xy-JHo">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Stores View Controller-->
         <scene sceneID="HCh-j7-fPR">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-MI-aYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,9 +64,20 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="L53-W0-ed8"/>
+                    <navigationItem key="navigationItem" id="L53-W0-ed8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="8mS-GH-y4a">
+                            <connections>
+                                <action selector="addStoreButtonPressed:" destination="PDc-V4-We9" id="m0R-is-7fi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="HRB-4F-V8K">
+                            <connections>
+                                <action selector="toggleShoppingButtonPressed:" destination="PDc-V4-We9" id="SOQ-bf-dMr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentlyShoppingLabel" destination="K4I-u3-dTL" id="JKz-4Z-h81"/>
                         <outlet property="editShoppingCartButton" destination="iCU-92-62D" id="CKp-Y7-DWr"/>
@@ -77,6 +90,7 @@
             </objects>
             <point key="canvasLocation" x="-2508" y="1153"/>
         </scene>
+        <!--Store Shopping View Controller-->
         <scene sceneID="jkf-Ke-W5f">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yj0-OH-OcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,6 +183,7 @@
             </objects>
             <point key="canvasLocation" x="-2741" y="2339"/>
         </scene>
+        <!--Edit Stores View Controller - Stores-->
         <scene sceneID="Th1-2G-h8G">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGR-3Q-EPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +256,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Stores" id="7gt-rS-2DK"/>
                     <connections>
@@ -251,6 +266,7 @@
             </objects>
             <point key="canvasLocation" x="-1448" y="1558"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="tPz-rk-4wf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohk-ZE-BXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,6 +281,7 @@
             </objects>
             <point key="canvasLocation" x="-1969" y="1558"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="mXV-m2-6Ij">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0KV-aq-Xfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +296,7 @@
             </objects>
             <point key="canvasLocation" x="-3042" y="1153"/>
         </scene>
+        <!--Item Category View Controller - Item Categories-->
         <scene sceneID="3x2-Fj-TM6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAk-8I-TZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,9 +326,15 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Item Categories" id="ivv-WL-h53"/>
+                    <navigationItem key="navigationItem" title="Item Categories" id="ivv-WL-h53">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="noI-IP-4UW">
+                            <connections>
+                                <action selector="done:" destination="Byj-gi-kJS" id="al3-Z4-BE3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoriesTableView" destination="c7g-dS-ysI" id="672-ff-TjS"/>
                         <segue destination="4on-Mq-ffe" kind="push" identifier="itemsForCategorySegue" id="iZn-Sb-PTP"/>
@@ -319,6 +343,7 @@
             </objects>
             <point key="canvasLocation" x="-1704" y="2339"/>
         </scene>
+        <!--Add Item Table View Controller-->
         <scene sceneID="bz3-CU-Yku">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71A-DP-bBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,7 +351,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Y47-6l-MWh">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Name" id="e9h-ej-vI8">
                                 <cells>
@@ -433,7 +458,18 @@
                             <outlet property="delegate" destination="36W-w6-no8" id="NDv-4b-iro"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="10G-q6-pBx"/>
+                    <navigationItem key="navigationItem" id="10G-q6-pBx">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="96T-lD-1XK">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="36W-w6-no8" id="Ite-ta-IYt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="h2m-LY-P1m">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="36W-w6-no8" id="IZI-jo-7bp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="itemImage" destination="8SF-Wg-AG8" id="CXH-7I-JZo"/>
                         <outlet property="itemNameTextField" destination="tp1-lv-ihA" id="tGH-Jy-kyL"/>
@@ -471,6 +507,7 @@
             </objects>
             <point key="canvasLocation" x="-123" y="1689"/>
         </scene>
+        <!--Item Image View Controller - Picture-->
         <scene sceneID="exV-1d-ugB">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFa-sF-lbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -496,6 +533,7 @@
             </objects>
             <point key="canvasLocation" x="442" y="2591"/>
         </scene>
+        <!--Add Item Notes View Controller - Notes-->
         <scene sceneID="IRt-jo-r4U">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZj-9z-AQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,6 +563,7 @@
             </objects>
             <point key="canvasLocation" x="442" y="1689"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="QdV-qo-KKv">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gF1-vB-ep8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -539,6 +578,7 @@
             </objects>
             <point key="canvasLocation" x="-668" y="1689"/>
         </scene>
+        <!--Items View Controller - Items-->
         <scene sceneID="QSz-dy-5mc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4Z-It-Jlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,9 +637,15 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Items" id="ASx-Kb-Hlz"/>
+                    <navigationItem key="navigationItem" title="Items" id="ASx-Kb-Hlz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NgI-wf-Ssn">
+                            <connections>
+                                <action selector="addItem:" destination="4on-Mq-ffe" id="1MG-mY-t78"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="itemsTableView" destination="aYb-m4-u1W" id="SSa-2Y-ej0"/>
                         <segue destination="pjy-iG-7Hf" kind="modal" identifier="addItemSegue" id="oYT-3h-bc2"/>
@@ -609,6 +655,7 @@
             </objects>
             <point key="canvasLocation" x="-1206" y="2339"/>
         </scene>
+        <!--Edit Item Table View Controller-->
         <scene sceneID="rNJ-Cm-WK9">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2FG-n3-Wsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -616,7 +663,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lQS-GW-WRa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Quantity" id="xag-Dq-X9t">
                                 <cells>
@@ -735,6 +782,7 @@
             </objects>
             <point key="canvasLocation" x="-668" y="2591"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="1QQ-bf-Rhq">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wp-QP-V4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,6 +797,7 @@
             </objects>
             <point key="canvasLocation" x="-1961" y="790"/>
         </scene>
+        <!--Add Store Table View Controller - Add Store-->
         <scene sceneID="Vf8-eS-cMc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ol8-n8-GOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -756,7 +805,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="t2a-uG-NTU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Name" id="7ZF-tl-qKW">
                                 <cells>
@@ -864,7 +913,18 @@
                             <outlet property="delegate" destination="x2i-MX-P6c" id="FAr-PF-cZI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Store" id="AFq-XC-bou"/>
+                    <navigationItem key="navigationItem" title="Add Store" id="AFq-XC-bou">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0mZ-0K-CMo">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="x2i-MX-P6c" id="2Aw-7I-cpH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="K2g-88-rJg">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="x2i-MX-P6c" id="lIO-yq-vu1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="qty-jf-KP1" id="U3j-yf-wNF"/>
                         <outlet property="storeTypePicker" destination="fUe-QC-F8C" id="AP5-xX-1tv"/>
@@ -882,6 +942,7 @@
             </objects>
             <point key="canvasLocation" x="-1440" y="790"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="F83-7v-pIw">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0z-1B-K6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -896,6 +957,7 @@
             </objects>
             <point key="canvasLocation" x="-2220" y="2339"/>
         </scene>
+        <!--Item Quick Add View Controller-->
         <scene sceneID="uIL-Oa-xvz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vld-uK-3C3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1015,6 +1077,7 @@
         <class className="BBItemCategoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
             <relationships>
+                <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="categoriesTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -1044,14 +1107,17 @@
         <class className="BBItemsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addItem:"/>
                 <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="BBParentItemTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBParentItemTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
                 <relationship kind="action" name="pickerClearButtonPressed:"/>
                 <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
                 <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
@@ -1080,7 +1146,9 @@
         <class className="BBStoresViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addStoreButtonPressed:"/>
                 <relationship kind="action" name="editShoppingCartButtonPressed:"/>
+                <relationship kind="action" name="toggleShoppingButtonPressed:"/>
                 <relationship kind="outlet" name="currentlyShoppingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="editShoppingCartButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="editStoresButton" candidateClass="UIButton"/>
@@ -1095,7 +1163,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TK8-dk-1Hq"/>
-        <segue reference="rbp-8N-cjN"/>
+        <segue reference="44B-Iw-PGA"/>
+        <segue reference="EAS-8O-NRa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -46,14 +46,6 @@
     
     self.title = self.currentStore.name;
     
-    UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [doneButton setBackgroundImage:[UIImage imageNamed:@"navbar-button-background"] forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
-    
-    self.navigationItem.rightBarButtonItem = doneBarButton;
-    
     NSError *error = nil;
     NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM_CATEGORY];
     
@@ -173,7 +165,7 @@
 
 #pragma mark - UI Action Methods
 
-- (void)done:(id)sender {
+- (IBAction)done:(id)sender {
     
     [self dismissModalViewControllerAnimated:YES];
 }

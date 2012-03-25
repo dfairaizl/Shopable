@@ -76,7 +76,7 @@
 
 - (void)configureApperance {
     
-    UIView *backgroundView = [[UIView alloc] initWithFrame:self.window.frame];
+    /*UIView *backgroundView = [[UIView alloc] initWithFrame:self.window.frame];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.anchorPoint = CGPointMake(0.0f, 0.0f);
@@ -89,7 +89,7 @@
     
     [self.window insertSubview:backgroundView atIndex:0];
     
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background-transparent"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background-transparent"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)] forBarMetrics:UIBarMetricsDefault];*/
 }
 
 @end

@@ -83,7 +83,7 @@
 
 #pragma mark - UI Action Methods
 
-- (void)saveButtonPressed:(id)sender {
+- (IBAction)saveButtonPressed:(id)sender {
     
     if([self.addedItem.name length] <= 0) {
         
@@ -101,7 +101,7 @@
     }
 }
 
-- (void)cancelButtonPressed:(id)sender {
+- (IBAction)cancelButtonPressed:(id)sender {
     
     [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.shoppingItem];
     [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self.addedItem];
