@@ -57,6 +57,8 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
+    
+    [self.navigationItem.rightBarButtonItem setTitle:@"Shop"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadStores) name:[NSString stringWithString:@"RefreshUI"] object:nil];
 
@@ -145,6 +147,8 @@
     
     if([currentStore.currentlyShopping boolValue] == NO) {
         
+        [self.navigationItem.rightBarButtonItem setTitle:@"Plan"];
+        
         currentStore.currentlyShopping = [NSNumber numberWithBool:YES];
         
         self.currentlyShoppingLabel.hidden = NO;
@@ -168,6 +172,8 @@
         }];
     }
     else {
+        
+        [self.navigationItem.rightBarButtonItem setTitle:@"Shop"];
         
         currentStore.currentlyShopping = [NSNumber numberWithBool:NO];
         [shoppingVC.storeTableView setEditing:NO animated:YES];
@@ -269,11 +275,12 @@
                          }
                          completion:^(BOOL finished) {
                              
+                             NSInteger count = [stores count];
+                             [self.storesPageControl setNumberOfPages:count];
+                             NSInteger currentPage = [self.storesScrollView currentPage];
+                             [self.storesPageControl setCurrentPage:currentPage];
                          }];
     }
-
-    [self.storesPageControl setNumberOfPages:[stores count]];
-    [self.storesPageControl setCurrentPage:[self.storesScrollView currentPage]];
 }
 
 - (NSArray *)updatedStoresInStores:(NSArray *)stores {

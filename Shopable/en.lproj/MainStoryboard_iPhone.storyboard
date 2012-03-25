@@ -22,7 +22,7 @@
                                     <outlet property="delegate" destination="PDc-V4-We9" id="B31-JL-BdI"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" id="gue-Nt-0hT">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="gue-Nt-0hT">
                                 <rect key="frame" x="64" y="382" width="191" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
