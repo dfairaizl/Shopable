@@ -126,6 +126,8 @@
                          [self.view removeFromSuperview];
                          
                          [self.storeShoppingVC refresh];
+                         
+                         [[BBStorageManager sharedManager] saveContext];
                      }];
 }
 

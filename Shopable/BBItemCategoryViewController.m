@@ -167,6 +167,8 @@
 
 - (IBAction)done:(id)sender {
     
+    [[BBStorageManager sharedManager] saveContext];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
