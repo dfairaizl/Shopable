@@ -10,18 +10,20 @@
 
 #import "BBAddStoreTableViewController.h"
 
-@interface BBStoresViewController : UIViewController <UIScrollViewDelegate, BBStoreDelegate>
+@interface BBStoresViewController : UIViewController <UIScrollViewDelegate, BBStoreDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *storesScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *storesPageControl;
 @property (strong, nonatomic) IBOutlet UILabel *currentlyShoppingLabel;
 @property (strong, nonatomic) IBOutlet UIButton *editStoresButton;
 @property (strong, nonatomic) IBOutlet UIButton *editShoppingCartButton;
+@property (strong, nonatomic) IBOutlet UIButton *finishedShoppingButton;
 
 @property (strong, nonatomic) UIButton *toggleShoppingButton;
 @property (strong, nonatomic) UIButton *addStoreButton;
 
 - (IBAction)editShoppingCartButtonPressed:(id)sender;
+- (IBAction)finishedShoppingButtonPressed:(id)sender;
 
 - (IBAction)addStoreButtonPressed:(id)sender;
 - (IBAction)toggleShoppingButtonPressed:(id)sender;

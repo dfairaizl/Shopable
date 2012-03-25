@@ -2,7 +2,7 @@
 //  BBShoppingCart.m
 //  Shopable
 //
-//  Created by Dan Fairaizl on 2/11/12.
+//  Created by Dan Fairaizl on 3/25/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 

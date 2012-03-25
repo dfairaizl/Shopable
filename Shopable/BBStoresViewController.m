@@ -32,6 +32,7 @@
 @synthesize toggleShoppingButton = _toggleShoppingButton;
 @synthesize addStoreButton = _addStoreButton;
 @synthesize editShoppingCartButton;
+@synthesize finishedShoppingButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,6 +87,7 @@
     [self setEditShoppingCartButton:nil];
     [self setEditStoresButton:nil];
 
+    [self setFinishedShoppingButton:nil];
     [super viewDidUnload];
 }
 
@@ -147,6 +149,8 @@
     
     if([currentStore.currentlyShopping boolValue] == NO) {
         
+        //entering shopping mode
+        
         [self.navigationItem.rightBarButtonItem setTitle:@"Plan"];
         
         currentStore.currentlyShopping = [NSNumber numberWithBool:YES];
@@ -158,6 +162,8 @@
         self.editStoresButton.enabled = NO;
         self.editShoppingCartButton.hidden = NO;
         self.editShoppingCartButton.enabled = YES;
+        self.finishedShoppingButton.hidden = NO;
+        self.finishedShoppingButton.alpha = 0.0;
         
         [UIView animateWithDuration:0.4 animations:^() {
             
@@ -169,9 +175,12 @@
             //turn on shopping related controlls 
             self.currentlyShoppingLabel.alpha = 1.0;
             self.editShoppingCartButton.alpha = 1.0;
+            self.finishedShoppingButton.alpha = 1.0;
         }];
     }
     else {
+        
+        //entering planning mode
         
         [self.navigationItem.rightBarButtonItem setTitle:@"Shop"];
         
@@ -184,6 +193,7 @@
                              //turn off shopping realted controlls
                              self.currentlyShoppingLabel.alpha = 0.0;
                              self.editShoppingCartButton.alpha = 0.0;
+                             self.finishedShoppingButton.alpha = 0.0;
 
                              //turn on store related controlls
                              self.storesPageControl.alpha = 1.0;
@@ -198,7 +208,7 @@
                              self.addStoreButton.enabled = YES;
                              self.editShoppingCartButton.enabled = NO;
                              self.editStoresButton.enabled = YES;
-                         
+                             self.finishedShoppingButton.hidden = YES;
                          }
          ];
     }
@@ -215,6 +225,39 @@
     else {
         
         [storeShoppingVC.storeTableView setEditing:YES animated:YES];
+    }
+}
+
+- (IBAction)finishedShoppingButtonPressed:(id)sender {
+
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Clear shopping list?" 
+                                                             delegate:self 
+                                                    cancelButtonTitle:@"No, not yet" 
+                                               destructiveButtonTitle:@"Yes, clear list" 
+                                                    otherButtonTitles:nil, nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if(buttonIndex == 0) {
+        
+        //destroy this list
+        
+        //switch out of shopping mode and reset UI
+        [self toggleShoppingButtonPressed:nil];
+        
+        //get the current store
+        BBStoreShoppingViewController *shoppingVC = [self.childViewControllers objectAtIndex:[self.storesScrollView currentPage]];
+        BBStore *currentStore = shoppingVC.currentStore;
+        
+        //clear the shopping cart of this store
+        [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:currentStore.shoppingCart];
+        
+        [[BBStorageManager sharedManager] saveContext];
     }
 }
 
