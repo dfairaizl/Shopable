@@ -11,5 +11,6 @@
 @interface UIScrollView (Paging)
 
 - (NSInteger)currentPage;
+- (void)scrollToPage:(NSUInteger)page animated:(BOOL)animated;
 
 @end
