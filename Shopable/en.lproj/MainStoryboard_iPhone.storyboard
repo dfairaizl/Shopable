@@ -1007,7 +1007,7 @@
                                         <rect key="frame" x="20" y="49" width="240" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="9PE-g7-TW1" id="6FK-jF-M2b"/>
                                         </connections>
@@ -1057,6 +1057,131 @@
         <image name="table-cell-item-selected@2x.png" width="60" height="60"/>
         <image name="table-cell-item-unselected@2x.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="BBAddItemNotesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemNotesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="BBAddItemTableViewController" superclassName="BBParentItemTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddItemTableViewController.h"/>
+        </class>
+        <class className="BBAddStoreTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBAddStoreTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="storeTypePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="typeTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BBDecoratorLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
+        </class>
+        <class className="BBEditItemTableViewController" superclassName="BBParentItemTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditItemTableViewController.h"/>
+        </class>
+        <class className="BBEditStoreTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoreTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="storeNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BBEditStoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBEditStoresViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="editingStateChanged:"/>
+                <relationship kind="outlet" name="storesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBItemCategoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="categoriesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBItemImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="BBItemQuickAddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemQuickAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeButtonPressed:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="quickAddView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="BBItemTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
+            <relationships>
+                <relationship kind="action" name="itemSelectionButtonPress:"/>
+                <relationship kind="outlet" name="itemName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemSelectionButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BBItemsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addItem:"/>
+                <relationship kind="outlet" name="itemsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBParentItemTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBParentItemTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="pickerClearButtonPressed:"/>
+                <relationship kind="action" name="pickerDoneButtonPressed:"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="itemNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemQuantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notesCellLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="quantityPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityPickerViewToolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="BBShoppingTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemLabel" candidateClass="BBDecoratorLabel"/>
+                <relationship kind="outlet" name="itemQuantityLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BBStoreShoppingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoreShoppingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addItemsButtonPressed:"/>
+                <relationship kind="outlet" name="addItemsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="storeNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="storeTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBStoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBStoresViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addStoreButtonPressed:"/>
+                <relationship kind="action" name="editShoppingCartButtonPressed:"/>
+                <relationship kind="action" name="finishedShoppingButtonPressed:"/>
+                <relationship kind="action" name="toggleShoppingButtonPressed:"/>
+                <relationship kind="outlet" name="currentlyShoppingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editShoppingCartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editStoresButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="finishedShoppingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="storesPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="storesScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
