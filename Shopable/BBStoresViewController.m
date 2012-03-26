@@ -20,8 +20,8 @@
 - (void)loadStores;
 - (void)resizeStoresForOrientation:(UIInterfaceOrientation)orientation;
 - (NSArray *)updatedStoresInStores:(NSArray *)stores;
-- (void)enterShoppingMode;
-- (void)exitShoppingMode;
+- (void)enterShoppingModeWithViewController:(BBStoreShoppingViewController *)storeVC;
+- (void)exitShoppingModeWithViewController:(BBStoreShoppingViewController *)storeVC;
 
 @end
 
@@ -153,7 +153,7 @@
         
         currentStore.currentlyShopping = [NSNumber numberWithBool:YES];
         
-        [self enterShoppingMode];
+        [self enterShoppingModeWithViewController:shoppingVC];
     }
     else {
         
@@ -163,7 +163,7 @@
         
         [shoppingVC.storeTableView setEditing:NO animated:YES];
         
-        [self exitShoppingMode];
+        [self exitShoppingModeWithViewController:shoppingVC];
     }
 }
 
@@ -284,8 +284,9 @@
       
         if([[store currentlyShopping] boolValue] == YES) {
          
+            BBStoreShoppingViewController *storeVC = [self.childViewControllers objectAtIndex:index];
             [self.storesScrollView scrollToPage:index animated:YES];
-            [self enterShoppingMode];
+            [self enterShoppingModeWithViewController:storeVC];
         }
     }];
 }
@@ -332,7 +333,7 @@
     }
 }
 
-- (void)enterShoppingMode {
+- (void)enterShoppingModeWithViewController:(BBStoreShoppingViewController *)storeVC {
     
     //entering shopping mode
     
@@ -359,11 +360,13 @@
         self.currentlyShoppingLabel.alpha = 1.0;
         self.editShoppingCartButton.alpha = 1.0;
         self.finishedShoppingButton.alpha = 1.0;
+        
+        [storeVC.addItemsButton setImage:[UIImage imageNamed:@"QuickAddItem"] forState:UIControlStateNormal];
     }];
     
 }
 
-- (void)exitShoppingMode {
+- (void)exitShoppingModeWithViewController:(BBStoreShoppingViewController *)storeVC {
     
     [self.navigationItem.rightBarButtonItem setTitle:@"Shop"];
     
@@ -379,6 +382,8 @@
                          self.storesPageControl.alpha = 1.0;
                          self.addStoreButton.alpha = 1.0;
                          self.editStoresButton.alpha = 1.0;
+                         
+                         [storeVC.addItemsButton setImage:[UIImage imageNamed:@"AddItems"] forState:UIControlStateNormal];
                          
                      }
                      completion:^(BOOL finished) {
