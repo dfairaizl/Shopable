@@ -1,18 +1,18 @@
 //
-//  BBStoresTableViewController.m
+//  BBShoppingListsViewController.m
 //  Shopable
 //
-//  Created by Daniel Fairaizl on 3/17/12.
+//  Created by Dan Fairaizl on 5/9/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBStoresTableViewController.h"
+#import "BBShoppingListsViewController.h"
 
-@interface BBStoresTableViewController ()
+@interface BBShoppingListsViewController ()
 
 @end
 
-@implementation BBStoresTableViewController
+@implementation BBShoppingListsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,9 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.splitViewController.view.backgroundColor = [UIColor clearColor];
-    self.splitViewController.delegate = self;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,19 +43,21 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }
@@ -124,8 +123,5 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
-
-#pragma mark - UISplitViewControllerDelegate Methods
-
 
 @end
