@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBShoppingListsViewController : UITableViewController
+@interface BBListsTableViewController : UITableViewController
 
 @end

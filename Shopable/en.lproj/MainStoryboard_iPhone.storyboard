@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="c7l-qq-80a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="rYh-TN-C7D">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="ja3-49-XtH">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u94-rS-YJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="c7l-qq-80a" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1EP-Nl-g8i">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-3050" y="715"/>
-        </scene>
-        <!--View Controller-->
+        <!--Nav Container View Controller-->
         <scene sceneID="m3A-oz-a6n">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAQ-Rt-TL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="rYh-TN-C7D" sceneMemberID="viewController">
+                <viewController id="rYh-TN-C7D" customClass="BBNavContainerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ol4-1h-7Ss">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -30,9 +18,111 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2501" y="715"/>
+            <point key="canvasLocation" x="-2875" y="696"/>
+        </scene>
+        <!--Shopping List View Controller - Grocery Store-->
+        <scene sceneID="lxQ-Oq-t9G">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9c8-xu-VUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="" id="vsL-Rk-BYg" customClass="BBShoppingListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hHA-ek-SdM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qXk-1T-xUo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9CD-Xo-4Ex">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Grocery Store" id="06t-9P-0Sl">
+                        <barButtonItem key="leftBarButtonItem" title="=" id="gj7-LQ-dqc">
+                            <connections>
+                                <action selector="showMenuButtonPressed:" destination="vsL-Rk-BYg" id="a6M-wo-Vka"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LdG-9k-wNC"/>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1909" y="696"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vlR-lp-Qay">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMM-Zq-apB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="BBShoppingListViewController" definesPresentationContext="YES" id="d8o-Xh-vUj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Nlm-ZP-X1t">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uYc-Ev-Q6Z">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="vsL-Rk-BYg" kind="relationship" relationship="rootViewController" id="wSH-KF-ldD"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-2387" y="696"/>
+        </scene>
+        <!--Lists Table View Controller-->
+        <scene sceneID="gyJ-xm-lzE">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCj-o3-GOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="BBListsTableViewController" id="AVa-1I-1XQ" customClass="BBListsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="79j-ih-nKy">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FGm-WB-aCQ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AVa-1I-1XQ" id="KbA-9h-PVh"/>
+                            <outlet property="delegate" destination="AVa-1I-1XQ" id="fh5-4U-vd9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-2875" y="1330"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BBListsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListsTableViewController.h"/>
+        </class>
+        <class className="BBNavContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBNavContainerViewController.h"/>
+        </class>
+        <class className="BBShoppingListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showMenuButtonPressed:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

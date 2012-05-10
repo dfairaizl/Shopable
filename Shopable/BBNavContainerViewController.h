@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBNavContainerViewController : UIViewController
+#import "BBProtocols.h"
+
+@interface BBNavContainerViewController : UIViewController <BBNavigationDelegate>
+
 
 @end

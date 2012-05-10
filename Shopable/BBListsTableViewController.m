@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBShoppingListsViewController.h"
+#import "BBListsTableViewController.h"
 
-@interface BBShoppingListsViewController ()
+@interface BBListsTableViewController ()
 
 @end
 
-@implementation BBShoppingListsViewController
+@implementation BBListsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

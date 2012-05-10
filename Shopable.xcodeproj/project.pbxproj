@@ -16,8 +16,9 @@
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
 		77A20FAB14E7493800E44B0A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178514BE111100ACAAC1 /* CoreData.framework */; };
-		77A27072155B7A1C00C86692 /* BBShoppingListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A27071155B7A1C00C86692 /* BBShoppingListsViewController.m */; };
+		77A27072155B7A1C00C86692 /* BBListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A27071155B7A1C00C86692 /* BBListsTableViewController.m */; };
 		77A27077155B7A8F00C86692 /* BBNavContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A27076155B7A8F00C86692 /* BBNavContainerViewController.m */; };
+		77A2707B155B7E8D00C86692 /* BBShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A2707A155B7E8D00C86692 /* BBShoppingListViewController.m */; };
 		77A2BBE6151FC8280071295A /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A2BBE5151FC8280071295A /* BBShoppingCart.m */; };
 		77A4173214BDFEC200ACAAC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173114BDFEC200ACAAC1 /* UIKit.framework */; };
 		77A4173414BDFEC200ACAAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4173314BDFEC200ACAAC1 /* Foundation.framework */; };
@@ -67,10 +68,13 @@
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
 		7798254814E73828007031EF /* BBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
 		7798254914E73828007031EF /* BBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
-		77A27070155B7A1C00C86692 /* BBShoppingListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingListsViewController.h; sourceTree = "<group>"; };
-		77A27071155B7A1C00C86692 /* BBShoppingListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingListsViewController.m; sourceTree = "<group>"; };
+		77A27070155B7A1C00C86692 /* BBListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBListsTableViewController.h; sourceTree = "<group>"; };
+		77A27071155B7A1C00C86692 /* BBListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBListsTableViewController.m; sourceTree = "<group>"; };
 		77A27075155B7A8F00C86692 /* BBNavContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavContainerViewController.h; sourceTree = "<group>"; };
 		77A27076155B7A8F00C86692 /* BBNavContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavContainerViewController.m; sourceTree = "<group>"; };
+		77A27079155B7E8D00C86692 /* BBShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingListViewController.h; sourceTree = "<group>"; };
+		77A2707A155B7E8D00C86692 /* BBShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingListViewController.m; sourceTree = "<group>"; };
+		77A2707C155B800900C86692 /* BBProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBProtocols.h; sourceTree = "<group>"; };
 		77A2BBE4151FC8280071295A /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
 		77A2BBE5151FC8280071295A /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
 		77A4172D14BDFEC200ACAAC1 /* Shopable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,18 +185,19 @@
 			isa = PBXGroup;
 			children = (
 				77A27074155B7A6C00C86692 /* Containers */,
-				77A27073155B7A2A00C86692 /* Shopping List Screen */,
+				77A27073155B7A2A00C86692 /* Lists Screen */,
+				77A27078155B7E5D00C86692 /* Shopping List Screen */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		77A27073155B7A2A00C86692 /* Shopping List Screen */ = {
+		77A27073155B7A2A00C86692 /* Lists Screen */ = {
 			isa = PBXGroup;
 			children = (
-				77A27070155B7A1C00C86692 /* BBShoppingListsViewController.h */,
-				77A27071155B7A1C00C86692 /* BBShoppingListsViewController.m */,
+				77A27070155B7A1C00C86692 /* BBListsTableViewController.h */,
+				77A27071155B7A1C00C86692 /* BBListsTableViewController.m */,
 			);
-			name = "Shopping List Screen";
+			name = "Lists Screen";
 			sourceTree = "<group>";
 		};
 		77A27074155B7A6C00C86692 /* Containers */ = {
@@ -202,6 +207,15 @@
 				77A27076155B7A8F00C86692 /* BBNavContainerViewController.m */,
 			);
 			name = Containers;
+			sourceTree = "<group>";
+		};
+		77A27078155B7E5D00C86692 /* Shopping List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				77A27079155B7E8D00C86692 /* BBShoppingListViewController.h */,
+				77A2707A155B7E8D00C86692 /* BBShoppingListViewController.m */,
+			);
+			name = "Shopping List Screen";
 			sourceTree = "<group>";
 		};
 		77A4172214BDFEC200ACAAC1 = {
@@ -241,6 +255,7 @@
 			children = (
 				7798254814E73828007031EF /* BBAppDelegate.h */,
 				7798254914E73828007031EF /* BBAppDelegate.m */,
+				77A2707C155B800900C86692 /* BBProtocols.h */,
 				77D29C2914DF5E9C00EB1EFE /* Categories */,
 				77A2706F155B79EA00C86692 /* Controllers */,
 				77A4178D14BE138800ACAAC1 /* Data */,
@@ -254,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				778C1C4F14BF70A800190DAE /* CategoryItems.plist */,
-				77A4178114BE10F100ACAAC1 /* Core Data */,
 				77A4173A14BDFEC200ACAAC1 /* InfoPlist.strings */,
 				77A4173D14BDFEC200ACAAC1 /* main.m */,
 				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
@@ -283,13 +297,6 @@
 				77A4175B14BDFEC200ACAAC1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		77A4178114BE10F100ACAAC1 /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		77A4178D14BE138800ACAAC1 /* Data */ = {
@@ -461,8 +468,9 @@
 				770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */,
 				777CDDA514F1F4A20084EA9C /* BBShoppingItem.m in Sources */,
 				77A2BBE6151FC8280071295A /* BBShoppingCart.m in Sources */,
-				77A27072155B7A1C00C86692 /* BBShoppingListsViewController.m in Sources */,
+				77A27072155B7A1C00C86692 /* BBListsTableViewController.m in Sources */,
 				77A27077155B7A8F00C86692 /* BBNavContainerViewController.m in Sources */,
+				77A2707B155B7E8D00C86692 /* BBShoppingListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
