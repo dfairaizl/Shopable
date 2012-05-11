@@ -48,7 +48,8 @@ static BBStorageManager *sharedManager = nil;
 
 - (BOOL)storeExists {
  
-    NSString *storePath = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"] path];
+    NSString *storePath = [[[self applicationDocumentsDirectory] 
+                            URLByAppendingPathComponent:@"Shopable.sqlite"] path];
     
     return [[NSFileManager defaultManager] fileExistsAtPath:storePath];
 }
@@ -64,7 +65,8 @@ static BBStorageManager *sharedManager = nil;
             /*
              Replace this implementation with code to handle the error appropriately.
              
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+             abort() causes the application to generate a crash log and terminate. You should not use this function 
+             in a shipping application, although it may be useful during development. 
              */
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
@@ -83,7 +85,8 @@ static BBStorageManager *sharedManager = nil;
     
     [moc mergeChangesFromContextDidSaveNotification:note]; 
     
-    NSNotification* refreshNotification = [NSNotification notificationWithName:@"RefreshUI" object:self  userInfo:[note userInfo]];
+    NSNotification* refreshNotification = [NSNotification notificationWithName:@"RefreshUI" object:self  
+                                                                      userInfo:[note userInfo]];
     
     [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
 }
@@ -108,7 +111,8 @@ static BBStorageManager *sharedManager = nil;
         // Make life easier by adopting the new NSManagedObjectContext concurrency API
         // the NSMainQueueConcurrencyType is good for interacting with views and controllers since
         // they are all bound to the main thread anyway
-        NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] 
+                                       initWithConcurrencyType:NSMainQueueConcurrencyType];
         
         [moc performBlockAndWait:^{
         
@@ -164,7 +168,8 @@ static BBStorageManager *sharedManager = nil;
     }
     
     // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] 
+                                    initWithManagedObjectModel: [self managedObjectModel]];
     NSPersistentStoreCoordinator* psc = __persistentStoreCoordinator;
     
     NSString *storePath = nil;
@@ -186,7 +191,11 @@ static BBStorageManager *sharedManager = nil;
         
         [psc lock];
         
-        if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType 
+                               configuration:nil 
+                                         URL:storeUrl 
+                                     options:options 
+                                       error:&error]) {
             
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
