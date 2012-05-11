@@ -32,6 +32,8 @@ static BBStorageManager *sharedManager = nil;
         
         //attempt to enable iCloud
         [self enableiCloud];
+        
+//        [self setupDatabase];
     }
     
     return self;
