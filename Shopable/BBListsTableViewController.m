@@ -8,11 +8,18 @@
 
 #import "BBListsTableViewController.h"
 
+//DB
+#import "BBStorageManager.h"
+
 @interface BBListsTableViewController ()
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 @implementation BBListsTableViewController
+
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,28 +53,58 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Overrides
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if(_fetchedResultsController == nil) {
+        
+        NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
+        
+        NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor 
+                                                             sortDescriptorWithKey:@"name" ascending:YES]];
+        
+        [fr setSortDescriptors:sortDescriptors];
+        
+        _fetchedResultsController = [[NSFetchedResultsController alloc] 
+                                     initWithFetchRequest:fr 
+                                     managedObjectContext:moc 
+                                     sectionNameKeyPath:nil 
+                                     cacheName:nil];
+        
+        [_fetchedResultsController performFetch:nil];
+        
+    }
+    
+    return _fetchedResultsController;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [[sectionInfo objects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BBListCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = store.name;
     
     return cell;
 }
