@@ -11,5 +11,6 @@
 @interface BBItemCategoryTableViewController : UITableViewController
 
 - (IBAction)doneButtonPressed:(id)sender;
+- (IBAction)categoryButtonPressed:(id)sender;
 
 @end

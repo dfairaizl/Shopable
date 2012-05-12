@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                             style:UIBarButtonItemStyleBordered 
+                                                                            target:nil action:nil];
 }
 
 - (void)viewDidUnload
@@ -45,6 +49,11 @@
 - (IBAction)doneButtonPressed:(id)sender {
 
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)categoryButtonPressed:(id)sender {
+    
+    [self performSegueWithIdentifier:@"categoryItemsSegue" sender:nil];
 }
 
 @end
