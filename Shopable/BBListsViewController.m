@@ -11,31 +11,48 @@
 //DB
 #import "BBStorageManager.h"
 
+//Views
+#import "BBListTableViewCell.h"
+
+@interface BBListsViewController (Data)
+
+- (void)listInsertedAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface BBListsViewController (TableView)
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface BBListsViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation BBListsViewController
+@implementation BBListsViewController {
+
+    __weak NSIndexPath *insertIndexPath;
+}
+
+@synthesize delegate;
 @synthesize tableView = _tableView;
+@synthesize addNewListButton = _addNewListButton;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
+    [self setAddNewListButton:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -44,6 +61,31 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - UI Actions
+
+- (IBAction)editButtonPressed:(id)sender {
+
+    if([self.tableView isEditing] == YES) {
+        
+        [self.tableView setEditing:NO animated:YES];
+    }
+    else {
+        
+        [self.tableView setEditing:YES animated:YES];
+        
+        [self.delegate hideDetailsScreen];
+    }
+}
+
+- (IBAction)addNewListButtonPressed:(id)sender {
+    
+    [self.tableView setEditing:YES animated:YES];
+    
+    [BBStore addStore];
+    
+    [self.delegate hideDetailsScreen];
 }
 
 #pragma mark - Overrides
@@ -61,17 +103,89 @@
         
         [fr setSortDescriptors:sortDescriptors];
         
-        _fetchedResultsController = [[NSFetchedResultsController alloc] 
+        _fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fr 
                                      managedObjectContext:moc 
                                      sectionNameKeyPath:nil 
                                      cacheName:nil];
+        
+        _fetchedResultsController.delegate = self;
         
         [_fetchedResultsController performFetch:nil];
         
     }
     
     return _fetchedResultsController;
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate Methods
+
+/*
+ Assume self has a property 'tableView' -- as is the case for an instance of a UITableViewController
+ subclass -- and a method configureCell:atIndexPath: which updates the contents of a given cell
+ with information from a managed object at the given index path in the fetched results controller.
+ */
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller 
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            
+            insertIndexPath = newIndexPath;
+            
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.tableView endUpdates];
 }
 
 #pragma mark - Table view data source
@@ -92,12 +206,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BBListCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BBListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.text = store.name;
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -152,6 +263,34 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Private Table View Methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    // Configure the cell...
+    BBListTableViewCell *listCell = (BBListTableViewCell *)cell;
+    
+    BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    listCell.listTitle.text = store.name;
+    listCell.listTitleTextField.text = store.name;
+    
+    if(insertIndexPath != nil && indexPath.row == insertIndexPath.row) {
+        
+        [listCell.listTitleTextField becomeFirstResponder];
+        insertIndexPath = nil;
+    }
+}
+
+#pragma mark - Private Data Methods
+
+- (void)listInsertedAtIndexPath:(NSIndexPath *)indexPath {
+
+    BBListTableViewCell *cell = (BBListTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [cell.listTitleTextField becomeFirstResponder];
 }
 
 @end

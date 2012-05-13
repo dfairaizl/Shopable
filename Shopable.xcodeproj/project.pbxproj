@@ -13,6 +13,7 @@
 		771C2550155D60890092EFB8 /* BBItemCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771C254F155D60890092EFB8 /* BBItemCategoryTableViewController.m */; };
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
+		77677DFD155F6447002BA298 /* BBListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77677DFC155F6447002BA298 /* BBListTableViewCell.m */; };
 		777CDDA514F1F4A20084EA9C /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CDDA414F1F4A20084EA9C /* BBShoppingItem.m */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
@@ -66,6 +67,8 @@
 		771C254F155D60890092EFB8 /* BBItemCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryTableViewController.m; sourceTree = "<group>"; };
 		7745933F14C5E80600EF1565 /* StoreTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoreTypes.plist; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
+		77677DFB155F6447002BA298 /* BBListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBListTableViewCell.h; sourceTree = "<group>"; };
+		77677DFC155F6447002BA298 /* BBListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBListTableViewCell.m; sourceTree = "<group>"; };
 		777CDDA314F1F4A20084EA9C /* BBShoppingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItem.h; sourceTree = "<group>"; };
 		777CDDA414F1F4A20084EA9C /* BBShoppingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItem.m; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
@@ -169,6 +172,15 @@
 			name = "Items List Screen";
 			sourceTree = "<group>";
 		};
+		77677DF9155F63E4002BA298 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				77677DFB155F6447002BA298 /* BBListTableViewCell.h */,
+				77677DFC155F6447002BA298 /* BBListTableViewCell.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		77A2706C155B799900C86692 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +219,7 @@
 		77A27073155B7A2A00C86692 /* Lists Screen */ = {
 			isa = PBXGroup;
 			children = (
+				77677DF9155F63E4002BA298 /* Support */,
 				77A27070155B7A1C00C86692 /* BBListsViewController.h */,
 				77A27071155B7A1C00C86692 /* BBListsViewController.m */,
 			);
@@ -485,6 +498,7 @@
 				77A27077155B7A8F00C86692 /* BBNavContainerViewController.m in Sources */,
 				77A2707B155B7E8D00C86692 /* BBShoppingListViewController.m in Sources */,
 				771C2550155D60890092EFB8 /* BBItemCategoryTableViewController.m in Sources */,
+				77677DFD155F6447002BA298 /* BBListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

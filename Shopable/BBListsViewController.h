@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBListsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "BBProtocols.h"
+
+@interface BBListsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, 
+                                                    NSFetchedResultsControllerDelegate>
+
+@property (weak, nonatomic) id <BBNavigationDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *addNewListButton;
+
+- (IBAction)editButtonPressed:(id)sender;
+- (IBAction)addNewListButtonPressed:(id)sender;
 
 @end

@@ -51,6 +51,7 @@
                                                                                   topViewController];
     
     //setup delegates
+    self.listsTableViewController.delegate = self;
     shoppingList.delegate = self;
     
     //child view controllers
@@ -110,6 +111,23 @@
                              
                              showingNavigationMenu = NO;
                          }];
+    }
+}
+
+- (void)hideDetailsScreen {
+    
+    if(showingNavigationMenu == YES) {
+        
+        [UIView animateWithDuration:0.3 
+                              delay:0.0 
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^() {
+                             
+                             CGRect frame = self.shoppingListViewController.view.frame;
+                             frame.origin.x = CGRectGetWidth(self.view.frame);
+                             self.shoppingListViewController.view.frame = frame;
+                         }
+                         completion:NULL];
     }
 }
 
