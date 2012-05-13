@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBListsTableViewController : UITableViewController
+@interface BBListsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

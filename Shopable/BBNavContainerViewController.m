@@ -9,12 +9,12 @@
 #import "BBNavContainerViewController.h"
 
 //View Controllers
-#import "BBListsTableViewController.h"
+#import "BBListsViewController.h"
 #import "BBShoppingListViewController.h"
 
 @interface BBNavContainerViewController ()
 
-@property (strong, nonatomic) BBListsTableViewController *listsTableViewController;
+@property (strong, nonatomic) BBListsViewController *listsTableViewController;
 @property (strong, nonatomic) UINavigationController *shoppingListViewController;
 
 @end
@@ -42,7 +42,7 @@
 	// Do any additional setup after loading the view.
     
     self.listsTableViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                     instantiateViewControllerWithIdentifier:@"BBListsTableViewController"];
+                                     instantiateViewControllerWithIdentifier:@"BBListsViewController"];
     
     self.shoppingListViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
                                      instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];

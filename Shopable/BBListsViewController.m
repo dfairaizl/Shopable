@@ -6,29 +6,21 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBListsTableViewController.h"
+#import "BBListsViewController.h"
 
 //DB
 #import "BBStorageManager.h"
 
-@interface BBListsTableViewController ()
+@interface BBListsViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation BBListsTableViewController
+@implementation BBListsViewController
+@synthesize tableView = _tableView;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -43,6 +35,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

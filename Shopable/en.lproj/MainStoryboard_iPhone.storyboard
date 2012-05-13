@@ -84,36 +84,6 @@
             </objects>
             <point key="canvasLocation" x="-1861" y="696"/>
         </scene>
-        <!--Lists Table View Controller-->
-        <scene sceneID="gyJ-xm-lzE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gCj-o3-GOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="BBListsTableViewController" wantsFullScreenLayout="YES" id="AVa-1I-1XQ" customClass="BBListsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="79j-ih-nKy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBListCell" id="FGm-WB-aCQ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AVa-1I-1XQ" id="KbA-9h-PVh"/>
-                            <outlet property="delegate" destination="AVa-1I-1XQ" id="fh5-4U-vd9"/>
-                        </connections>
-                    </tableView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="-2875" y="1330"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0A-ee-Hmh">
             <objects>
@@ -132,6 +102,61 @@
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-2875" y="696"/>
+        </scene>
+        <!--Lists View Controller-->
+        <scene sceneID="joC-gt-EnC">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnL-zV-8Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="BBListsViewController" wantsFullScreenLayout="YES" id="aX2-7F-4Ln" customClass="BBListsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H5j-ut-JR2">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wLd-St-nnS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBListCell" textLabel="F2C-w6-kdM" style="IBUITableViewCellStyleDefault" id="BtX-29-u7f">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F2C-w6-kdM">
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aX2-7F-4Ln" id="3Ay-5m-jBo"/>
+                                    <outlet property="delegate" destination="aX2-7F-4Ln" id="iTb-d4-zqJ"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="UQb-Jt-0da">
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="A5c-d2-PI9"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wLd-St-nnS" id="AhL-fT-Fxi"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2349" y="1331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7oi-du-vcg">
@@ -601,6 +626,30 @@
             <point key="canvasLocation" x="127" y="696"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BBItemCategoryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="categoryButtonPressed:"/>
+                <relationship kind="action" name="doneButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="BBListsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BBNavContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBNavContainerViewController.h"/>
+        </class>
+        <class className="BBShoppingListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showMenuButtonPressed:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
