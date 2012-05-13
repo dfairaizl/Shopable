@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -153,7 +153,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="done"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="aX2-7F-4Ln" id="rdT-Yd-7Ll"/>
+                                                        <outlet property="delegate" destination="BtX-29-u7f" id="egQ-Ja-69b"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -189,6 +189,8 @@
                     </view>
                     <connections>
                         <outlet property="addNewListButton" destination="3lz-tr-2et" id="eht-6O-Iju"/>
+                        <outlet property="editListsButton" destination="A5c-d2-PI9" id="xen-sV-PMF"/>
+                        <outlet property="emailListsButton" destination="c6B-PV-MNT" id="hw4-6c-Gyv"/>
                         <outlet property="tableView" destination="wLd-St-nnS" id="AhL-fT-Fxi"/>
                     </connections>
                 </viewController>
@@ -684,6 +686,8 @@
                 <relationship kind="action" name="addNewListButtonPressed:"/>
                 <relationship kind="action" name="editButtonPressed:"/>
                 <relationship kind="outlet" name="addNewListButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editListsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="emailListsButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

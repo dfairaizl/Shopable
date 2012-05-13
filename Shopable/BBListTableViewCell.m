@@ -10,6 +10,8 @@
 
 @implementation BBListTableViewCell
 
+@synthesize delegate;
+
 @synthesize listTitle;
 @synthesize listTitleTextField;
 
@@ -43,6 +45,20 @@
         self.listTitle.hidden = NO;
         self.listTitleTextField.hidden = YES;
     }
+}
+
+#pragma mark - UITextFieldDelegate Methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    [self.delegate cellDidFinishEditing:self];
 }
 
 @end

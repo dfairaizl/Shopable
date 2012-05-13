@@ -131,4 +131,40 @@
     }
 }
 
+- (void)showDetailsScreen {
+    
+    if(showingNavigationMenu == YES) {
+        
+        [UIView animateWithDuration:0.3 
+                              delay:0.0 
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^() {
+                             
+                             CGRect frame = self.shoppingListViewController.view.frame;
+                             frame.origin.x = CGRectGetWidth(self.view.frame) * 0.80;
+                             self.shoppingListViewController.view.frame = frame;
+                         }
+                         completion:NULL];
+    }
+    else {
+
+        [UIView animateWithDuration:0.3 
+                              delay:0.0 
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^() {
+                             
+                             CGRect frame = self.shoppingListViewController.view.frame;
+                             frame.origin.x = 0;
+                             self.shoppingListViewController.view.frame = frame;
+                         }
+                         completion:NULL];
+        
+    }
+}
+
+- (void)didSelectNavigationOptionWithObject:(BBStore *)selectedStore {
+    
+    [self showNavigationMenu];
+}
+
 @end

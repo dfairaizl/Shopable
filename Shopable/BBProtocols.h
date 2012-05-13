@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BBStorageManager.h"
 
 @protocol BBNavigationDelegate <NSObject>
 
 - (void)showNavigationMenu;
 - (void)hideDetailsScreen;
+- (void)showDetailsScreen;
+
+- (void)didSelectNavigationOptionWithObject:(BBStore *)selectedStore;
+
+@end
+
+@protocol BBListTableViewCellDelegate <NSObject>
+
+- (void)cellDidFinishEditing:(UITableViewCell *)cell;
 
 @end

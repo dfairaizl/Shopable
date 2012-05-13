@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBListTableViewCell : UITableViewCell
+#import "BBProtocols.h"
+
+@interface BBListTableViewCell : UITableViewCell <UITextFieldDelegate>
+
+@property (weak, nonatomic) id <BBListTableViewCellDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *listTitle;
 @property (strong, nonatomic) IBOutlet UITextField *listTitleTextField;

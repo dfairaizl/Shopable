@@ -40,6 +40,8 @@
 @synthesize delegate;
 @synthesize tableView = _tableView;
 @synthesize addNewListButton = _addNewListButton;
+@synthesize editListsButton = _editListsButton;
+@synthesize emailListsButton = _emailListsButton;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -53,6 +55,8 @@
     [self setTableView:nil];
     [self setAddNewListButton:nil];
     
+    [self setEditListsButton:nil];
+    [self setEmailListsButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -70,6 +74,8 @@
     if([self.tableView isEditing] == YES) {
         
         [self.tableView setEditing:NO animated:YES];
+        
+        [self.delegate showDetailsScreen];
     }
     else {
         
@@ -99,7 +105,7 @@
         NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
         
         NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor 
-                                                             sortDescriptorWithKey:@"name" ascending:YES]];
+                                                             sortDescriptorWithKey:@"order" ascending:YES]];
         
         [fr setSortDescriptors:sortDescriptors];
         
@@ -256,13 +262,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self.delegate didSelectNavigationOptionWithObject:nil];
+}
+
+#pragma mark - BBListTableViewCellDelegate Methods
+
+- (void)cellDidFinishEditing:(UITableViewCell *)cell {
+    
+    BBListTableViewCell *editingCell = (BBListTableViewCell *)cell;
+    
+    NSIndexPath *editingIndexPath = [self.tableView indexPathForCell:cell];
+    
+    BBStore *editingStore = [self.fetchedResultsController objectAtIndexPath:editingIndexPath];
+    
+    [editingStore setName:editingCell.listTitleTextField.text];
 }
 
 #pragma mark - Private Table View Methods
@@ -273,9 +286,11 @@
     BBListTableViewCell *listCell = (BBListTableViewCell *)cell;
     
     BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     listCell.listTitle.text = store.name;
     listCell.listTitleTextField.text = store.name;
+    
+    listCell.delegate = self;
     
     if(insertIndexPath != nil && indexPath.row == insertIndexPath.row) {
         
