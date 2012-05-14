@@ -29,13 +29,11 @@
 @interface BBListsViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSIndexPath *insertIndexPath;
 
 @end
 
-@implementation BBListsViewController {
-
-    __weak NSIndexPath *insertIndexPath;
-}
+@implementation BBListsViewController
 
 @synthesize delegate;
 @synthesize tableView = _tableView;
@@ -44,6 +42,7 @@
 @synthesize emailListsButton = _emailListsButton;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize insertIndexPath;
 
 - (void)viewDidLoad
 {
@@ -166,7 +165,7 @@
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             
-            insertIndexPath = newIndexPath;
+            self.insertIndexPath = newIndexPath;
             
             break;
             
@@ -276,6 +275,12 @@
     BBList *editingStore = [self.fetchedResultsController objectAtIndexPath:editingIndexPath];
     
     [editingStore setName:editingCell.listTitleTextField.text];
+    
+    if(self.insertIndexPath != nil) {
+        
+        self.insertIndexPath = nil;
+        [self.tableView setEditing:NO animated:YES];
+    }
 }
 
 #pragma mark - Private Table View Methods
@@ -292,10 +297,9 @@
     
     listCell.delegate = self;
     
-    if(insertIndexPath != nil && indexPath.row == insertIndexPath.row) {
+    if(self.insertIndexPath != nil && indexPath.row == self.insertIndexPath.row) {
         
         [listCell.listTitleTextField becomeFirstResponder];
-        insertIndexPath = nil;
     }
 }
 
