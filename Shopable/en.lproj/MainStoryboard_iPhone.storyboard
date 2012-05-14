@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-2349" y="696"/>
         </scene>
-        <!--Shopping List View Controller - Grocery Store-->
+        <!--Shopping List View Controller - Store Title-->
         <scene sceneID="lxQ-Oq-t9G">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9c8-xu-VUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,7 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Grocery Store" id="06t-9P-0Sl">
+                    <navigationItem key="navigationItem" title="Store Title" id="06t-9P-0Sl">
                         <barButtonItem key="leftBarButtonItem" title="=" id="gj7-LQ-dqc">
                             <connections>
                                 <action selector="showMenuButtonPressed:" destination="vsL-Rk-BYg" id="a6M-wo-Vka"/>

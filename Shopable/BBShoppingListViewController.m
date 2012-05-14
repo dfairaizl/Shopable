@@ -15,6 +15,7 @@
 @implementation BBShoppingListViewController
 
 @synthesize delegate;
+@synthesize currentList = _currentList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +41,15 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Overrides
+
+- (void)setCurrentList:(BBList *)currentList {
+    
+    _currentList = currentList;
+    
+    self.title = _currentList.name;
 }
 
 #pragma mark - UI Actions

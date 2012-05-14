@@ -267,7 +267,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.delegate didSelectNavigationOptionWithObject:nil];
+    BBList *selectedList = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    [self.delegate didSelectNavigationOptionWithObject:selectedList];
 }
 
 #pragma mark - Private Table View Methods

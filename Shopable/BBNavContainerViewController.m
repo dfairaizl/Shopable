@@ -167,6 +167,10 @@
 
 - (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore {
     
+    BBShoppingListViewController *shoppingListVC = (BBShoppingListViewController *)[self.shoppingListViewController topViewController];
+    
+    shoppingListVC.currentList = selectedStore;
+    
     [self showNavigationMenu];
 }
 

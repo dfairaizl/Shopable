@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) id <BBNavigationDelegate> delegate;
 
+@property (strong, nonatomic) BBList *currentList;
+
 - (IBAction)showMenuButtonPressed:(id)sender;
 
 @end
