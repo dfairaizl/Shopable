@@ -14,7 +14,7 @@
 
 @interface BBNavContainerViewController ()
 
-@property (strong, nonatomic) BBListsViewController *listsTableViewController;
+@property (strong, nonatomic) UINavigationController *listsTableViewController;
 @property (strong, nonatomic) UINavigationController *shoppingListViewController;
 
 @end
@@ -47,11 +47,14 @@
     self.shoppingListViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
                                      instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];
     
+    
+    BBListsViewController *listsController = (BBListsViewController *)[self.listsTableViewController topViewController];
+    
     BBShoppingListViewController *shoppingList = (BBShoppingListViewController *)[self.shoppingListViewController 
                                                                                   topViewController];
     
     //setup delegates
-    self.listsTableViewController.delegate = self;
+    listsController.delegate = self;
     shoppingList.delegate = self;
     
     //child view controllers

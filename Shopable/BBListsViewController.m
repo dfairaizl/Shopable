@@ -31,6 +31,9 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSIndexPath *insertIndexPath;
 
+- (void)setListsToolbarItemsAnimated:(BOOL)animated;
+- (void)setEditingListsToolbarItemsAnimated:(BOOL)animated;
+
 @end
 
 @implementation BBListsViewController
@@ -47,6 +50,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setListsToolbarItemsAnimated:NO];
 }
 
 - (void)viewDidUnload
@@ -74,11 +79,15 @@
         
         [self.tableView setEditing:NO animated:YES];
         
+        [self setListsToolbarItemsAnimated:YES];
+        
         [self.delegate showDetailsScreen];
     }
     else {
         
         [self.tableView setEditing:YES animated:YES];
+        
+        [self setEditingListsToolbarItemsAnimated:YES];
         
         [self.delegate hideDetailsScreen];
     }
@@ -310,6 +319,49 @@
     BBListTableViewCell *cell = (BBListTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
     [cell.listTitleTextField becomeFirstResponder];
+}
+
+#pragma mark - Private Methods
+
+- (void)setListsToolbarItemsAnimated:(BOOL)animated {
+
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" 
+                                                                   style:UIBarButtonItemStyleBordered 
+                                                                  target:self 
+                                                                  action:@selector(editButtonPressed:)];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] 
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                   target:nil 
+                                   action:nil];
+    
+    UIBarButtonItem *emailButton = [[UIBarButtonItem alloc] initWithTitle:@"Email" 
+                                                                    style:UIBarButtonItemStyleBordered 
+                                                                   target:nil 
+                                                                   action:nil];
+    
+    UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] 
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace 
+                                  target:nil 
+                                  action:nil];
+    
+    [fixedSpace setWidth:65.0f];
+    
+    NSArray *items = [NSArray arrayWithObjects:editButton, flexSpace ,emailButton, fixedSpace, nil];
+    
+    [self setToolbarItems:items animated:animated];
+}
+
+- (void)setEditingListsToolbarItemsAnimated:(BOOL)animated {
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" 
+                                                                   style:UIBarButtonItemStyleBordered 
+                                                                  target:self 
+                                                                  action:@selector(editButtonPressed:)];
+    
+    NSArray *items = [NSArray arrayWithObject:doneButton];
+    
+    [self setToolbarItems:items animated:animated];
 }
 
 @end
