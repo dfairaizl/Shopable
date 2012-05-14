@@ -273,6 +273,26 @@
     [self.delegate didSelectNavigationOptionWithObject:nil];
 }
 
+#pragma mark - Private Table View Methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    // Configure the cell...
+    BBListTableViewCell *listCell = (BBListTableViewCell *)cell;
+    
+    BBList *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    listCell.listTitle.text = store.name;
+    listCell.listTitleTextField.text = store.name;
+    
+    listCell.delegate = self;
+    
+    if(self.insertIndexPath != nil && indexPath.row == self.insertIndexPath.row) {
+        
+        [listCell.listTitleTextField becomeFirstResponder];
+    }
+}
+
 #pragma mark - BBListTableViewCellDelegate Methods
 
 - (void)cellDidFinishEditing:(UITableViewCell *)cell {
@@ -290,26 +310,9 @@
         self.insertIndexPath = nil;
         [self.tableView setEditing:NO animated:YES];
     }
-}
-
-#pragma mark - Private Table View Methods
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell...
-    BBListTableViewCell *listCell = (BBListTableViewCell *)cell;
-    
-    BBList *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-    listCell.listTitle.text = store.name;
-    listCell.listTitleTextField.text = store.name;
-    
-    listCell.delegate = self;
-    
-    if(self.insertIndexPath != nil && indexPath.row == self.insertIndexPath.row) {
-        
-        [listCell.listTitleTextField becomeFirstResponder];
-    }
+    [self.delegate showDetailsScreen];
+    [self setListsToolbarItemsAnimated:YES];
 }
 
 #pragma mark - Private Data Methods
