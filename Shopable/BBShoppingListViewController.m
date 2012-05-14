@@ -8,6 +8,9 @@
 
 #import "BBShoppingListViewController.h"
 
+//DB
+#import "BBStorageManager.h"
+
 @interface BBShoppingListViewController ()
 
 @end

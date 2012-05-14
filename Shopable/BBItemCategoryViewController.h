@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBItemCategoryTableViewController : UITableViewController
+@interface BBItemCategoryViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)doneButtonPressed:(id)sender;
 - (IBAction)categoryButtonPressed:(id)sender;

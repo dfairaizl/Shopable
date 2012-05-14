@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */; };
 		771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */; };
-		771C2550155D60890092EFB8 /* BBItemCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771C254F155D60890092EFB8 /* BBItemCategoryTableViewController.m */; };
+		771C2550155D60890092EFB8 /* BBItemCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */; };
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
 		7751FADC15605C62006339A0 /* BBList+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7751FADA15605C62006339A0 /* BBList+Logic.m */; };
@@ -37,6 +37,8 @@
 		77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */; };
 		77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */; };
 		77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */; };
+		77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */; };
+		77BCFAF61560AF22005ED2E5 /* BBItemCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */; };
 		77C4607414E6033200DFF7A3 /* BBShoppingItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C4607314E6033200DFF7A3 /* BBShoppingItem+Logic.m */; };
 		77EDC06F14E70B9B00337612 /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC06E14E70B9B00337612 /* BBList.m */; };
 		77EDC07514E70B9B00337612 /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07414E70B9B00337612 /* BBItemCategory.m */; };
@@ -60,8 +62,8 @@
 		770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBStorageManager+iCloud.m"; sourceTree = "<group>"; };
 		771391F114C4E40700875FB3 /* BBShoppingCart+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBShoppingCart+Logic.h"; sourceTree = "<group>"; };
 		771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBShoppingCart+Logic.m"; sourceTree = "<group>"; };
-		771C254E155D60890092EFB8 /* BBItemCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryTableViewController.h; sourceTree = "<group>"; };
-		771C254F155D60890092EFB8 /* BBItemCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryTableViewController.m; sourceTree = "<group>"; };
+		771C254E155D60890092EFB8 /* BBItemCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryViewController.h; sourceTree = "<group>"; };
+		771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryViewController.m; sourceTree = "<group>"; };
 		7745933F14C5E80600EF1565 /* StoreTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoreTypes.plist; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
 		7751FADA15605C62006339A0 /* BBList+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBList+Logic.m"; sourceTree = "<group>"; };
@@ -105,6 +107,9 @@
 		77A417E214BE1E6E00ACAAC1 /* BBStorageConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStorageConstants.h; sourceTree = "<group>"; };
 		77A5210714E1DC7900D42858 /* UIScrollView+Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Paging.h"; sourceTree = "<group>"; };
 		77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Paging.m"; sourceTree = "<group>"; };
+		77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryView.h; sourceTree = "<group>"; };
+		77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryView.m; sourceTree = "<group>"; };
+		77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBItemCategoryView.xib; sourceTree = "<group>"; };
 		77C4607214E6033200DFF7A3 /* BBShoppingItem+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBShoppingItem+Logic.h"; sourceTree = "<group>"; };
 		77C4607314E6033200DFF7A3 /* BBShoppingItem+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBShoppingItem+Logic.m"; sourceTree = "<group>"; };
 		77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Shopable.entitlements; sourceTree = "<group>"; };
@@ -165,8 +170,8 @@
 		771C254C155D60460092EFB8 /* Items List Screen */ = {
 			isa = PBXGroup;
 			children = (
-				771C254E155D60890092EFB8 /* BBItemCategoryTableViewController.h */,
-				771C254F155D60890092EFB8 /* BBItemCategoryTableViewController.m */,
+				771C254E155D60890092EFB8 /* BBItemCategoryViewController.h */,
+				771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */,
 			);
 			name = "Items List Screen";
 			sourceTree = "<group>";
@@ -218,9 +223,9 @@
 		77A27073155B7A2A00C86692 /* Lists Screen */ = {
 			isa = PBXGroup;
 			children = (
-				77677DF9155F63E4002BA298 /* Support */,
 				77A27070155B7A1C00C86692 /* BBListsViewController.h */,
 				77A27071155B7A1C00C86692 /* BBListsViewController.m */,
+				77677DF9155F63E4002BA298 /* Support */,
 			);
 			name = "Lists Screen";
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			children = (
 				77A27079155B7E8D00C86692 /* BBShoppingListViewController.h */,
 				77A2707A155B7E8D00C86692 /* BBShoppingListViewController.m */,
+				77BCFAF11560AEDA005ED2E5 /* Support */,
 			);
 			name = "Shopping List Screen";
 			sourceTree = "<group>";
@@ -358,6 +364,16 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		77BCFAF11560AEDA005ED2E5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */,
+				77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */,
+				77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		77D29C2914DF5E9C00EB1EFE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +459,7 @@
 				778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */,
 				7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */,
 				7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */,
+				77BCFAF61560AF22005ED2E5 /* BBItemCategoryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,9 +512,10 @@
 				77A27072155B7A1C00C86692 /* BBListsViewController.m in Sources */,
 				77A27077155B7A8F00C86692 /* BBNavContainerViewController.m in Sources */,
 				77A2707B155B7E8D00C86692 /* BBShoppingListViewController.m in Sources */,
-				771C2550155D60890092EFB8 /* BBItemCategoryTableViewController.m in Sources */,
+				771C2550155D60890092EFB8 /* BBItemCategoryViewController.m in Sources */,
 				77677DFD155F6447002BA298 /* BBListTableViewCell.m in Sources */,
 				7751FADC15605C62006339A0 /* BBList+Logic.m in Sources */,
+				77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
