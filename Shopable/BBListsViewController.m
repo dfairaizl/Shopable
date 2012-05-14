@@ -89,7 +89,7 @@
     
     [self.tableView setEditing:YES animated:YES];
     
-    [BBStore addStore];
+    [BBList addList];
     
     [self.delegate hideDetailsScreen];
 }
@@ -273,7 +273,7 @@
     
     NSIndexPath *editingIndexPath = [self.tableView indexPathForCell:cell];
     
-    BBStore *editingStore = [self.fetchedResultsController objectAtIndexPath:editingIndexPath];
+    BBList *editingStore = [self.fetchedResultsController objectAtIndexPath:editingIndexPath];
     
     [editingStore setName:editingCell.listTitleTextField.text];
 }
@@ -285,7 +285,7 @@
     // Configure the cell...
     BBListTableViewCell *listCell = (BBListTableViewCell *)cell;
     
-    BBStore *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BBList *store = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     listCell.listTitle.text = store.name;
     listCell.listTitleTextField.text = store.name;

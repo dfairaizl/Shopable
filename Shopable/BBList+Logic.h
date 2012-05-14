@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBStore.h"
+#import "BBList.h"
 
-@interface BBStore (Logic)
+@interface BBList (Logic)
 
-+ (NSArray *)stores;
-+ (BBStore *)addStore;
++ (NSArray *)lists;
++ (BBList *)addList;
 
 - (BBShoppingCart *)currentShoppingCart;
 

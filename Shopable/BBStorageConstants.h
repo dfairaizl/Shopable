@@ -10,12 +10,12 @@
 #define Shopable_BBStorageConstants_h
 
 //Entities
-#import "BBStore.h"
+#import "BBList.h"
 #import "BBItemCategory.h"
 #import "BBItem.h"
 
 //Categories
-#import "BBStore+Logic.h"
+#import "BBList+Logic.h"
 #import "BBItem+Logic.h"
 #import "BBShoppingCart+Logic.h"
 #import "BBShoppingItem+Logic.h"

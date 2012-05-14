@@ -162,7 +162,7 @@
     }
 }
 
-- (void)didSelectNavigationOptionWithObject:(BBStore *)selectedStore {
+- (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore {
     
     [self showNavigationMenu];
 }

@@ -15,7 +15,7 @@
 - (void)hideDetailsScreen;
 - (void)showDetailsScreen;
 
-- (void)didSelectNavigationOptionWithObject:(BBStore *)selectedStore;
+- (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore;
 
 @end
 

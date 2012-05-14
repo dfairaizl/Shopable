@@ -11,7 +11,7 @@
 
 @class BBShoppingCart;
 
-@interface BBStore : NSManagedObject
+@interface BBList : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * currentlyShopping;
 @property (nonatomic, retain) NSString * name;

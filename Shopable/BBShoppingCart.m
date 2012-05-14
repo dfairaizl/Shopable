@@ -8,7 +8,7 @@
 
 #import "BBShoppingCart.h"
 #import "BBShoppingItem.h"
-#import "BBStore.h"
+#import "BBList.h"
 
 
 @implementation BBShoppingCart

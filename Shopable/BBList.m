@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBStore.h"
+#import "BBList.h"
 #import "BBShoppingCart.h"
 
 
-@implementation BBStore
+@implementation BBList
 
 @dynamic currentlyShopping;
 @dynamic name;

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
-#import "BBStore+Logic.h"
+#import "BBList+Logic.h"
 
 #import "BBStorageManager.h"
 
-@implementation BBStore (Logic)
+@implementation BBList (Logic)
 
-+ (NSArray *)stores {
++ (NSArray *)lists {
     
     NSArray *stores = nil;
     NSError *error = nil;
@@ -31,9 +31,9 @@
     return stores;
 }
 
-+ (BBStore *)addStore {
++ (BBList *)addList {
     
-    BBStore *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    BBList *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
     
     NSError *error = nil;
     

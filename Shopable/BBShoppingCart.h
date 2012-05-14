@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class BBShoppingItem, BBStore;
+@class BBShoppingItem, BBList;
 
 @interface BBShoppingCart : NSManagedObject
 
 @property (nonatomic, retain) NSSet *cartItems;
-@property (nonatomic, retain) BBStore *parentStore;
+@property (nonatomic, retain) BBList *parentStore;
 @end
 
 @interface BBShoppingCart (CoreDataGeneratedAccessors)
