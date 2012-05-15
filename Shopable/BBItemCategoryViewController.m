@@ -11,6 +11,9 @@
 //DB
 #import "BBStorageManager.h"
 
+//Controllers
+#import "BBItemsListTableViewController.h"
+
 //Views
 #import "BBItemCategoryView.h"
 
@@ -62,6 +65,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"categoryItemsSegue"]) {
+        
+        BBItemCategoryView *categoryView = (BBItemCategoryView *)sender;
+        NSInteger index = categoryView.itemIndex;
+        
+        BBItemsListTableViewController *itemsList = (BBItemsListTableViewController *)segue.destinationViewController;
+        
+        itemsList.currentItemCategory = [self.itemCategories objectAtIndex:index];
+    }
+}
+
 #pragma mark - Overrides
 
 - (NSMutableArray *)itemCategories {
@@ -91,7 +107,7 @@
 
 - (IBAction)categoryButtonPressed:(id)sender {
     
-    [self performSegueWithIdentifier:@"categoryItemsSegue" sender:nil];
+    [self performSegueWithIdentifier:@"categoryItemsSegue" sender:sender];
 }
 
 #pragma mark - Private Methods
@@ -109,6 +125,8 @@
         
         [categoryView addTarget:self action:@selector(categoryButtonPressed:) 
                forControlEvents:UIControlEventTouchUpInside];
+        
+        categoryView.itemIndex = index;
         
         if(x < CGRectGetWidth(self.view.frame)) {
             

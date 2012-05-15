@@ -235,11 +235,11 @@
             </objects>
             <point key="canvasLocation" x="-351" y="696"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Items List Table View Controller-->
         <scene sceneID="qbq-xD-YJf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytq-lg-iEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="UsQ-ID-Vbs" sceneMemberID="viewController">
+                <tableViewController id="UsQ-ID-Vbs" customClass="BBItemsListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9QN-Oc-Mcb">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,6 +296,9 @@
                 <relationship kind="action" name="doneButtonPressed:"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
+        </class>
+        <class className="BBItemsListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsListTableViewController.h"/>
         </class>
         <class className="BBListTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListTableViewCell.h"/>

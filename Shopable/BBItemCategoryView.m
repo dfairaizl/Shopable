@@ -9,6 +9,8 @@
 #import "BBItemCategoryView.h"
 
 @implementation BBItemCategoryView
+
+@synthesize itemIndex;
 @synthesize categoryImageView;
 @synthesize categoryLabel;
 

@@ -10,6 +10,8 @@
 
 @interface BBItemCategoryView : UIControl
 
+@property NSInteger itemIndex;
+
 @property (strong, nonatomic) IBOutlet UIImageView *categoryImageView;
 @property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
 
