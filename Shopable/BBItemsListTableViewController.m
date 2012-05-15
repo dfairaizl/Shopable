@@ -11,9 +11,13 @@
 //DB
 #import "BBStorageManager.h"
 
+//Cells
+#import "BBItemTableViewCell.h"
+
 @interface BBItemsListTableViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSMutableIndexSet *accordionIndexSet;
 
 @end
 
@@ -21,6 +25,7 @@
 
 @synthesize currentItemCategory;
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize accordionIndexSet = _accordionIndexSet;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,6 +45,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UILongPressGestureRecognizer *longPressGR = [[UILongPressGestureRecognizer alloc] 
+                                                 initWithTarget:self 
+                                                         action:@selector(toggleAccordion:)];
+    
+    [self.view addGestureRecognizer:longPressGR];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,6 +99,16 @@
     return _fetchedResultsController;
 }
 
+- (NSMutableIndexSet *)accordionIndexSet {
+    
+    if(_accordionIndexSet == nil) {
+        
+        _accordionIndexSet = [[NSMutableIndexSet alloc] init];
+    }
+    
+    return _accordionIndexSet;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -103,14 +124,37 @@
     return [[sectionInfo objects] count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat height = 44;
+    
+    if([self.accordionIndexSet containsIndex:indexPath.row]) {
+        
+        height = 88;
+    }
+    
+    return height;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BBItemCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *AccordionCellIdentifier = @"BBAccordionItemCell";
+    
+    BBItemTableViewCell *cell = nil;
+    
+    if([self.accordionIndexSet containsIndex:indexPath.row] == NO) {
+        
+        cell = (BBItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    }
+    else {
+        
+        cell = (BBItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AccordionCellIdentifier];
+    }
     
     // Configure the cell...
     BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.name;
+    cell.itemNameLabel.text = item.name;
     
     return cell;
 }
@@ -165,6 +209,32 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Private Methods
+
+- (void)toggleAccordion:(UILongPressGestureRecognizer *)longPressGR {
+    
+    if (longPressGR.state == UIGestureRecognizerStateBegan) {
+    
+        CGPoint point = [longPressGR locationInView:self.tableView];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+        
+        if([self.accordionIndexSet containsIndex:indexPath.row] == YES) {
+            
+            //close accordion
+            [self.accordionIndexSet removeIndex:indexPath.row];
+        }
+        else {
+            
+            //open accordion
+            [self.accordionIndexSet addIndex:indexPath.row];
+        }
+        
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+                              withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 @end
