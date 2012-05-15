@@ -249,27 +249,6 @@
         }
         
         [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        
-//        if(pressIndexPath.row == [self.accordionIndexSet lastIndex]) {
-//            
-//            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
-//                                                           inSection:0];
-//            [indexPaths addObject:oldIndexPath];
-//            [self.accordionIndexSet removeAllIndexes];
-//        }
-//        else if([self.accordionIndexSet count] > 0) {
-//            
-//            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
-//                                                           inSection:0];
-//            [indexPaths addObject:oldIndexPath];
-//            [self.accordionIndexSet removeIndex:oldIndexPath.row];
-//        }
-//        
-//        if([self.accordionIndexSet containsIndex:pressIndexPath.row] == NO) {
-//         
-//            [self.accordionIndexSet addIndex:pressIndexPath.row];
-//            [indexPaths addObject:pressIndexPath];
-//        }
     }
 }
 
