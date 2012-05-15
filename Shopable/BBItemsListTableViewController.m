@@ -219,21 +219,57 @@
     
         CGPoint point = [longPressGR locationInView:self.tableView];
         
-        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+        NSIndexPath *pressIndexPath = [self.tableView indexPathForRowAtPoint:point];
         
-        if([self.accordionIndexSet containsIndex:indexPath.row] == YES) {
+        NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:2];
+        
+        //check if selected row is already open
+        if(pressIndexPath.row == [self.accordionIndexSet lastIndex]) {
             
-            //close accordion
-            [self.accordionIndexSet removeIndex:indexPath.row];
+            [indexPaths addObject:pressIndexPath];
+            [self.accordionIndexSet removeAllIndexes];
+        }
+        else if([self.accordionIndexSet count] > 0) {
+            
+            //set the current accordion to close
+            NSIndexPath *currentAccordionIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
+                                                                        inSection:0];
+            
+            [indexPaths addObject:currentAccordionIndexPath];
+            [self.accordionIndexSet removeAllIndexes];
+            
+            //open the new one
+            [indexPaths addObject:pressIndexPath];
+            [self.accordionIndexSet addIndex:pressIndexPath.row];
         }
         else {
             
-            //open accordion
-            [self.accordionIndexSet addIndex:indexPath.row];
+            [indexPaths addObject:pressIndexPath];
+            [self.accordionIndexSet addIndex:pressIndexPath.row];
         }
         
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-                              withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        
+//        if(pressIndexPath.row == [self.accordionIndexSet lastIndex]) {
+//            
+//            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
+//                                                           inSection:0];
+//            [indexPaths addObject:oldIndexPath];
+//            [self.accordionIndexSet removeAllIndexes];
+//        }
+//        else if([self.accordionIndexSet count] > 0) {
+//            
+//            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
+//                                                           inSection:0];
+//            [indexPaths addObject:oldIndexPath];
+//            [self.accordionIndexSet removeIndex:oldIndexPath.row];
+//        }
+//        
+//        if([self.accordionIndexSet containsIndex:pressIndexPath.row] == NO) {
+//         
+//            [self.accordionIndexSet addIndex:pressIndexPath.row];
+//            [indexPaths addObject:pressIndexPath];
+//        }
     }
 }
 
