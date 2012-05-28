@@ -20,7 +20,7 @@
 #import "BBShoppingCart+Logic.h"
 #import "BBShoppingItem+Logic.h"
 
-#define     BB_ENTITY_STORE             @"BBList"
+#define     BB_ENTITY_LIST             @"BBList"
 #define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"
 #define     BB_ENTITY_ITEM              @"BBItem"
 #define     BB_ENTITY_SHOPPING_CART     @"BBShoppingCart"

@@ -2,14 +2,14 @@
 //  BBShoppingCart.h
 //  Shopable
 //
-//  Created by Dan Fairaizl on 3/25/12.
+//  Created by Dan Fairaizl on 5/28/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class BBShoppingItem, BBList;
+@class BBList, BBShoppingItem;
 
 @interface BBShoppingCart : NSManagedObject
 

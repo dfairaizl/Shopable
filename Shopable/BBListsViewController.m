@@ -110,7 +110,7 @@
         
         NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
         
-        NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+        NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
         
         NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor 
                                                              sortDescriptorWithKey:@"order" ascending:YES]];
@@ -267,7 +267,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BBList *selectedList = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BBList *selectedList = (BBList *)[self.fetchedResultsController objectAtIndexPath:indexPath];
 
     [self.delegate didSelectNavigationOptionWithObject:selectedList];
 }

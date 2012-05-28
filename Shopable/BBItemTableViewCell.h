@@ -10,6 +10,9 @@
 
 @interface BBItemTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *checkMarkImageView;
 @property (strong, nonatomic) IBOutlet UILabel *itemNameLabel;
+
+- (void)checkItem:(BOOL)checked;
 
 @end

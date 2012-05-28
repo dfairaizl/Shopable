@@ -29,6 +29,8 @@
 
 @synthesize scrollView;
 
+@synthesize currentList;
+
 @synthesize itemCategories = _itemCategories;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -75,6 +77,7 @@
         BBItemsListTableViewController *itemsList = (BBItemsListTableViewController *)segue.destinationViewController;
         
         itemsList.currentItemCategory = [self.itemCategories objectAtIndex:index];
+        itemsList.currentList = self.currentList;
     }
 }
 

@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class BBList;
+
 @interface BBItemCategoryViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) BBList *currentList;
 
 - (IBAction)doneButtonPressed:(id)sender;
 - (IBAction)categoryButtonPressed:(id)sender;

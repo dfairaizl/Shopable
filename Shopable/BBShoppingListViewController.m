@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
+//View Controllers
 #import "BBShoppingListViewController.h"
+#import "BBItemCategoryViewController.h"
 
 //DB
 #import "BBStorageManager.h"
@@ -44,6 +46,17 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"addItemsSegue"]) {
+        
+        BBItemCategoryViewController *itemCategoryVC = (BBItemCategoryViewController *)
+                                                                [[segue destinationViewController] topViewController];
+        
+        itemCategoryVC.currentList = self.currentList;
+    }
 }
 
 #pragma mark - Overrides

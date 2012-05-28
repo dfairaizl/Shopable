@@ -11,7 +11,7 @@
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBItem" inverseName="parentItemCategory" inverseEntity="BBItem" syncable="YES"/>
     </entity>
-    <entity name="BBList" representedClassName="BBStore" syncable="YES">
+    <entity name="BBList" representedClassName="BBList" syncable="YES">
         <attribute name="currentlyShopping" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -35,8 +35,8 @@
     <elements>
         <element name="BBItem" positionX="133" positionY="237" width="128" height="195"/>
         <element name="BBItemCategory" positionX="151" positionY="81" width="128" height="90"/>
+        <element name="BBList" positionX="-108" positionY="315" width="128" height="120"/>
         <element name="BBShoppingCart" positionX="-101" positionY="522" width="128" height="75"/>
         <element name="BBShoppingItem" positionX="90" positionY="519" width="128" height="165"/>
-        <element name="BBList" positionX="-108" positionY="315" width="128" height="120"/>
     </elements>
 </model>

@@ -10,6 +10,7 @@
 
 @implementation BBItemTableViewCell
 
+@synthesize checkMarkImageView;
 @synthesize itemNameLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -26,6 +27,20 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - Public Methods
+
+- (void)checkItem:(BOOL)checked {
+    
+    if(checked == YES) {
+        
+        [self.checkMarkImageView setImage:[UIImage imageNamed:@"check_box_checked"]];
+    }
+    else {
+        
+        [self.checkMarkImageView setImage:[UIImage imageNamed:@"check_box_empty"]];
+    }
 }
 
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BBItemCategory;
+@class BBItemCategory, BBList;
 
 @interface BBItemsListTableViewController : UITableViewController
 
-@property (strong, nonatomic) BBItemCategory *currentItemCategory;
+@property (weak, nonatomic) BBItemCategory *currentItemCategory;
+@property (weak, nonatomic) BBList *currentList;
 
 @end

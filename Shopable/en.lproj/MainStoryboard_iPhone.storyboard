@@ -68,7 +68,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LdG-9k-wNC">
                             <connections>
-                                <segue destination="Fvo-SC-IB9" kind="modal" modalTransitionStyle="flipHorizontal" id="Fnp-kJ-fPO"/>
+                                <segue destination="Fvo-SC-IB9" kind="modal" identifier="addItemsSegue" modalTransitionStyle="flipHorizontal" id="Fnp-kJ-fPO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -265,17 +265,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kmG-87-Kb4">
-                                            <rect key="frame" x="12" y="10" width="288" height="24"/>
+                                            <rect key="frame" x="50" y="10" width="243" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="check_box_empty.png" id="T3H-hl-fbp">
+                                            <rect key="frame" x="2" y="2" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="checkMarkImageView" destination="T3H-hl-fbp" id="ud0-TP-2om"/>
                                     <outlet property="itemNameLabel" destination="kmG-87-Kb4" id="eYz-ZI-oOo"/>
                                 </connections>
                             </tableViewCell>
@@ -287,7 +292,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kqC-iT-bIz">
-                                            <rect key="frame" x="12" y="10" width="288" height="24"/>
+                                            <rect key="frame" x="50" y="10" width="243" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -336,10 +341,15 @@
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </view>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="check_box_empty.png" id="7iu-hN-h29">
+                                            <rect key="frame" x="2" y="2" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="checkMarkImageView" destination="7iu-hN-h29" id="J3P-VK-m5f"/>
                                     <outlet property="itemNameLabel" destination="kqC-iT-bIz" id="hLe-L0-Zp7"/>
                                 </connections>
                             </tableViewCell>
@@ -366,7 +376,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NVd-yU-KIY">
-                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -377,6 +387,9 @@
             <point key="canvasLocation" x="-2875" y="1309"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check_box_empty.png" width="40" height="40"/>
+    </resources>
     <classes>
         <class className="BBItemCategoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
@@ -389,6 +402,7 @@
         <class className="BBItemTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="checkMarkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

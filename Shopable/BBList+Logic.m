@@ -17,7 +17,7 @@
     NSArray *stores = nil;
     NSError *error = nil;
     
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
     
     [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
     
@@ -33,11 +33,11 @@
 
 + (BBList *)addList {
     
-    BBList *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    BBList *newStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_LIST inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
     
     NSError *error = nil;
     
-    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_STORE];
+    NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
     
     [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
     

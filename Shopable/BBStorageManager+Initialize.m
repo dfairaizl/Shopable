@@ -20,7 +20,7 @@
 - (void)createDefaults {
     
     //Create default Grocery Store
-    BBList *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_STORE inManagedObjectContext:self.managedObjectContext];
+    BBList *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_LIST inManagedObjectContext:self.managedObjectContext];
     
     groceryStore.name = [NSString stringWithString:@"Grocery Store"];
     groceryStore.order = [NSNumber numberWithInt:0];
