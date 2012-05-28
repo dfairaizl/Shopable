@@ -162,33 +162,27 @@
 
 #pragma mark - NSFetchedResultsControllerDelegate Methods
 
-/*
- Assume self has a property 'tableView' -- as is the case for an instance of a UITableViewController
- subclass -- and a method configureCell:atIndexPath: which updates the contents of a given cell
- with information from a managed object at the given index path in the fetched results controller.
- */
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    
     [self.shoppingTableView beginUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller 
-  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.shoppingTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                          withRowAnimation:UITableViewRowAnimationFade];
+                               withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
             [self.shoppingTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                          withRowAnimation:UITableViewRowAnimationFade];
+                               withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
+
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
@@ -201,7 +195,6 @@
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            
             break;
             
         case NSFetchedResultsChangeDelete:
@@ -210,8 +203,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
-                    atIndexPath:indexPath];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -223,8 +215,8 @@
     }
 }
 
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    
     [self.shoppingTableView endUpdates];
 }
 
