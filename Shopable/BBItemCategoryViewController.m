@@ -104,6 +104,8 @@
 #pragma mark - UI Actions
 
 - (IBAction)doneButtonPressed:(id)sender {
+    
+    [[BBStorageManager sharedManager] saveContext];
 
     [self dismissModalViewControllerAnimated:YES];
 }
