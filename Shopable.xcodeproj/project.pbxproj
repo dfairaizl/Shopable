@@ -406,14 +406,14 @@
 			children = (
 				777D32F41574337600F95F7A /* BBItem.h */,
 				777D32F51574337600F95F7A /* BBItem.m */,
-				777D32F11574337600F95F7A /* BBShoppingItem.h */,
-				777D32F21574337600F95F7A /* BBShoppingItem.m */,
-				777D32EE1574337600F95F7A /* BBList.h */,
-				777D32EF1574337600F95F7A /* BBList.m */,
 				777D32EB1574337600F95F7A /* BBItemCategory.h */,
 				777D32EC1574337600F95F7A /* BBItemCategory.m */,
+				777D32EE1574337600F95F7A /* BBList.h */,
+				777D32EF1574337600F95F7A /* BBList.m */,
 				777D32E81574337600F95F7A /* BBShoppingCart.h */,
 				777D32E91574337600F95F7A /* BBShoppingCart.m */,
+				777D32F11574337600F95F7A /* BBShoppingItem.h */,
+				777D32F21574337600F95F7A /* BBShoppingItem.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";

@@ -56,6 +56,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vsL-Rk-BYg" id="U9l-jb-THK"/>
+                                    <outlet property="delegate" destination="vsL-Rk-BYg" id="Uso-Zg-1bn"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,6 +76,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="shoppingTableView" destination="qXk-1T-xUo" id="F1A-YE-QzX"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-1383" y="696"/>
@@ -434,6 +441,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="showMenuButtonPressed:"/>
+                <relationship kind="outlet" name="shoppingTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
     </classes>

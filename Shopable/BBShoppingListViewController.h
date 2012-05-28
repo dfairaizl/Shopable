@@ -10,9 +10,12 @@
 
 #import "BBProtocols.h"
 
-@interface BBShoppingListViewController : UIViewController
+@interface BBShoppingListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, 
+                                                                                NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) id <BBNavigationDelegate> delegate;
+
+@property (strong, nonatomic) IBOutlet UITableView *shoppingTableView;
 
 @property (strong, nonatomic) BBList *currentList;
 
