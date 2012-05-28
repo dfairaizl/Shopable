@@ -90,9 +90,13 @@
         
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:BB_ENTITY_SHOPPING_ITEM];
         
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", 
+                                                                            [self.currentList currentShoppingCart]];
+        
         NSArray *sortDescriptors = [NSArray arrayWithObjects:
                                     [NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], nil];
         
+        [fetchRequest setPredicate:predicate];
         [fetchRequest setSortDescriptors:sortDescriptors];
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
