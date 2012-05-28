@@ -88,20 +88,26 @@
         
         NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
         
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:BB_ENTITY_SHOPPING_ITEM];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:BB_ENTITY_SHOPPING_ITEM 
+                                                             inManagedObjectContext:moc];
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", 
                                                                             [self.currentList currentShoppingCart]];
         
         NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES], nil];
+                                    [NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES],
+                                    nil];
         
+        [fetchRequest setEntity:entityDescription];
         [fetchRequest setPredicate:predicate];
         [fetchRequest setSortDescriptors:sortDescriptors];
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
                                                                         managedObjectContext:moc 
-                                                                          sectionNameKeyPath:@"itemCategoryName" 
+                                                                          sectionNameKeyPath:@"itemCategoryName"
                                                                                    cacheName:nil];
         
         _fetchedResultsController.delegate = self;
