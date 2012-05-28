@@ -81,7 +81,7 @@
         
         [self setListsToolbarItemsAnimated:YES];
         
-        [self.delegate showDetailsScreen];
+        //[self.delegate showDetailsScreen];
     }
     else {
         
@@ -89,7 +89,7 @@
         
         [self setEditingListsToolbarItemsAnimated:YES];
         
-        [self.delegate hideDetailsScreen];
+        //[self.delegate hideDetailsScreen];
     }
 }
 
@@ -99,7 +99,7 @@
     
     [BBList addList];
     
-    [self.delegate hideDetailsScreen];
+    //[self.delegate hideDetailsScreen];
 }
 
 #pragma mark - Overrides
@@ -310,7 +310,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [self.tableView setEditing:NO animated:YES];
     }
     
-    [self.delegate showDetailsScreen];
+    //[self.delegate showDetailsScreen];
     [self setListsToolbarItemsAnimated:YES];
 }
 
@@ -342,14 +342,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                    target:nil 
                                                                    action:nil];
     
-    UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] 
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace 
-                                  target:nil 
-                                  action:nil];
-    
-    [fixedSpace setWidth:65.0f];
-    
-    NSArray *items = [NSArray arrayWithObjects:editButton, flexSpace ,emailButton, fixedSpace, nil];
+    NSArray *items = [NSArray arrayWithObjects:editButton, flexSpace ,emailButton, nil];
     
     [self setToolbarItems:items animated:animated];
 }

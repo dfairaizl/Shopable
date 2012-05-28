@@ -14,8 +14,17 @@
 
 @interface BBNavContainerViewController ()
 
+@property (strong, nonatomic) UIPageViewController *pageController;
+
 @property (strong, nonatomic) UINavigationController *listsTableViewController;
 @property (strong, nonatomic) UINavigationController *shoppingListViewController;
+
+@end
+
+@interface BBNavContainerViewController (Controllers)
+
+- (UINavigationController *)listsViewController;
+- (UINavigationController *)shoppingListViewController;
 
 @end
 
@@ -23,6 +32,8 @@
     
     BOOL showingNavigationMenu;
 }
+
+@synthesize pageController = _pageController;
 
 @synthesize listsTableViewController = _listsTableViewController;
 @synthesize shoppingListViewController = _shoppingListViewController;
@@ -41,29 +52,34 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.listsTableViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                     instantiateViewControllerWithIdentifier:@"BBListsViewController"];
+    //First page is the lists menu
     
-    self.shoppingListViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                     instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];
+    UIViewController *listsController = [self listsViewController];
     
+    NSArray *pages = [NSArray arrayWithObject:listsController];
     
-    BBListsViewController *listsController = (BBListsViewController *)[self.listsTableViewController topViewController];
+    [self.pageController setViewControllers:pages 
+                                  direction:UIPageViewControllerNavigationDirectionForward 
+                                   animated:YES 
+                                 completion:^(BOOL finished) {
+        
+                                 }];
     
-    BBShoppingListViewController *shoppingList = (BBShoppingListViewController *)[self.shoppingListViewController 
-                                                                                  topViewController];
+    [self.pageController.gestureRecognizers enumerateObjectsUsingBlock:^(UIGestureRecognizer *gr, NSUInteger index, BOOL *stop) {
+       
+        if([gr isMemberOfClass:[UITapGestureRecognizer class]]) {
+         
+            gr.delegate = self;
+        }
+    }];
     
-    //setup delegates
-    listsController.delegate = self;
-    shoppingList.delegate = self;
+    [self addChildViewController:self.pageController];
     
-    //child view controllers
-    [self addChildViewController:self.listsTableViewController];
-    [self addChildViewController:self.shoppingListViewController];
+    [self.view addSubview:self.pageController.view];
     
-    //child views
-    [self.view addSubview:self.listsTableViewController.view];
-    [self.view addSubview:self.shoppingListViewController.view];
+    //[self didMoveToParentViewController:self.pageController];
+    
+    //self.view.gestureRecognizers = self.pageController.gestureRecognizers;
 }
 
 - (void)viewDidUnload
@@ -77,101 +93,141 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Overrides
+
+- (UIPageViewController *)pageController {
+    
+    if(_pageController == nil) {
+        
+        NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:UIPageViewControllerSpineLocationMin]  
+                                                            forKey:UIPageViewControllerOptionSpineLocationKey];
+        
+        _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl 
+                                                          navigationOrientation:UIPageViewControllerNavigationOrientationVertical 
+                                                                        options:options];
+        
+        _pageController.dataSource = self;
+        _pageController.delegate = self;
+    }
+    
+    return _pageController;
+}
+
+#pragma mark - UIPageViewControllerDatasource Methods
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController 
+       viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    UIViewController *viewControllerAfter = nil;
+    
+    if([viewController isMemberOfClass:[BBListsViewController class]]) {
+        
+        viewControllerAfter = [self shoppingListViewController];
+    }
+    else if([viewController isMemberOfClass:[BBShoppingListViewController class]]) {
+        
+        viewControllerAfter = [self listsViewController];
+    }
+    
+    return viewControllerAfter;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController 
+      viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    UIViewController *viewControllerBefore = nil;
+    
+    if([viewController isMemberOfClass:[BBListsViewController class]]) {
+        
+        viewControllerBefore = [self shoppingListViewController];
+    }
+    else if([viewController isMemberOfClass:[BBShoppingListViewController class]]) {
+        
+        viewControllerBefore = [self listsViewController];
+    }
+    
+    return viewControllerBefore;
+}
+
 #pragma mark - BBNavigationDelegate Methods
 
 - (void)showNavigationMenu {
     
-    if(showingNavigationMenu == NO) {
-     
-        [UIView animateWithDuration:0.4 
-                              delay:0.0 
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^() {
-                             
-                             CGRect frame = self.shoppingListViewController.view.frame;
-                             frame.origin.x = CGRectGetWidth(self.view.frame) * 0.80;
-                             self.shoppingListViewController.view.frame = frame;
-                             
-                         }
-                         completion:^(BOOL finished) {
-                            
-                             showingNavigationMenu = YES;
-                         }];
-    }
-    else {
-
-        [UIView animateWithDuration:0.4 
-                              delay:0.0 
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^() {
-                             
-                             CGRect frame = self.shoppingListViewController.view.frame;
-                             frame.origin.x = 0;
-                             self.shoppingListViewController.view.frame = frame;
-                             
-                         }
-                         completion:^(BOOL finished) {
-                             
-                             showingNavigationMenu = NO;
-                         }];
-    }
-}
-
-- (void)hideDetailsScreen {
+    UIViewController *listsController = [self listsViewController];
     
-    if(showingNavigationMenu == YES) {
-        
-        [UIView animateWithDuration:0.3 
-                              delay:0.0 
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^() {
-                             
-                             CGRect frame = self.shoppingListViewController.view.frame;
-                             frame.origin.x = CGRectGetWidth(self.view.frame);
-                             self.shoppingListViewController.view.frame = frame;
-                         }
-                         completion:NULL];
-    }
-}
-
-- (void)showDetailsScreen {
+    NSArray *pages = [NSArray arrayWithObject:listsController];
     
-    if(showingNavigationMenu == YES) {
-        
-        [UIView animateWithDuration:0.3 
-                              delay:0.0 
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^() {
-                             
-                             CGRect frame = self.shoppingListViewController.view.frame;
-                             frame.origin.x = CGRectGetWidth(self.view.frame) * 0.80;
-                             self.shoppingListViewController.view.frame = frame;
-                         }
-                         completion:NULL];
-    }
-    else {
-
-        [UIView animateWithDuration:0.3 
-                              delay:0.0 
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^() {
-                             
-                             CGRect frame = self.shoppingListViewController.view.frame;
-                             frame.origin.x = 0;
-                             self.shoppingListViewController.view.frame = frame;
-                         }
-                         completion:NULL];
-        
-    }
+    [self.pageController setViewControllers:pages 
+                                  direction:UIPageViewControllerNavigationDirectionReverse 
+                                   animated:YES 
+                                 completion:^(BOOL finished) {
+                                     
+                                 }];
 }
 
 - (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore {
     
-    BBShoppingListViewController *shoppingListVC = (BBShoppingListViewController *)[self.shoppingListViewController topViewController];
+    UINavigationController *pageNav = [self shoppingListViewController];
     
-    shoppingListVC.currentList = selectedStore;
+    BBShoppingListViewController *controller = (BBShoppingListViewController *)pageNav.topViewController;
     
-    [self showNavigationMenu];
+    controller.currentList = selectedStore;
+    
+    NSArray *pages = [NSArray arrayWithObject:pageNav];
+    
+    [self.pageController setViewControllers:pages 
+                                  direction:UIPageViewControllerNavigationDirectionForward 
+                                   animated:YES 
+                                 completion:^(BOOL finished) {
+                                     
+                                 }]; 
+}
+
+#pragma mark - UIGestureRecognizerDelegate Methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    BOOL continueTouch = YES;
+    
+    if([gestureRecognizer isMemberOfClass:[UITapGestureRecognizer class]]) {
+    
+        if([touch.view isKindOfClass:[UITableViewCell class]] == NO) {
+            
+            continueTouch = NO;
+        }
+        else if([touch.view isKindOfClass:[UIControl class]] == NO) {
+            
+            continueTouch = NO;
+        }
+    }
+    
+    return continueTouch;
+}
+
+#pragma mark - Private Controller Methods
+
+- (UINavigationController *)listsViewController {
+    
+    UINavigationController *listsNavController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
+                                              instantiateViewControllerWithIdentifier:@"BBListsViewController"];
+    
+    BBListsViewController *listsViewController = (BBListsViewController *)[listsNavController topViewController];
+    
+    listsViewController.delegate = self;
+    
+    return listsNavController;
+}
+
+- (UINavigationController *)shoppingListViewController {
+
+    UINavigationController *pageNav = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
+                                       instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];
+    
+    BBShoppingListViewController *controller = (BBShoppingListViewController *)pageNav.topViewController;
+    
+    controller.delegate = self;
+    
+    return pageNav;
 }
 
 @end

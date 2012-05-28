@@ -10,13 +10,14 @@
         <scene sceneID="m3A-oz-a6n">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAQ-Rt-TL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="rYh-TN-C7D" customClass="BBNavContainerViewController" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="rYh-TN-C7D" customClass="BBNavContainerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ol4-1h-7Ss">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GVH-nj-sWj"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-2349" y="696"/>
@@ -35,16 +36,26 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBShoppingListCell" id="9CD-Xo-4Ex">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBShoppingListCell" textLabel="kPo-Hd-eZR" style="IBUITableViewCellStyleDefault" id="9CD-Xo-4Ex">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kPo-Hd-eZR">
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -113,11 +124,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnL-zV-8Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" wantsFullScreenLayout="YES" id="aX2-7F-4Ln" customClass="BBListsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H5j-ut-JR2">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wLd-St-nnS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3lz-tr-2et">
@@ -137,11 +148,11 @@
                                     </connections>
                                 </button>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBListCell" id="BtX-29-u7f" customClass="BBListTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBListCell" id="BtX-29-u7f" customClass="BBListTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5N4-xh-JdA">
@@ -178,13 +189,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="L0z-uP-oh8"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="addNewListButton" destination="3lz-tr-2et" id="eht-6O-Iju"/>
                         <outlet property="tableView" destination="wLd-St-nnS" id="AhL-fT-Fxi"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2349" y="1318"/>
+            <point key="canvasLocation" x="-2349" y="1309"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7oi-du-vcg">
@@ -343,26 +355,26 @@
             <point key="canvasLocation" x="158" y="696"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="qUM-ke-TAr">
+        <scene sceneID="wOr-xp-IYN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bkD-W2-KPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="BBListsViewController" navigationBarHidden="YES" toolbarHidden="NO" id="oXf-3o-b9c" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWS-St-bFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="BBListsViewController" wantsFullScreenLayout="YES" navigationBarHidden="YES" toolbarHidden="NO" id="nRH-rZ-1hL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="zqu-yE-leK">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ByS-r2-vva">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uaw-Xb-1nU">
-                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NVd-yU-KIY">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="aX2-7F-4Ln" kind="relationship" relationship="rootViewController" id="Tfn-TU-5PS"/>
+                        <segue destination="aX2-7F-4Ln" kind="relationship" relationship="rootViewController" id="pwl-95-Bzs"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-2875" y="1318"/>
+            <point key="canvasLocation" x="-2875" y="1309"/>
         </scene>
     </scenes>
     <classes>

@@ -11,6 +11,8 @@
 
 @protocol BBNavigationDelegate <NSObject>
 
+@optional
+
 - (void)showNavigationMenu;
 - (void)hideDetailsScreen;
 - (void)showDetailsScreen;
