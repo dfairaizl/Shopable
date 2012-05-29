@@ -33,7 +33,7 @@ static BBStorageManager *sharedManager = nil;
         //attempt to enable iCloud
         [self enableiCloud];
         
-        if([[NSFileManager defaultManager] fileExistsAtPath:[[self iCloudStorePath] path]] == NO) {
+        if([self storeExists] == NO) {
          
             [self setupDatabase];
         }
@@ -53,8 +53,7 @@ static BBStorageManager *sharedManager = nil;
 
 - (BOOL)storeExists {
  
-    NSString *storePath = [[[self applicationDocumentsDirectory] 
-                            URLByAppendingPathComponent:@"Shopable.sqlite"] path];
+    NSString *storePath = [[self iCloudStorePath] path];
     
     return [[NSFileManager defaultManager] fileExistsAtPath:storePath];
 }
