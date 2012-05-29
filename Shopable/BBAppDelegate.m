@@ -26,6 +26,8 @@
     
     [self configureApperance];
     
+    [[BBStorageManager sharedManager] saveContext];
+    
     return YES;
 }
 							

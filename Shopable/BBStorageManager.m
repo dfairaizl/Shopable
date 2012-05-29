@@ -33,7 +33,7 @@ static BBStorageManager *sharedManager = nil;
         //attempt to enable iCloud
         [self enableiCloud];
         
-        if([self storeExists] == NO) {
+        if([[NSFileManager defaultManager] fileExistsAtPath:[[self iCloudStorePath] path]] == NO) {
          
             [self setupDatabase];
         }
