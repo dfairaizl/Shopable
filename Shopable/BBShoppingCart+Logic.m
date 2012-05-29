@@ -11,72 +11,50 @@
 
 @implementation BBShoppingCart (Logic)
 
-- (BBShoppingItem *)addItemToCart:(BBItem *)item {
+- (BOOL)containsItem:(BBItem *)item {
+ 
+    __block BOOL itemFound = NO;
     
-    BBShoppingItem *shoppingItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_SHOPPING_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
+    [self.cartItems enumerateObjectsUsingBlock:^(BBShoppingItem *shoppingItem, BOOL *stop) {
+       
+        if(shoppingItem.item == item) {
+            
+            itemFound = YES;
+            *stop = YES;
+        }
+    }];
     
-    shoppingItem.item = item;
-    
-    //add the new BBShoppingItem to this cart
-    [self addCartItemsObject:shoppingItem];
-    
-    //add the new BBShoppingItem to the item's colletion of shoppingItems
-    [item addShoppingItemsObject:shoppingItem];
-    
-    shoppingItem.itemCategoryName = item.parentItemCategory.name;
-    
-    return shoppingItem;
+    return itemFound;
 }
 
-- (void)addUncategorizedItem:(BBItem *)newItem {
+- (void)addItem:(BBItem *)item {
     
-    BBShoppingItem *shoppingItem = [self addItemToCart:newItem];
+    NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
     
-    shoppingItem.itemCategoryName = [NSString stringWithString:@"Uncategorized"];
+    BBShoppingItem *newShoppingItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_SHOPPING_ITEM 
+                                                                    inManagedObjectContext:moc];
+    
+    newShoppingItem.item = item;
+    newShoppingItem.itemCategory = item.parentItemCategory;
+    
+    newShoppingItem.parentShoppingCart = self;
 }
 
-- (void)removeItemFromCart:(BBShoppingItem *)item {
+- (void)removeItem:(BBItem *)item {
     
-    [self removeCartItemsObject:item];
-}
-
-- (BOOL)containsItem:(BBShoppingItem *)item {
-    
-    return [self.cartItems containsObject:item];
-}
-
-- (BBShoppingItem *)shoppingItemForItem:(BBItem *)item createIfNotPresent:(BOOL)create {
-    
-    NSError *error = nil;
-    
-    NSFetchRequest *itemsFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_SHOPPING_ITEM];
-    
-    [itemsFR setPredicate:[NSPredicate predicateWithFormat:@"item == %@ AND parentShoppingCart == %@", item, self]];
-    
-    NSArray *shoppingItems = [[[BBStorageManager sharedManager] managedObjectContext] executeFetchRequest:itemsFR error:&error];
-    
-    
-    BBShoppingItem *shoppingItem = [shoppingItems lastObject];
-    
-    if(shoppingItem == nil && create == YES) {
+    [self.cartItems enumerateObjectsUsingBlock:^(BBShoppingItem *shoppingItem, BOOL *stop) {
         
-        shoppingItem = [self addItemToCart:item];
-    }
-    
-    return shoppingItem;
+        if(shoppingItem.item == item) {
+            
+            [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:shoppingItem];
+            *stop = YES;
+        }
+    }];
 }
 
-- (BOOL)containsShoppingItemForItem:(BBItem *)item {
-
-    NSError *error = nil;
+- (void)removeShoppingItem:(BBShoppingItem *)shoppingItem {
     
-    NSFetchRequest *itemsFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_SHOPPING_ITEM];
-    
-    [itemsFR setPredicate:[NSPredicate predicateWithFormat:@"item == %@ AND parentShoppingCart == %@", item, self]];
-    
-    NSInteger items = [[[BBStorageManager sharedManager] managedObjectContext] countForFetchRequest:itemsFR error:&error];
-
-    return items == 1;
+    [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:shoppingItem];
 }
 
 @end

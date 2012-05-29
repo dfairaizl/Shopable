@@ -10,6 +10,11 @@
 		770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 770C2D5114F01D4900FC88E1 /* BBStorageManager+iCloud.m */; };
 		771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */; };
 		771C2550155D60890092EFB8 /* BBItemCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */; };
+		7732DD4A15744756001F67CF /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD4915744756001F67CF /* BBShoppingCart.m */; };
+		7732DD4D15744756001F67CF /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD4C15744756001F67CF /* BBItem.m */; };
+		7732DD5015744756001F67CF /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD4F15744756001F67CF /* BBItemCategory.m */; };
+		7732DD5315744756001F67CF /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5215744756001F67CF /* BBList.m */; };
+		7732DD5615744757001F67CF /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5515744757001F67CF /* BBShoppingItem.m */; };
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
 		7750F6091561FBF900B54F1F /* BBItemsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7750F6081561FBF900B54F1F /* BBItemsListTableViewController.m */; };
@@ -20,11 +25,6 @@
 		777D32D61574278200F95F7A /* check_box_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D21574278200F95F7A /* check_box_checked@2x.png */; };
 		777D32D71574278200F95F7A /* check_box_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D31574278200F95F7A /* check_box_empty.png */; };
 		777D32D81574278200F95F7A /* check_box_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D41574278200F95F7A /* check_box_empty@2x.png */; };
-		777D32EA1574337600F95F7A /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D32E91574337600F95F7A /* BBShoppingCart.m */; };
-		777D32ED1574337600F95F7A /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D32EC1574337600F95F7A /* BBItemCategory.m */; };
-		777D32F01574337600F95F7A /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D32EF1574337600F95F7A /* BBList.m */; };
-		777D32F31574337600F95F7A /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D32F21574337600F95F7A /* BBShoppingItem.m */; };
-		777D32F61574337600F95F7A /* BBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D32F51574337600F95F7A /* BBItem.m */; };
 		778C1C5014BF70A800190DAE /* CategoryItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 778C1C4F14BF70A800190DAE /* CategoryItems.plist */; };
 		7798254A14E73828007031EF /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798254914E73828007031EF /* BBAppDelegate.m */; };
 		77A20FAB14E7493800E44B0A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4178514BE111100ACAAC1 /* CoreData.framework */; };
@@ -48,7 +48,6 @@
 		77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */; };
 		77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */; };
 		77BCFAF61560AF22005ED2E5 /* BBItemCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */; };
-		77C4607414E6033200DFF7A3 /* BBShoppingItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C4607314E6033200DFF7A3 /* BBShoppingItem+Logic.m */; };
 		77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07D14E70D4900337612 /* BBItem+Logic.m */; };
 		77EDC08614E736A700337612 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4175214BDFEC200ACAAC1 /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -70,6 +69,16 @@
 		771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBShoppingCart+Logic.m"; sourceTree = "<group>"; };
 		771C254E155D60890092EFB8 /* BBItemCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryViewController.h; sourceTree = "<group>"; };
 		771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryViewController.m; sourceTree = "<group>"; };
+		7732DD4815744756001F67CF /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
+		7732DD4915744756001F67CF /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
+		7732DD4B15744756001F67CF /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
+		7732DD4C15744756001F67CF /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
+		7732DD4E15744756001F67CF /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
+		7732DD4F15744756001F67CF /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
+		7732DD5115744756001F67CF /* BBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBList.h; sourceTree = "<group>"; };
+		7732DD5215744756001F67CF /* BBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBList.m; sourceTree = "<group>"; };
+		7732DD5415744757001F67CF /* BBShoppingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItem.h; sourceTree = "<group>"; };
+		7732DD5515744757001F67CF /* BBShoppingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItem.m; sourceTree = "<group>"; };
 		7745933F14C5E80600EF1565 /* StoreTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoreTypes.plist; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
 		7750F6071561FBF900B54F1F /* BBItemsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemsListTableViewController.h; sourceTree = "<group>"; };
@@ -84,16 +93,6 @@
 		777D32D21574278200F95F7A /* check_box_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check_box_checked@2x.png"; path = "Resources/Images/ItemsListScreen/check_box_checked@2x.png"; sourceTree = "<group>"; };
 		777D32D31574278200F95F7A /* check_box_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box_empty.png; path = Resources/Images/ItemsListScreen/check_box_empty.png; sourceTree = "<group>"; };
 		777D32D41574278200F95F7A /* check_box_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check_box_empty@2x.png"; path = "Resources/Images/ItemsListScreen/check_box_empty@2x.png"; sourceTree = "<group>"; };
-		777D32E81574337600F95F7A /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
-		777D32E91574337600F95F7A /* BBShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingCart.m; sourceTree = "<group>"; };
-		777D32EB1574337600F95F7A /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
-		777D32EC1574337600F95F7A /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
-		777D32EE1574337600F95F7A /* BBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBList.h; sourceTree = "<group>"; };
-		777D32EF1574337600F95F7A /* BBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBList.m; sourceTree = "<group>"; };
-		777D32F11574337600F95F7A /* BBShoppingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItem.h; sourceTree = "<group>"; };
-		777D32F21574337600F95F7A /* BBShoppingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItem.m; sourceTree = "<group>"; };
-		777D32F41574337600F95F7A /* BBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItem.h; sourceTree = "<group>"; };
-		777D32F51574337600F95F7A /* BBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItem.m; sourceTree = "<group>"; };
 		778C1C4F14BF70A800190DAE /* CategoryItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryItems.plist; sourceTree = "<group>"; };
 		7798254814E73828007031EF /* BBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
 		7798254914E73828007031EF /* BBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
@@ -130,8 +129,6 @@
 		77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryView.h; sourceTree = "<group>"; };
 		77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryView.m; sourceTree = "<group>"; };
 		77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBItemCategoryView.xib; sourceTree = "<group>"; };
-		77C4607214E6033200DFF7A3 /* BBShoppingItem+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBShoppingItem+Logic.h"; sourceTree = "<group>"; };
-		77C4607314E6033200DFF7A3 /* BBShoppingItem+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBShoppingItem+Logic.m"; sourceTree = "<group>"; };
 		77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Shopable.entitlements; sourceTree = "<group>"; };
 		77EDC07C14E70D4900337612 /* BBItem+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBItem+Logic.h"; sourceTree = "<group>"; };
 		77EDC07D14E70D4900337612 /* BBItem+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBItem+Logic.m"; sourceTree = "<group>"; };
@@ -175,8 +172,6 @@
 				7751FADA15605C62006339A0 /* BBList+Logic.m */,
 				771391F114C4E40700875FB3 /* BBShoppingCart+Logic.h */,
 				771391F214C4E40700875FB3 /* BBShoppingCart+Logic.m */,
-				77C4607214E6033200DFF7A3 /* BBShoppingItem+Logic.h */,
-				77C4607314E6033200DFF7A3 /* BBShoppingItem+Logic.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -404,16 +399,16 @@
 		77A417E114BE1DAC00ACAAC1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				777D32F41574337600F95F7A /* BBItem.h */,
-				777D32F51574337600F95F7A /* BBItem.m */,
-				777D32EB1574337600F95F7A /* BBItemCategory.h */,
-				777D32EC1574337600F95F7A /* BBItemCategory.m */,
-				777D32EE1574337600F95F7A /* BBList.h */,
-				777D32EF1574337600F95F7A /* BBList.m */,
-				777D32E81574337600F95F7A /* BBShoppingCart.h */,
-				777D32E91574337600F95F7A /* BBShoppingCart.m */,
-				777D32F11574337600F95F7A /* BBShoppingItem.h */,
-				777D32F21574337600F95F7A /* BBShoppingItem.m */,
+				7732DD4B15744756001F67CF /* BBItem.h */,
+				7732DD4C15744756001F67CF /* BBItem.m */,
+				7732DD4E15744756001F67CF /* BBItemCategory.h */,
+				7732DD4F15744756001F67CF /* BBItemCategory.m */,
+				7732DD5115744756001F67CF /* BBList.h */,
+				7732DD5215744756001F67CF /* BBList.m */,
+				7732DD4815744756001F67CF /* BBShoppingCart.h */,
+				7732DD4915744756001F67CF /* BBShoppingCart.m */,
+				7732DD5415744757001F67CF /* BBShoppingItem.h */,
+				7732DD5515744757001F67CF /* BBShoppingItem.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -558,7 +553,6 @@
 				77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */,
 				771391F314C4E40700875FB3 /* BBShoppingCart+Logic.m in Sources */,
 				77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */,
-				77C4607414E6033200DFF7A3 /* BBShoppingItem+Logic.m in Sources */,
 				77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */,
 				7798254A14E73828007031EF /* BBAppDelegate.m in Sources */,
 				770C2D5214F01D4900FC88E1 /* BBStorageManager+iCloud.m in Sources */,
@@ -571,11 +565,11 @@
 				77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */,
 				7750F6091561FBF900B54F1F /* BBItemsListTableViewController.m in Sources */,
 				7750F60D15620EDA00B54F1F /* BBItemTableViewCell.m in Sources */,
-				777D32EA1574337600F95F7A /* BBShoppingCart.m in Sources */,
-				777D32ED1574337600F95F7A /* BBItemCategory.m in Sources */,
-				777D32F01574337600F95F7A /* BBList.m in Sources */,
-				777D32F31574337600F95F7A /* BBShoppingItem.m in Sources */,
-				777D32F61574337600F95F7A /* BBItem.m in Sources */,
+				7732DD4A15744756001F67CF /* BBShoppingCart.m in Sources */,
+				7732DD4D15744756001F67CF /* BBItem.m in Sources */,
+				7732DD5015744756001F67CF /* BBItemCategory.m in Sources */,
+				7732DD5315744756001F67CF /* BBList.m in Sources */,
+				7732DD5615744757001F67CF /* BBShoppingItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

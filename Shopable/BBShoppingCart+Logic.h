@@ -12,12 +12,9 @@
 
 @interface BBShoppingCart (Logic)
 
-- (BBShoppingItem *)addItemToCart:(BBItem *)item;
-- (void)addUncategorizedItem:(BBItem *)newItem;
-- (void)removeItemFromCart:(BBShoppingItem *)item;
-- (BOOL)containsItem:(BBShoppingItem *)item;
-
-- (BBShoppingItem *)shoppingItemForItem:(BBItem *)item createIfNotPresent:(BOOL)create;
-- (BOOL)containsShoppingItemForItem:(BBItem *)item;
+- (BOOL)containsItem:(BBItem *)item;
+- (void)addItem:(BBItem *)item; 
+- (void)removeItem:(BBItem *)item;
+- (void)removeShoppingItem:(BBShoppingItem *)shoppingItem;
 
 @end

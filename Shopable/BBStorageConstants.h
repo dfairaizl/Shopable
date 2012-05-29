@@ -13,12 +13,13 @@
 #import "BBList.h"
 #import "BBItemCategory.h"
 #import "BBItem.h"
+#import "BBShoppingCart.h"
+#import "BBShoppingItem.h"
 
 //Categories
 #import "BBList+Logic.h"
 #import "BBItem+Logic.h"
 #import "BBShoppingCart+Logic.h"
-#import "BBShoppingItem+Logic.h"
 
 #define     BB_ENTITY_LIST             @"BBList"
 #define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"

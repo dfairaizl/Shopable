@@ -9,6 +9,7 @@
     <entity name="BBItemCategory" representedClassName="BBItemCategory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="categoryShoppingItems" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingItem" inverseName="itemCategory" inverseEntity="BBShoppingItem" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BBItem" inverseName="parentItemCategory" inverseEntity="BBItem" syncable="YES"/>
     </entity>
     <entity name="BBList" representedClassName="BBList" syncable="YES">
@@ -24,17 +25,17 @@
     </entity>
     <entity name="BBShoppingItem" representedClassName="BBShoppingItem" syncable="YES">
         <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="BBImageTransformer" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="itemCategoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBItem" inverseName="shoppingItems" inverseEntity="BBItem" syncable="YES"/>
+        <relationship name="itemCategory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBItemCategory" inverseName="categoryShoppingItems" inverseEntity="BBItemCategory" syncable="YES"/>
         <relationship name="parentShoppingCart" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBShoppingCart" inverseName="cartItems" inverseEntity="BBShoppingCart" syncable="YES"/>
     </entity>
     <elements>
         <element name="BBItem" positionX="133" positionY="237" width="128" height="195"/>
-        <element name="BBItemCategory" positionX="151" positionY="81" width="128" height="90"/>
+        <element name="BBItemCategory" positionX="378" positionY="126" width="128" height="90"/>
         <element name="BBList" positionX="-108" positionY="315" width="128" height="120"/>
         <element name="BBShoppingCart" positionX="-101" positionY="522" width="128" height="75"/>
         <element name="BBShoppingItem" positionX="90" positionY="519" width="128" height="165"/>

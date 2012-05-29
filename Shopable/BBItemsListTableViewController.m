@@ -157,7 +157,7 @@
     // Configure the cell...
     BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if([[self.currentList currentShoppingCart] containsShoppingItemForItem:item] == YES) {
+    if([[self.currentList currentShoppingCart] containsItem:item] == YES) {
         
         [cell checkItem:YES];
     }
@@ -176,17 +176,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    BBShoppingItem *shoppingItem = [[self.currentList currentShoppingCart] shoppingItemForItem:item 
-                                                                            createIfNotPresent:NO];
     
-    if([[self.currentList currentShoppingCart] containsShoppingItemForItem:item] == YES) {
+    if([[self.currentList currentShoppingCart] containsItem:item] == YES) {
         
-        [[self.currentList currentShoppingCart] removeItemFromCart:shoppingItem];
+        [[self.currentList currentShoppingCart] removeItem:item];
     }
     else {
     
-        [[self.currentList currentShoppingCart] addCartItemsObject:[[self.currentList currentShoppingCart] shoppingItemForItem:item 
-                                                                                                           createIfNotPresent:YES]];
+        [[self.currentList currentShoppingCart] addItem:item];
     }
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 

@@ -8,6 +8,7 @@
 
 #import "BBItemCategory.h"
 #import "BBItem.h"
+#import "BBShoppingItem.h"
 
 
 @implementation BBItemCategory
@@ -15,5 +16,6 @@
 @dynamic name;
 @dynamic type;
 @dynamic items;
+@dynamic categoryShoppingItems;
 
 @end

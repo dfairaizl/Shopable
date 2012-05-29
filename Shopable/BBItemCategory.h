@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class BBItem;
+@class BBItem, BBShoppingItem;
 
 @interface BBItemCategory : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSSet *items;
+@property (nonatomic, retain) BBShoppingItem *categoryShoppingItems;
 @end
 
 @interface BBItemCategory (CoreDataGeneratedAccessors)
