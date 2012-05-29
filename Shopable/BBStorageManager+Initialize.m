@@ -27,7 +27,7 @@
     
     [self createDefaultCategories];
     
-    [self saveContext];
+//    [self saveContext];
 }
 
 - (void)createDefaultCategories {

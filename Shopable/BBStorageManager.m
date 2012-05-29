@@ -216,6 +216,8 @@ static BBStorageManager *sharedManager = nil;
                                                        object:self.persistentStoreCoordinator];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
+            
+            [self saveContext];
         });
     });
     

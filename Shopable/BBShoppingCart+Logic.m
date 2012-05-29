@@ -35,9 +35,11 @@
                                                                     inManagedObjectContext:moc];
     
     newShoppingItem.item = item;
-    newShoppingItem.itemCategory = item.parentItemCategory;
-    
     newShoppingItem.parentShoppingCart = self;
+    
+    [item addShoppingItemsObject:newShoppingItem];
+    
+    [self addCartItemsObject:newShoppingItem];
 }
 
 - (void)removeItem:(BBItem *)item {

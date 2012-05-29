@@ -48,9 +48,26 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    NSError *error = nil;
+    
+    [self.fetchedResultsController performFetch:&error];
+    
+    if(error != nil) {
+        
+        NSLog(@"Error fetching shopping items");
+    }
+    
+    [self.shoppingTableView reloadData];
+}
+
 - (void)viewDidUnload
 {
     [self setShoppingTableView:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -84,8 +101,6 @@
     
     if(_fetchedResultsController == nil) {
         
-        NSError *error = nil;
-        
         NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
         
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:BB_ENTITY_SHOPPING_ITEM 
@@ -97,7 +112,7 @@
                                                                             [self.currentList currentShoppingCart]];
         
         NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"itemCategory.name" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"item.parentItemCategory.name" ascending:YES],
                                     [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES],
                                     nil];
         
@@ -107,17 +122,8 @@
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
                                                                         managedObjectContext:moc 
-                                                                          sectionNameKeyPath:@"itemCategory.name"
+                                                                          sectionNameKeyPath:@"item.parentItemCategory.name"
                                                                                    cacheName:nil];
-        
-        _fetchedResultsController.delegate = self;
-        
-        [_fetchedResultsController performFetch:&error];
-        
-        if(error != nil) {
-            
-            NSLog(@"Error fetching shopping items");
-        }
     }
     
     return _fetchedResultsController;
