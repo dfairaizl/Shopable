@@ -23,6 +23,7 @@
 + (BBStorageManager *)sharedManager;
 
 - (void)initalize;
+- (void)seed;
 
 - (void)saveContext;
 - (NSURL *)storePath;

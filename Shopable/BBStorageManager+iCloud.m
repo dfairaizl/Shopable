@@ -37,7 +37,7 @@
 
     if([self iCloudEnabled] == YES) {
         
-        [options setValue:@"com.basicallybits.shopable.store" forKey:NSPersistentStoreUbiquitousContentNameKey];
+        [options setValue:@"7WURNNVTE9.shopable" forKey:NSPersistentStoreUbiquitousContentNameKey];
         [options setValue:[NSURL fileURLWithPath:[self iCloudTransactionLogsPath]] forKey:NSPersistentStoreUbiquitousContentURLKey];
     }
     
@@ -47,7 +47,7 @@
 - (NSString *)iCloudTransactionLogsPath {
     
     //create the path to store the transaction logs for iCloud
-    NSString* coreDataCloudContent = [[self.ubiquityContainerURL path] stringByAppendingPathComponent:@"TransLogs"];
+    NSString* coreDataCloudContent = [[self.ubiquityContainerURL path] stringByAppendingPathComponent:@"ShopableLogs"];
     
     if(coreDataCloudContent == nil) {
         

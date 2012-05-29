@@ -48,11 +48,16 @@ static BBStorageManager *sharedManager = nil;
     
     if([self storeExists] == NO) {
         
-        [self setupDatabase];
+        //[self setupDatabase];
     }
     
     //attempt to enable iCloud
     [self enableiCloud];
+}
+
+- (void)seed {
+    
+    [self setupDatabase];
 }
 
 - (BOOL)storeExists {
@@ -217,8 +222,6 @@ static BBStorageManager *sharedManager = nil;
                                                        object:self.persistentStoreCoordinator];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
-            
-            [self saveContext];
         });
     });
     
