@@ -49,6 +49,8 @@
         if(shoppingItem.item == item) {
             
             [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:shoppingItem];
+            [self removeCartItemsObject:shoppingItem];
+            
             *stop = YES;
         }
     }];
