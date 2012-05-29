@@ -22,7 +22,10 @@
 
 + (BBStorageManager *)sharedManager;
 
+- (void)initalize;
+
 - (void)saveContext;
+- (NSURL *)storePath;
 - (BOOL)storeExists;
 - (NSDictionary *)storeOptions;
 - (void)resetStorageManager;

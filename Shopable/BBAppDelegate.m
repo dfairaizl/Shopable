@@ -26,7 +26,7 @@
     
     [self configureApperance];
     
-    [BBStorageManager sharedManager];
+    [[BBStorageManager sharedManager] initalize];
     
     return YES;
 }

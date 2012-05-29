@@ -34,6 +34,8 @@
 - (void)setListsToolbarItemsAnimated:(BOOL)animated;
 - (void)setEditingListsToolbarItemsAnimated:(BOOL)animated;
 
+- (void)refreshUI:(NSNotification *)note;
+
 @end
 
 @implementation BBListsViewController
@@ -52,6 +54,8 @@
     [super viewDidLoad];
     
     [self setListsToolbarItemsAnimated:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUI:) name:@"RefreshUI" object:nil];
 }
 
 - (void)viewDidUnload
@@ -61,9 +65,10 @@
     
     [self setEditListsButton:nil];
     [self setEmailListsButton:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -357,6 +362,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSArray *items = [NSArray arrayWithObject:doneButton];
     
     [self setToolbarItems:items animated:animated];
+}
+
+- (void)refreshUI:(NSNotification *)note {
+    
+    [self.fetchedResultsController performFetch:nil];
+    
+    [self.tableView reloadData];
 }
 
 @end

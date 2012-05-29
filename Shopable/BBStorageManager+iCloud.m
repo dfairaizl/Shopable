@@ -35,11 +35,11 @@
     
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
 
-//    if([self iCloudEnabled] == YES) {
-//        
-//        [options setValue:@"com.basicallybits.shopable.store" forKey:NSPersistentStoreUbiquitousContentNameKey];
-//        [options setValue:[NSURL fileURLWithPath:[self iCloudTransactionLogsPath]] forKey:NSPersistentStoreUbiquitousContentURLKey];
-//    }
+    if([self iCloudEnabled] == YES) {
+        
+        [options setValue:@"com.basicallybits.shopable.store" forKey:NSPersistentStoreUbiquitousContentNameKey];
+        [options setValue:[NSURL fileURLWithPath:[self iCloudTransactionLogsPath]] forKey:NSPersistentStoreUbiquitousContentURLKey];
+    }
     
     return options;
 }

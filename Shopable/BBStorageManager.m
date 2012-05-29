@@ -30,13 +30,6 @@ static BBStorageManager *sharedManager = nil;
     
     if(self) {
         
-        //attempt to enable iCloud
-        [self enableiCloud];
-        
-        if([self storeExists] == NO) {
-         
-            [self setupDatabase];
-        }
     }
     
     return self;
@@ -51,9 +44,20 @@ static BBStorageManager *sharedManager = nil;
     return sharedManager;
 }
 
+- (void)initalize {
+    
+    if([self storeExists] == NO) {
+        
+        [self setupDatabase];
+    }
+    
+    //attempt to enable iCloud
+    [self enableiCloud];
+}
+
 - (BOOL)storeExists {
  
-    NSString *storePath = [[self iCloudStorePath] path];
+    NSString *storePath = [[self storePath] path];
     
     return [[NSFileManager defaultManager] fileExistsAtPath:storePath];
 }
@@ -174,13 +178,12 @@ static BBStorageManager *sharedManager = nil;
     // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] 
                                     initWithManagedObjectModel: [self managedObjectModel]];
+    
     NSPersistentStoreCoordinator* psc = __persistentStoreCoordinator;
     
     NSString *storePath = nil;
     
-    storePath = [[self iCloudStorePath] path];
-    
-    NSLog(@"store path %@", storePath);
+    storePath = [[self storePath] path];
     
     // do this asynchronously since if this is the first time this particular device is syncing with preexisting
     // iCloud content it may take a long long time to download
@@ -190,8 +193,6 @@ static BBStorageManager *sharedManager = nil;
         
         NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
         NSDictionary *options = [self storeOptions];
-        
-        NSLog(@"store options %@", options);
         
         [psc lock];
         
@@ -232,6 +233,22 @@ static BBStorageManager *sharedManager = nil;
     [options setValue:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
     
     return [NSDictionary dictionaryWithDictionary:options];
+}
+
+- (NSURL *)storePath {
+    
+    NSURL *storePath = nil;
+    
+    if([self iCloudEnabled] == YES) {
+        
+        storePath = [self iCloudStorePath];
+    }
+    else {
+        
+        storePath = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"];
+    }
+    
+    return storePath;
 }
 
 - (void)resetStorageManager {
