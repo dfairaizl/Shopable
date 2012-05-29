@@ -48,11 +48,11 @@ static BBStorageManager *sharedManager = nil;
     
     if([self storeExists] == NO) {
         
-        //[self setupDatabase];
+        [self setupDatabase];
     }
     
     //attempt to enable iCloud
-    [self enableiCloud];
+    //[self enableiCloud];
 }
 
 - (void)seed {
@@ -190,40 +190,23 @@ static BBStorageManager *sharedManager = nil;
     
     storePath = [[self storePath] path];
     
-    // do this asynchronously since if this is the first time this particular device is syncing with preexisting
-    // iCloud content it may take a long long time to download
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSError *error = nil;
+    
+    NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+    NSDictionary *options = [self storeOptions];
+    
+    [psc lock];
+    
+    if (![psc addPersistentStoreWithType:NSSQLiteStoreType 
+                           configuration:nil 
+                                     URL:storeUrl 
+                                 options:options 
+                                   error:&error]) {
         
-        NSError *error = nil;
-        
-        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
-        NSDictionary *options = [self storeOptions];
-        
-        [psc lock];
-        
-        if (![psc addPersistentStoreWithType:NSSQLiteStoreType 
-                               configuration:nil 
-                                         URL:storeUrl 
-                                     options:options 
-                                       error:&error]) {
-            
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        }
-        
-        [psc unlock];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSLog(@"asynchronously added persistent store!");
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                     selector:@selector(mergeChangesFrom_iCloud:) 
-                                                         name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
-                                                       object:self.persistentStoreCoordinator];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshUI" object:self userInfo:nil];
-        });
-    });
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    [psc unlock];
     
     return __persistentStoreCoordinator;
 }
@@ -239,19 +222,8 @@ static BBStorageManager *sharedManager = nil;
 }
 
 - (NSURL *)storePath {
-    
-    NSURL *storePath = nil;
-    
-    if([self iCloudEnabled] == YES) {
-        
-        storePath = [self iCloudStorePath];
-    }
-    else {
-        
-        storePath = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"];
-    }
-    
-    return storePath;
+
+    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Shopable.sqlite"];
 }
 
 - (void)resetStorageManager {
