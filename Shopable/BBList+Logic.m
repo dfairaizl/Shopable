@@ -53,6 +53,11 @@
     return newStore;
 }
 
+- (void)deleteList {
+    
+    [[[BBStorageManager sharedManager] managedObjectContext] deleteObject:self];
+}
+
 - (BBShoppingCart *)currentShoppingCart {
     
     BBShoppingCart *cart = self.shoppingCart;

@@ -85,16 +85,12 @@
         [self.tableView setEditing:NO animated:YES];
         
         [self setListsToolbarItemsAnimated:YES];
-        
-        //[self.delegate showDetailsScreen];
     }
     else {
         
         [self.tableView setEditing:YES animated:YES];
         
         [self setEditingListsToolbarItemsAnimated:YES];
-        
-        //[self.delegate hideDetailsScreen];
     }
 }
 
@@ -103,8 +99,6 @@
     [self.tableView setEditing:YES animated:YES];
     
     [BBList addList];
-    
-    //[self.delegate hideDetailsScreen];
 }
 
 #pragma mark - Overrides
@@ -244,9 +238,10 @@
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-                         withRowAnimation:UITableViewRowAnimationFade];
+        
+        BBList *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        [list deleteList];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, 
@@ -307,15 +302,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     BBList *editingStore = [self.fetchedResultsController objectAtIndexPath:editingIndexPath];
     
-    [editingStore setName:editingCell.listTitleTextField.text];
-    
-    if(self.insertIndexPath != nil) {
+    if([editingCell.listTitleTextField.text length]) {
+     
+        [editingStore setName:editingCell.listTitleTextField.text];
+        
+        if(self.insertIndexPath != nil) {
+            
+            self.insertIndexPath = nil;
+            [self.tableView setEditing:NO animated:YES];
+        }
+    }
+    else {
+        
+        [editingStore deleteList];
         
         self.insertIndexPath = nil;
         [self.tableView setEditing:NO animated:YES];
     }
     
-    //[self.delegate showDetailsScreen];
     [self setListsToolbarItemsAnimated:YES];
 }
 

@@ -14,5 +14,6 @@
 + (BBList *)addList;
 
 - (BBShoppingCart *)currentShoppingCart;
+- (void)deleteList;
 
 @end
