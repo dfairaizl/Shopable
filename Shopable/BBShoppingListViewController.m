@@ -97,7 +97,7 @@
                                                                             [self.currentList currentShoppingCart]];
         
         NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"itemCategoryName" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"itemCategory.name" ascending:YES],
                                     [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES],
                                     nil];
         
@@ -107,7 +107,7 @@
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
                                                                         managedObjectContext:moc 
-                                                                          sectionNameKeyPath:@"itemCategoryName"
+                                                                          sectionNameKeyPath:@"itemCategory.name"
                                                                                    cacheName:nil];
         
         _fetchedResultsController.delegate = self;
