@@ -50,11 +50,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="x1 Bottle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mjB-qc-9TZ">
+                                                    <rect key="frame" x="234" y="10" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="itemNameLabel" destination="5w4-Ys-nXj" id="rSD-Gr-LOH"/>
+                                            <outlet property="itemQuantityUnitsLabel" destination="mjB-qc-9TZ" id="PNc-1D-GMO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -530,7 +538,8 @@
         <class className="BBShoppingListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="BBDecoratorLabel"/>
+                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="BBShoppingListViewController" superclassName="UIViewController">

@@ -14,6 +14,7 @@
 @interface BBShoppingListCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet BBDecoratorLabel *itemNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *itemQuantityUnitsLabel;
 
 - (void)itemCheckedOff:(BOOL)checkedOff;
 

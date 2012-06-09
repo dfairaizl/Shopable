@@ -242,7 +242,18 @@
     // Configure the cell...
     BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    //set item name
     shoppingCell.itemNameLabel.text = shoppingItem.item.name;
+    
+    //set item quantity
+    if([shoppingItem.quantity length] > 0) {
+        
+        shoppingCell.itemQuantityUnitsLabel.text = [NSString stringWithFormat:@"x%@", shoppingItem.quantity];
+    }
+    else {
+        
+        shoppingCell.itemQuantityUnitsLabel.text = @"";
+    }
     
     //checked off?
     [shoppingCell itemCheckedOff:[shoppingItem.checkedOff boolValue]];

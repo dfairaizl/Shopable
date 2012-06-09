@@ -14,6 +14,7 @@
 }
 
 @synthesize itemNameLabel;
+@synthesize itemQuantityUnitsLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
