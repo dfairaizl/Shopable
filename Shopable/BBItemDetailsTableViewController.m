@@ -165,14 +165,18 @@
     
     if([self.currentItem.quantity length] > 0) {
         
-        [self.quantityUnitsPicker selectRow:[self.currentItem.quantity intValue] 
+        quantityRow = [self.currentItem.quantity intValue];
+        
+        [self.quantityUnitsPicker selectRow:quantityRow
                                 inComponent:bbPickerComponentQuantity 
                                    animated:NO];
     }
     
     if([self.currentItem.units length] > 0) {
         
-        [self.quantityUnitsPicker selectRow:[self.units indexOfObject:self.currentItem.units] 
+        unitsRow = [self.units indexOfObject:self.currentItem.units];
+        
+        [self.quantityUnitsPicker selectRow:unitsRow
                                 inComponent:bbPickerComponentUnits 
                                    animated:NO];
     }
