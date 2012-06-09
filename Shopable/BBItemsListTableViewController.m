@@ -8,6 +8,9 @@
 
 #import "BBItemsListTableViewController.h"
 
+//Controllers
+#import "BBItemDetailsTableViewController.h"
+
 //DB
 #import "BBStorageManager.h"
 
@@ -42,11 +45,10 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                             style:UIBarButtonItemStyleBordered 
+                                                                            target:nil 
+                                                                            action:nil];
     
     UILongPressGestureRecognizer *longPressGR = [[UILongPressGestureRecognizer alloc] 
                                                  initWithTarget:self 
@@ -72,6 +74,18 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"itemDetailsSegue"]) {
+        
+        BBShoppingItem *item = (BBShoppingItem *)sender;
+        BBItemDetailsTableViewController *detailsVC = (BBItemDetailsTableViewController *)[segue 
+                                                                                           destinationViewController];
+        
+        detailsVC.currentItem = item;
+    }
 }
 
 #pragma mark - Overrides
@@ -110,6 +124,8 @@
     
     return _accordionIndexSet;
 }
+
+#pragma mark - IB Actions
 
 #pragma mark - Table view data source
 
@@ -152,6 +168,8 @@
     else {
         
         cell = (BBItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AccordionCellIdentifier];
+        
+        cell.delegate = self;
     }
 
     // Configure the cell...
@@ -202,7 +220,7 @@
         
         NSIndexPath *pressIndexPath = [self.tableView indexPathForRowAtPoint:point];
         
-        NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:2];
+        NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:1];
         
         //check if selected row is already open
         if(pressIndexPath.row == [self.accordionIndexSet lastIndex]) {
@@ -231,6 +249,30 @@
         
         [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+#pragma mark - BBItemsListTableViewCellDelegate Methods
+
+- (void)showItemDetailsForCell:(UITableViewCell *)cell {
+    
+    NSIndexPath *detailsIndexPath = [self.tableView indexPathForCell:cell];
+    BBItem *item = [self.fetchedResultsController objectAtIndexPath:detailsIndexPath];
+    BBShoppingItem *detailsItem = nil;
+    
+    if([[self.currentList currentShoppingCart] containsItem:item] == NO) {
+        
+        detailsItem = [[self.currentList currentShoppingCart] addItem:item];
+    }
+    else {
+     
+        detailsItem = [[self.currentList currentShoppingCart] shoppingItemForItem:item];
+    }
+    
+    [self performSegueWithIdentifier:@"itemDetailsSegue" sender:detailsItem];
+}
+
+- (void)itemQuantityDidChange:(NSInteger)quantity {    
+    
 }
 
 @end

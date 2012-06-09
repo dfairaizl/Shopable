@@ -10,8 +10,16 @@
 
 @implementation BBItemTableViewCell
 
+@synthesize delegate;
+
 @synthesize checkMarkImageView;
 @synthesize itemNameLabel;
+
+@synthesize quantityStepper;
+@synthesize quantityLabel;
+@synthesize unitsButton;
+@synthesize notesButton;
+@synthesize photoButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -40,6 +48,19 @@
     else {
         
         [self.checkMarkImageView setImage:[UIImage imageNamed:@"check_box_empty"]];
+    }
+}
+
+- (IBAction)quanityStepperValueChanged:(UIStepper *)sender {
+    
+    self.quantityLabel.text = [NSString stringWithFormat:@"x %d", (int)[sender value]];
+}
+
+- (IBAction)itemDetailsDisclosureButtonPressed:(id)sender {
+    
+    if([self.delegate respondsToSelector:@selector(showItemDetailsForCell:)]) {
+     
+        [self.delegate showItemDetailsForCell:self];
     }
 }
 

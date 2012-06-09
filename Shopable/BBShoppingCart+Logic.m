@@ -27,7 +27,24 @@
     return itemFound;
 }
 
-- (void)addItem:(BBItem *)item {
+- (BBShoppingItem *)shoppingItemForItem:(BBItem *)item {
+
+    __block BBShoppingItem *foundShoppingItem = nil;
+    
+    [self.cartItems enumerateObjectsUsingBlock:^(BBShoppingItem *shoppingItem, BOOL *stop) {
+        
+        if(shoppingItem.item == item) {
+            
+            foundShoppingItem = shoppingItem;
+            
+            *stop = YES;
+        }
+    }];
+    
+    return foundShoppingItem;
+}
+
+- (BBShoppingItem *)addItem:(BBItem *)item {
     
     NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
     
@@ -40,6 +57,8 @@
     [item addShoppingItemsObject:newShoppingItem];
     
     [self addCartItemsObject:newShoppingItem];
+    
+    return newShoppingItem;
 }
 
 - (void)removeItem:(BBItem *)item {

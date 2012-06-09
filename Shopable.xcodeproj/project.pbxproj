@@ -48,6 +48,7 @@
 		77A4179014BE13A400ACAAC1 /* BBStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4178F14BE13A400ACAAC1 /* BBStorageManager.m */; };
 		77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */; };
 		77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */; };
+		77BCEEA01582DB930005E409 /* BBItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */; };
 		77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */; };
 		77BCFAF61560AF22005ED2E5 /* BBItemCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */; };
 		77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07D14E70D4900337612 /* BBItem+Logic.m */; };
@@ -130,6 +131,8 @@
 		77A417E214BE1E6E00ACAAC1 /* BBStorageConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStorageConstants.h; sourceTree = "<group>"; };
 		77A5210714E1DC7900D42858 /* UIScrollView+Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Paging.h"; sourceTree = "<group>"; };
 		77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Paging.m"; sourceTree = "<group>"; };
+		77BCEE9E1582DB930005E409 /* BBItemDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemDetailsTableViewController.h; sourceTree = "<group>"; };
+		77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemDetailsTableViewController.m; sourceTree = "<group>"; };
 		77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryView.h; sourceTree = "<group>"; };
 		77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryView.m; sourceTree = "<group>"; };
 		77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBItemCategoryView.xib; sourceTree = "<group>"; };
@@ -267,9 +270,10 @@
 		77A2706F155B79EA00C86692 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7750F6061561FBCD00B54F1F /* Item List Screen */,
-				771C254C155D60460092EFB8 /* Item Category Screen */,
 				77A27074155B7A6C00C86692 /* Containers */,
+				771C254C155D60460092EFB8 /* Item Category Screen */,
+				77BCEE9C1582DB720005E409 /* Item Details Screen */,
+				7750F6061561FBCD00B54F1F /* Item List Screen */,
 				77A27073155B7A2A00C86692 /* Lists Screen */,
 				77A27078155B7E5D00C86692 /* Shopping List Screen */,
 			);
@@ -417,6 +421,15 @@
 				7732DD5815745573001F67CF /* BBItemCategory.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		77BCEE9C1582DB720005E409 /* Item Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				77BCEE9E1582DB930005E409 /* BBItemDetailsTableViewController.h */,
+				77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */,
+			);
+			name = "Item Details Screen";
 			sourceTree = "<group>";
 		};
 		77BCFAF11560AEDA005ED2E5 /* Support */ = {
@@ -578,6 +591,7 @@
 				7732DD5F15745573001F67CF /* BBShoppingItem.m in Sources */,
 				7732DD6215745573001F67CF /* BBList.m in Sources */,
 				7732DD6515745574001F67CF /* BBItem.m in Sources */,
+				77BCEEA01582DB930005E409 /* BBItemDetailsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

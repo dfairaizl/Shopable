@@ -26,3 +26,16 @@
 - (void)cellDidFinishEditing:(UITableViewCell *)cell;
 
 @end
+
+@protocol BBItemsListTableViewCellDelegate <NSObject>
+
+- (void)showItemDetailsForCell:(UITableViewCell *)cell;
+
+@optional
+
+- (void)itemQuantityDidChange:(NSInteger)quantity;
+- (void)itemUnitsDidChange:(NSInteger)unit;
+- (void)itemDidAddNotes:(NSString *)notes;
+- (void)itemDidAddPhoto:(UIImage *)photo;
+
+@end
