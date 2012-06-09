@@ -97,8 +97,11 @@
         
         detailsVC.currentItem = item;
         
-        //add the shopping item's "item" so the model sets it up correctly
-        [[self.currentList currentShoppingCart] addItem:item.item];
+        if([[self.currentList currentShoppingCart] containsItem:item.item] == NO) {
+
+            //add the shopping item's "item" so the model sets it up correctly
+            [[self.currentList currentShoppingCart] addItem:item.item];
+        }
     }
 }
 
