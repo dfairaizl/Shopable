@@ -20,7 +20,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2349" y="696"/>
+            <point key="canvasLocation" x="-2349" y="-8"/>
         </scene>
         <!--Shopping List View Controller - Store Title-->
         <scene sceneID="lxQ-Oq-t9G">
@@ -81,7 +81,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1383" y="696"/>
+            <point key="canvasLocation" x="-2349" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vlR-lp-Qay">
@@ -100,7 +100,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1861" y="696"/>
+            <point key="canvasLocation" x="-2869" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0A-ee-Hmh">
@@ -123,7 +123,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-2875" y="696"/>
+            <point key="canvasLocation" x="-2875" y="-8"/>
         </scene>
         <!--Lists View Controller-->
         <scene sceneID="joC-gt-EnC">
@@ -221,7 +221,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-868" y="696"/>
+            <point key="canvasLocation" x="-1834" y="640"/>
         </scene>
         <!--Item Category View Controller - Pick A Category-->
         <scene sceneID="1yY-zt-ocB">
@@ -252,7 +252,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-351" y="696"/>
+            <point key="canvasLocation" x="-1317" y="640"/>
         </scene>
         <!--Items List Table View Controller-->
         <scene sceneID="qbq-xD-YJf">
@@ -272,7 +272,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kmG-87-Kb4">
-                                            <rect key="frame" x="50" y="10" width="243" height="24"/>
+                                            <rect key="frame" x="50" y="10" width="176" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -282,6 +282,13 @@
                                             <rect key="frame" x="2" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="x1 Bottle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yNY-Dr-fe4">
+                                            <rect key="frame" x="234" y="11" width="66" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -289,6 +296,7 @@
                                 <connections>
                                     <outlet property="checkMarkImageView" destination="T3H-hl-fbp" id="ud0-TP-2om"/>
                                     <outlet property="itemNameLabel" destination="kmG-87-Kb4" id="eYz-ZI-oOo"/>
+                                    <outlet property="itemQuantityUnitsLabel" destination="yNY-Dr-fe4" id="hy1-he-wZ1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBAccordionItemCell" rowHeight="88" id="ctU-7C-kZU" customClass="BBItemTableViewCell">
@@ -374,7 +382,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="158" y="696"/>
+            <point key="canvasLocation" x="-808" y="640"/>
         </scene>
         <!--Item Details Table View Controller-->
         <scene sceneID="wuV-4M-ARA">
@@ -434,7 +442,7 @@
                     <navigationItem key="navigationItem" id="iPr-Az-Kwq"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="654" y="696"/>
+            <point key="canvasLocation" x="-312" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wOr-xp-IYN">
@@ -481,6 +489,7 @@
                 <relationship kind="action" name="quanityStepperValueChanged:" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="checkMarkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="notesButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>

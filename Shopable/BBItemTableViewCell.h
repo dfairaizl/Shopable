@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *checkMarkImageView;
 @property (strong, nonatomic) IBOutlet UILabel *itemNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *itemQuantityUnitsLabel;
 
 //accordion controls
 @property (strong, nonatomic) IBOutlet UIStepper *quantityStepper;

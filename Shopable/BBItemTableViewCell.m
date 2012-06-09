@@ -14,6 +14,7 @@
 
 @synthesize checkMarkImageView;
 @synthesize itemNameLabel;
+@synthesize itemQuantityUnitsLabel;
 
 @synthesize quantityStepper;
 @synthesize quantityLabel;
@@ -53,7 +54,13 @@
 
 - (IBAction)quanityStepperValueChanged:(UIStepper *)sender {
     
-    self.quantityLabel.text = [NSString stringWithFormat:@"x %d", (int)[sender value]];
+    NSInteger quantity = (int)[sender value];
+    self.quantityLabel.text = [NSString stringWithFormat:@"x %d", quantity];
+    
+    if([self.delegate respondsToSelector:@selector(itemQuantityDidChange:)]) {
+        
+        [self.delegate itemQuantityDidChange:quantity];
+    }
 }
 
 - (IBAction)itemDetailsDisclosureButtonPressed:(id)sender {

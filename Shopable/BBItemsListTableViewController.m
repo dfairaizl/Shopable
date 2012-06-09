@@ -17,6 +17,12 @@
 //Cells
 #import "BBItemTableViewCell.h"
 
+@interface BBItemsListTableViewController (TableView)
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface BBItemsListTableViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -173,18 +179,8 @@
     }
 
     // Configure the cell...
-    BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if([[self.currentList currentShoppingCart] containsItem:item] == YES) {
-        
-        [cell checkItem:YES];
-    }
-    else {
-        
-        [cell checkItem:NO];
-    }
-
-    cell.itemNameLabel.text = item.name;
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -208,6 +204,42 @@
                           withRowAnimation:UITableViewRowAnimationFade];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Private Table View Methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    // Configure the cell...
+    BBItemTableViewCell *itemCell = (BBItemTableViewCell *)cell;
+    BBItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BBShoppingItem *shoppingItem = nil;
+    
+    if([[self.currentList currentShoppingCart] containsItem:item] == YES) {
+    
+        [itemCell checkItem:YES];
+        shoppingItem = [[self.currentList currentShoppingCart] shoppingItemForItem:item];
+    }
+    else {
+        
+        [itemCell checkItem:NO];
+    }
+    
+    //Set cell name
+    itemCell.itemNameLabel.text = item.name;
+    
+    //show quantity if accordion is NOT open
+    if([self.accordionIndexSet containsIndex:indexPath.row] == NO) {
+    
+        if([shoppingItem.quantity length] > 0) {
+         
+            itemCell.itemQuantityUnitsLabel.text = [NSString stringWithFormat:@"x%@", shoppingItem.quantity];
+        }
+        else {
+            
+            itemCell.itemQuantityUnitsLabel.text = @"";
+        }
+    }
 }
 
 #pragma mark - Private Methods
@@ -273,6 +305,24 @@
 
 - (void)itemQuantityDidChange:(NSInteger)quantity {    
     
+    NSIndexPath *currentAccordionIndexPath = [NSIndexPath indexPathForRow:[self.accordionIndexSet lastIndex] 
+                                                                inSection:0];
+    BBItem *item = [self.fetchedResultsController objectAtIndexPath:currentAccordionIndexPath];
+    BBShoppingItem *detailsItem = nil;
+    
+    if([[self.currentList currentShoppingCart] containsItem:item] == NO) {
+        
+        detailsItem = [[self.currentList currentShoppingCart] addItem:item];
+    }
+    else {
+        
+        detailsItem = [[self.currentList currentShoppingCart] shoppingItemForItem:item];
+    }
+    
+    detailsItem.quantity = [NSString stringWithFormat:@"%d", quantity];
+    
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentAccordionIndexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end
