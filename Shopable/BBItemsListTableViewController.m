@@ -239,8 +239,13 @@
     //show quantity if accordion is NOT open
     if([self.accordionIndexSet containsIndex:indexPath.row] == NO) {
     
-        if([shoppingItem.quantity length] > 0) {
+        if([shoppingItem.quantity length] > 0 && [shoppingItem.units length] > 0) {
          
+            itemCell.itemQuantityUnitsLabel.text = [NSString stringWithFormat:@"x%@ %@", shoppingItem.quantity,
+                                                                                         shoppingItem.units];
+        }
+        else if([shoppingItem.quantity length] > 0) {
+            
             itemCell.itemQuantityUnitsLabel.text = [NSString stringWithFormat:@"x%@", shoppingItem.quantity];
         }
         else {
