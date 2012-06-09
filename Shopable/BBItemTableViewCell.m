@@ -71,4 +71,11 @@
     }
 }
 
+- (void)updateQuantity:(NSInteger)quantity {
+    
+    self.quantityLabel.text = [NSString stringWithFormat:@"x %d", quantity];
+    
+    self.quantityStepper.value = quantity;
+}
+
 @end

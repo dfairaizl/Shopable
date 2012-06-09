@@ -256,6 +256,13 @@
             itemCell.itemQuantityUnitsLabel.text = @"";
         }
     }
+    else {
+        
+        if([shoppingItem.quantity length] > 0) {
+         
+            [itemCell updateQuantity:[shoppingItem.quantity intValue]];
+        }
+    }
 }
 
 #pragma mark - Private Methods

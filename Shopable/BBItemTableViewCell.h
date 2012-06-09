@@ -29,5 +29,6 @@
 - (IBAction)itemDetailsDisclosureButtonPressed:(id)sender;
 
 - (void)checkItem:(BOOL)checked;
+- (void)updateQuantity:(NSInteger)quantity;
 
 @end
