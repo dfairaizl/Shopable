@@ -13,6 +13,9 @@
 //DB
 #import "BBStorageManager.h"
 
+//Cells
+#import "BBShoppingListCell.h"
+
 @interface BBShoppingListViewController (TableView)
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -46,6 +49,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //setup the swipe gesture recognizer for the shopping table view to support crossing off items in list
+    UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self 
+                                                                                  action:@selector(shoppingCellSwipped:)];
+    [self.shoppingTableView addGestureRecognizer:swipeGR];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -169,9 +177,9 @@
 #pragma mark - NSFetchedResultsControllerDelegate Methods
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
     [self.shoppingTableView beginUpdates];
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
@@ -188,7 +196,6 @@
             break;
     }
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
@@ -221,8 +228,8 @@
     }
 }
 
-
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
     [self.shoppingTableView endUpdates];
 }
 
@@ -230,10 +237,12 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
+    BBShoppingListCell *shoppingCell = (BBShoppingListCell *)cell;
+    
     // Configure the cell...
     BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = shoppingItem.item.name;
+    shoppingCell.itemNameLabel.text = shoppingItem.item.name;
 }
 
 #pragma mark - UI Actions
@@ -241,6 +250,33 @@
 - (IBAction)showMenuButtonPressed:(id)sender {
 
     [self.delegate showNavigationMenu];
+}
+
+#pragma Private Methods
+
+- (void)shoppingCellSwipped:(id)sender {
+
+    UISwipeGestureRecognizer *swipeGR = (UISwipeGestureRecognizer *)sender;
+    
+    CGPoint touch = [swipeGR locationOfTouch:0 inView:self.shoppingTableView];
+    NSIndexPath *swipedIndexPath = [self.shoppingTableView indexPathForRowAtPoint:touch];
+    
+    //get the cell that was swipped
+    BBShoppingListCell *cell = (BBShoppingListCell *)[self.shoppingTableView cellForRowAtIndexPath:swipedIndexPath];
+    
+    //check the managed object for the item's status
+    BBShoppingItem *swippedItem = [self.fetchedResultsController objectAtIndexPath:swipedIndexPath];
+    
+    if([swippedItem.checkedOff boolValue] == YES) {
+        
+        swippedItem.checkedOff = [NSNumber numberWithBool:NO];
+    }
+    else {
+        
+        swippedItem.checkedOff = [NSNumber numberWithBool:YES];
+    }
+    
+    [cell itemCheckedOff:[swippedItem.checkedOff boolValue]];
 }
 
 @end

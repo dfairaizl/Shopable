@@ -49,6 +49,8 @@
 		77A417DF14BE174E00ACAAC1 /* BBStorageManager+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A417DE14BE174E00ACAAC1 /* BBStorageManager+Initialize.m */; };
 		77A5210914E1DC7900D42858 /* UIScrollView+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */; };
 		77BCEEA01582DB930005E409 /* BBItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */; };
+		77BCEEA41582F0010005E409 /* BBDecoratorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCEEA31582F0010005E409 /* BBDecoratorLabel.m */; };
+		77BCEEA71582F0820005E409 /* BBShoppingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCEEA61582F0820005E409 /* BBShoppingListCell.m */; };
 		77BCFAF41560AEF5005ED2E5 /* BBItemCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */; };
 		77BCFAF61560AF22005ED2E5 /* BBItemCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */; };
 		77EDC07E14E70D4900337612 /* BBItem+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC07D14E70D4900337612 /* BBItem+Logic.m */; };
@@ -133,6 +135,10 @@
 		77A5210814E1DC7900D42858 /* UIScrollView+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Paging.m"; sourceTree = "<group>"; };
 		77BCEE9E1582DB930005E409 /* BBItemDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemDetailsTableViewController.h; sourceTree = "<group>"; };
 		77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemDetailsTableViewController.m; sourceTree = "<group>"; };
+		77BCEEA21582F0010005E409 /* BBDecoratorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDecoratorLabel.h; sourceTree = "<group>"; };
+		77BCEEA31582F0010005E409 /* BBDecoratorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDecoratorLabel.m; sourceTree = "<group>"; };
+		77BCEEA51582F0820005E409 /* BBShoppingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingListCell.h; sourceTree = "<group>"; };
+		77BCEEA61582F0820005E409 /* BBShoppingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingListCell.m; sourceTree = "<group>"; };
 		77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryView.h; sourceTree = "<group>"; };
 		77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryView.m; sourceTree = "<group>"; };
 		77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBItemCategoryView.xib; sourceTree = "<group>"; };
@@ -304,6 +310,7 @@
 			children = (
 				77A27079155B7E8D00C86692 /* BBShoppingListViewController.h */,
 				77A2707A155B7E8D00C86692 /* BBShoppingListViewController.m */,
+				77BCEEA11582E4530005E409 /* Support */,
 			);
 			name = "Shopping List Screen";
 			sourceTree = "<group>";
@@ -411,14 +418,14 @@
 			children = (
 				7732DD6315745574001F67CF /* BBItem.h */,
 				7732DD6415745574001F67CF /* BBItem.m */,
-				7732DD6015745573001F67CF /* BBList.h */,
-				7732DD6115745573001F67CF /* BBList.m */,
-				7732DD5D15745573001F67CF /* BBShoppingItem.h */,
-				7732DD5E15745573001F67CF /* BBShoppingItem.m */,
-				7732DD5A15745573001F67CF /* BBShoppingCart.h */,
-				7732DD5B15745573001F67CF /* BBShoppingCart.m */,
 				7732DD5715745573001F67CF /* BBItemCategory.h */,
 				7732DD5815745573001F67CF /* BBItemCategory.m */,
+				7732DD6015745573001F67CF /* BBList.h */,
+				7732DD6115745573001F67CF /* BBList.m */,
+				7732DD5A15745573001F67CF /* BBShoppingCart.h */,
+				7732DD5B15745573001F67CF /* BBShoppingCart.m */,
+				7732DD5D15745573001F67CF /* BBShoppingItem.h */,
+				7732DD5E15745573001F67CF /* BBShoppingItem.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -430,6 +437,17 @@
 				77BCEE9F1582DB930005E409 /* BBItemDetailsTableViewController.m */,
 			);
 			name = "Item Details Screen";
+			sourceTree = "<group>";
+		};
+		77BCEEA11582E4530005E409 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				77BCEEA21582F0010005E409 /* BBDecoratorLabel.h */,
+				77BCEEA31582F0010005E409 /* BBDecoratorLabel.m */,
+				77BCEEA51582F0820005E409 /* BBShoppingListCell.h */,
+				77BCEEA61582F0820005E409 /* BBShoppingListCell.m */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 		77BCFAF11560AEDA005ED2E5 /* Support */ = {
@@ -592,6 +610,8 @@
 				7732DD6215745573001F67CF /* BBList.m in Sources */,
 				7732DD6515745574001F67CF /* BBItem.m in Sources */,
 				77BCEEA01582DB930005E409 /* BBItemDetailsTableViewController.m in Sources */,
+				77BCEEA41582F0010005E409 /* BBDecoratorLabel.m in Sources */,
+				77BCEEA71582F0820005E409 /* BBShoppingListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
