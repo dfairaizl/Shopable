@@ -243,6 +243,9 @@
     BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     shoppingCell.itemNameLabel.text = shoppingItem.item.name;
+    
+    //checked off?
+    [shoppingCell itemCheckedOff:[shoppingItem.checkedOff boolValue]];
 }
 
 #pragma mark - UI Actions
