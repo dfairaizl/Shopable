@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *quantityUnitsTextField;
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityUnitsPicker;
 @property (strong, nonatomic) IBOutlet UIToolbar *pickerToolBar;
+@property (strong, nonatomic) IBOutlet UILabel *itemNotesLabel;
 
 - (IBAction)doneButtonPressed:(id)sender;
 

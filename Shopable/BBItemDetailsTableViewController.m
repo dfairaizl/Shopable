@@ -8,6 +8,9 @@
 
 #import "BBItemDetailsTableViewController.h"
 
+//Controllers
+#import "BBItemNotesViewController.h"
+
 //DB
 #import "BBStorageManager.h"
 
@@ -35,6 +38,7 @@
 @synthesize quantityUnitsTextField;
 @synthesize quantityUnitsPicker;
 @synthesize pickerToolBar;
+@synthesize itemNotesLabel;
 
 @synthesize quantitiesUnitsPList, quantities, units;
 
@@ -51,11 +55,10 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                             style:UIBarButtonItemStyleBordered 
+                                                                            target:nil 
+                                                                            action:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +66,8 @@
     [super viewWillAppear:animated];
     
     self.title = self.currentItem.item.name;
+    
+    self.itemNotesLabel.text = self.currentItem.notes;
 }
 
 - (void)viewDidUnload
@@ -70,6 +75,8 @@
     [self setQuantityUnitsPicker:nil];
     [self setPickerToolBar:nil];
     [self setQuantityUnitsTextField:nil];
+    [self setItemNotesLabel:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -78,6 +85,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"itemDetailsAddNotesSegue"]) {
+        
+        BBItemNotesViewController *notesVC = (BBItemNotesViewController *)segue.destinationViewController;
+        
+        notesVC.currentItem = self.currentItem;
+    }
 }
 
 #pragma mark - IB Actions

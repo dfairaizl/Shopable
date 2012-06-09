@@ -431,14 +431,26 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notes" id="WmI-wo-JYq">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jD3-gm-QyT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jD3-gm-QyT">
                                         <rect key="frame" x="0.0" y="138" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="z5B-Dg-imH">
+                                                    <rect key="frame" x="20" y="11" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="rCr-f2-Exn" kind="push" identifier="itemDetailsAddNotesSegue" id="wkN-y6-Qt6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -463,6 +475,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="iPr-Az-Kwq"/>
                     <connections>
+                        <outlet property="itemNotesLabel" destination="z5B-Dg-imH" id="eU7-HU-BYz"/>
                         <outlet property="pickerToolBar" destination="ARY-7y-zk3" id="BNo-13-fvf"/>
                         <outlet property="quantityUnitsPicker" destination="HMQ-AQ-tLX" id="AgQ-oh-fWQ"/>
                         <outlet property="quantityUnitsTextField" destination="8Pn-8h-sBl" id="MrM-4P-IWb"/>
@@ -489,6 +502,34 @@
                 </toolbar>
             </objects>
             <point key="canvasLocation" x="-312" y="640"/>
+        </scene>
+        <!--Item Notes View Controller - Notes-->
+        <scene sceneID="MGN-iI-FCx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yP-Rs-Sls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="rCr-f2-Exn" customClass="BBItemNotesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9nU-ck-fZM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PKb-NO-Qg2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="hMU-cQ-JBc"/>
+                    <connections>
+                        <outlet property="itemNotesTextView" destination="PKb-NO-Qg2" id="DLM-hf-PZl"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="190" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wOr-xp-IYN">
@@ -532,9 +573,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemDetailsTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneButtonPressed:"/>
+                <relationship kind="outlet" name="itemNotesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pickerToolBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="quantityUnitsPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="quantityUnitsTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BBItemNotesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemNotesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemNotesTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="BBItemTableViewCell" superclassName="UITableViewCell">
