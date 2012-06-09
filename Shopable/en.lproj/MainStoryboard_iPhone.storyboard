@@ -413,6 +413,17 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap To Enter Quantity" minimumFontSize="17" id="8Pn-8h-sBl">
+                                                    <rect key="frame" x="20" y="6" width="260" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Dsg-H1-Ywv" id="PBM-oF-0H0"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
@@ -451,7 +462,31 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="iPr-Az-Kwq"/>
+                    <connections>
+                        <outlet property="pickerToolBar" destination="ARY-7y-zk3" id="BNo-13-fvf"/>
+                        <outlet property="quantityUnitsPicker" destination="HMQ-AQ-tLX" id="AgQ-oh-fWQ"/>
+                        <outlet property="quantityUnitsTextField" destination="8Pn-8h-sBl" id="MrM-4P-IWb"/>
+                    </connections>
                 </tableViewController>
+                <pickerView contentMode="scaleToFill" id="HMQ-AQ-tLX">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="Dsg-H1-Ywv" id="Nlp-pj-QRx"/>
+                        <outlet property="delegate" destination="Dsg-H1-Ywv" id="uv0-c0-mT9"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ARY-7y-zk3">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="done" id="XJH-9M-w08">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Dsg-H1-Ywv" id="7fV-tV-uLm"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="-312" y="640"/>
         </scene>
@@ -495,6 +530,12 @@
         </class>
         <class className="BBItemDetailsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemDetailsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneButtonPressed:"/>
+                <relationship kind="outlet" name="pickerToolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="quantityUnitsPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="quantityUnitsTextField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="BBItemTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
