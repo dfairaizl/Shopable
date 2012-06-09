@@ -68,6 +68,11 @@
     [super viewWillAppear:animated];
     
     self.title = self.currentItemCategory.name;
+    
+    //reset any accordions that were open
+    [self.accordionIndexSet removeAllIndexes];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -91,6 +96,9 @@
                                                                                            destinationViewController];
         
         detailsVC.currentItem = item;
+        
+        //add the shopping item's "item" so the model sets it up correctly
+        [[self.currentList currentShoppingCart] addItem:item.item];
     }
 }
 
