@@ -67,6 +67,16 @@
     
     self.title = self.currentItem.item.name;
     
+    if([self.currentItem.quantity length] > 0 && [self.currentItem.units length] > 0) {
+     
+        self.quantityUnitsTextField.text = [NSString stringWithFormat:@"%@ %@", self.currentItem.quantity,
+                                                                            self.currentItem.units];
+    }
+    else if([self.currentItem.quantity length] > 0) {
+        
+        self.quantityUnitsTextField.text = [NSString stringWithFormat:@"%@", self.currentItem.quantity];
+    }
+    
     self.itemNotesLabel.text = self.currentItem.notes;
 }
 
@@ -118,16 +128,21 @@
     if(textField == self.quantityUnitsTextField) {
         
         if(self.quantitiesUnitsPList == nil) {
-            self.quantitiesUnitsPList = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"QuantityUnits" withExtension:@"plist"]];
+            
+            self.quantitiesUnitsPList = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] 
+                                                                                   URLForResource:@"QuantityUnits" 
+                                                                                   withExtension:@"plist"]];
         }
         
         self.quantities = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"Quantities"]];
         
         //load units based on prior selection (if any)
         if([self.currentItem.quantity isEqualToString:@"1"] == YES || self.currentItem.quantity == nil) {
+          
             self.units = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"UnitsSingular"]];
         }
         else {
+            
             self.units = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"UnitsPlural"]];
         }
         
@@ -144,6 +159,24 @@
     }
     
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if([self.currentItem.quantity length] > 0) {
+        
+        [self.quantityUnitsPicker selectRow:[self.currentItem.quantity intValue] 
+                                inComponent:bbPickerComponentQuantity 
+                                   animated:NO];
+    }
+    
+    if([self.currentItem.units length] > 0) {
+        
+        [self.quantityUnitsPicker selectRow:[self.units indexOfObject:self.currentItem.units] 
+                                inComponent:bbPickerComponentUnits 
+                                   animated:NO];
+    }
+
 }
 
 #pragma mark - UIPickerDataSource Methods
@@ -215,8 +248,13 @@
 
 - (void)updateQuantityAndUnits {
     
-    NSString *quantity = [self pickerView:self.quantityUnitsPicker titleForRow:quantityRow forComponent:bbPickerComponentQuantity];
-    NSString *unit = [self pickerView:self.quantityUnitsPicker titleForRow:unitsRow forComponent:bbPickerComponentUnits];
+    NSString *quantity = [self pickerView:self.quantityUnitsPicker 
+                              titleForRow:quantityRow 
+                             forComponent:bbPickerComponentQuantity];
+
+    NSString *unit = [self pickerView:self.quantityUnitsPicker 
+                          titleForRow:unitsRow 
+                         forComponent:bbPickerComponentUnits];
     
     if([quantity length] || [unit length]) {
         self.quantityUnitsTextField.text = [NSString stringWithFormat:@"%@ %@", quantity, unit];
