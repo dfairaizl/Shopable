@@ -25,6 +25,7 @@
     <entity name="BBShoppingItem" representedClassName="BBShoppingItem" syncable="YES">
         <attribute name="checkedOff" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BBItem" inverseName="shoppingItems" inverseEntity="BBItem" syncable="YES"/>
@@ -35,6 +36,6 @@
         <element name="BBItemCategory" positionX="151" positionY="81" width="128" height="90"/>
         <element name="BBList" positionX="-108" positionY="315" width="128" height="120"/>
         <element name="BBShoppingCart" positionX="-101" positionY="522" width="128" height="75"/>
-        <element name="BBShoppingItem" positionX="90" positionY="519" width="128" height="135"/>
+        <element name="BBShoppingItem" positionX="90" positionY="519" width="128" height="150"/>
     </elements>
 </model>

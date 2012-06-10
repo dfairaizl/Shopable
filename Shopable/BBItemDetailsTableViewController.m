@@ -39,6 +39,8 @@
 @synthesize quantityUnitsPicker;
 @synthesize pickerToolBar;
 @synthesize itemNotesLabel;
+@synthesize addPhotoLabel;
+@synthesize itemPhotoImageView;
 
 @synthesize quantitiesUnitsPList, quantities, units;
 
@@ -78,6 +80,19 @@
     }
     
     self.itemNotesLabel.text = self.currentItem.notes;
+    
+    if(self.currentItem.photo != nil) {
+        
+        self.addPhotoLabel.text = @"Loading...";
+        
+        dispatch_async(dispatch_get_main_queue(), ^() {                 
+           
+            UIImage *photo = [UIImage imageWithData:self.currentItem.photo];
+            
+            self.itemPhotoImageView.image = photo;
+            [self.addPhotoLabel setHidden:YES];
+        });
+    }
 }
 
 - (void)viewDidUnload
@@ -87,6 +102,8 @@
     [self setQuantityUnitsTextField:nil];
     [self setItemNotesLabel:nil];
     
+    [self setAddPhotoLabel:nil];
+    [self setItemPhotoImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -118,7 +135,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if(indexPath.section == 2) {
+        
+        UIActionSheet *actionSheet = nil;
+        
+        if(self.currentItem.photo == nil) {
+         
+            actionSheet = [[UIActionSheet alloc] initWithTitle:@"" 
+                                                      delegate:self 
+                                             cancelButtonTitle:@"Cancel" 
+                                        destructiveButtonTitle:nil 
+                                             otherButtonTitles:@"Take Photo", @"Choose From Library",
+                                                            nil];
+        }
+        else {
+            
+            actionSheet = [[UIActionSheet alloc] initWithTitle:@"" 
+                                                      delegate:self 
+                                             cancelButtonTitle:@"Cancel" 
+                                        destructiveButtonTitle:@"Remove Image" 
+                                             otherButtonTitles:@"Take Photo", @"Choose From Library",
+                           nil];
+        }
+        
+        [actionSheet showInView:self.view];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate Methods
@@ -190,6 +233,73 @@
     return bbPickerNumberOfComponents;
 }
 
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if(self.currentItem.photo == nil) {
+     
+        if(buttonIndex <= 1) {
+            
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            
+            if(buttonIndex == 0) {
+                
+                if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    
+                    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                }
+                else  {
+                    
+                    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                }
+            }
+            else if(buttonIndex == 1) {
+                
+                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            }
+            
+            imagePicker.delegate = self;
+            
+            [self presentModalViewController:imagePicker animated:YES];
+        }
+    }
+    else {
+        
+        if(buttonIndex == 0) {
+            
+            self.itemPhotoImageView.image = nil;
+            [self.addPhotoLabel setHidden:NO];
+            
+            self.currentItem.photo = nil;
+        }
+        else if(buttonIndex > 0 && buttonIndex <= 2) {
+            
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            
+            if(buttonIndex == 1) {
+                
+                if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    
+                    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                }
+                else  {
+                    
+                    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                }
+            }
+            else if(buttonIndex == 2) {
+                
+                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            }
+            
+            imagePicker.delegate = self;
+            
+            [self presentModalViewController:imagePicker animated:YES];
+        }
+    }
+}
+
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
     NSInteger count = 0;
@@ -246,6 +356,21 @@
     }
     
     [self updateQuantityAndUnits];
+}
+
+#pragma mark - UIImagePickerControllerDelegate Methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(selectedImage);
+    
+    self.currentItem.photo = imageData;
+    
+    self.itemPhotoImageView.image = selectedImage;
+    [self.addPhotoLabel setHidden:YES];
 }
 
 #pragma mark - Private Methods

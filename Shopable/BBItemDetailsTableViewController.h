@@ -15,7 +15,10 @@
 @class BBShoppingItem;
 
 @interface BBItemDetailsTableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate,
-                                                                    UIPickerViewDataSource, UIPickerViewDelegate>
+                                                                    UIPickerViewDataSource, UIPickerViewDelegate,
+                                                                    UIImagePickerControllerDelegate, 
+                                                                    UINavigationControllerDelegate, 
+                                                                    UIActionSheetDelegate>
 
 @property (weak, nonatomic) BBShoppingItem *currentItem;
 
@@ -23,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityUnitsPicker;
 @property (strong, nonatomic) IBOutlet UIToolbar *pickerToolBar;
 @property (strong, nonatomic) IBOutlet UILabel *itemNotesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addPhotoLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *itemPhotoImageView;
 
 - (IBAction)doneButtonPressed:(id)sender;
 

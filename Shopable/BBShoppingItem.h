@@ -2,7 +2,7 @@
 //  BBShoppingItem.h
 //  Shopable
 //
-//  Created by Dan Fairaizl on 5/28/12.
+//  Created by Dan Fairaizl on 6/9/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSString * quantity;
 @property (nonatomic, retain) NSString * units;
+@property (nonatomic, retain) NSData * photo;
 @property (nonatomic, retain) BBItem *item;
 @property (nonatomic, retain) BBShoppingCart *parentShoppingCart;
 
