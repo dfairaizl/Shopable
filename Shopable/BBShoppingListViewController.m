@@ -9,6 +9,7 @@
 //View Controllers
 #import "BBShoppingListViewController.h"
 #import "BBItemCategoryViewController.h"
+#import "BBShoppingListDetailsViewController.h"
 
 //DB
 #import "BBStorageManager.h"
@@ -49,6 +50,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                             style:UIBarButtonItemStyleBordered 
+                                                                            target:nil 
+                                                                            action:nil];
     
     //setup the swipe gesture recognizer for the shopping table view to support crossing off items in list
     UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self 
@@ -93,6 +99,14 @@
                                                                 [[segue destinationViewController] topViewController];
         
         itemCategoryVC.currentList = self.currentList;
+    }
+    else if([segue.identifier isEqualToString:@"shoppingListItemDetailsSegue"]) {
+        
+        BBShoppingItem *shoppingItem = (BBShoppingItem *)sender;
+        BBShoppingListDetailsViewController *detailsVC = (BBShoppingListDetailsViewController *)
+                                                                                    segue.destinationViewController;
+        
+        detailsVC.currentItem = shoppingItem;
     }
 }
 
@@ -172,6 +186,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if([shoppingItem.notes length] || shoppingItem.photo != nil) {
+        
+        [self performSegueWithIdentifier:@"shoppingListItemDetailsSegue" sender:shoppingItem];
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate Methods
@@ -258,6 +278,17 @@
     else {
         
         shoppingCell.itemQuantityUnitsLabel.text = @"";
+    }
+    
+    if([shoppingItem.notes length] > 0 || shoppingItem.photo != nil) {
+        
+        shoppingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        shoppingCell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
+    else {
+        
+        shoppingCell.accessoryType = UITableViewCellAccessoryNone;
+        shoppingCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     //checked off?
