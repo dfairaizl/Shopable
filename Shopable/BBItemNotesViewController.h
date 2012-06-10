@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *itemNotesTextView;
 
+- (IBAction)clearButtonPressed:(id)sender;
+
 @end

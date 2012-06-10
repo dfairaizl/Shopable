@@ -65,4 +65,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - IB Actions
+
+- (IBAction)clearButtonPressed:(id)sender {
+
+    self.itemNotesTextView.text = @"";
+}
+
 @end
