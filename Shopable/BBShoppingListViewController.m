@@ -284,7 +284,7 @@
     if([shoppingItem.notes length] > 0 || shoppingItem.photo != nil) {
         
         shoppingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        shoppingCell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        shoppingCell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     else {
         
