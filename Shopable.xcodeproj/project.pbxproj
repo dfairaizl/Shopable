@@ -145,7 +145,6 @@
 		77BCFAF21560AEF5005ED2E5 /* BBItemCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategoryView.h; sourceTree = "<group>"; };
 		77BCFAF31560AEF5005ED2E5 /* BBItemCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategoryView.m; sourceTree = "<group>"; };
 		77BCFAF51560AF21005ED2E5 /* BBItemCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBItemCategoryView.xib; sourceTree = "<group>"; };
-		77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Shopable.entitlements; sourceTree = "<group>"; };
 		77EDC07C14E70D4900337612 /* BBItem+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBItem+Logic.h"; sourceTree = "<group>"; };
 		77EDC07D14E70D4900337612 /* BBItem+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBItem+Logic.m"; sourceTree = "<group>"; };
 		77EDC08214E735DB00337612 /* ShopableTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopableTests.h; sourceTree = "<group>"; };
@@ -384,7 +383,6 @@
 				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
 				77A4173914BDFEC200ACAAC1 /* Shopable-Info.plist */,
 				77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */,
-				77CBA89D150C2DDE00D8EA90 /* Shopable.entitlements */,
 				7745933F14C5E80600EF1565 /* StoreTypes.plist */,
 			);
 			name = "Supporting Files";
@@ -730,7 +728,6 @@
 		77A4176414BDFEC200ACAAC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Shopable/Shopable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
@@ -747,7 +744,6 @@
 		77A4176514BDFEC200ACAAC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Shopable/Shopable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shopable/Shopable-Prefix.pch";
