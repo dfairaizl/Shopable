@@ -8,7 +8,8 @@
 
 //View Controllers
 #import "BBShoppingListViewController.h"
-#import "BBItemCategoryViewController.h"
+//#import "BBItemCategoryViewController.h"
+#import "BBCategoriesTableViewController.h"
 #import "BBShoppingListDetailsViewController.h"
 
 //DB
@@ -95,7 +96,7 @@
     
     if([segue.identifier isEqualToString:@"addItemsSegue"]) {
         
-        BBItemCategoryViewController *itemCategoryVC = (BBItemCategoryViewController *)
+        BBCategoriesTableViewController *itemCategoryVC = (BBCategoriesTableViewController *)
                                                                 [[segue destinationViewController] topViewController];
         
         itemCategoryVC.currentList = self.currentList;

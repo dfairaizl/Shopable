@@ -14,6 +14,7 @@
 		772A615615841E050098839C /* BBShoppingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A615515841E050098839C /* BBShoppingItem.m */; };
 		772A615A158427D90098839C /* BBShoppingListDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A6159158427D90098839C /* BBShoppingListDetailsViewController.m */; };
 		772A615E15842E830098839C /* BBShoppingItemDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A615D15842E830098839C /* BBShoppingItemDetailsCell.m */; };
+		772A6164158451910098839C /* BBCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A6163158451910098839C /* BBCategoriesTableViewController.m */; };
 		7732DD5915745573001F67CF /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5815745573001F67CF /* BBItemCategory.m */; };
 		7732DD5C15745573001F67CF /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5B15745573001F67CF /* BBShoppingCart.m */; };
 		7732DD6215745573001F67CF /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD6115745573001F67CF /* BBList.m */; };
@@ -85,6 +86,8 @@
 		772A6159158427D90098839C /* BBShoppingListDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingListDetailsViewController.m; sourceTree = "<group>"; };
 		772A615C15842E830098839C /* BBShoppingItemDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingItemDetailsCell.h; sourceTree = "<group>"; };
 		772A615D15842E830098839C /* BBShoppingItemDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItemDetailsCell.m; sourceTree = "<group>"; };
+		772A6162158451910098839C /* BBCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCategoriesTableViewController.h; sourceTree = "<group>"; };
+		772A6163158451910098839C /* BBCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCategoriesTableViewController.m; sourceTree = "<group>"; };
 		7732DD5715745573001F67CF /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
 		7732DD5815745573001F67CF /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
 		7732DD5A15745573001F67CF /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 		771C254C155D60460092EFB8 /* Item Category Screen */ = {
 			isa = PBXGroup;
 			children = (
+				772A6162158451910098839C /* BBCategoriesTableViewController.h */,
+				772A6163158451910098839C /* BBCategoriesTableViewController.m */,
 				771C254E155D60890092EFB8 /* BBItemCategoryViewController.h */,
 				771C254F155D60890092EFB8 /* BBItemCategoryViewController.m */,
 				77BCFAF11560AEDA005ED2E5 /* Support */,
@@ -652,6 +657,7 @@
 				772A615615841E050098839C /* BBShoppingItem.m in Sources */,
 				772A615A158427D90098839C /* BBShoppingListDetailsViewController.m in Sources */,
 				772A615E15842E830098839C /* BBShoppingItemDetailsCell.m in Sources */,
+				772A6164158451910098839C /* BBCategoriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

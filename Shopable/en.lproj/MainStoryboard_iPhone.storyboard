@@ -289,42 +289,59 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9wh-pw-h8r" kind="relationship" relationship="rootViewController" id="bTx-aA-pPB"/>
+                        <segue destination="hek-CM-K8B" kind="relationship" relationship="rootViewController" id="6ip-Wh-Dpx"/>
                     </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-1810" y="16"/>
         </scene>
-        <!--Item Category View Controller - Pick A Category-->
-        <scene sceneID="1yY-zt-ocB">
+        <!--Categories Table View Controller - Pick A Category-->
+        <scene sceneID="RCO-Gu-6wh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AB6-iM-Yrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="9wh-pw-h8r" customClass="BBItemCategoryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QpF-I4-QII">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDV-I2-eoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="hek-CM-K8B" customClass="BBCategoriesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ucc-fc-zdO">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HYf-ew-BnQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Pick A Category" id="7bQ-W7-G1M">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="mT4-u8-Xcj">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShoppingCategoryCell" textLabel="Kfa-Hm-P8N" style="IBUITableViewCellStyleDefault" id="XuQ-Nj-Ygr">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kfa-Hm-P8N">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hek-CM-K8B" id="HGY-Gk-piA"/>
+                            <outlet property="delegate" destination="hek-CM-K8B" id="GS1-cV-lYR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pick A Category" id="eSQ-jn-VgH">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="6ga-YQ-xaE">
                             <connections>
-                                <action selector="doneButtonPressed:" destination="9wh-pw-h8r" id="8Ox-cl-cmC"/>
+                                <action selector="doneButtonPressed:" destination="hek-CM-K8B" id="dSg-3A-lBN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="scrollView" destination="HYf-ew-BnQ" id="wKB-1J-fSJ"/>
-                        <segue destination="UsQ-ID-Vbs" kind="push" identifier="categoryItemsSegue" id="8jA-QG-mEY"/>
+                        <segue destination="UsQ-ID-Vbs" kind="push" identifier="categoryItemsSegue" id="TOv-PQ-1db"/>
                     </connections>
-                </viewController>
+                </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1293" y="16"/>
+            <point key="canvasLocation" x="-1278" y="16"/>
         </scene>
         <!--Items List Table View Controller-->
         <scene sceneID="qbq-xD-YJf">
@@ -640,16 +657,14 @@
         <image name="check_box_empty.png" width="40" height="40"/>
     </resources>
     <classes>
+        <class className="BBCategoriesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBCategoriesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneButtonPressed:"/>
+            </relationships>
+        </class>
         <class className="BBDecoratorLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
-        </class>
-        <class className="BBItemCategoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemCategoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="categoryButtonPressed:"/>
-                <relationship kind="action" name="doneButtonPressed:"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
         </class>
         <class className="BBItemDetailsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemDetailsTableViewController.h"/>
