@@ -341,17 +341,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
     
-    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] 
-                                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
-                                   target:nil 
-                                   action:nil];
+//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] 
+//                                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+//                                   target:nil 
+//                                   action:nil];
+//    
+//    UIBarButtonItem *emailButton = [[UIBarButtonItem alloc] initWithTitle:@"Email" 
+//                                                                    style:UIBarButtonItemStyleBordered 
+//                                                                   target:nil 
+//                                                                   action:nil];
     
-    UIBarButtonItem *emailButton = [[UIBarButtonItem alloc] initWithTitle:@"Email" 
-                                                                    style:UIBarButtonItemStyleBordered 
-                                                                   target:nil 
-                                                                   action:nil];
-    
-    NSArray *items = [NSArray arrayWithObjects:editButton, flexSpace ,emailButton, nil];
+    NSArray *items = [NSArray arrayWithObjects:editButton, nil];
     
     [self setToolbarItems:items animated:animated];
 }
