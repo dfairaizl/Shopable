@@ -78,20 +78,37 @@
 
 - (void)configureApperance {
     
-    /*UIView *backgroundView = [[UIView alloc] initWithFrame:self.window.frame];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:(238/255.0f) 
+                                                               green:(238/255.0f) 
+                                                                blue:(238/255.0f) 
+                                                               alpha:1.0]];
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.anchorPoint = CGPointMake(0.0f, 0.0f);
-    gradient.position = CGPointMake(0.0f, 0.0f);
-    gradient.bounds = backgroundView.layer.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:(123/255.0f) green:(191/255.0f) blue:(254/255.0f) alpha:1.0].CGColor,
-                       (id)[UIColor colorWithRed:(38/255.0f) green:(106/255.0f) blue:(207/255.0f) alpha:1.0].CGColor,
-                       nil];
-    [backgroundView.layer addSublayer:gradient];
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [UIColor colorWithWhite:0.4 alpha:1.0], UITextAttributeTextColor,
+                                                    [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                                    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                                    nil];
     
-    [self.window insertSubview:backgroundView atIndex:0];
+    NSDictionary *highlightedTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor colorWithWhite:0.4 alpha:1.0], UITextAttributeTextColor,
+                                    [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                    nil];
     
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background-transparent"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)] forBarMetrics:UIBarMetricsDefault];*/
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(228/255.0f) 
+                                                               green:(228/255.0f) 
+                                                                blue:(228/255.0f) 
+                                                               alpha:1.0]];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:highlightedTextAttributes forState:UIControlStateHighlighted];
+    
+    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:(238/255.0f) 
+                                                         green:(238/255.0f) 
+                                                          blue:(238/255.0f) 
+                                                         alpha:1.0]];
 }
 
 @end

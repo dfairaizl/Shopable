@@ -76,12 +76,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Store Title" id="06t-9P-0Sl">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="gj7-LQ-dqc">
+                        <barButtonItem key="leftBarButtonItem" image="List.png" id="gj7-LQ-dqc">
                             <connections>
                                 <action selector="showMenuButtonPressed:" destination="vsL-Rk-BYg" id="a6M-wo-Vka"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LdG-9k-wNC">
+                        <barButtonItem key="rightBarButtonItem" image="Add.png" id="LdG-9k-wNC">
                             <connections>
                                 <segue destination="Fvo-SC-IB9" kind="modal" identifier="addItemsSegue" modalTransitionStyle="flipHorizontal" id="Fnp-kJ-fPO"/>
                             </connections>
@@ -654,6 +654,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add.png" width="16" height="16"/>
+        <image name="List.png" width="16" height="16"/>
         <image name="check_box_empty.png" width="40" height="40"/>
     </resources>
     <classes>

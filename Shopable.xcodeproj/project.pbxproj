@@ -15,6 +15,10 @@
 		772A615A158427D90098839C /* BBShoppingListDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A6159158427D90098839C /* BBShoppingListDetailsViewController.m */; };
 		772A615E15842E830098839C /* BBShoppingItemDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A615D15842E830098839C /* BBShoppingItemDetailsCell.m */; };
 		772A6164158451910098839C /* BBCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772A6163158451910098839C /* BBCategoriesTableViewController.m */; };
+		772A616C15845DEC0098839C /* Add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A616B15845DEC0098839C /* Add@2x.png */; };
+		772A616E15845E000098839C /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A616D15845E000098839C /* Add.png */; };
+		772A617415845FA30098839C /* List@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A617315845FA30098839C /* List@2x.png */; };
+		772A617615845FB60098839C /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A617515845FB60098839C /* List.png */; };
 		7732DD5915745573001F67CF /* BBItemCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5815745573001F67CF /* BBItemCategory.m */; };
 		7732DD5C15745573001F67CF /* BBShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD5B15745573001F67CF /* BBShoppingCart.m */; };
 		7732DD6215745573001F67CF /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7732DD6115745573001F67CF /* BBList.m */; };
@@ -88,6 +92,10 @@
 		772A615D15842E830098839C /* BBShoppingItemDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingItemDetailsCell.m; sourceTree = "<group>"; };
 		772A6162158451910098839C /* BBCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCategoriesTableViewController.h; sourceTree = "<group>"; };
 		772A6163158451910098839C /* BBCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCategoriesTableViewController.m; sourceTree = "<group>"; };
+		772A616B15845DEC0098839C /* Add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@2x.png"; sourceTree = "<group>"; };
+		772A616D15845E000098839C /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
+		772A617315845FA30098839C /* List@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "List@2x.png"; sourceTree = "<group>"; };
+		772A617515845FB60098839C /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
 		7732DD5715745573001F67CF /* BBItemCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemCategory.h; sourceTree = "<group>"; };
 		7732DD5815745573001F67CF /* BBItemCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemCategory.m; sourceTree = "<group>"; };
 		7732DD5A15745573001F67CF /* BBShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingCart.h; sourceTree = "<group>"; };
@@ -271,6 +279,10 @@
 		777D32CA157426FF00F95F7A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				772A617515845FB60098839C /* List.png */,
+				772A617315845FA30098839C /* List@2x.png */,
+				772A616D15845E000098839C /* Add.png */,
+				772A616B15845DEC0098839C /* Add@2x.png */,
 				7732DDA315746D35001F67CF /* Icon@2x.png */,
 				7732DDA115746D30001F67CF /* Icon.png */,
 				777D32CC1574270400F95F7A /* Image List Screen */,
@@ -594,6 +606,10 @@
 				777D32D81574278200F95F7A /* check_box_empty@2x.png in Resources */,
 				7732DDA215746D31001F67CF /* Icon.png in Resources */,
 				7732DDA415746D35001F67CF /* Icon@2x.png in Resources */,
+				772A616C15845DEC0098839C /* Add@2x.png in Resources */,
+				772A616E15845E000098839C /* Add.png in Resources */,
+				772A617415845FA30098839C /* List@2x.png in Resources */,
+				772A617615845FB60098839C /* List.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
