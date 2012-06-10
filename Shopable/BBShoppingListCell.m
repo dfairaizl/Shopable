@@ -36,6 +36,17 @@
     
     itemCheckedOff = checkedOff;
     
+    if(checkedOff == YES) {
+     
+        self.itemNameLabel.textColor = [UIColor lightGrayColor];
+        self.itemQuantityUnitsLabel.textColor = [UIColor lightGrayColor];
+    }
+    else {
+        
+        self.itemNameLabel.textColor = [UIColor blackColor];
+        self.itemQuantityUnitsLabel.textColor = [UIColor blackColor];
+    }
+    
     //update the cell display
     [self.itemNameLabel setStrikeThrough:checkedOff];
     

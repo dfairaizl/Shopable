@@ -25,7 +25,7 @@
         
         CGContextSetLineWidth(context, 2.0);
         
-        CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+        CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
         
         CGContextMoveToPoint(context, 0, CGRectGetMinY(self.frame) + 1);
         CGContextAddLineToPoint(context, textWidth.width, CGRectGetMinY(self.frame) + 1);
