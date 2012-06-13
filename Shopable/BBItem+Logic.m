@@ -16,7 +16,7 @@
     
     BBItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM inManagedObjectContext:[[BBStorageManager sharedManager] managedObjectContext]];
     
-    newItem.isCustom = [NSNumber numberWithBool:YES];
+    newItem.isCustom = @YES;
     
     return newItem;
 }

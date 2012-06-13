@@ -215,8 +215,8 @@ static BBStorageManager *sharedManager = nil;
     
     NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:[self iCloudOptions]];
     
-    [options setValue:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
-    [options setValue:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+    [options setValue:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
+    [options setValue:@YES forKey:NSInferMappingModelAutomaticallyOption];
     
     return [NSDictionary dictionaryWithDictionary:options];
 }

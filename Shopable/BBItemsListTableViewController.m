@@ -118,8 +118,7 @@
         [categoriesFR setPredicate:[NSPredicate predicateWithFormat:@"parentItemCategory == %@", 
                                     self.currentItemCategory]];
         
-        [categoriesFR setSortDescriptors:[NSArray arrayWithObject:
-                                          [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        [categoriesFR setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
                                                                         managedObjectContext:moc 
@@ -155,7 +154,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [[sectionInfo objects] count];
 }
 
@@ -211,7 +210,7 @@
         [[self.currentList currentShoppingCart] addItem:item];
     }
     
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] 
                           withRowAnimation:UITableViewRowAnimationFade];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -344,7 +343,7 @@
     
     detailsItem.quantity = [NSString stringWithFormat:@"%d", quantity];
     
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentAccordionIndexPath]
+    [self.tableView reloadRowsAtIndexPaths:@[currentAccordionIndexPath]
                           withRowAnimation:UITableViewRowAnimationNone];
 }
 

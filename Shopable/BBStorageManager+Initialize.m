@@ -23,7 +23,7 @@
     BBList *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_LIST inManagedObjectContext:self.managedObjectContext];
     
     groceryStore.name = [NSString stringWithString:@"Grocery Store"];
-    groceryStore.order = [NSNumber numberWithInt:0];
+    groceryStore.order = @0;
     
     [self createDefaultCategories];
     
@@ -34,22 +34,22 @@
     
     //create item categories for this store
     NSDictionary *itemCategories = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"CategoryItems" withExtension:@"plist"]];
-    NSArray *categories = [itemCategories objectForKey:@"Categories"];
+    NSArray *categories = itemCategories[@"Categories"];
     
     for(NSString *category in categories) {
         
         BBItemCategory *itemCategory = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM_CATEGORY inManagedObjectContext:self.managedObjectContext];
         
-        itemCategory.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+        itemCategory.type = @(bbStoreTypeGrocery);
         itemCategory.name = category;
         
-        [self createDefaultItemsForCategory:itemCategory fromDictionary:[itemCategories objectForKey:@"Items"]];
+        [self createDefaultItemsForCategory:itemCategory fromDictionary:itemCategories[@"Items"]];
     }
 }
 
 - (void)createDefaultItemsForCategory:(BBItemCategory *)category fromDictionary:(NSDictionary *)itemsDict {
     
-    NSArray *items = [itemsDict objectForKey:category.name];
+    NSArray *items = itemsDict[category.name];
     
     for(NSString *item in items) {
         

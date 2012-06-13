@@ -156,7 +156,7 @@
     
     CGFloat height = 0.0f;
     
-    if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
+    if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
         
         CGSize labelSize = [self.currentItem.notes sizeWithFont:[UIFont systemFontOfSize:15] 
                                               constrainedToSize:CGSizeMake(260, MAXFLOAT) 
@@ -164,7 +164,7 @@
         
         height = labelSize.height < 44 ? 44 : (labelSize.height + 22);
     }
-    else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
+    else if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
         
         height = 320.0;
     }
@@ -178,18 +178,18 @@
     
     // Configure the cell...
     
-    if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
+    if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
         
         cellIdentifier = @"shoppingItemDetailsCellNotes";
     }
-    else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
+    else if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
      
         cellIdentifier = @"shoppingItemDetailsCellPhoto";
     }
     
     BBShoppingItemDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
+    if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypeNotes]) {
         
         cell.itemNotesLabel.text = self.currentItem.notes;
         
@@ -201,7 +201,7 @@
         frame.size.height = labelSize.height;
         cell.itemNotesLabel.frame = frame;
     }
-    else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
+    else if([(self.cells)[indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
         
         cell.itemPhotoImageView.image = [UIImage imageWithData:self.currentItem.photo];
     }

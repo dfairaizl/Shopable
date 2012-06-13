@@ -56,7 +56,7 @@
     
     UIViewController *listsController = [self listsViewController];
     
-    NSArray *pages = [NSArray arrayWithObject:listsController];
+    NSArray *pages = @[listsController];
     
     [self.pageController setViewControllers:pages 
                                   direction:UIPageViewControllerNavigationDirectionForward 
@@ -99,8 +99,7 @@
     
     if(_pageController == nil) {
         
-        NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:UIPageViewControllerSpineLocationMin]  
-                                                            forKey:UIPageViewControllerOptionSpineLocationKey];
+        NSDictionary *options = @{UIPageViewControllerOptionSpineLocationKey: @(UIPageViewControllerSpineLocationMin)};
         
         _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl 
                                                           navigationOrientation:UIPageViewControllerNavigationOrientationVertical 
@@ -155,7 +154,7 @@
     
     UIViewController *listsController = [self listsViewController];
     
-    NSArray *pages = [NSArray arrayWithObject:listsController];
+    NSArray *pages = @[listsController];
     
     [self.pageController setViewControllers:pages 
                                   direction:UIPageViewControllerNavigationDirectionReverse 
@@ -173,7 +172,7 @@
     
     controller.currentList = selectedStore;
     
-    NSArray *pages = [NSArray arrayWithObject:pageNav];
+    NSArray *pages = @[pageNav];
     
     [self.pageController setViewControllers:pages 
                                   direction:UIPageViewControllerNavigationDirectionForward 

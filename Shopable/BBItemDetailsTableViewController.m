@@ -177,22 +177,22 @@
                                                                                    withExtension:@"plist"]];
         }
         
-        self.quantities = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"Quantities"]];
+        self.quantities = [NSArray arrayWithArray:(self.quantitiesUnitsPList)[@"Quantities"]];
         
         //load units based on prior selection (if any)
         if([self.currentItem.quantity isEqualToString:@"1"] == YES || self.currentItem.quantity == nil) {
           
-            self.units = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"UnitsSingular"]];
+            self.units = [NSArray arrayWithArray:(self.quantitiesUnitsPList)[@"UnitsSingular"]];
         }
         else {
             
-            self.units = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"UnitsPlural"]];
+            self.units = [NSArray arrayWithArray:(self.quantitiesUnitsPList)[@"UnitsPlural"]];
         }
         
         if([self.quantityUnitsTextField.text length] <= 0) {
  
-            self.quantityUnitsTextField.text = [NSString stringWithFormat:@"%@", [self.quantities objectAtIndex:0]];
-            self.currentItem.quantity = [self.quantities objectAtIndex:0];
+            self.quantityUnitsTextField.text = [NSString stringWithFormat:@"%@", (self.quantities)[0]];
+            self.currentItem.quantity = (self.quantities)[0];
         }
         
         textField.inputView = self.quantityUnitsPicker;
@@ -319,10 +319,10 @@
     NSString *title = nil;
     
     if(component == bbPickerComponentQuantity) {
-        title = [self.quantities objectAtIndex:row];
+        title = (self.quantities)[row];
     }
     else if(component == bbPickerComponentUnits) {
-        title = [self.units objectAtIndex:row];
+        title = (self.units)[row];
     }
     
     return title;
@@ -335,15 +335,15 @@
     if(component == bbPickerComponentQuantity) {
         
         //check if quantity selected was greater than 1
-        if([[self.quantities objectAtIndex:row] isEqualToString:@"1"] == NO) {
+        if([(self.quantities)[row] isEqualToString:@"1"] == NO) {
             
-            self.units = [NSArray arrayWithArray:[quantitiesUnitsPList objectForKey:@"UnitsPlural"]];
+            self.units = [NSArray arrayWithArray:quantitiesUnitsPList[@"UnitsPlural"]];
             
             [self.quantityUnitsPicker reloadComponent:bbPickerComponentUnits];
         }
         else {
             
-            self.units = [NSArray arrayWithArray:[self.quantitiesUnitsPList objectForKey:@"UnitsSingular"]];
+            self.units = [NSArray arrayWithArray:(self.quantitiesUnitsPList)[@"UnitsSingular"]];
             
             [self.quantityUnitsPicker reloadComponent:bbPickerComponentUnits];
         }
@@ -364,7 +364,7 @@
     
     [self dismissModalViewControllerAnimated:YES];
     
-    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *selectedImage = info[UIImagePickerControllerOriginalImage];
     NSData *imageData = UIImagePNGRepresentation(selectedImage);
     
     self.currentItem.photo = imageData;

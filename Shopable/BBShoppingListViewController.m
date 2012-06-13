@@ -134,10 +134,8 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", 
                                                                             [self.currentList currentShoppingCart]];
         
-        NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"item.parentItemCategory.name" ascending:YES],
-                                    [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES],
-                                    nil];
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"item.parentItemCategory.name" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES]];
         
         [fetchRequest setEntity:entityDescription];
         [fetchRequest setPredicate:predicate];
@@ -161,13 +159,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [[sectionInfo objects] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
     
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo name];
 }
 
@@ -227,12 +225,12 @@
     switch(type) {
             
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
@@ -241,9 +239,9 @@
             break;
             
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
@@ -320,11 +318,11 @@
     
     if([swippedItem.checkedOff boolValue] == YES) {
         
-        swippedItem.checkedOff = [NSNumber numberWithBool:NO];
+        swippedItem.checkedOff = @NO;
     }
     else {
         
-        swippedItem.checkedOff = [NSNumber numberWithBool:YES];
+        swippedItem.checkedOff = @YES;
     }
     
     [cell itemCheckedOff:[swippedItem.checkedOff boolValue]];

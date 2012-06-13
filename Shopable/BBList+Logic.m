@@ -19,7 +19,7 @@
     
     NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
     
-    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    [storesFR setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
     
     stores = [ [[BBStorageManager sharedManager] managedObjectContext] executeFetchRequest:storesFR error:&error];
     
@@ -39,7 +39,7 @@
     
     NSFetchRequest *storesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
     
-    [storesFR setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    [storesFR setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
     
     NSInteger storesCount = [[[BBStorageManager sharedManager] managedObjectContext] countForFetchRequest:storesFR error:&error];
     
@@ -48,7 +48,7 @@
         NSLog(@"Error fetching stores!");
     }
     
-    newStore.order = [NSNumber numberWithInt:storesCount - 1];
+    newStore.order = @(storesCount - 1);
     
     return newStore;
 }

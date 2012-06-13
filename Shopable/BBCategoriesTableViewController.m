@@ -78,8 +78,7 @@
         
         NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM_CATEGORY];
         
-        [categoriesFR setSortDescriptors:[NSArray arrayWithObject:
-                                          [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        [categoriesFR setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
                                                                         managedObjectContext:moc 
@@ -112,7 +111,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [[sectionInfo objects] count];
 }
 
