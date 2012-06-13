@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2541" systemVersion="12A239" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1875"/>
     </dependencies>
     <scenes>
         <!--Nav Container View Controller-->
         <scene sceneID="m3A-oz-a6n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nAQ-Rt-TL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController wantsFullScreenLayout="YES" id="rYh-TN-C7D" customClass="BBNavContainerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ol4-1h-7Ss">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -19,13 +16,13 @@
                     <navigationItem key="navigationItem" id="GVH-nj-sWj"/>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAQ-Rt-TL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3397" y="640"/>
         </scene>
         <!--Shopping List View Controller - Store Title-->
         <scene sceneID="lxQ-Oq-t9G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9c8-xu-VUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" id="vsL-Rk-BYg" customClass="BBShoppingListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hHA-ek-SdM">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -43,19 +40,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5w4-Ys-nXj" customClass="BBDecoratorLabel">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Title" autoshrinkMode="minimumFontSize" id="5w4-Ys-nXj" customClass="BBDecoratorLabel">
                                                     <rect key="frame" x="14" y="10" width="176" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="x1 Bottle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mjB-qc-9TZ">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="x1 Bottle" textAlignment="right" autoshrinkMode="minimumFontSize" id="mjB-qc-9TZ">
                                                     <rect key="frame" x="234" y="10" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -92,13 +89,13 @@
                         <segue destination="vWV-Fm-E22" kind="push" identifier="shoppingListItemDetailsSegue" id="5rX-GE-Cov"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9c8-xu-VUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2349" y="640"/>
         </scene>
         <!--Shopping List Details View Controller-->
         <scene sceneID="DR3-7N-Nbu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ycX-XD-cEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="vWV-Fm-E22" customClass="BBShoppingListDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2ar-SG-e6N">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -112,12 +109,12 @@
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notes" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontSizeToFit="NO" id="WZ7-9h-Yqp">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" text="Notes" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="WZ7-9h-Yqp">
                                             <rect key="frame" x="20" y="11" width="260" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -152,15 +149,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="jPM-R4-0Fb"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycX-XD-cEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1810" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vlR-lp-Qay">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IMM-Zq-apB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="BBShoppingListViewController" definesPresentationContext="YES" id="d8o-Xh-vUj" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Nlm-ZP-X1t">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uYc-Ev-Q6Z">
@@ -171,13 +170,13 @@
                         <segue destination="vsL-Rk-BYg" kind="relationship" relationship="rootViewController" id="wSH-KF-ldD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMM-Zq-apB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2869" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0A-ee-Hmh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QLM-Ds-9HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController navigationBarHidden="YES" id="1NP-8Y-r9r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -194,13 +193,13 @@
                         <segue destination="rYh-TN-C7D" kind="relationship" relationship="rootViewController" id="Id9-Mb-1Sc"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLM-Ds-9HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3923" y="640"/>
         </scene>
         <!--Lists View Controller-->
         <scene sceneID="joC-gt-EnC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EnL-zV-8Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" wantsFullScreenLayout="YES" id="aX2-7F-4Ln" customClass="BBListsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H5j-ut-JR2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
@@ -234,18 +233,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5N4-xh-JdA">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" id="5N4-xh-JdA">
                                                     <rect key="frame" x="13" y="11" width="221" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                 </label>
                                                 <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Store Name" minimumFontSize="17" clearButtonMode="whileEditing" id="XXS-DH-yf9">
                                                     <rect key="frame" x="10" y="6" width="200" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="done"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="BtX-29-u7f" id="egQ-Ja-69b"/>
                                                     </connections>
@@ -274,13 +273,13 @@
                         <outlet property="tableView" destination="wLd-St-nnS" id="AhL-fT-Fxi"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnL-zV-8Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2349" y="1309"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7oi-du-vcg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aow-5y-vyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Fvo-SC-IB9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="qdo-ea-Vu6">
@@ -292,13 +291,13 @@
                         <segue destination="hek-CM-K8B" kind="relationship" relationship="rootViewController" id="6ip-Wh-Dpx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aow-5y-vyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1810" y="16"/>
         </scene>
         <!--Categories Table View Controller - Pick A Category-->
         <scene sceneID="RCO-Gu-6wh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sDV-I2-eoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="hek-CM-K8B" customClass="BBCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ucc-fc-zdO">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -312,12 +311,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kfa-Hm-P8N">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Title" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Kfa-Hm-P8N">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -340,13 +339,13 @@
                         <segue destination="UsQ-ID-Vbs" kind="push" identifier="categoryItemsSegue" id="TOv-PQ-1db"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDV-I2-eoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1278" y="16"/>
         </scene>
         <!--Items List Table View Controller-->
         <scene sceneID="qbq-xD-YJf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ytq-lg-iEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="UsQ-ID-Vbs" customClass="BBItemsListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9QN-Oc-Mcb">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -360,23 +359,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kmG-87-Kb4">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Title" autoshrinkMode="minimumFontSize" id="kmG-87-Kb4">
                                             <rect key="frame" x="50" y="10" width="176" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="check_box_empty.png" id="T3H-hl-fbp">
                                             <rect key="frame" x="2" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="x1 Bottle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yNY-Dr-fe4">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="x1 Bottle" textAlignment="right" autoshrinkMode="minimumFontSize" id="yNY-Dr-fe4">
                                             <rect key="frame" x="234" y="11" width="66" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -395,12 +394,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kqC-iT-bIz">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Title" autoshrinkMode="minimumFontSize" id="kqC-iT-bIz">
                                             <rect key="frame" x="50" y="10" width="243" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="1A0-zR-z0x">
                                             <rect key="frame" x="0.0" y="44" width="320" height="44"/>
@@ -413,19 +412,19 @@
                                                         <action selector="quanityStepperValueChanged:" destination="ctU-7C-kZU" eventType="valueChanged" id="DWo-yP-15e"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="x 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3MC-Fp-miS">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="x 1" textAlignment="center" autoshrinkMode="minimumFontSize" id="3MC-Fp-miS">
                                                     <rect key="frame" x="184" y="10" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Quantity:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="s1G-Ro-rx0">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Quantity:" autoshrinkMode="minimumFontSize" id="s1G-Ro-rx0">
                                                     <rect key="frame" x="10" y="10" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="OOp-6d-1dA">
                                                     <rect key="frame" x="281" y="6" width="29" height="31"/>
@@ -470,13 +469,13 @@
                         <segue destination="Dsg-H1-Ywv" kind="push" identifier="itemDetailsSegue" id="Wis-hu-fRS"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytq-lg-iEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-784" y="16"/>
         </scene>
         <!--Item Details Table View Controller-->
         <scene sceneID="wuV-4M-ARA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r7V-YV-tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Dsg-H1-Ywv" customClass="BBItemDetailsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zLo-ZR-EWR">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -495,8 +494,8 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap To Enter Quantity" minimumFontSize="17" id="8Pn-8h-sBl">
                                                     <rect key="frame" x="20" y="6" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="Dsg-H1-Ywv" id="PBM-oF-0H0"/>
                                                     </connections>
@@ -516,12 +515,12 @@
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="z5B-Dg-imH">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" text="Label" autoshrinkMode="minimumFontSize" id="z5B-Dg-imH">
                                                     <rect key="frame" x="20" y="11" width="240" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -541,12 +540,12 @@
                                             <rect key="frame" x="10" y="1" width="300" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap to add a photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4P1-Jf-fMg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Tap to add a photo" textAlignment="center" autoshrinkMode="minimumFontSize" id="4P1-Jf-fMg">
                                                     <rect key="frame" x="20" y="59" width="260" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="2Ay-Ia-2EL">
                                                     <rect key="frame" x="85" y="4" width="131" height="131"/>
@@ -574,6 +573,7 @@
                         <outlet property="quantityUnitsTextField" destination="8Pn-8h-sBl" id="MrM-4P-IWb"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r7V-YV-tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pickerView contentMode="scaleToFill" id="HMQ-AQ-tLX">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -599,7 +599,6 @@
         <!--Item Notes View Controller - Notes-->
         <scene sceneID="MGN-iI-FCx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6yP-Rs-Sls" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="rCr-f2-Exn" customClass="BBItemNotesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9nU-ck-fZM">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -609,9 +608,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -627,13 +626,13 @@
                         <outlet property="itemNotesTextView" destination="PKb-NO-Qg2" id="DLM-hf-PZl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yP-Rs-Sls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="214" y="16"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wOr-xp-IYN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CWS-St-bFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="BBListsViewController" wantsFullScreenLayout="YES" navigationBarHidden="YES" toolbarHidden="NO" id="nRH-rZ-1hL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ByS-r2-vva">
@@ -649,108 +648,16 @@
                         <segue destination="aX2-7F-4Ln" kind="relationship" relationship="rootViewController" id="pwl-95-Bzs"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWS-St-bFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2875" y="1309"/>
         </scene>
     </scenes>
     <resources>
         <image name="Add.png" width="16" height="16"/>
-        <image name="List.png" width="16" height="16"/>
+        <image name="List.png" width="17" height="22"/>
         <image name="check_box_empty.png" width="40" height="40"/>
     </resources>
-    <classes>
-        <class className="BBCategoriesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBCategoriesTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="BBDecoratorLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
-        </class>
-        <class className="BBItemDetailsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemDetailsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneButtonPressed:"/>
-                <relationship kind="outlet" name="addPhotoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemNotesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemPhotoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pickerToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="quantityUnitsPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="quantityUnitsTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBItemNotesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemNotesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearButtonPressed:"/>
-                <relationship kind="outlet" name="itemNotesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="BBItemTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
-            <relationships>
-                <relationship kind="action" name="itemDetailsDisclosureButtonPressed:"/>
-                <relationship kind="action" name="quanityStepperValueChanged:" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="checkMarkImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="quantityStepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="unitsButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BBItemsListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsListTableViewController.h"/>
-        </class>
-        <class className="BBListTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="listTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listTitleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBListsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewListButtonPressed:"/>
-                <relationship kind="action" name="editButtonPressed:"/>
-                <relationship kind="outlet" name="addNewListButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editListsButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="emailListsButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBNavContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBNavContainerViewController.h"/>
-        </class>
-        <class className="BBShoppingItemDetailsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingItemDetailsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNotesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemPhotoImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="BBDecoratorLabel"/>
-                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingListDetailsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListDetailsViewController.h"/>
-        </class>
-        <class className="BBShoppingListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showMenuButtonPressed:"/>
-                <relationship kind="outlet" name="shoppingTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
