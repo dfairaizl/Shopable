@@ -15,15 +15,18 @@
 #import "BBItem.h"
 #import "BBShoppingCart.h"
 #import "BBShoppingItem.h"
+#import "BBItemImage.h"
 
 //Categories
 #import "BBList+Logic.h"
 #import "BBItem+Logic.h"
 #import "BBShoppingCart+Logic.h"
+#import "BBShoppingItem+Logic.h"
 
 #define     BB_ENTITY_LIST              @"BBList"
 #define     BB_ENTITY_ITEM_CATEGORY     @"BBItemCategory"
 #define     BB_ENTITY_ITEM              @"BBItem"
+#define     BB_ENTITY_ITEM_IMAGE        @"BBItemImage"
 #define     BB_ENTITY_SHOPPING_CART     @"BBShoppingCart"
 #define     BB_ENTITY_SHOPPING_ITEM     @"BBShoppingItem"
 

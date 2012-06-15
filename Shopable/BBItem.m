@@ -2,7 +2,7 @@
 //  BBItem.m
 //  Shopable
 //
-//  Created by Dan Fairaizl on 5/28/12.
+//  Created by Daniel Fairaizl on 6/15/12.
 //  Copyright (c) 2012 Basically Bits, LLC. All rights reserved.
 //
 

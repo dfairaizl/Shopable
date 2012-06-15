@@ -87,7 +87,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^() {                 
            
-            UIImage *photo = [UIImage imageWithData:self.currentItem.photo];
+            UIImage *photo = [self.currentItem itemPhoto];
             
             self.itemPhotoImageView.image = photo;
             [self.addPhotoLabel setHidden:YES];
@@ -365,9 +365,8 @@
     [self dismissModalViewControllerAnimated:YES];
     
     UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSData *imageData = UIImagePNGRepresentation(selectedImage);
     
-    self.currentItem.photo = imageData;
+    [self.currentItem addPhoto:selectedImage];
     
     self.itemPhotoImageView.image = selectedImage;
     [self.addPhotoLabel setHidden:YES];

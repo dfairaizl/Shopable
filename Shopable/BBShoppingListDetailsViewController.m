@@ -203,7 +203,7 @@
     }
     else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
         
-        cell.itemPhotoImageView.image = [UIImage imageWithData:self.currentItem.photo];
+        cell.itemPhotoImageView.image = [self.currentItem itemPhoto];
     }
     
     return cell;
