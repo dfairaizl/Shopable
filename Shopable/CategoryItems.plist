@@ -4,6 +4,8 @@
 <dict>
 	<key>Categories</key>
 	<array>
+		<string>Condiments and Spices</string>
+		<string>Oils and Dressings</string>
 		<string>Baking</string>
 		<string>Beverages</string>
 		<string>Canned Goods</string>
@@ -21,6 +23,20 @@
 	</array>
 	<key>Items</key>
 	<dict>
+		<key>Condiments and Spices</key>
+		<array>
+			<string>Mustard</string>
+			<string>Salt</string>
+			<string>Pepper</string>
+			<string>Ketchup</string>
+		</array>
+		<key>Oils and Dressings</key>
+		<array>
+			<string>Italian Dressing</string>
+			<string>Ceasar Dressing</string>
+			<string>Olive Oil</string>
+			<string>Vegetable Oil</string>
+		</array>
 		<key>Baking</key>
 		<array>
 			<string>Flour</string>
