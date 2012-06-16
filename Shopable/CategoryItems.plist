@@ -14,7 +14,7 @@
 		<string>House Hold</string>
 		<string>Meats</string>
 		<string>Medicine</string>
-		<string>Produce</string>
+		<string>Fruits</string>
 		<string>Pet Supplies</string>
 		<string>Snacks</string>
 		<string>Vegetables</string>
@@ -108,7 +108,7 @@
 			<string>Pain Relivers</string>
 			<string>Antacids</string>
 		</array>
-		<key>Produce</key>
+		<key>Fruits</key>
 		<array>
 			<string>Oranges</string>
 			<string>Apples</string>

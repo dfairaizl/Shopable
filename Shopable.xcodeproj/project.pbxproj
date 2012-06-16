@@ -203,6 +203,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7702F324158C1B1E007FC5FC /* pLists */ = {
+			isa = PBXGroup;
+			children = (
+				778C1C4F14BF70A800190DAE /* CategoryItems.plist */,
+				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
+			);
+			name = pLists;
+			sourceTree = "<group>";
+		};
 		771391ED14C4E2CE00875FB3 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +332,7 @@
 		77A2706D155B79B200C86692 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7702F324158C1B1E007FC5FC /* pLists */,
 				777D32CA157426FF00F95F7A /* Images */,
 				77A2706E155B79C200C86692 /* Storyboard / Nib */,
 			);
@@ -431,10 +441,8 @@
 		77A4173814BDFEC200ACAAC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				778C1C4F14BF70A800190DAE /* CategoryItems.plist */,
 				77A4173A14BDFEC200ACAAC1 /* InfoPlist.strings */,
 				77A4173D14BDFEC200ACAAC1 /* main.m */,
-				7745934514C5FE7000EF1565 /* QuantityUnits.plist */,
 				77A4173914BDFEC200ACAAC1 /* Shopable-Info.plist */,
 				77A4173F14BDFEC200ACAAC1 /* Shopable-Prefix.pch */,
 				7745933F14C5E80600EF1565 /* StoreTypes.plist */,
