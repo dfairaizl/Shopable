@@ -23,6 +23,7 @@
 
 @protocol BBListTableViewCellDelegate <NSObject>
 
+- (void)cellWillBeginEditing:(UITableViewCell *)cell;
 - (void)cellDidFinishEditing:(UITableViewCell *)cell;
 
 @end

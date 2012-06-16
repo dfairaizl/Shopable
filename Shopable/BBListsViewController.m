@@ -30,6 +30,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSIndexPath *insertIndexPath;
+@property (weak, nonatomic) BBListTableViewCell *currentEditingCell;
 
 - (void)setListsToolbarItemsAnimated:(BOOL)animated;
 - (void)setEditingListsToolbarItemsAnimated:(BOOL)animated;
@@ -48,6 +49,7 @@
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize insertIndexPath;
+@synthesize currentEditingCell;
 
 - (void)viewDidLoad
 {
@@ -97,6 +99,8 @@
 - (IBAction)addNewListButtonPressed:(id)sender {
     
     [self.tableView setEditing:YES animated:YES];
+    
+    [self.tableView.tableFooterView setHidden:YES];
     
     [BBList addList];
 }
@@ -294,6 +298,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark - BBListTableViewCellDelegate Methods
 
+- (void)cellWillBeginEditing:(UITableViewCell *)cell {
+    
+    [self.currentEditingCell.listTitleTextField resignFirstResponder];
+    
+    self.currentEditingCell = (BBListTableViewCell *)cell;
+}
+
 - (void)cellDidFinishEditing:(UITableViewCell *)cell {
     
     BBListTableViewCell *editingCell = (BBListTableViewCell *)cell;
@@ -352,6 +363,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //                                                                   action:nil];
     
     NSArray *items = [NSArray arrayWithObjects:editButton, nil];
+
+    [self.tableView.tableFooterView setHidden:NO];
     
     [self setToolbarItems:items animated:animated];
 }
