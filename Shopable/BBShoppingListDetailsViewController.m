@@ -203,7 +203,10 @@
     }
     else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
         
-        cell.itemPhotoImageView.image = [self.currentItem itemPhoto];
+        dispatch_async(dispatch_get_main_queue(), ^ {
+           
+            cell.itemPhotoImageView.image = [self.currentItem itemPhoto];
+        });
     }
     
     return cell;
