@@ -57,7 +57,9 @@
     
     [self setListsToolbarItemsAnimated:NO];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUI:) name:@"RefreshUI" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshUI:)
+                                                 name:@"RefreshUI" object:nil];
 }
 
 - (void)viewDidUnload
@@ -249,10 +251,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         [self.currentEditingCell.listTitleTextField resignFirstResponder];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, 
-        //and add a new row to the table view
-    }   
 }
 
 // Override to support rearranging the table view.
@@ -353,16 +351,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                    style:UIBarButtonItemStyleBordered 
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
-    
-//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] 
-//                                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
-//                                   target:nil 
-//                                   action:nil];
-//    
-//    UIBarButtonItem *emailButton = [[UIBarButtonItem alloc] initWithTitle:@"Email" 
-//                                                                    style:UIBarButtonItemStyleBordered 
-//                                                                   target:nil 
-//                                                                   action:nil];
     
     NSArray *items = [NSArray arrayWithObjects:editButton, nil];
 
