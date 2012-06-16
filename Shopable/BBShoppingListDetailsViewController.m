@@ -162,7 +162,7 @@
                                               constrainedToSize:CGSizeMake(260, MAXFLOAT) 
                                                   lineBreakMode:UILineBreakModeWordWrap];
         
-        height = labelSize.height < 44 ? 44 : (labelSize.height + 22);
+        height = labelSize.height + 22;
     }
     else if([[self.cells objectAtIndex:indexPath.section] isEqualToString:BBShoppingDetailsCellTypePhoto]) {
         
