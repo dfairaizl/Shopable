@@ -246,6 +246,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         BBList *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         [list deleteList];
+        
+        [self.currentEditingCell.listTitleTextField resignFirstResponder];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, 
@@ -364,6 +366,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     NSArray *items = [NSArray arrayWithObjects:editButton, nil];
 
+    //reset to defaults
     [self.tableView.tableFooterView setHidden:NO];
     
     [self setToolbarItems:items animated:animated];
