@@ -32,6 +32,13 @@
     // Configure the view for the selected state
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+    
+    self.itemQuantityUnitsLabel.hidden = editing;
+}
+
 - (void)itemCheckedOff:(BOOL)checkedOff {
     
     itemCheckedOff = checkedOff;

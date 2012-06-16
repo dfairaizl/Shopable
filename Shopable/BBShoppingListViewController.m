@@ -67,9 +67,13 @@
     
     [super viewWillAppear:animated];
     
+    [self setListsToolbarItemsAnimated:NO];
+    
     NSError *error = nil;
     
     [self.fetchedResultsController performFetch:&error];
+    
+    self.fetchedResultsController.delegate = self;
     
     if(error != nil) {
         
@@ -77,6 +81,13 @@
     }
     
     [self.shoppingTableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    self.fetchedResultsController.delegate = nil;
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
@@ -152,6 +163,68 @@
     return _fetchedResultsController;
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate Methods
+
+/*
+ Assume self has a property 'tableView' -- as is the case for an instance of a UITableViewController
+ subclass -- and a method configureCell:atIndexPath: which updates the contents of a given cell
+ with information from a managed object at the given index path in the fetched results controller.
+ */
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.shoppingTableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller 
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.shoppingTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.shoppingTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.shoppingTableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.shoppingTableView endUpdates];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -171,6 +244,29 @@
     return [sectionInfo name];
 }
 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        [[self.currentList currentShoppingCart] removeShoppingItem:shoppingItem];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, 
+        //and add a new row to the table view
+    }   
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BBShoppingListCell";
@@ -180,78 +276,6 @@
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    BBShoppingItem *shoppingItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if([shoppingItem.notes length] || shoppingItem.photo != nil) {
-        
-        [self performSegueWithIdentifier:@"shoppingListItemDetailsSegue" sender:shoppingItem];
-    }
-}
-
-#pragma mark - NSFetchedResultsControllerDelegate Methods
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    
-    [self.shoppingTableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.shoppingTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                               withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.shoppingTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                               withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
-    
-    UITableView *tableView = self.shoppingTableView;
-    
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    
-    [self.shoppingTableView endUpdates];
 }
 
 #pragma mark - Private Table View Methods
@@ -303,6 +327,20 @@
     [self.delegate showNavigationMenu];
 }
 
+- (void)editButtonPressed:(id)sender {
+    
+    if([self.shoppingTableView isEditing] == YES) {
+        
+        [self.shoppingTableView setEditing:NO animated:YES];
+        [self setListsToolbarItemsAnimated:NO];
+    }
+    else {
+        
+        [self.shoppingTableView setEditing:YES animated:YES];
+        [self setEditingListsToolbarItemsAnimated:YES];
+    }
+}
+
 #pragma Private Methods
 
 - (void)shoppingCellSwipped:(id)sender {
@@ -328,6 +366,30 @@
     }
     
     [cell itemCheckedOff:[swippedItem.checkedOff boolValue]];
+}
+
+- (void)setListsToolbarItemsAnimated:(BOOL)animated {
+    
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" 
+                                                                   style:UIBarButtonItemStyleBordered 
+                                                                  target:self 
+                                                                  action:@selector(editButtonPressed:)];
+    
+    NSArray *items = [NSArray arrayWithObjects:editButton, nil];
+    
+    [self setToolbarItems:items animated:animated];
+}
+
+- (void)setEditingListsToolbarItemsAnimated:(BOOL)animated {
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" 
+                                                                   style:UIBarButtonItemStyleBordered 
+                                                                  target:self 
+                                                                  action:@selector(editButtonPressed:)];
+    
+    NSArray *items = [NSArray arrayWithObject:doneButton];
+    
+    [self setToolbarItems:items animated:animated];
 }
 
 @end
