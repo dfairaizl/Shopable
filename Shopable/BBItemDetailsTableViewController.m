@@ -85,7 +85,7 @@
         
         self.addPhotoLabel.text = @"Loading...";
         
-        dispatch_async(dispatch_get_main_queue(), ^() {                 
+        dispatch_async(dispatch_get_main_queue(), ^() {
            
             UIImage *photo = [self.currentItem itemPhoto];
             
@@ -364,12 +364,17 @@
     
     [self dismissModalViewControllerAnimated:YES];
     
-    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    [self.currentItem addPhoto:selectedImage];
-    
-    self.itemPhotoImageView.image = selectedImage;
-    [self.addPhotoLabel setHidden:YES];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^() {
+        
+        UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        [self.currentItem addPhoto:selectedImage];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+       
+            self.itemPhotoImageView.image = selectedImage;
+            [self.addPhotoLabel setHidden:YES];
+        });
+    });
 }
 
 #pragma mark - Private Methods
