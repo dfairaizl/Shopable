@@ -278,6 +278,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     return cell;
 }
 
+#pragma mark - UITableViewDelegate Methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BBShoppingListCell *cell = (BBShoppingListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    if(cell.selectionStyle == UITableViewCellSelectionStyleGray) {
+     
+        BBShoppingItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self performSegueWithIdentifier:@"shoppingListItemDetailsSegue" sender:item];
+    }
+}
+
 #pragma mark - Private Table View Methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
