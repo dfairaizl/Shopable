@@ -15,7 +15,7 @@
 
 - (void)addPhoto:(UIImage *)photo {
  
-    NSData *imageData = UIImagePNGRepresentation(photo);
+    NSData *imageData = UIImageJPEGRepresentation(photo, 60);
     
     if(self.photo == nil) {
         
