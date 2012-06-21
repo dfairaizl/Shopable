@@ -30,6 +30,7 @@
 		772A617C1584650A0098839C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 772A617B1584650A0098839C /* iTunesArtwork */; };
 		7745934014C5E80600EF1565 /* StoreTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745933F14C5E80600EF1565 /* StoreTypes.plist */; };
 		7745934614C5FE7000EF1565 /* QuantityUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7745934514C5FE7000EF1565 /* QuantityUnits.plist */; };
+		7749A17B15903BF000EFD6FC /* BBShoppingListAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7749A17A15903BF000EFD6FC /* BBShoppingListAddViewController.m */; };
 		7750F6091561FBF900B54F1F /* BBItemsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7750F6081561FBF900B54F1F /* BBItemsListTableViewController.m */; };
 		7750F60D15620EDA00B54F1F /* BBItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7750F60C15620EDA00B54F1F /* BBItemTableViewCell.m */; };
 		7751FADC15605C62006339A0 /* BBList+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7751FADA15605C62006339A0 /* BBList+Logic.m */; };
@@ -116,6 +117,8 @@
 		772A617B1584650A0098839C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		7745933F14C5E80600EF1565 /* StoreTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoreTypes.plist; sourceTree = "<group>"; };
 		7745934514C5FE7000EF1565 /* QuantityUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuantityUnits.plist; sourceTree = "<group>"; };
+		7749A17915903BF000EFD6FC /* BBShoppingListAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShoppingListAddViewController.h; sourceTree = "<group>"; };
+		7749A17A15903BF000EFD6FC /* BBShoppingListAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShoppingListAddViewController.m; sourceTree = "<group>"; };
 		7750F6071561FBF900B54F1F /* BBItemsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemsListTableViewController.h; sourceTree = "<group>"; };
 		7750F6081561FBF900B54F1F /* BBItemsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBItemsListTableViewController.m; sourceTree = "<group>"; };
 		7750F60B15620EDA00B54F1F /* BBItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBItemTableViewCell.h; sourceTree = "<group>"; };
@@ -267,6 +270,15 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		7749A17715903BC300EFD6FC /* Shopping List Add Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7749A17915903BF000EFD6FC /* BBShoppingListAddViewController.h */,
+				7749A17A15903BF000EFD6FC /* BBShoppingListAddViewController.m */,
+			);
+			name = "Shopping List Add Screen";
+			sourceTree = "<group>";
+		};
 		7750F6061561FBCD00B54F1F /* Item List Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +368,7 @@
 				7750F6061561FBCD00B54F1F /* Item List Screen */,
 				772A61531583DAF30098839C /* Item Notes Screen */,
 				77A27073155B7A2A00C86692 /* Lists Screen */,
+				7749A17715903BC300EFD6FC /* Shopping List Add Screen */,
 				772A6157158427BE0098839C /* Shopping List Details Screen */,
 				77A27078155B7E5D00C86692 /* Shopping List Screen */,
 			);
@@ -698,6 +711,7 @@
 				77061E12158BDBE10099F75F /* BBItem.m in Sources */,
 				77061E15158BDC2F0099F75F /* BBShoppingItem.m in Sources */,
 				77061E18158BDCA70099F75F /* BBShoppingItem+Logic.m in Sources */,
+				7749A17B15903BF000EFD6FC /* BBShoppingListAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

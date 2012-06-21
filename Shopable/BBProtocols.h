@@ -40,3 +40,9 @@
 - (void)itemDidAddPhoto:(UIImage *)photo;
 
 @end
+
+@protocol BBShoppingAddItemDelegate <UIScrollViewDelegate>
+
+- (void)shoppingListWillAddItem;
+
+@end

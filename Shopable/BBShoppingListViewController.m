@@ -11,6 +11,7 @@
 //#import "BBItemCategoryViewController.h"
 #import "BBCategoriesTableViewController.h"
 #import "BBShoppingListDetailsViewController.h"
+#import "BBShoppingListAddViewController.h"
 
 //DB
 #import "BBStorageManager.h"
@@ -27,6 +28,7 @@
 @interface BBShoppingListViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) BBShoppingListAddViewController *addViewController;
 
 @end
 
@@ -34,7 +36,9 @@
 
 @synthesize delegate;
 @synthesize shoppingTableView = _shoppingTableView;
+@synthesize addItemTableHeader;
 @synthesize currentList = _currentList;
+@synthesize addViewController;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -52,7 +56,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+    //shopping list add item child view controller
+    self.addViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
+                                        instantiateViewControllerWithIdentifier:@"BBShoppingListAddViewController"];
+    
+    self.addViewController.delegate = self;
+    
+    CGRect frame = self.addViewController.view.frame;
+    frame.origin.y = -22;
+    self.addViewController.view.frame = frame;
+    
+    [self addChildViewController:self.addViewController];
+    [self.view addSubview:self.addViewController.view];
+    [self didMoveToParentViewController:self.addViewController];
+    
+    [self.view bringSubviewToFront:self.shoppingTableView];
+    
+    self.addViewController.view.hidden = YES;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                              style:UIBarButtonItemStyleBordered 
                                                                             target:nil 
                                                                             action:nil];
@@ -94,6 +116,7 @@
 {
     [self setShoppingTableView:nil];
     
+    [self setAddItemTableHeader:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -352,6 +375,51 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [self.shoppingTableView setEditing:YES animated:YES];
         [self setEditingListsToolbarItemsAnimated:YES];
     }
+}
+
+#pragma mark - UIScrollViewDelegate Methods
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
+    self.addViewController.view.hidden = NO;
+    self.shoppingTableView.backgroundColor = [UIColor clearColor];
+    
+    //[self.addViewController scrollViewWillBeginDragging:scrollView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    [self.addViewController shoppingListScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    [self.addViewController shoppingListScrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    //y = 0;
+
+    //reset scroll view
+    
+    
+//    self.addViewController.view.hidden = YES;
+//    self.shoppingTableView.backgroundColor = [UIColor whiteColor];
+}
+
+#pragma mark - BBShoppingAddItemDelegate
+
+- (void)shoppingListWillAddItem {
+    
+    [UIView animateWithDuration:0.4
+                     animations:^ {
+                     
+                         self.shoppingTableView.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
 }
 
 #pragma Private Methods

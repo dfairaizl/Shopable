@@ -11,11 +11,13 @@
 #import "BBProtocols.h"
 
 @interface BBShoppingListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, 
-                                                                                NSFetchedResultsControllerDelegate>
+                                                            NSFetchedResultsControllerDelegate,
+                                                            BBShoppingAddItemDelegate>
 
 @property (weak, nonatomic) id <BBNavigationDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITableView *shoppingTableView;
+@property (strong, nonatomic) IBOutlet UIView *addItemTableHeader;
 
 @property (strong, nonatomic) BBList *currentList;
 
