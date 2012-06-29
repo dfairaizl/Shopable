@@ -18,7 +18,9 @@
     CGFloat y;
 }
 
+@synthesize addItemPullDownView;
 @synthesize addItemPullDownLabel;
+@synthesize addItemSearchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,54 +88,56 @@
 
 - (void)shoppingListScrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGRect frame = self.view.frame;
-    CGFloat yOffset = scrollView.contentOffset.y;
-    
-    if(yOffset < y) {
-        
-        frame.origin.y = frame.origin.y + fabsf(scrollView.contentOffset.y / CGRectGetHeight(frame)) * 4;
-        self.view.frame = frame;
-    }
-    else {
-        
-        frame.origin.y = frame.origin.y - fabsf(scrollView.contentOffset.y / CGRectGetHeight(frame)) * 4;
-        self.view.frame = frame;
-    }
+    [self.tableView setContentOffset:CGPointMake(0, scrollView.contentOffset.y / 4)];
     
     if(scrollView.contentOffset.y <= -100) {
         
-        if([self.delegate respondsToSelector:@selector(shoppingListWillAddItem)]) {
-            
-            //[self.delegate shoppingListWillAddItem];
-            self.addItemPullDownLabel.text = @"Release To Add Item";
-            
-            currentState = BBShoppingListAddPullDownStateRelease;
-        }
+        self.addItemPullDownLabel.text = @"Release To Add Item";
+        currentState = BBShoppingListAddPullDownStateRelease;
+
     }
-    
-    y = yOffset;
+    else {
+        
+        self.addItemPullDownLabel.text = @"Pull Down To Add Item";
+        currentState = BBShoppingListAddPullDownStateNormal;
+    }
 }
 
 - (void)shoppingListScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
     if(currentState == BBShoppingListAddPullDownStateRelease) {
         
-        [self.delegate shoppingListWillAddItem];
+        if([self.delegate respondsToSelector:@selector(shoppingListWillAddItem)]) {
+            
+            [self.delegate shoppingListWillAddItem];
+        }
+        
+        self.tableView.tableHeaderView = self.addItemSearchBar;
+        
+        [UIView animateWithDuration:0.4
+                         animations:^{
+                             
+                             [self.tableView setContentOffset:CGPointZero animated:YES];
+                         }
+                         completion:^(BOOL finished) {
+            
+                             [self.addItemSearchBar becomeFirstResponder];
+                         }];
     }
     else if(currentState == BBShoppingListAddPullDownStateNormal ||
             currentState == BBShoppingListAddPullDownStateCancel) {
         
         [UIView animateWithDuration:0.4 animations:^ {
             
-            CGRect frame = self.view.frame;
-            frame.origin.y = -22;
-            self.view.frame = frame;
+           [self.tableView setContentOffset:CGPointZero animated:YES];
         }];
     }
 }
 
 - (void)viewDidUnload {
     [self setAddItemPullDownLabel:nil];
+    [self setAddItemPullDownView:nil];
+    [self setAddItemSearchBar:nil];
     [super viewDidUnload];
 }
 @end

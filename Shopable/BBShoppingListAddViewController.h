@@ -20,7 +20,10 @@ typedef enum {
 
 @interface BBShoppingListAddViewController : UITableViewController <UIScrollViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIView *addItemPullDownView;
 @property (strong, nonatomic) IBOutlet UILabel *addItemPullDownLabel;
+@property (strong, nonatomic) IBOutlet UISearchBar *addItemSearchBar;
+
 @property (weak, nonatomic) id <BBShoppingAddItemDelegate> delegate;
 
 - (void)shoppingListScrollViewDidScroll:(UIScrollView *)scrollView;

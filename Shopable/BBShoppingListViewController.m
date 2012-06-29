@@ -63,7 +63,7 @@
     self.addViewController.delegate = self;
     
     CGRect frame = self.addViewController.view.frame;
-    frame.origin.y = -22;
+    frame.origin.y = 0;
     self.addViewController.view.frame = frame;
     
     [self addChildViewController:self.addViewController];
@@ -103,6 +103,11 @@
     }
     
     [self.shoppingTableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
