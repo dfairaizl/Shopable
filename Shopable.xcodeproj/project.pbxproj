@@ -35,6 +35,10 @@
 		7750F60D15620EDA00B54F1F /* BBItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7750F60C15620EDA00B54F1F /* BBItemTableViewCell.m */; };
 		7751FADC15605C62006339A0 /* BBList+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7751FADA15605C62006339A0 /* BBList+Logic.m */; };
 		77677DFD155F6447002BA298 /* BBListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77677DFC155F6447002BA298 /* BBListTableViewCell.m */; };
+		7777307F15A78065002FCCBE /* navbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7777307D15A78065002FCCBE /* navbar-background.png */; };
+		7777308015A78065002FCCBE /* navbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7777307E15A78065002FCCBE /* navbar-background@2x.png */; };
+		7777309215A7D359002FCCBE /* navbar-button-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7777309015A7D359002FCCBE /* navbar-button-up.png */; };
+		7777309515A7D39D002FCCBE /* navbar-button-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7777309415A7D39D002FCCBE /* navbar-button-up@2x.png */; };
 		777D32D51574278200F95F7A /* check_box_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D11574278200F95F7A /* check_box_checked.png */; };
 		777D32D61574278200F95F7A /* check_box_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D21574278200F95F7A /* check_box_checked@2x.png */; };
 		777D32D71574278200F95F7A /* check_box_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 777D32D31574278200F95F7A /* check_box_empty.png */; };
@@ -127,6 +131,10 @@
 		7751FADB15605C62006339A0 /* BBList+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBList+Logic.h"; sourceTree = "<group>"; };
 		77677DFB155F6447002BA298 /* BBListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBListTableViewCell.h; sourceTree = "<group>"; };
 		77677DFC155F6447002BA298 /* BBListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBListTableViewCell.m; sourceTree = "<group>"; };
+		7777307D15A78065002FCCBE /* navbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background.png"; sourceTree = "<group>"; };
+		7777307E15A78065002FCCBE /* navbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background@2x.png"; sourceTree = "<group>"; };
+		7777309015A7D359002FCCBE /* navbar-button-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-up.png"; sourceTree = "<group>"; };
+		7777309415A7D39D002FCCBE /* navbar-button-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-up@2x.png"; sourceTree = "<group>"; };
 		777D32D11574278200F95F7A /* check_box_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box_checked.png; path = Resources/Images/ItemsListScreen/check_box_checked.png; sourceTree = "<group>"; };
 		777D32D21574278200F95F7A /* check_box_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check_box_checked@2x.png"; path = "Resources/Images/ItemsListScreen/check_box_checked@2x.png"; sourceTree = "<group>"; };
 		777D32D31574278200F95F7A /* check_box_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box_empty.png; path = Resources/Images/ItemsListScreen/check_box_empty.png; sourceTree = "<group>"; };
@@ -310,6 +318,10 @@
 		777D32CA157426FF00F95F7A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7777309415A7D39D002FCCBE /* navbar-button-up@2x.png */,
+				7777309015A7D359002FCCBE /* navbar-button-up.png */,
+				7777307D15A78065002FCCBE /* navbar-background.png */,
+				7777307E15A78065002FCCBE /* navbar-background@2x.png */,
 				772A617B1584650A0098839C /* iTunesArtwork */,
 				772A6177158464750098839C /* Icon.png */,
 				772A6178158464760098839C /* Icon@2x.png */,
@@ -645,6 +657,10 @@
 				772A6179158464760098839C /* Icon.png in Resources */,
 				772A617A158464760098839C /* Icon@2x.png in Resources */,
 				772A617C1584650A0098839C /* iTunesArtwork in Resources */,
+				7777307F15A78065002FCCBE /* navbar-background.png in Resources */,
+				7777308015A78065002FCCBE /* navbar-background@2x.png in Resources */,
+				7777309215A7D359002FCCBE /* navbar-button-up.png in Resources */,
+				7777309515A7D39D002FCCBE /* navbar-button-up@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

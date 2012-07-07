@@ -78,10 +78,9 @@
 
 - (void)configureApperance {
     
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:(238/255.0f) 
-                                                               green:(238/255.0f) 
-                                                                blue:(238/255.0f) 
-                                                               alpha:1.0]];
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background"]
+                                                      resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)]
+                                       forBarMetrics:UIBarMetricsDefault];
     
     NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [UIColor colorWithWhite:0.4 alpha:1.0], UITextAttributeTextColor,
@@ -97,18 +96,18 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
     
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(228/255.0f) 
-                                                               green:(228/255.0f) 
-                                                                blue:(228/255.0f) 
-                                                               alpha:1.0]];
+    [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-button-up"]
+                                                      resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]
+                                            forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsDefault];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
     [[UIBarButtonItem appearance] setTitleTextAttributes:highlightedTextAttributes forState:UIControlStateHighlighted];
     
-    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:(238/255.0f) 
-                                                         green:(238/255.0f) 
-                                                          blue:(238/255.0f) 
-                                                         alpha:1.0]];
+    [[UIToolbar appearance] setBackgroundImage:[[UIImage imageNamed:@"navbar-background"]
+                                                resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)]
+                            forToolbarPosition:UIToolbarPositionAny
+                                    barMetrics:UIBarMetricsDefault];
 }
 
 @end
