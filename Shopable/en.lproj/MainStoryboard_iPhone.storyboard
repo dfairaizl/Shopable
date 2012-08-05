@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2809" systemVersion="12A248" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2809" systemVersion="12A256" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1884"/>
     </dependencies>
@@ -32,9 +32,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Add Item" id="m0u-4d-IIe">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="vsL-Rk-BYg" id="Yj5-kx-sq0"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBShoppingListCell" id="9CD-Xo-4Ex" customClass="BBShoppingListCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -87,66 +96,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="itemSearchBar" destination="m0u-4d-IIe" id="9c5-i8-QOm"/>
+                        <outlet property="searchDisplayController" destination="S2y-XK-eQr" id="WCB-vI-D3d"/>
                         <outlet property="shoppingTableView" destination="qXk-1T-xUo" id="F1A-YE-QzX"/>
                         <segue destination="vWV-Fm-E22" kind="push" identifier="shoppingListItemDetailsSegue" id="5rX-GE-Cov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9c8-xu-VUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="S2y-XK-eQr">
+                    <connections>
+                        <outlet property="delegate" destination="vsL-Rk-BYg" id="Qdh-We-HxI"/>
+                        <outlet property="searchBar" destination="m0u-4d-IIe" id="Zdq-pp-fex"/>
+                        <outlet property="searchContentsController" destination="vsL-Rk-BYg" id="U3j-nm-e9i"/>
+                        <outlet property="searchResultsDataSource" destination="vsL-Rk-BYg" id="BTt-ex-tQR"/>
+                        <outlet property="searchResultsDelegate" destination="vsL-Rk-BYg" id="nxR-Pq-qb1"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-2349" y="640"/>
-        </scene>
-        <!--Shopping List Add View Controller-->
-        <scene sceneID="yIg-sM-Uer">
-            <objects>
-                <tableViewController storyboardIdentifier="BBShoppingListAddViewController" id="2L3-D4-LFY" customClass="BBShoppingListAddViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mov-ZX-u6h">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Ges-kw-yd3">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Pull Down To Add Item" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="7Tq-e9-VIK">
-                                    <rect key="frame" x="20" y="7" width="280" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <nil key="highlightedColor"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BBShoppingListAddItemCell" id="dPD-Hp-Knl">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2L3-D4-LFY" id="t4a-ov-4I7"/>
-                            <outlet property="delegate" destination="2L3-D4-LFY" id="TBz-v4-30V"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="addItemPullDownLabel" destination="7Tq-e9-VIK" id="YHV-dt-2fY"/>
-                        <outlet property="addItemPullDownView" destination="Ges-kw-yd3" id="MO6-93-ueM"/>
-                        <outlet property="addItemSearchBar" destination="qkO-sr-XAI" id="0WY-ki-x56"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QbA-QC-wvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" placeholder="Item Name" showsCancelButton="YES" id="qkO-sr-XAI">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                </searchBar>
-            </objects>
-            <point key="canvasLocation" x="-2349" y="1319"/>
         </scene>
         <!--Shopping List Details View Controller-->
         <scene sceneID="DR3-7N-Nbu">
@@ -715,108 +682,6 @@
         <image name="List.png" width="17" height="22"/>
         <image name="check_box_empty.png" width="40" height="40"/>
     </resources>
-    <classes>
-        <class className="BBCategoriesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBCategoriesTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="BBDecoratorLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBDecoratorLabel.h"/>
-        </class>
-        <class className="BBItemDetailsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemDetailsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneButtonPressed:"/>
-                <relationship kind="outlet" name="addPhotoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemNotesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemPhotoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pickerToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="quantityUnitsPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="quantityUnitsTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBItemNotesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemNotesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearButtonPressed:"/>
-                <relationship kind="outlet" name="itemNotesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="BBItemTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemTableViewCell.h"/>
-            <relationships>
-                <relationship kind="action" name="itemDetailsDisclosureButtonPressed:"/>
-                <relationship kind="action" name="quanityStepperValueChanged:" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="checkMarkImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="quantityStepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="unitsButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BBItemsListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBItemsListTableViewController.h"/>
-        </class>
-        <class className="BBListTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="listTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listTitleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BBListsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBListsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewListButtonPressed:"/>
-                <relationship kind="action" name="editButtonPressed:"/>
-                <relationship kind="outlet" name="addNewListButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editListsButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="emailListsButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="BBNavContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBNavContainerViewController.h"/>
-        </class>
-        <class className="BBShoppingItemDetailsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingItemDetailsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNotesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemPhotoImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingListAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListAddViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addItemPullDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="addItemPullDownView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="addItemSearchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="BBDecoratorLabel"/>
-                <relationship kind="outlet" name="itemQuantityUnitsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BBShoppingListDetailsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListDetailsViewController.h"/>
-        </class>
-        <class className="BBShoppingListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBShoppingListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showMenuButtonPressed:"/>
-                <relationship kind="outlet" name="addItemTableHeader" candidateClass="UIView"/>
-                <relationship kind="outlet" name="shoppingTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -11,7 +11,6 @@
 //#import "BBItemCategoryViewController.h"
 #import "BBCategoriesTableViewController.h"
 #import "BBShoppingListDetailsViewController.h"
-#import "BBShoppingListAddViewController.h"
 
 //DB
 #import "BBStorageManager.h"
@@ -28,7 +27,7 @@
 @interface BBShoppingListViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) BBShoppingListAddViewController *addViewController;
+@property (strong, nonatomic) NSFetchedResultsController *searchFetchedResultsController;
 
 @end
 
@@ -36,11 +35,11 @@
 
 @synthesize delegate;
 @synthesize shoppingTableView = _shoppingTableView;
-@synthesize addItemTableHeader;
+@synthesize itemSearchBar = _itemSearchBar;
 @synthesize currentList = _currentList;
-@synthesize addViewController;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize searchFetchedResultsController = _searchFetchedResultsController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,24 +54,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    //shopping list add item child view controller
-    self.addViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                        instantiateViewControllerWithIdentifier:@"BBShoppingListAddViewController"];
-    
-    self.addViewController.delegate = self;
-    
-    CGRect frame = self.addViewController.view.frame;
-    frame.origin.y = 0;
-    self.addViewController.view.frame = frame;
-    
-    [self addChildViewController:self.addViewController];
-    [self.view addSubview:self.addViewController.view];
-    [self didMoveToParentViewController:self.addViewController];
-    
-    [self.view bringSubviewToFront:self.shoppingTableView];
-    
-    self.addViewController.view.hidden = YES;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                              style:UIBarButtonItemStyleBordered 
@@ -103,6 +84,8 @@
     }
     
     [self.shoppingTableView reloadData];
+    
+    self.shoppingTableView.contentOffset = CGPointMake(0, 44);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -121,7 +104,7 @@
 {
     [self setShoppingTableView:nil];
     
-    [self setAddItemTableHeader:nil];
+    [self setItemSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -191,6 +174,39 @@
     return _fetchedResultsController;
 }
 
+- (NSFetchedResultsController *)searchFetchedResultsController {
+    
+    if(_searchFetchedResultsController == nil) {
+        
+        NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
+        
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:BB_ENTITY_ITEM
+                                                             inManagedObjectContext:moc];
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[c] %@",
+                                                                    self.searchDisplayController.searchBar.text];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:
+                                    [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
+                                    nil];
+        
+        [fetchRequest setEntity:entityDescription];
+        [fetchRequest setPredicate:predicate];
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        _searchFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:moc
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+        
+        [_searchFetchedResultsController performFetch:nil];
+    }
+    
+    return _searchFetchedResultsController;
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate Methods
 
 /*
@@ -255,21 +271,49 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
+    
+    NSInteger sections = 0;
+    
+    if(tableView == self.shoppingTableView) {
+        sections =  [[self.fetchedResultsController sections] count];
+    }
+    else {
+        
+        sections = [[self.searchFetchedResultsController sections] count];;
+    }
+    
+    return sections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = nil;
+    
+    if(tableView == self.shoppingTableView) {
+        
+        sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    }
+    else {
+
+        sectionInfo = [[self.searchFetchedResultsController sections] objectAtIndex:section];
+    }
+    
     return [[sectionInfo objects] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
     
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
+    NSString *sectionTitle = nil;
+    
+    if(tableView == self.shoppingTableView) {
+        
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        sectionTitle = [sectionInfo name];
+    }
+
+    return sectionTitle;
 }
 
 // Override to support conditional editing of the table view.
@@ -298,10 +342,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BBShoppingListCell";
+    static NSString *SearchCellIdentifier = @"BBSearchCellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = nil;
     
-    [self configureCell:cell atIndexPath:indexPath];
+    if(tableView == self.shoppingTableView) {
+
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        [self configureCell:cell atIndexPath:indexPath];
+    }
+    else {
+        
+        BBItem *item = [self.searchFetchedResultsController objectAtIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:SearchCellIdentifier];
+        
+        if(cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:SearchCellIdentifier];
+        }
+        
+        cell.textLabel.text = item.name;
+    }
     
     return cell;
 }
@@ -310,12 +373,30 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BBShoppingListCell *cell = (BBShoppingListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if(tableView == self.shoppingTableView) {
     
-    if(cell.selectionStyle == UITableViewCellSelectionStyleGray) {
-     
-        BBShoppingItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self performSegueWithIdentifier:@"shoppingListItemDetailsSegue" sender:item];
+        BBShoppingListCell *cell = (BBShoppingListCell *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        if(cell.selectionStyle == UITableViewCellSelectionStyleGray) {
+         
+            BBShoppingItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [self performSegueWithIdentifier:@"shoppingListItemDetailsSegue" sender:item];
+        }
+    }
+    else {
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if(cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+            
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        else {
+            
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
@@ -382,49 +463,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
-#pragma mark - UIScrollViewDelegate Methods
+#pragma mark - UISearchDisplayDelegate Methods
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     
-    self.addViewController.view.hidden = NO;
-    self.shoppingTableView.backgroundColor = [UIColor clearColor];
+    self.fetchedResultsController.delegate = nil;
     
-    //[self.addViewController scrollViewWillBeginDragging:scrollView];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
     
-    [self.addViewController shoppingListScrollViewDidScroll:scrollView];
+    self.fetchedResultsController.delegate = self;
+    
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
+                                    shouldReloadTableForSearchString:(NSString *)searchString
+{
+    self.searchFetchedResultsController = nil;
     
-    [self.addViewController shoppingListScrollViewDidEndDragging:scrollView willDecelerate:decelerate];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
-    //y = 0;
-
-    //reset scroll view
-    
-    
-//    self.addViewController.view.hidden = YES;
-//    self.shoppingTableView.backgroundColor = [UIColor whiteColor];
-}
-
-#pragma mark - BBShoppingAddItemDelegate
-
-- (void)shoppingListWillAddItem {
-    
-    [UIView animateWithDuration:0.4
-                     animations:^ {
-                     
-                         self.shoppingTableView.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }];
+    return YES;
 }
 
 #pragma Private Methods

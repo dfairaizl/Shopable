@@ -12,12 +12,13 @@
 
 @interface BBShoppingListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, 
                                                             NSFetchedResultsControllerDelegate,
-                                                            BBShoppingAddItemDelegate>
+                                                            UISearchDisplayDelegate,
+                                                            UISearchBarDelegate>
 
 @property (weak, nonatomic) id <BBNavigationDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITableView *shoppingTableView;
-@property (strong, nonatomic) IBOutlet UIView *addItemTableHeader;
+@property (strong, nonatomic) IBOutlet UISearchBar *itemSearchBar;
 
 @property (strong, nonatomic) BBList *currentList;
 
