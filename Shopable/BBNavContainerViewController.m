@@ -63,25 +63,81 @@
 
 - (void)showNavigationMenu {
     
+    [UIView animateWithDuration:0.25
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^ {
+                         
+                         //animate the frame
+                         CGRect frame = self.shoppingNavController.view.frame;
+                         frame.origin.y = CGRectGetHeight(frame);
+                         self.shoppingNavController.view.frame = frame;
+                     }
+                     completion:^(BOOL complete) {
+                         
+                         [self.shoppingNavController.view removeFromSuperview];
+                         
+                         [self.shoppingNavController removeFromParentViewController];
+                         
+                         [UIView animateWithDuration:0.25
+                                               delay:0.0
+                                             options:UIViewAnimationOptionCurveEaseOut
+                                          animations:^ {
+                                              
+                                              self.listsNavController.view.layer.transform = CATransform3DIdentity;
+                                          }
+                                          completion:^(BOOL complete) {
+                                              
+                                          }];
+                     }];
     
 }
 
 - (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore {
     
-    UINavigationController *pageNav = [self shoppingListViewController];
+    UINavigationController *navController = self.shoppingNavController;
     
-    BBShoppingListViewController *controller = (BBShoppingListViewController *)pageNav.topViewController;
-    
+    BBShoppingListViewController *controller = (BBShoppingListViewController *)navController.topViewController;
+
     controller.currentList = selectedStore;
     
-//    NSArray *pages = @[pageNav];
-//    
-//    [self.pageController setViewControllers:pages 
-//                                  direction:UIPageViewControllerNavigationDirectionForward 
-//                                   animated:YES 
-//                                 completion:^(BOOL finished) {
-//                                     
-//                                 }]; 
+    //set its frame off screen for animation
+    CGRect frame = self.shoppingNavController.view.frame;
+    frame.origin.y = CGRectGetHeight(controller.view.frame);
+    self.shoppingNavController.view.frame = frame;
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^ {
+                         
+                         CATransform3D transform = CATransform3DMakeScale(0.8f, 0.8f, 0.8f);
+                         transform = CATransform3DTranslate(transform, 0.f, -30.f, 0.f);
+                         
+                         self.listsNavController.view.layer.transform = transform;
+                     }
+                     completion:^(BOOL complete) {
+                         
+                         [UIView animateWithDuration:0.4
+                                               delay:0.0
+                                             options:UIViewAnimationOptionCurveEaseOut
+                                          animations:^ {
+                                              
+                                              //add the shopping list view to the container
+                                              [self addChildViewController:self.shoppingNavController];
+                                              
+                                              //add the shopping list view to the containers view
+                                              [self.view addSubview:self.shoppingNavController.view];
+                                              
+                                              //animate the frame
+                                              CGRect frame = self.shoppingNavController.view.frame;
+                                              frame.origin.y = 0;
+                                              self.shoppingNavController.view.frame = frame;
+                                          }
+                                          completion:^(BOOL complete) {
+                                              
+                                          }];
+                     }];
 }
 
 #pragma mark - Private Controller Methods
@@ -101,16 +157,21 @@
     return _listsNavController;
 }
 
-- (UINavigationController *)shoppingListViewController {
+- (UINavigationController *)shoppingNavController {
 
-    UINavigationController *pageNav = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                       instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];
+    if(_shoppingNavController == nil) {
+     
+        UINavigationController *navController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
+                                           instantiateViewControllerWithIdentifier:@"BBShoppingListViewController"];
+
+        _shoppingNavController = navController;
+        
+        BBShoppingListViewController *controller = (BBShoppingListViewController *)navController.topViewController;
+        
+        controller.delegate = self;
+    }
     
-    BBShoppingListViewController *controller = (BBShoppingListViewController *)pageNav.topViewController;
-    
-    controller.delegate = self;
-    
-    return pageNav;
+    return _shoppingNavController;
 }
 
 @end

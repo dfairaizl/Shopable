@@ -271,6 +271,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     BBList *selectedList = (BBList *)[self.fetchedResultsController objectAtIndexPath:indexPath];
 
     [self.delegate didSelectNavigationOptionWithObject:selectedList];

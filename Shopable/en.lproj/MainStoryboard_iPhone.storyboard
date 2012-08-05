@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1NP-8Y-r9r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="rYh-TN-C7D">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -12,7 +12,7 @@
                     <view key="view" contentMode="scaleToFill" id="ol4-1h-7Ss">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GVH-nj-sWj"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -198,29 +198,6 @@
             </objects>
             <point key="canvasLocation" x="-2869" y="640"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="p0A-ee-Hmh">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="1NP-8Y-r9r" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="YTd-HK-IJs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wtd-E8-CrV">
-                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="rYh-TN-C7D" kind="relationship" relationship="rootViewController" id="Id9-Mb-1Sc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QLM-Ds-9HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3923" y="640"/>
-        </scene>
         <!--Lists View Controller - Stores-->
         <scene sceneID="joC-gt-EnC">
             <objects>
@@ -290,7 +267,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Stores" id="L0z-uP-oh8"/>
+                    <navigationItem key="navigationItem" title="Stores" id="L0z-uP-oh8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7g6-Ac-Ldz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addNewListButton" destination="3lz-tr-2et" id="eht-6O-Iju"/>
                         <outlet property="tableView" destination="wLd-St-nnS" id="AhL-fT-Fxi"/>
@@ -657,7 +636,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wOr-xp-IYN">
             <objects>
-                <navigationController storyboardIdentifier="BBListsViewController" wantsFullScreenLayout="YES" toolbarHidden="NO" id="nRH-rZ-1hL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BBListsViewController" toolbarHidden="NO" id="nRH-rZ-1hL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ByS-r2-vva">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
