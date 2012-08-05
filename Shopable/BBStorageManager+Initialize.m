@@ -22,7 +22,7 @@
     //Create default Grocery Store
     BBList *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_LIST inManagedObjectContext:self.managedObjectContext];
     
-    groceryStore.name = [NSString stringWithString:@"Grocery Store"];
+    groceryStore.name = @"Grocery Store";
     groceryStore.order = @0;
     
     [self createDefaultCategories];
