@@ -92,8 +92,7 @@
         NSManagedObjectContext *moc = [[BBStorageManager sharedManager] managedObjectContext];
         
         NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM_CATEGORY];
-        [fr setSortDescriptors:[NSArray arrayWithObject:
-                                [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        [fr setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         
         [_itemCategories addObjectsFromArray:[moc executeFetchRequest:fr error:nil]];
     }

@@ -23,7 +23,7 @@
     BBList *groceryStore = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_LIST inManagedObjectContext:self.managedObjectContext];
     
     groceryStore.name = [NSString stringWithString:@"Grocery Store"];
-    groceryStore.order = [NSNumber numberWithInt:0];
+    groceryStore.order = @0;
     
     [self createDefaultCategories];
     
@@ -40,7 +40,7 @@
         
         BBItemCategory *itemCategory = [NSEntityDescription insertNewObjectForEntityForName:BB_ENTITY_ITEM_CATEGORY inManagedObjectContext:self.managedObjectContext];
         
-        itemCategory.type = [NSNumber numberWithInt:bbStoreTypeGrocery];
+        itemCategory.type = @(bbStoreTypeGrocery);
         itemCategory.name = category;
         
         [self createDefaultItemsForCategory:itemCategory fromDictionary:[itemCategories objectForKey:@"Items"]];

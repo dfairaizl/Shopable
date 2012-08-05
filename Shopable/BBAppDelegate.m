@@ -82,17 +82,13 @@
                                                       resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)]
                                        forBarMetrics:UIBarMetricsDefault];
     
-    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                    [UIColor colorWithWhite:0.4 alpha:1.0], UITextAttributeTextColor,
-                                                    [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                                    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                                    nil];
+    NSDictionary *textAttributes = @{UITextAttributeTextColor: [UIColor colorWithWhite:0.4 alpha:1.0],
+                                                    UITextAttributeTextShadowColor: [UIColor whiteColor],
+                                                    UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]};
     
-    NSDictionary *highlightedTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [UIColor colorWithWhite:0.4 alpha:1.0], UITextAttributeTextColor,
-                                    [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                    nil];
+    NSDictionary *highlightedTextAttributes = @{UITextAttributeTextColor: [UIColor colorWithWhite:0.4 alpha:1.0],
+                                    UITextAttributeTextShadowColor: [UIColor whiteColor],
+                                    UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]};
     
     [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
     

@@ -78,8 +78,7 @@
         
         NSFetchRequest *categoriesFR = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_ITEM_CATEGORY];
         
-        [categoriesFR setSortDescriptors:[NSArray arrayWithObject:
-                                          [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        [categoriesFR setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:categoriesFR 
                                                                         managedObjectContext:moc 

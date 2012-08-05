@@ -117,7 +117,7 @@
         
         NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:BB_ENTITY_LIST];
         
-        NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor 
+        NSArray *sortDescriptors = @[[NSSortDescriptor 
                                                              sortDescriptorWithKey:@"order" ascending:YES]];
         
         [fr setSortDescriptors:sortDescriptors];
@@ -176,7 +176,7 @@
     switch(type) {
             
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             
             self.insertIndexPath = newIndexPath;
@@ -184,7 +184,7 @@
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
@@ -194,9 +194,9 @@
             break;
             
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
@@ -352,7 +352,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
     
-    NSArray *items = [NSArray arrayWithObjects:editButton, nil];
+    NSArray *items = @[editButton];
 
     //reset to defaults
     [self.tableView.tableFooterView setHidden:NO];
@@ -367,7 +367,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
     
-    NSArray *items = [NSArray arrayWithObject:doneButton];
+    NSArray *items = @[doneButton];
     
     [self setToolbarItems:items animated:animated];
 }

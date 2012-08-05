@@ -156,10 +156,8 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentShoppingCart == %@", 
                                                                             [self.currentList currentShoppingCart]];
         
-        NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"item.parentItemCategory.name" ascending:YES],
-                                    [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES],
-                                    nil];
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"item.parentItemCategory.name" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"item.name" ascending:YES]];
         
         [fetchRequest setEntity:entityDescription];
         [fetchRequest setPredicate:predicate];
@@ -188,9 +186,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[c] %@",
                                                                     self.searchDisplayController.searchBar.text];
         
-        NSArray *sortDescriptors = [NSArray arrayWithObjects:
-                                    [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
-                                    nil];
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
         
         [fetchRequest setEntity:entityDescription];
         [fetchRequest setPredicate:predicate];
@@ -246,7 +242,7 @@
     switch(type) {
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
@@ -256,9 +252,9 @@
             break;
             
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
@@ -504,11 +500,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     if([swippedItem.checkedOff boolValue] == YES) {
         
-        swippedItem.checkedOff = [NSNumber numberWithBool:NO];
+        swippedItem.checkedOff = @(NO);
     }
     else {
         
-        swippedItem.checkedOff = [NSNumber numberWithBool:YES];
+        swippedItem.checkedOff = @(YES);
     }
     
     [cell itemCheckedOff:[swippedItem.checkedOff boolValue]];
@@ -521,7 +517,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
     
-    NSArray *items = [NSArray arrayWithObjects:editButton, nil];
+    NSArray *items = @[editButton];
     
     [self setToolbarItems:items animated:animated];
 }
@@ -533,7 +529,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                                   target:self 
                                                                   action:@selector(editButtonPressed:)];
     
-    NSArray *items = [NSArray arrayWithObject:doneButton];
+    NSArray *items = @[doneButton];
     
     [self setToolbarItems:items animated:animated];
 }
