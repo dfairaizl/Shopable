@@ -10,10 +10,7 @@
 
 #import "BBProtocols.h"
 
-@interface BBNavContainerViewController : UIViewController <BBNavigationDelegate,
-                                                            UIPageViewControllerDelegate, 
-                                                            UIPageViewControllerDataSource,
-                                                            UIGestureRecognizerDelegate>
+@interface BBNavContainerViewController : UIViewController <BBNavigationDelegate>
 
 
 @end

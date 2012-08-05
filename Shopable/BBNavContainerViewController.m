@@ -14,17 +14,8 @@
 
 @interface BBNavContainerViewController ()
 
-@property (strong, nonatomic) UIPageViewController *pageController;
-
-@property (strong, nonatomic) UINavigationController *listsTableViewController;
-@property (strong, nonatomic) UINavigationController *shoppingListViewController;
-
-@end
-
-@interface BBNavContainerViewController (Controllers)
-
-- (UINavigationController *)listsViewController;
-- (UINavigationController *)shoppingListViewController;
+@property (strong, nonatomic) UINavigationController *listsNavController;
+@property (strong, nonatomic) UINavigationController *shoppingNavController;
 
 @end
 
@@ -33,10 +24,8 @@
     BOOL showingNavigationMenu;
 }
 
-@synthesize pageController = _pageController;
-
-@synthesize listsTableViewController = _listsTableViewController;
-@synthesize shoppingListViewController = _shoppingListViewController;
+@synthesize listsNavController = _listsNavController;
+@synthesize shoppingNavController = _shoppingNavController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,34 +41,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //First page is the lists menu
+    [self addChildViewController:self.listsNavController];
     
-    UIViewController *listsController = [self listsViewController];
+    [self.view addSubview:self.listsNavController.view];
     
-    NSArray *pages = @[listsController];
-    
-    [self.pageController setViewControllers:pages 
-                                  direction:UIPageViewControllerNavigationDirectionForward 
-                                   animated:YES 
-                                 completion:^(BOOL finished) {
-        
-                                 }];
-    
-    [self.pageController.gestureRecognizers enumerateObjectsUsingBlock:^(UIGestureRecognizer *gr, NSUInteger index, BOOL *stop) {
-       
-        if([gr isMemberOfClass:[UITapGestureRecognizer class]]) {
-         
-            gr.delegate = self;
-        }
-    }];
-    
-    [self addChildViewController:self.pageController];
-    
-    [self.view addSubview:self.pageController.view];
-    
-    //[self didMoveToParentViewController:self.pageController];
-    
-    //self.view.gestureRecognizers = self.pageController.gestureRecognizers;
+    [self didMoveToParentViewController:self.listsNavController];
 }
 
 - (void)viewDidUnload
@@ -93,75 +59,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Overrides
-
-- (UIPageViewController *)pageController {
-    
-    if(_pageController == nil) {
-        
-        NSDictionary *options = @{UIPageViewControllerOptionSpineLocationKey: @(UIPageViewControllerSpineLocationMin)};
-        
-        _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl 
-                                                          navigationOrientation:UIPageViewControllerNavigationOrientationVertical 
-                                                                        options:options];
-        
-        _pageController.dataSource = self;
-        _pageController.delegate = self;
-    }
-    
-    return _pageController;
-}
-
-#pragma mark - UIPageViewControllerDatasource Methods
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController 
-       viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    UIViewController *viewControllerAfter = nil;
-    
-    if([viewController isMemberOfClass:[BBListsViewController class]]) {
-        
-        viewControllerAfter = [self shoppingListViewController];
-    }
-    else if([viewController isMemberOfClass:[BBShoppingListViewController class]]) {
-        
-        viewControllerAfter = [self listsViewController];
-    }
-    
-    return viewControllerAfter;
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController 
-      viewControllerBeforeViewController:(UIViewController *)viewController {
-    
-    UIViewController *viewControllerBefore = nil;
-    
-    if([viewController isMemberOfClass:[BBListsViewController class]]) {
-        
-        viewControllerBefore = [self shoppingListViewController];
-    }
-    else if([viewController isMemberOfClass:[BBShoppingListViewController class]]) {
-        
-        viewControllerBefore = [self listsViewController];
-    }
-    
-    return viewControllerBefore;
-}
-
 #pragma mark - BBNavigationDelegate Methods
 
 - (void)showNavigationMenu {
     
-    UIViewController *listsController = [self listsViewController];
     
-    NSArray *pages = @[listsController];
-    
-    [self.pageController setViewControllers:pages 
-                                  direction:UIPageViewControllerNavigationDirectionReverse 
-                                   animated:YES 
-                                 completion:^(BOOL finished) {
-                                     
-                                 }];
 }
 
 - (void)didSelectNavigationOptionWithObject:(BBList *)selectedStore {
@@ -172,49 +74,31 @@
     
     controller.currentList = selectedStore;
     
-    NSArray *pages = @[pageNav];
-    
-    [self.pageController setViewControllers:pages 
-                                  direction:UIPageViewControllerNavigationDirectionForward 
-                                   animated:YES 
-                                 completion:^(BOOL finished) {
-                                     
-                                 }]; 
-}
-
-#pragma mark - UIGestureRecognizerDelegate Methods
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
-    BOOL continueTouch = YES;
-    
-    if([gestureRecognizer isMemberOfClass:[UITapGestureRecognizer class]]) {
-    
-        if([touch.view isKindOfClass:[UITableViewCell class]] == NO) {
-            
-            continueTouch = NO;
-        }
-        else if([touch.view isKindOfClass:[UIControl class]] == NO) {
-            
-            continueTouch = NO;
-        }
-    }
-    
-    return continueTouch;
+//    NSArray *pages = @[pageNav];
+//    
+//    [self.pageController setViewControllers:pages 
+//                                  direction:UIPageViewControllerNavigationDirectionForward 
+//                                   animated:YES 
+//                                 completion:^(BOOL finished) {
+//                                     
+//                                 }]; 
 }
 
 #pragma mark - Private Controller Methods
 
-- (UINavigationController *)listsViewController {
+- (UINavigationController *)listsNavController {
     
-    UINavigationController *listsNavController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
-                                              instantiateViewControllerWithIdentifier:@"BBListsViewController"];
+    if(_listsNavController == nil) {
+        
+        _listsNavController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]
+                                                  instantiateViewControllerWithIdentifier:@"BBListsViewController"];
+        
+        BBListsViewController *listsViewController = (BBListsViewController *)[_listsNavController topViewController];
+        
+        listsViewController.delegate = self;
+    }
     
-    BBListsViewController *listsViewController = (BBListsViewController *)[listsNavController topViewController];
-    
-    listsViewController.delegate = self;
-    
-    return listsNavController;
+    return _listsNavController;
 }
 
 - (UINavigationController *)shoppingListViewController {
